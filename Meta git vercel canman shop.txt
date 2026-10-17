@@ -13,4 +13,10 @@ bat
 2. python scripts/convert-to-webp.py    <- teeb webp ja incoming jääb TÜHJAKS
 3. Pane ODS-i: ID=i , SKU=340010 , Images=Lenovo-x250.webp
 4. python scripts/import-ods.py          <- kopeerib public/images/ ja output jääb TÜHJAKS
-
+<<<<<<<<<<<
+Kui paned uued ODS faili, lase code aknas käima
+node scripts/fix-ods.js
+git add -A
+git commit -m "update ods"
+git push
+<<<<<<<<<<<<<<

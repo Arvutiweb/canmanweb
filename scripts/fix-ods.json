@@ -1,0 +1,62 @@
+// npm i xlsx
+const fs = require('fs');
+const path = require('path');
+const XLSX = require('xlsx');
+
+const ODS_DIR = path.join(__dirname, '..'); // kus sul WPI_*.ods asuvad, muuda kui vaja
+const OUT_DIR = path.join(__dirname, '../src/data/products');
+
+const FILES = [
+  'WPI_Arvutiosad.ods',
+  'WPI_Notebooks.ods',
+  'WPI_Monitorid.ods',
+  'WPI_Printerid.ods'
+  // lisa oma ODS nimed
+];
+
+function cleanValue(v) {
+  if (typeof v !== 'string') return v;
+  return v
+    .replace(/â‚¬/g, '€')
+    .replace(/â€¢/g, '•')
+    .replace(/â€"/g, '–')
+    .replace(/Ãµ/g, 'õ').replace(/Ã¤/g, 'ä').replace(/Ã¶/g, 'ö').replace(/Ã¼/g, 'ü')
+    .replace(/Ã•/g, 'Õ').replace(/Ã„/g, 'Ä').replace(/Ã–/g, 'Ö').replace(/Ãœ/g, 'Ü')
+    .replace(/Â/g, '')
+    .trim();
+}
+
+for (const fileName of FILES) {
+  const fullPath = path.join(ODS_DIR, fileName);
+  if (!fs.existsSync(fullPath)) continue;
+
+  console.log(`Loen: ${fileName}`);
+
+  // ÕIGE viis ODS lugemiseks - UTF8 + codepage 65001
+  const wb = XLSX.readFile(fullPath, { 
+    codepage: 65001,
+    type: 'buffer',
+    raw: false,
+    cellDates: true,
+    cellNF: false
+  });
+
+  for (const sheetName of wb.SheetNames) {
+    const sheet = wb.Sheets[sheetName];
+    const rows = XLSX.utils.sheet_to_json(sheet, { defval: '', raw: false });
+
+    const cleaned = rows.map(r => {
+      const o = {};
+      for (const k in r) o[cleanValue(k)] = cleanValue(r[k]);
+      return o;
+    });
+
+    const outName = `${path.parse(fileName).name}-${sheetName}.json`.toLowerCase().replace(/\s+/g,'-');
+    const outPath = path.join(OUT_DIR, outName);
+    
+    // Kirjutamine KINDLALT utf8
+    fs.writeFileSync(outPath, JSON.stringify(cleaned, null, 2), { encoding: 'utf8' });
+    console.log(` -> ${outPath} (${cleaned.length} rida) OK`);
+  }
+}
+console.log('Valmis - kõik € õäöü on nüüd puhtad');

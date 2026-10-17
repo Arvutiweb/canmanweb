@@ -63,7 +63,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
                     {product.oldPrice.toFixed(2)} €
                   </span>
                 )}
-                <span className="text-xs text-slate-500">sis. 22% KM</span>
+                {/* <p className="text- text-slate-500">sis. 22% KM</p> */}
               </div>
 
               <p className="text- text-slate-700 leading-relaxed mb-4 whitespace-pre-line">

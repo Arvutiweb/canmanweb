@@ -14,7 +14,7 @@ export function ProductCard({ product, onSelectProduct }: any) {
       <h3 className="mt-2 font-medium text- line-clamp-2 leading-tight min-h-">{title}</h3>
       <div className="mt-auto pt-2">
         <p className="font-bold text-">{priceNum ? `${priceNum} €` : ''}</p>
-        <p className="text- text-slate-500">sis. 22% KM</p>
+       {/* <p className="text- text-slate-500">sis. 24% KM</p> */}
       </div>
     </div>
   )

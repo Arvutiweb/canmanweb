@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useMemo } from 'react';
-import FiltersBar from '@/components/FiltersBar';
+import { FiltersBar } from '@/components/FiltersBar';
 import ProductGrid from '@/components/ProductGrid';
 import productCatalog from '@/data/products/laptops-used/laptop-14-used.json';
 

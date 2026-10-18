@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "import:xls": "node scripts/import-xls-AUTO.mjs",
+    "import:xls": "node scripts/import-xls.mjs",
     "convert:webp": "node scripts/convert-to-webp.mjs"
   },
   "dependencies": {

@@ -1,31 +1,39 @@
 'use client';
-import React from 'react';
 
-export default function ProductCard({ product, onSelect }: any) {
-  const imgSrc = product?.image || product?.img || '/images/placeholder.png';
+export function ProductCard({ product, onSelectProduct }: any) {
+  // võta pilt - toetab kõiki variante
+  let imgSrc = product.image || product.Images || product.Image || null;
+  
+  // kui on array või koma-ga string
+  if (Array.isArray(imgSrc)) imgSrc = imgSrc[0];
+  if (typeof imgSrc === 'string' && imgSrc.includes(',')) imgSrc = imgSrc.split(',')[0].trim();
+  if (Array.isArray(product.images)) imgSrc = product.images[0] || imgSrc;
+  if (Array.isArray(product.Images)) imgSrc = product.Images[0] || imgSrc;
+
+  const fullSrc = imgSrc 
+    ? (imgSrc.startsWith('/') || imgSrc.startsWith('http') ? imgSrc : `/images/${imgSrc.trim()}`) 
+    : '/images/placeholder.webp';
+
+  const cleanPrice = String(product.price || '').replace(/[^0-9.,]/g, '').replace(',', '.');
+  const priceNum = parseFloat(cleanPrice) || 0;
+  const title = product.title || product.name || product.sku || '';
 
   return (
-    <div 
-      onClick={() => onSelect(product)}
-      className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full group"
-    >
-      <div className="h- w-full bg-white flex items-center justify-center p-3 overflow-hidden">
+    <div onClick={() => onSelectProduct?.(product)} className="border border-slate-200 rounded-xl p-3 hover:shadow-lg transition bg-white cursor-pointer group flex flex-col h-full">
+      <div className="aspect-[4/3] bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
         <img 
-          src={imgSrc}
-          alt={product?.title || product?.name || ''}
-          loading="lazy"
-          decoding="async"
-          className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+          src={fullSrc} 
+          alt={title} 
+          className="w-full h-full object-contain group-hover:scale-105 transition duration-300" 
+          loading="lazy" 
+          onError={(e) => { (e.target as HTMLImageElement).src = '/images/placeholder.webp' }} 
         />
       </div>
-      <div className="p-3 flex flex-col flex-1 border-t border-slate-100">
-        <div className="text- text-slate-400 uppercase truncate">{product?.brand || ''}</div>
-        <h3 className="text- font-semibold text-slate-800 line-clamp-2 leading-tight min-h-">{product?.title || product?.name}</h3>
-        <div className="mt-auto pt-2 flex items-center justify-between">
-          <span className="text- font-bold text-[#0e4da4]">{product?.price} €</span>
-          <span className="text- bg-slate-900 text-white px-3 py-1 rounded-full">Vaata</span>
-        </div>
+      <h3 className="mt-2 font-medium text-sm line-clamp-2 leading-tight min-h-">{title}</h3>
+      <div className="mt-auto pt-2">
+        <p className="font-bold text-base">{priceNum ? `${priceNum} €` : ''}</p>
       </div>
     </div>
-  );
+  )
 }
+export default ProductCard

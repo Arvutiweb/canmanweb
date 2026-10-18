@@ -1,22 +1,33 @@
 'use client';
+import React from 'react';
 
-export function ProductCard({ product, onSelectProduct }: any) {
-  const imgSrc = product.image || product.images?.[0] || product.Images?.[0] || null
-  const fullSrc = imgSrc ? (imgSrc.startsWith('/') ? imgSrc : `/images/${imgSrc}`) : '/images/placeholder.webp'
-  const cleanPrice = String(product.price || '').replace(/[^0-9.,]/g, '').replace(',', '.')
-  const priceNum = parseFloat(cleanPrice) || 0
-  const title = product.title || product.name || product.sku || ''
+export default function ProductCard({ product, onSelect }: any) {
+  const imgSrc = product?.image || '/images/placeholder.png';
+  
   return (
-    <div onClick={() => onSelectProduct?.(product)} className="border border-slate-200 rounded-xl p-3 hover:shadow-lg transition bg-white cursor-pointer group flex flex-col">
-      <div className="aspect-[4/3] bg-gray-50 rounded-lg overflow-hidden">
-        <img src={fullSrc} alt={title} className="w-full h-full object-contain group-hover:scale-105 transition" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = '/images/placeholder.webp' }} />
+    <div 
+      onClick={onSelect}
+      className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer group flex flex-col h-full"
+    >
+      <div className="aspect-[4/3] bg-white flex items-center justify-center p-3 overflow-hidden">
+        <img 
+          src={imgSrc}
+          alt={product?.title || ''}
+          width={400}
+          height={300}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+        />
       </div>
-      <h3 className="mt-2 font-medium text- line-clamp-2 leading-tight min-h-">{title}</h3>
-      <div className="mt-auto pt-2">
-        <p className="font-bold text-">{priceNum ? `${priceNum} €` : ''}</p>
-       {/* <p className="text- text-slate-500">sis. 24% KM</p> */}
+      <div className="p-3 flex flex-col flex-1 border-t border-slate-100">
+        <div className="text- text-slate-400 uppercase truncate">{product?.brand || ''}</div>
+        <h3 className="text- font-semibold text-slate-800 line-clamp-2 leading-tight flex-1 mt-0.5">{product?.title}</h3>
+        <div className="mt-3 flex items-center justify-between">
+          <span className="text- font-bold text-[#0e4da4]">{product?.price} €</span>
+          <span className="text- bg-slate-900 text-white px-3 py-1 rounded-full">Vaata</span>
+        </div>
       </div>
     </div>
-  )
+  );
 }
-export default ProductCard

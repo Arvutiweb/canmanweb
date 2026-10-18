@@ -17,7 +17,7 @@
     "subCategory": "Laptop 14 used",
     "image": "/images/DELL-E6420.jpg",
     "images": [
-      "/images/DELL-E6420.jpg"
+      "/images/DELL-E6420.webp"
     ],
     "stock": 1,
     "condition": "used"
@@ -40,8 +40,8 @@
     "subCategory": "Laptop 14 used",
     "image": "/images/DELL-E5470.jpg",
     "images": [
-      "/images/DELL-E5470.jpg",
-      "/images/DELL-E5470_at.jpg"
+      "/images/DELL-E5470.webp",
+      "/images/DELL-E5470_at.webp"
     ],
     "stock": 1,
     "condition": "used"

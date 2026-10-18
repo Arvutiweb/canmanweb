@@ -1,34 +1,31 @@
-'use client';
+﻿'use client';
+import React from 'react';
+import ProductCard from './ProductCard';
 
-export function ProductCard({ product, onSelectProduct }: any) {
-  const imgSrc = product.image || product.images?.[0] || product.Images?.[0] || null
-  const fullSrc = imgSrc ? (imgSrc.startsWith('/') ? imgSrc : `/images/${imgSrc}`) : '/images/placeholder.webp'
+export default function ProductGrid({ products, onSelectProduct, onResetFilters }: any) {
+  const safeProducts = (products || []).filter((p: any) => p && typeof p === 'object');
 
-  const cleanPrice = String(product.price || '').replace(/[^0-9.,]/g, '').replace(',', '.')
-  const priceNum = parseFloat(cleanPrice) || 0
-  const title = product.title || product.name || product.sku || ''
+  if (!safeProducts.length) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-slate-500">Tooteid ei leitud</p>
+        <button onClick={onResetFilters} className="mt-4 px-4 py-2 bg-[#0e4da4] text-white rounded">Tühista filtrid</button>
+      </div>
+    );
+  }
 
   return (
-    <div 
-      onClick={() => onSelectProduct?.(product)}
-      className="border border-slate-200 rounded-xl p-3 hover:shadow-lg transition bg-white cursor-pointer group flex flex-col"
-    >
-      <div className="aspect-[4/3] bg-gray-50 rounded-lg overflow-hidden">
-        <img 
-          src={fullSrc} 
-          alt={title} 
-          className="w-full h-full object-contain group-hover:scale-105 transition"
-          loading="lazy"
-          onError={(e) => { (e.target as HTMLImageElement).src = '/images/placeholder.webp' }}
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      {safeProducts.map((product: any, idx: number) => (
+        <ProductCard 
+          key={product.id || product.sku || idx} 
+          product={{
+            ...product,
+            image: product.image || product.Image || product.img || product.Pilt || '/images/placeholder.png'
+          }} 
+          onSelect={() => onSelectProduct(product)} 
         />
-      </div>
-      <h3 className="mt-2 font-medium text- line-clamp-2 leading-tight min-h-">{title}</h3>
-      <div className="mt-auto pt-2">
-        <p className="font-bold text-">{priceNum ? `${priceNum} €` : ''}</p>
-        <p className="text- text-slate-500">sis. 22% KM</p>
-      </div>
+      ))}
     </div>
-  )
+  );
 }
-
-export default ProductCard

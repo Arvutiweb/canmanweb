@@ -20,7 +20,7 @@ export default function ProductGrid({ products, onSelectProduct, onResetFilters 
         <ProductCard 
           key={String(product.id)} 
           product={product} 
-          onSelect={onSelectProduct} 
+          onSelectProduct={onSelectProduct} 
         />
       ))}
     </div>

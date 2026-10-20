@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import ProductGrid from '@/components/ProductGrid';
-import ProductModal from '@/components/ProductModal';
+import { ProductModal } from '@/components/ProductModal';
 
 export default function ClientProducts({products, params}: any){
   const [selected, setSelected] = useState<any>(null);

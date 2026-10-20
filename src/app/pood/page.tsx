@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import ClientPood from './ClientPood';
 
 function getAllProducts() {
   const base = path.join(process.cwd(),'src/data/products');

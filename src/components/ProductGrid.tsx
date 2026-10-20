@@ -3,7 +3,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 
 export default function ProductGrid({ products, onSelectProduct, onResetFilters }: any) {
-  const list = (products || []).filter((p:any)=> p);
+ const list = (products || []).filter((p:any)=> p);
 
   if (!list.length) {
     return (

@@ -22,7 +22,7 @@ export const ProductModal = ({ product, onClose }: any) => {
 
   const title = product.title || product.name || '';
   const rawPrice = product.finalPrice || product.price || 0;
-  const priceNum = parseFloat(String(rawPrice).replace(/[^0-9.,]/g,'').replace(',','.')) || '0') || 0;
+  const priceNum = parseFloat(String(rawPrice).replace(/[^0-9.,]/g,'').replace(',','.')) || 0;
   const oldPriceNum = product.oldPrice ? parseFloat(String(product.oldPrice).replace(/[^0-9.,]/g,'').replace(',','.')) : 0;
   const shortSpec = product.shortSpec || '';
   const description = product.description || '';

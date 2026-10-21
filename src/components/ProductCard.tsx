@@ -5,12 +5,12 @@ export default function ProductCard({ product, onSelectProduct }: any) {
   const title = product.title || product.name || '';
   const price = product.finalPrice || product.price || '';
   return (
-    <div onClick={()=>onSelectProduct(product)} className="group cursor-pointer bg-white rounded-3xl border border-[#e6efff] overflow-hidden hover:shadow-xl hover:border-[#c2d6ff] transition-all duration-300">
-      <div className="aspect-square bg-[#f8f9fb] rounded-3xl m-2.5 overflow-hidden relative">
-        <img src={main} alt={title} className={`w-full h-full object-contain p-4 bg-white rounded-2xl transition-all duration-500 ${second ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`} />
-        {second && <img src={second} alt={title} className="w-full h-full object-contain p-4 bg-white rounded-2xl absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500" />}
+    <div onClick={()=>onSelectProduct(product)} className="group cursor-pointer bg-white rounded- border border-[#e6efff] overflow-hidden hover:shadow-xl">
+      <div className="aspect-square bg-white rounded- overflow-hidden relative">
+        <img src={main} alt={title} className={`w-full h-full object-contain p-4 rounded- ${second ? 'group-hover:opacity-0' : 'group-hover:scale-105'} transition-all`} />
+        {second && <img src={second} alt={title} className="w-full h-full object-contain p-4 bg-white rounded- absolute inset-0 opacity-0 group-hover:opacity-100 transition-all" />}
       </div>
-      <div className="px-4 pb-4 pt-1">
+      <div className="px-4 pb-4 pt-2">
         <h3 className="text- leading-snug line-clamp-2 min-h-">{title}</h3>
         <div className="mt-1 font-bold text-">{price ? `${price} €` : ''}</div>
       </div>

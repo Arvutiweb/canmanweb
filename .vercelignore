@@ -1,0 +1,21 @@
+# Ignore unnecessary files for Vercel deployment
+.git
+.github
+node_modules
+*.log
+.env
+.env.local
+.env.production.local
+.env.development.local
+*.md
+scripts/
+*.py
+*.ods
+*.json
+pildi-raport*.json
+xls_import.py
+README.md
+.next/
+out/
+.vercel/
+*.tsbuildinfo

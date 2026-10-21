@@ -1,4 +1,3 @@
-cat > src/components/ProductCard.tsx << 'EOF'
 'use client';
 export default function ProductCard({ product, onSelectProduct }: any) {
   const main = product.images?.[0] || product.image || '/images/placeholder.png';
@@ -18,5 +17,3 @@ export default function ProductCard({ product, onSelectProduct }: any) {
     </div>
   );
 }
-EOF
-git add src/components/ProductCard.tsx; git commit -m "FIX JAMA: inline borderRadius 24px - kindlalt umar"; git push

@@ -1,19 +1,22 @@
 'use client';
-export default function ProductCard({ product, onSelectProduct }: any) {
-  const main = product.images?.[0] || product.image || '/images/placeholder.png';
-  const second = product.images?.[1] || '';
-  const title = product.title || product.name || '';
-  const price = product.finalPrice || product.price || '';
+
+export function ProductCard({ product, onSelectProduct }: any) {
+  const imgSrc = product.image || product.images?.[0] || product.Images?.[0] || null
+  const fullSrc = imgSrc ? (imgSrc.startsWith('/') ? imgSrc : `/images/${imgSrc}`) : '/images/placeholder.png'
+  const cleanPrice = String(product.price || '').replace(/[^0-9.,]/g, '').replace(',', '.')
+  const priceNum = parseFloat(cleanPrice) || 0
+  const title = product.title || product.name || product.sku || ''
   return (
-    <div onClick={()=>onSelectProduct(product)} className="group cursor-pointer bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300">
-      <div className="aspect-square bg-[#f8f9fb] rounded-3xl m-2.5 overflow-hidden relative">
-        <img src={main} alt={title} className={`w-full h-full object-contain p-3 bg-white rounded-2xl border-0 outline-none ring-0 transition-all duration-500 ${second ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`} />
-        {second && <img src={second} alt={title} className="w-full h-full object-contain p-3 bg-white rounded-2xl border-0 outline-none ring-0 absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500" />}
+    <div onClick={() => onSelectProduct?.(product)} className="border border-slate-200 rounded-xl p-3 hover:shadow-lg transition bg-white cursor-pointer group flex flex-col">
+      <div className="aspect-[4/3] bg-gray-50 rounded-lg overflow-hidden">
+        <img src={fullSrc} alt={title} className="w-full h-full object-contain group-hover:scale-105 transition" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = '/images/placeholder.png' }} />
       </div>
-      <div className="px-4 pb-4 pt-1">
-        <h3 className="text- leading-snug line-clamp-2 min-h-">{title}</h3>
-        <div className="mt-1 font-bold text-">{price ? `${price} €` : ''}</div>
+      <h3 className="mt-2 font-medium text-sm line-clamp-2 leading-tight min-h-">{title}</h3>
+      <div className="mt-auto pt-2">
+        <p className="font-bold text-base">{priceNum ? `${priceNum} €` : ''}</p>
+       {/* <p className="text-xs text-slate-500">sis. 24% KM</p> */}
       </div>
     </div>
-  );
+  )
 }
+export default ProductCard

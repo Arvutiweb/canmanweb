@@ -1,29 +1,28 @@
 'use client';
-
-export function ProductCard({ product, onSelectProduct }: any) {
-  const allImgs: string[] = product.images?.length ? product.images : (product.Images || product.rawImages || []);
-  const norm = (s: string) => s ? (s.startsWith('/') || s.startsWith('http') ? s : `/images/${s}`) : '';
-  const imgs = allImgs.map(norm).filter(Boolean);
-  const fullSrc = imgs[0] || (product.image ? norm(product.image) : '/images/placeholder.png');
-  const cleanPrice = String(product.finalPrice || product.salePrice || product.price || '').replace(/[^0-9.,]/g, '').replace(',', '.');
-  const priceNum = parseFloat(cleanPrice) || 0;
+export default function ProductCard({ product, onSelectProduct }: any) {
+  const raw = product.images || product.Images || product.rawImages || [];
+  const norm = (s:any) => {
+    if (!s) return '';
+    if (typeof s === 'object') s = s.url || s.src || '';
+    const t = String(s);
+    return t ? (t.startsWith('/') || t.startsWith('http') ? t : `/images/${t}`) : '';
+  };
+  const imgs = raw.map(norm).filter(Boolean);
+  const main = imgs[0] || norm(product.image || product.imageUrl) || '/images/placeholder.png';
+  const second = imgs[1] || '';
   const title = product.title || product.name || product.sku || '';
-  const isNew = product.isNew || product.stock === 1;
+  const price = product.finalPrice || product.salePrice || product.price || '';
 
   return (
-    <div onClick={() => onSelectProduct?.(product)} className="group cursor-pointer bg-white rounded- border border-slate-100 overflow-hidden hover:shadow-[0_12px_32px_rgba(0,0,0,0.10)] hover:border-slate-200 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-      <div className="aspect-square bg-[#f8f9fb] relative overflow-hidden rounded- m-2.5 mb-0">
-        {isNew && <span className="absolute top-3 left-3 z-10 bg-black text-white text- font-bold px-2.5 py-1 rounded-full">UUS</span>}
-        {imgs.length > 1 && <span className="absolute top-3 right-3 z-10 bg-white/95 backdrop-blur text- font-medium px-2.5 py-1 rounded-full border">{imgs.length} foto</span>}
-        <img src={fullSrc} alt={title} className="w-full h-full object-cover rounded- transition-all duration-500 group-hover:scale-[1.05]" loading="lazy" onError={(e)=>{(e.target as HTMLImageElement).src='/images/placeholder.png'}} />
+    <div onClick={()=>onSelectProduct(product)} className="group cursor-pointer bg-white rounded- border border-slate-100 overflow-hidden hover:shadow-xl transition-all">
+      <div className="aspect-square bg-[#f8f9fb] rounded- m- overflow-hidden relative">
+        <img src={main} alt={title} className={`w-full h-full object-contain p-3 rounded- transition-all duration-500 ${second ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`} />
+        {second && <img src={second} alt={title} className="w-full h-full object-contain p-3 rounded- absolute inset-0 opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />}
       </div>
-      <div className="p-3.5 flex flex-col flex-1">
-        <h3 className="font-medium text-[13.5px] leading-[1.35] line-clamp-2 text-slate-900 min-h-">{title}</h3>
-        <div className="mt-3 flex items-end justify-between">
-          <div><p className="font-bold text-">{priceNum ? `${priceNum} €` : ''}</p><p className="text- text-slate-400">KM-ga 24%</p></div>
-        </div>
+      <div className="px-3.5 pb-3.5 pt-1">
+        <h3 className="text- leading-snug line-clamp-2 min-h-">{title}</h3>
+        <div className="mt-1 font-bold text-">{price ? `${price} €` : ''}</div>
       </div>
     </div>
-  )
+  );
 }
-export default ProductCard

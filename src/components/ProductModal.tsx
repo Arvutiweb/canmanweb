@@ -42,7 +42,11 @@ export const ProductModal = ({ product, onClose }: any) => {
             </div>
             {imgs.length > 1 && (
               <div className="flex gap-2 mt-4 overflow-x-auto pb-1">
-                {imgs.map((src:any,i:number)=><button key={i} onClick={()=>setActiveImg(i)} className={`w-16 h-16 shrink-0 bg-white rounded-xl overflow-hidden border-2 ${activeImg===i ? 'border-[#0e4da4]' : 'border-transparent hover:border-slate-200'}`}><img src={src} className="w-full h-full object-contain p-2" /></button>)}
+                {imgs.map((src:any,i:number)=>(
+                  <button key={i} onClick={()=>setActiveImg(i)} className={`w-16 h-16 shrink-0 bg-white rounded-xl overflow-hidden border ${activeImg===i ? 'border-slate-300 bg-slate-100' : 'border-transparent hover:border-slate-200 hover:bg-slate-50'}`}>
+                    <img src={src} className="w-full h-full object-contain p-2" />
+                  </button>
+                ))}
               </div>
             )}
           </div>

@@ -13,10 +13,8 @@ export default function ProductCard({ product, onSelectProduct }: any) {
   const mainNorm = norm(mainRaw);
   const main = imgs[0] || mainNorm || '/images/placeholder.png';
   const second = imgs[1] || '';
-
   const title = product.title || product.name || product.sku || '';
   const price = product.finalPrice || product.salePrice || product.price || '';
-
   return (
     <div onClick={()=>onSelectProduct(product)} className="group cursor-pointer bg-white rounded- border border-slate-100 overflow-hidden hover:shadow-xl transition-all">
       <div className="aspect-square bg-[#f8f9fb] rounded- m- overflow-hidden relative">

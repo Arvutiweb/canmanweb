@@ -3,7 +3,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 
 export default function ProductGrid({ products, onSelectProduct, onResetFilters }: any) {
- const list = (products || []).filter((p:any)=> p);
+  const list = (products || []).filter((p:any)=> p && (p.id || p.sku || p.name || p.title));
 
   if (!list.length) {
     return (
@@ -15,10 +15,10 @@ export default function ProductGrid({ products, onSelectProduct, onResetFilters 
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {list.map((product: any) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {list.map((product: any, i:number) => (
         <ProductCard 
-          key={String(product.id)} 
+          key={String(product.id || product.sku || product.name || i)} 
           product={product} 
           onSelectProduct={onSelectProduct} 
         />

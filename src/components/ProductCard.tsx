@@ -17,13 +17,13 @@ export default function ProductCard({ product, onSelectProduct }: any) {
           <img 
             src={main} 
             alt={title} 
-            className={`w-full h-full object-contain rounded-xl transition-all ${second ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`} 
+            className={`w-full h-full object-contain rounded-2xl transition-all ${second ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`} 
           />
           {second && (
             <img 
               src={second} 
               alt={title} 
-              className="w-full h-full object-contain rounded-xl absolute inset-2 opacity-0 group-hover:opacity-100" 
+              className="w-full h-full object-contain rounded-2xl absolute inset-2 opacity-0 group-hover:opacity-100" 
             />
           )}
         </div>

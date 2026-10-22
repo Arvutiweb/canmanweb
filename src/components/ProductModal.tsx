@@ -1,7 +1,7 @@
 ﻿'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, ShoppingBag, ShieldCheck, MapPin, Truck, Plus, Minus, Maximize2, Loader2 } from 'lucide-react';
+import { X, ShoppingBag, ShieldCheck, MapPin, Truck, Plus, Minus, Maximize2, Loader2, ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export const ProductModal = ({ product, onClose }: any) => {
@@ -56,7 +56,7 @@ export const ProductModal = ({ product, onClose }: any) => {
           {/* Image Gallery Section */}
           <div className="bg-[#f8f9fb] p-4 md:p-6 flex flex-col">
             {/* Main Image */}
-            <div className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-sm">
+            <div className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-sm" onClick={onClose}>
               <div className="absolute inset-0 flex items-center justify-center bg-slate-50">
                 {loadingImg === fullSrc && (
                   <Loader2 className="w-8 h-8 text-[#0e4da4] animate-spin" />
@@ -72,10 +72,21 @@ export const ProductModal = ({ product, onClose }: any) => {
                 />
               </div>
               
-              {/* Fullscreen button */}
+              {/* Magnifying glass icon - bottom right */}
               {imgs.length > 0 && (
                 <button
-                  onClick={() => setIsFullscreen(true)}
+                  onClick={(e) => { e.stopPropagation(); setIsFullscreen(true); }}
+                  className="absolute bottom-3 right-3 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm"
+                  aria-label="Suurenda pilti"
+                >
+                  <Search className="w-5 h-5" />
+                </button>
+              )}
+
+              {/* Fullscreen button - top right (keep for compatibility) */}
+              {imgs.length > 0 && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); setIsFullscreen(true); }}
                   className="absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm"
                   aria-label="Avage pilt täisekraanis"
                 >
@@ -83,13 +94,43 @@ export const ProductModal = ({ product, onClose }: any) => {
                 </button>
               )}
 
-              {/* Image counter */}
+              {/* Image counter - bottom center (only show when not hovering) */}
               {imgs.length > 1 && (
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/70 text-white text-xs px-2.5 py-1 rounded-full">
                   {activeImg + 1} / {imgs.length}
                 </div>
               )}
             </div>
+
+            {/* Navigation controls below main image */}
+            {imgs.length > 1 && (
+              <div className="mt-3 flex items-center justify-center space-x-4">
+                <button
+                  onClick={() => setActiveImg(prev => prev === 0 ? imgs.length - 1 : prev - 1)}
+                  className="bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm"
+                  aria-label="Eelmine pilt"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <span className="text-sm text-slate-600 font-medium px-2">
+                  {activeImg + 1} / {imgs.length}
+                </span>
+                <button
+                  onClick={() => setActiveImg(prev => prev === imgs.length - 1 ? 0 : prev + 1)}
+                  className="bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm"
+                  aria-label="Järgmine pilt"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={onClose}
+                  className="bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm ml-2"
+                  aria-label="Sulge pildi vaade"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            )}
 
             {/* Thumbnails */}
             {imgs.length > 1 && (
@@ -222,7 +263,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                 className="flex-1 bg-[#0e4da4] hover:bg-[#0a3a7d] text-white font-bold py-3 px-6 rounded-lg text-base flex items-center justify-center space-x-2 transition-colors shadow-sm hover:shadow-md"
               >
                 <ShoppingBag className="w-5 h-5" />
-                <span>Lisa korvi ({(priceNum * quantity).toFixed(2)} €)</span>
+                <span>Lisa korvi {(priceNum * quantity).toFixed(2)} €</span>
               </button>
             </div>
           </div>

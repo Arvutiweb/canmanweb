@@ -8,8 +8,10 @@ export const ProductModal = ({ product, onClose }: any) => {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [activeImg, setActiveImg] = useState(0);
+  const [prevImg, setPrevImg] = useState<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isFullscreenAnimating, setIsFullscreenAnimating] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [loadingImg, setLoadingImg] = useState<string | null>(null);
   
   if (!product) return null;
@@ -98,10 +100,10 @@ export const ProductModal = ({ product, onClose }: any) => {
                 {imgs.map((src: any, i: number) => (
                   <button
                     key={i}
-                    onClick={() => setActiveImg(i)}
+                    onClick={() => { setPrevImg(activeImg); setActiveImg(i); }}
                     className={`w-16 h-16 shrink-0 bg-white rounded-lg overflow-hidden border-2 transition-all duration-200 ${
-                      activeImg === i 
-                        ? 'border-[#0e4da4] shadow-sm ring-2 ring-[#0e4da4]/20' 
+                      activeImg === i
+                        ? 'border-[#0e4da4] shadow-sm ring-2 ring-[#0e4da4]/20'
                         : 'border-slate-200 hover:border-slate-300'
                     }`}
                     aria-label={`Pilt ${i + 1}`}
@@ -257,12 +259,30 @@ export const ProductModal = ({ product, onClose }: any) => {
             <div className="relative max-w-[90vw] max-h-[90vh] transform transition-all duration-300"
               style={{
                 opacity: isFullscreenAnimating ? 1 : 0,
-                transform: isFullscreenAnimating ? 'scale(1)' : 'scale(0.95)'
+                transform: isFullscreenAnimating
+                  ? (isClosing ? 'scale(1.05)' : 'scale(1)')
+                  : 'scale(0.95)'
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                // Zoom effect: expand then close
+                if (!isClosing) {
+                  setIsClosing(true);
+                  // First expand (zoom in)
+                  setTimeout(() => {
+                    // Then fade out and close
+                    setIsFullscreenAnimating(false);
+                    setTimeout(() => {
+                      setIsFullscreen(false);
+                      setIsClosing(false);
+                    }, 300);
+                  }, 150);
+                }
               }}>
               <Image
                 src={fullSrc}
                 alt={title}
-                className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl cursor-zoom-out"
                 unoptimized
                 priority
               />
@@ -286,15 +306,37 @@ export const ProductModal = ({ product, onClose }: any) => {
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </button>
 
-                {/* Thumbnails in fullscreen */}
+                {/* Thumbnails in fullscreen - show previous image as well */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {/* Previous image button */}
+                  {prevImg !== null && (
+                    <button
+                      key="prev"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const temp = activeImg;
+                        setActiveImg(prevImg);
+                        setPrevImg(temp);
+                      }}
+                      className="w-12 h-12 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-200 border-amber-400/50 hover:border-amber-400 ring-2 ring-amber-400/30"
+                      aria-label={`Eelmine pilt: ${prevImg + 1}`}
+                      title="Eelmine vaadatud pilt"
+                    >
+                      <Image src={imgs[prevImg]} alt="" fill className="object-cover" unoptimized />
+                      <div className="absolute inset-0 bg-amber-500/20 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                      </div>
+                    </button>
+                  )}
                   {imgs.map((src: any, i: number) => (
                     <button
                       key={i}
-                      onClick={(e) => { e.stopPropagation(); setActiveImg(i); }}
+                      onClick={(e) => { e.stopPropagation(); setPrevImg(activeImg); setActiveImg(i); }}
                       className={`w-12 h-12 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
-                        activeImg === i 
-                          ? 'border-white ring-2 ring-white/30' 
+                        activeImg === i
+                          ? 'border-white ring-2 ring-white/30'
                           : 'border-white/30 hover:border-white/50'
                       }`}
                       aria-label={`Pilt ${i + 1}`}

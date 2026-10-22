@@ -4,6 +4,32 @@ import React from 'react';
 import Image from 'next/image';
 import { X, ShoppingBag, Trash2, Plus, Minus, ArrowRight, Shield } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import type { Product } from '../types';
+
+type CartProductWithImages = Product & {
+  images?: string[];
+  Images?: string[];
+  rawImages?: string[];
+  image?: string;
+};
+
+const getCartThumbnail = (product: Product) => {
+  const cartProduct = product as CartProductWithImages;
+  const source =
+    cartProduct.images?.[0] ||
+    cartProduct.Images?.[0] ||
+    cartProduct.rawImages?.[0] ||
+    cartProduct.image ||
+    cartProduct.imageUrl;
+
+  if (!source) return '/images/placeholder.png';
+  if (source === '/images/placeholder.webp' || source === 'placeholder.webp') {
+    return '/images/placeholder.png';
+  }
+  return source.startsWith('/') || source.startsWith('http')
+    ? source
+    : `/images/${source}`;
+};
 
 interface CartDrawerProps {
   onOpenCheckout: () => void;
@@ -25,7 +51,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onOpenCheckout }) => {
   return (
     <div className="fixed inset-0 z-50 overflow-hidden bg-slate-900/60 backdrop-blur-sm">
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
+        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between min-h-0">
           {/* Header */}
           <div className="p-4 bg-[#0e4da4] text-white flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -42,7 +68,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onOpenCheckout }) => {
           </div>
 
           {/* Cart Item List */}
-          <div className="flex-1 p-4 overflow-y-auto divide-y divide-slate-100">
+          <div className="flex-1 min-h-0 p-4 overflow-y-auto divide-y divide-slate-100">
             {cart.length === 0 ? (
               <div className="text-center py-16 text-slate-400">
                 <ShoppingBag className="w-12 h-12 mx-auto mb-3 text-slate-300 stroke-1" />
@@ -59,11 +85,16 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onOpenCheckout }) => {
                   {/* Thumbnail */}
                   <div className="relative w-16 h-16 bg-slate-50 border border-slate-200 rounded-lg overflow-hidden flex-shrink-0">
                     <Image
-                      src={product.imageUrl || '/images/placeholder.png'}
+                      src={getCartThumbnail(product)}
                       alt={product.title}
                       fill
                       className="object-cover"
                       unoptimized
+                      onError={(event) => {
+                        if (!event.currentTarget.src.endsWith('/images/placeholder.png')) {
+                          event.currentTarget.src = '/images/placeholder.png';
+                        }
+                      }}
                     />
                   </div>
 

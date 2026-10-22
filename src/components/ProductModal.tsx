@@ -17,9 +17,9 @@ export const ProductModal = ({ product, onClose }: any) => {
   if (!product) return null;
 
   const allImgs: any[] = product.images || product.Images || product.rawImages || [];
-  const norm = (s:any)=>{ const t=String(s||''); return t ? (t.startsWith('/')||t.startsWith('http') ? t : `/images/${t}`) : ''; };
+  const norm = (s:any)=>{ const t=String(s||''); if (!t) return ''; if (t === '/images/placeholder.webp' || t === 'placeholder.webp') return '/images/placeholder.png'; return t.startsWith('/')||t.startsWith('http') ? t : `/images/${t}`; };
   let imgs = allImgs.map(norm).filter(Boolean);
-  if (!imgs.length) { const single = product.imageUrl || product.image; if (single) imgs = [norm(single)]; }
+  if (!imgs.length) { const single = product.image || product.imageUrl; if (single) imgs = [norm(single)]; }
   if (!imgs.length) imgs = ['/images/placeholder.png'];
   const fullSrc = imgs[activeImg] || imgs[0];
 
@@ -234,7 +234,7 @@ export const ProductModal = ({ product, onClose }: any) => {
         {/* Fullscreen Image Modal */}
         {(isFullscreen || isFullscreenAnimating) && (
           <div
-            className="fixed inset-0 z-60 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300"
+            className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300"
             style={{ opacity: isFullscreenAnimating ? 1 : 0 }}
             onClick={() => {
               setIsFullscreenAnimating(false);
@@ -250,7 +250,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                 setIsFullscreenAnimating(false);
                 setTimeout(() => setIsFullscreen(false), 300);
               }}
-              className="absolute top-4 right-4 z-70 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
+              className="absolute top-4 right-4 z-[70] bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
               aria-label="Sulge täisekraan"
             >
               <X className="w-6 h-6" />
@@ -293,21 +293,21 @@ export const ProductModal = ({ product, onClose }: any) => {
               <>
                 <button
                   onClick={(e) => { e.stopPropagation(); setActiveImg(prev => prev === 0 ? imgs.length - 1 : prev - 1); }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-70 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full p-3 transition-colors"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-[70] bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full p-3 transition-colors"
                   aria-label="Eelmine pilt"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                 </button>
                 <button
                   onClick={(e) => { e.stopPropagation(); setActiveImg(prev => prev === imgs.length - 1 ? 0 : prev + 1); }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-70 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full p-3 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-[70] bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full p-3 transition-colors"
                   aria-label="Järgmine pilt"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </button>
 
                 {/* Thumbnails in fullscreen - show previous image as well */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex max-w-[90vw] gap-2 overflow-x-auto">
                   {/* Previous image button */}
                   {prevImg !== null && (
                     <button
@@ -318,7 +318,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                         setActiveImg(prevImg);
                         setPrevImg(temp);
                       }}
-                      className="w-12 h-12 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-200 border-amber-400/50 hover:border-amber-400 ring-2 ring-amber-400/30"
+                      className="relative w-12 h-12 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-200 border-amber-400/50 hover:border-amber-400 ring-2 ring-amber-400/30"
                       aria-label={`Eelmine pilt: ${prevImg + 1}`}
                       title="Eelmine vaadatud pilt"
                     >
@@ -334,7 +334,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                     <button
                       key={i}
                       onClick={(e) => { e.stopPropagation(); setPrevImg(activeImg); setActiveImg(i); }}
-                      className={`w-12 h-12 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                      className={`relative w-12 h-12 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                         activeImg === i
                           ? 'border-white ring-2 ring-white/30'
                           : 'border-white/30 hover:border-white/50'

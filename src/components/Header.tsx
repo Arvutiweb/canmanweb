@@ -1,8 +1,17 @@
 'use client';
 import React from 'react';
+import { useCart } from '../context/CartContext';
 
 // Uus header - CANMAN ARVUTID heleda kastiga
-export function Header({ cartCount, onCartClick, search, setSearch }: any) {
+interface HeaderProps {
+  searchQuery: string;
+  setSearchQuery: (value: string) => void;
+  onOpenServicesModal?: () => void;
+}
+
+export function Header({ searchQuery, setSearchQuery }: HeaderProps) {
+  const { cartCount, setIsCartOpen } = useCart();
+
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6 py-3 flex items-center justify-between gap-4">
@@ -23,8 +32,8 @@ export function Header({ cartCount, onCartClick, search, setSearch }: any) {
         <div className="flex-1 max-w-[500px] hidden md:block">
           <div className="relative">
             <input
-              value={search || ''}
-              onChange={(e) => setSearch?.(e.target.value)}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Otsi tooteid, nt. Dell i5, 16GB..."
               className="w-full bg-slate-50 border border-slate-200 rounded-full pl-10 pr-4 py-2.5 text-[13px] outline-none focus:bg-white focus:border-[#0e4da4]/30 focus:ring-4 focus:ring-[#0e4da4]/10 transition"
             />
@@ -33,7 +42,7 @@ export function Header({ cartCount, onCartClick, search, setSearch }: any) {
         </div>
 
         {/* Cart */}
-        <button onClick={onCartClick} className="relative bg-slate-900 text-white rounded-full px-5 py-2.5 text-[13px] font-semibold hover:bg-black transition flex items-center gap-2">
+        <button onClick={() => setIsCartOpen(true)} className="relative bg-slate-900 text-white rounded-full px-5 py-2.5 text-[13px] font-semibold hover:bg-black transition flex items-center gap-2">
           <span>🛒</span> Korv
           {cartCount > 0 && <span className="bg-white text-slate-900 text-[11px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">{cartCount}</span>}
         </button>
@@ -43,8 +52,8 @@ export function Header({ cartCount, onCartClick, search, setSearch }: any) {
       <div className="md:hidden px-4 pb-3">
         <div className="relative">
           <input
-            value={search || ''}
-            onChange={(e) => setSearch?.(e.target.value)}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Otsi tooteid..."
             className="w-full bg-slate-50 border border-slate-200 rounded-full pl-10 pr-4 py-2.5 text-[13px] outline-none focus:bg-white focus:border-[#0e4da4]/30 transition"
           />

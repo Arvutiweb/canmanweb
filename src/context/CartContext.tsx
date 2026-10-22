@@ -62,7 +62,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const existingIndex = prevCart.findIndex((item) => item.product.id === product.id);
       if (existingIndex > -1) {
         const updated = [...prevCart];
-        updated[existingIndex].quantity += quantity;
+        updated[existingIndex] = {
+          product,
+          quantity: updated[existingIndex].quantity + quantity,
+        };
         return updated;
       } else {
         return [...prevCart, { product, quantity }];

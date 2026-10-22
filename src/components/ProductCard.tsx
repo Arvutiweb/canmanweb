@@ -11,7 +11,7 @@ export default function ProductCard({ product, onSelectProduct }: any) {
 
   return (
     <div onClick={()=>onSelectProduct(product)} className="group cursor-pointer bg-white rounded- border border-[#e6efff] overflow-hidden hover:shadow-lg hover:border-[#d0e2ff] transition-all duration-300">
-      {/* VALGE SUUR KAST - ROHKEM ROUNDED */}
+      {/* VALGE SUUR KAST - SIIN MUUDAD SUURE KASTI ROUNDI */}
       <div className="aspect-square bg-[#f8f9fb] rounded- m-2.5 overflow-hidden relative">
         <div className="w-full h-full bg-white rounded- overflow-hidden p-2">
           <img 

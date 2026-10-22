@@ -1,7 +1,7 @@
 ﻿'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { X, ShoppingBag, ShieldCheck, MapPin, Truck, Plus, Minus, Maximize2, Loader2, ChevronLeft, ChevronRight, Search } from 'lucide-react';
+import { X, ShoppingBag, ShieldCheck, MapPin, Truck, Plus, Minus, Loader2, Search } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export const ProductModal = ({ product, onClose }: any) => {
@@ -9,6 +9,7 @@ export const ProductModal = ({ product, onClose }: any) => {
   const [quantity, setQuantity] = useState(1);
   const [activeImg, setActiveImg] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isFullscreenAnimating, setIsFullscreenAnimating] = useState(false);
   const [loadingImg, setLoadingImg] = useState<string | null>(null);
   
   if (!product) return null;
@@ -75,7 +76,7 @@ export const ProductModal = ({ product, onClose }: any) => {
               {/* Magnifying glass icon - bottom right */}
               {imgs.length > 0 && (
                 <button
-                  onClick={(e) => { e.stopPropagation(); setIsFullscreen(true); }}
+                  onClick={(e) => { e.stopPropagation(); setIsFullscreen(true); setIsFullscreenAnimating(true); }}
                   className="absolute bottom-3 right-3 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm"
                   aria-label="Suurenda pilti"
                 >
@@ -83,54 +84,13 @@ export const ProductModal = ({ product, onClose }: any) => {
                 </button>
               )}
 
-              {/* Fullscreen button - top right (keep for compatibility) */}
-              {imgs.length > 0 && (
-                <button
-                  onClick={(e) => { e.stopPropagation(); setIsFullscreen(true); }}
-                  className="absolute top-3 right-3 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm"
-                  aria-label="Avage pilt täisekraanis"
-                >
-                  <Maximize2 className="w-5 h-5" />
-                </button>
-              )}
-
-              {/* Image counter - bottom center (only show when not hovering) */}
+              {/* Image counter - bottom center */}
               {imgs.length > 1 && (
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/70 text-white text-xs px-2.5 py-1 rounded-full">
                   {activeImg + 1} / {imgs.length}
                 </div>
               )}
             </div>
-
-            {/* Navigation controls below main image */}
-            {imgs.length > 1 && (
-              <div className="mt-3 flex items-center justify-center space-x-4">
-                <button
-                  onClick={() => setActiveImg(prev => prev === 0 ? imgs.length - 1 : prev - 1)}
-                  className="bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm"
-                  aria-label="Eelmine pilt"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <span className="text-sm text-slate-600 font-medium px-2">
-                  {activeImg + 1} / {imgs.length}
-                </span>
-                <button
-                  onClick={() => setActiveImg(prev => prev === imgs.length - 1 ? 0 : prev + 1)}
-                  className="bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm"
-                  aria-label="Järgmine pilt"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={onClose}
-                  className="bg-white/90 backdrop-blur-sm border border-slate-200 hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-full p-2 transition-colors shadow-sm ml-2"
-                  aria-label="Sulge pildi vaade"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-            )}
 
             {/* Thumbnails */}
             {imgs.length > 1 && (
@@ -270,23 +230,35 @@ export const ProductModal = ({ product, onClose }: any) => {
         </div>
 
         {/* Fullscreen Image Modal */}
-        {isFullscreen && (
-          <div 
-            className="fixed inset-0 z-60 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setIsFullscreen(false)}
+        {(isFullscreen || isFullscreenAnimating) && (
+          <div
+            className="fixed inset-0 z-60 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300"
+            style={{ opacity: isFullscreenAnimating ? 1 : 0 }}
+            onClick={() => {
+              setIsFullscreenAnimating(false);
+              setTimeout(() => setIsFullscreen(false), 300);
+            }}
             role="dialog"
             aria-modal="true"
             aria-label="Pilt täisekraanis"
           >
             <button
-              onClick={() => setIsFullscreen(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsFullscreenAnimating(false);
+                setTimeout(() => setIsFullscreen(false), 300);
+              }}
               className="absolute top-4 right-4 z-70 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
               aria-label="Sulge täisekraan"
             >
               <X className="w-6 h-6" />
             </button>
 
-            <div className="relative max-w-[90vw] max-h-[90vh]">
+            <div className="relative max-w-[90vw] max-h-[90vh] transform transition-all duration-300"
+              style={{
+                opacity: isFullscreenAnimating ? 1 : 0,
+                transform: isFullscreenAnimating ? 'scale(1)' : 'scale(0.95)'
+              }}>
               <Image
                 src={fullSrc}
                 alt={title}

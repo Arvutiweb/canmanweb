@@ -44,7 +44,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!customer.fullName || !customer.email || !customer.phone) {
-      setErrorMsg('Palun tÃ¤ida nÃµutud vÃ¤ljad (Nimi, E-post, Telefon).');
+      setErrorMsg('Palun täida nõutud väljad (Nimi, E-post, Telefon).');
       return;
     }
     if (deliveryMethod === 'pakk' && (!customer.address || !customer.postalCode)) {
@@ -135,11 +135,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
               <div>
                 <label className="font-semibold text-slate-700 block mb-1">
-                  EttevÃµtte nimi (Valikuline arve jaoks)
+                  Ettevõtte nimi (Valikuline arve jaoks)
                 </label>
                 <input
                   type="text"
-                  placeholder="OÃœ NÃ¤idis EttevÃµte"
+                  placeholder="OÜ Näidis Ettevõte"
                   value={customer.companyName}
                   onChange={(e) => setCustomer({ ...customer, companyName: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-300 p-2.5 rounded-lg focus:ring-2 focus:ring-[#0e4da4] focus:outline-none"
@@ -175,10 +175,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div>
                   <div className="font-bold text-slate-800 text-sm flex items-center justify-between">
                     <span>Paki saatmine (Omniva / DPD)</span>
-                    <span className="text-[#0e4da4] font-extrabold">+â‚¬4.90</span>
+                    <span className="text-[#0e4da4] font-extrabold">+€4.90</span>
                   </div>
                   <p className="text-slate-500 text-[11px] mt-1">
-                    Tarne 1-2 tÃ¶Ã¶pÃ¤eva jooksul Ã¼le Eesti pakiautomaati vÃµi kulleriga.
+                    Tarne 1-2 tööpäeva jooksul üle Eesti pakiautomaati või kulleriga.
                   </p>
                 </div>
               </label>
@@ -201,11 +201,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 />
                 <div>
                   <div className="font-bold text-slate-800 text-sm flex items-center justify-between">
-                    <span>KÃ¤tte saamine poest</span>
-                    <span className="text-emerald-600 font-extrabold">TASUTA (â‚¬0.00)</span>
+                    <span>Kätte saamine poest</span>
+                    <span className="text-emerald-600 font-extrabold">TASUTA (€0.00)</span>
                   </div>
                   <p className="text-slate-500 text-[11px] mt-1">
-                    Lille 14-4 Tallinn 10614 Harjumaa \(E-R 10:00 - 18:00\). Kaubale saab kohe jÃ¤rele tulla!
+                    Lille 14-4 Tallinn 10614 Harjumaa (E-R 10:00 - 18:00). Kaubale saab kohe järele tulla!
                   </p>
                 </div>
               </label>
@@ -220,7 +220,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   </label>
                   <input
                     type="text"
-                    placeholder="Nt. Endla 45 Omniva pakiautomaat / SÃµpruse pst 1"
+                    placeholder="Nt. Endla 45 Omniva pakiautomaat / Sõpruse pst 1"
                     value={customer.address}
                     onChange={(e) => setCustomer({ ...customer, address: e.target.value })}
                     className="w-full bg-white border border-slate-300 p-2 rounded focus:ring-1 focus:ring-[#0e4da4]"
@@ -272,7 +272,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     <span>Arve (Invoice)</span>
                   </div>
                   <p className="text-slate-500 text-[11px] mt-1">
-                    Ettemaksuarve saadetakse e-mailile ja vÃ¤ljastatakse kohe allalaadimiseks PDF kujul (maksetÃ¤htaeg 7 pÃ¤eva).
+                    Ettemaksuarve saadetakse e-mailile ja väljastatakse kohe allalaadimiseks PDF kujul (maksetähtaeg 7 päeva).
                   </p>
                 </div>
               </label>
@@ -296,10 +296,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div>
                   <div className="font-bold text-slate-800 text-sm flex items-center space-x-1.5">
                     <CreditCard className="w-4 h-4 text-emerald-600" />
-                    <span>Sularahas vÃµi Kaardiga kohapeal</span>
+                    <span>Sularahas või kaardiga kohapeal</span>
                   </div>
                   <p className="text-slate-500 text-[11px] mt-1">
-                    Maksa kaubale jÃ¤rele tulles Canman Systems OÜ-s Lille 14-4 Tallinn 10614 Harjumaa.
+                    Maksa kaubale järele tulles Canman Systems OÜ-s Lille 14-4 Tallinn 10614 Harjumaa.
                   </p>
                 </div>
               </label>
@@ -309,23 +309,23 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           {/* Section 4: Order Summary */}
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
             <div className="font-bold text-slate-800 text-sm mb-2 pb-1 border-b border-slate-200">
-              Tellimuse kokkuvÃµte ({cart.length} toodet)
+              Tellimuse kokkuvõte ({cart.length} toodet)
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Tooted vahesumma:</span>
-              <span className="font-semibold text-slate-800">â‚¬{subtotal.toFixed(2)}</span>
+              <span className="font-semibold text-slate-800">€{subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-slate-600">
-              <span>Tarne ({deliveryMethod === 'pakk' ? 'Omniva/DPD' : 'Poe jÃ¤reletulek'}):</span>
-              <span className="font-semibold text-slate-800">â‚¬{deliveryFee.toFixed(2)}</span>
+              <span>Tarne ({deliveryMethod === 'pakk' ? 'Omniva/DPD' : 'Poe järeletulek'}):</span>
+              <span className="font-semibold text-slate-800">€{deliveryFee.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-slate-500 text-[11px]">
-              <span>KÃ¤ibemaks 24% (KM sisaldub hinnas):</span>
-              <span>â‚¬{(totalAmount * 0.24 / 1.24).toFixed(2)}</span>
+              <span>Käibemaks 24% (KM sisaldub hinnas):</span>
+              <span>€{(totalAmount * 0.24 / 1.24).toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-slate-900 font-extrabold text-lg pt-2 border-t border-slate-200">
               <span>KOKKU TASUDA:</span>
-              <span className="text-[#0e4da4]">â‚¬{totalAmount.toFixed(2)}</span>
+              <span className="text-[#0e4da4]">€{totalAmount.toFixed(2)}</span>
             </div>
           </div>
 
@@ -344,4 +344,3 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     </div>
   );
 };
-

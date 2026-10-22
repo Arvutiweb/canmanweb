@@ -49,9 +49,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onOpenCheckout }) => {
   if (!isCartOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-slate-900/60 backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-50 overflow-hidden bg-slate-900/60 backdrop-blur-sm"
+      onClick={() => setIsCartOpen(false)}
+    >
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between min-h-0">
+        <div
+          className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between min-h-0"
+          onClick={(event) => event.stopPropagation()}
+        >
           {/* Header */}
           <div className="p-4 bg-[#0e4da4] text-white flex items-center justify-between">
             <div className="flex items-center space-x-2">

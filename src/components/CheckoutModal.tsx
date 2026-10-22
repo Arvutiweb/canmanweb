@@ -175,10 +175,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div>
                   <div className="font-bold text-slate-800 text-sm flex items-center justify-between">
                     <span>Paki saatmine (Omniva / DPD)</span>
-                    <span className="text-[#0e4da4] font-extrabold">+€4.90</span>
+                    <span className="text-[#0e4da4] font-extrabold">+&#8364;4.90</span>
                   </div>
                   <p className="text-slate-500 text-[11px] mt-1">
-                    Tarne 1-2 tööpäeva jooksul üle Eesti pakiautomaati või kulleriga.
+                    Tarne 1-2 t&#246;&#246;p&#228;eva jooksul &#252;le Eesti pakiautomaati v&#245;i kulleriga.
                   </p>
                 </div>
               </label>

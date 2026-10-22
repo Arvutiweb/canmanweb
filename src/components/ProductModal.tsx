@@ -66,7 +66,7 @@ export const ProductModal = ({ product, onClose }: any) => {
               <div className="space-y-2 text- mb-6">
                 <div className="flex items-center text-slate-700 space-x-2"><MapPin className="w-4 h-4 text-[#0e4da4] flex-shrink-0" /><span>Kätte saamine: <strong>Lille 14-4 Tallinn</strong></span></div>
                 <div className="flex items-center text-slate-700 space-x-2"><Truck className="w-4 h-4 text-emerald-600 flex-shrink-0" /><span>Omniva & DPD (4.90 €)</span></div>
-                <div className="flex items-center text-slate-700 space-x-2"><ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" /><span>Garantii: <strong>{(specs as any).warranty || '12 kuud'}</strong></span></div>
+               // <div className="flex items-center text-slate-700 space-x-2"><ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" /><span>Garantii: <strong>{(specs as any).warranty || '12 kuud'}</strong></span></div>
               </div>
             </div>
             <div className="pt-4 border-t border-slate-200 flex items-center space-x-3">

@@ -38,8 +38,8 @@ export const InvoiceView: React.FC<InvoiceViewProps> = ({ order, onClose }) => {
   const docTitle = order.paymentMethod === 'arve' ? 'Ettemaksu Arve / Preforma Invoice' : 'Tellimuse Kinnitus / Order Confirmation';
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 print:!static print:!bg-white print:!p-0 print:!overflow-visible">
-      <div className="bg-white rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl relative my-6 print:!shadow-none print:!rounded-none print:!m-0 print:!max-w-none print:!w-full">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-start justify-center px-4 pt-16 pb-4 print:!static print:!bg-white print:!p-0 print:!overflow-visible">
+      <div className="bg-white rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl relative my-0 print:!shadow-none print:!rounded-none print:!m-0 print:!max-w-none print:!w-full">
         <div className="bg-[#0e4da4] text-white p-4 flex flex-col sm:flex-row justify-between items-center gap-3 print:hidden">
           <div>
             <div className="flex items-center space-x-2">
@@ -134,7 +134,6 @@ export const InvoiceView: React.FC<InvoiceViewProps> = ({ order, onClose }) => {
             <div className="text-[11px] text-slate-600 max-w-[55%] bg-amber-50 border border-amber-200 rounded-lg p-2.5">
               <p className="font-bold text-amber-900 text-xs mb-1">TÄHELEPANU:</p>
               <p>See on ettemaksu arve. Lõplik arve saadetakse koos kaubaga pärast makse laekumist.</p>
-              <p className="mt-1.5">Arve tasumise tähtaja ületamisel nõustun maksma leppetrahvi 0,5% päevas.</p>
             </div>
             <div className="w-60 space-y-1 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
               <div className="flex justify-between text-slate-600"><span>Neto:</span><span>€{(order.total - order.tax).toFixed(2)}</span></div>
@@ -152,6 +151,15 @@ export const InvoiceView: React.FC<InvoiceViewProps> = ({ order, onClose }) => {
                 <div className="flex gap-2"><span className="w-16">Allkiri:</span><span className="flex-1 border-b border-slate-400"></span></div>
                 <div className="flex gap-2"><span className="w-16">Kuupäev:</span><span className="flex-1 border-b border-slate-400"></span><span className="ml-2 text-slate-400">. . . . . . .</span></div>
               </div>
+            </div>
+            <div className="mt-6 border-t border-slate-300 pt-4 text-xs text-slate-700">
+              <h3 className="font-bold text-slate-900 mb-2">Ettemaksu tingimused</h3>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Pakkumine kehtib 7 kalendripäeva alates arve väljastamisest.</li>
+                <li>Tasumise tähtaeg: 7 kalendripäeva.</li>
+                <li>Kaup komplekteeritakse pärast ettemaksu laekumist.</li>
+                <li>Kauba eeldatav lähetusaeg teatatakse ostjale e-posti teel pärast ettemaksu laekumist.</li>
+              </ol>
             </div>
           </div>
         </div>

@@ -20,7 +20,7 @@ export const ProductModal = ({ product, onClose }: any) => {
   const norm = (s:any)=>{ const t=String(s||''); return t ? (t.startsWith('/')||t.startsWith('http') ? t : `/images/${t}`) : ''; };
   let imgs = allImgs.map(norm).filter(Boolean);
   if (!imgs.length) { const single = product.imageUrl || product.image; if (single) imgs = [norm(single)]; }
-  if (!imgs.length) imgs = ['/images/placeholder.webp'];
+  if (!imgs.length) imgs = ['/images/placeholder.png'];
   const fullSrc = imgs[activeImg] || imgs[0];
 
   const title = product.title || product.name || product.sku || '';
@@ -33,7 +33,7 @@ export const ProductModal = ({ product, onClose }: any) => {
   const hasSpecs = specs && Object.keys(specs).length > 0;
 
   const handleAddToCart = () => {
-    addToCart({ ...product, id: product.id || product.sku, title, price: priceNum, image: imgs[0] }, quantity);
+    addToCart({ ...product, id: product.id || product.sku, title, price: priceNum, imageUrl: imgs[0] }, quantity);
     onClose();
   };
 
@@ -59,7 +59,7 @@ export const ProductModal = ({ product, onClose }: any) => {
           {/* Image Gallery Section */}
           <div className="bg-[#f8f9fb] p-4 md:p-6 flex flex-col">
             {/* Main Image */}
-            <div className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-sm" onClick={onClose}>
+            <div className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-sm">
               <div className="absolute inset-0 flex items-center justify-center bg-slate-50">
                 {loadingImg === fullSrc && (
                   <Loader2 className="w-8 h-8 text-[#0e4da4] animate-spin" />

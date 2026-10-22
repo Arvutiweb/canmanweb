@@ -59,7 +59,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onOpenCheckout }) => {
                   {/* Thumbnail */}
                   <div className="relative w-16 h-16 bg-slate-50 border border-slate-200 rounded-lg overflow-hidden flex-shrink-0">
                     <Image
-                      src={product.imageUrl}
+                      src={product.imageUrl || '/images/placeholder.png'}
                       alt={product.title}
                       fill
                       className="object-cover"

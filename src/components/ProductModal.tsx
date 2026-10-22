@@ -66,7 +66,8 @@ export const ProductModal = ({ product, onClose }: any) => {
               <div className="space-y-2 text- mb-6">
                 <div className="flex items-center text-slate-700 space-x-2"><MapPin className="w-4 h-4 text-[#0e4da4] flex-shrink-0" /><span>Kätte saamine: <strong>Lille 14-4 Tallinn</strong></span></div>
                 <div className="flex items-center text-slate-700 space-x-2"><Truck className="w-4 h-4 text-emerald-600 flex-shrink-0" /><span>Omniva & DPD (4.90 €)</span></div>
-            {/* <div className="flex items-center text-slate-700 space-x-2"><ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" /><span>Garantii: <strong>{(specs as any).warranty || '12 kuud'}</strong></span></div> */}
+                <div className="flex items-center text-slate-700 space-x-2"><ShieldCheck className="w-4 h-4 text-amber-600 flex-shrink-0" /><span>Garantii: <strong>{(specs as any).warranty || 'erinevalt'}</strong></span></div>
+              </div>
             </div>
             <div className="pt-4 border-t border-slate-200 flex items-center space-x-3">
               <div className="flex items-center border border-slate-300 rounded-lg overflow-hidden"><button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-2 bg-slate-100"><Minus className="w-3.5 h-3.5" /></button><span className="px-4 py-2 text-xs font-bold">{quantity}</span><button onClick={() => setQuantity(quantity + 1)} className="px-3 py-2 bg-slate-100"><Plus className="w-3.5 h-3.5" /></button></div>

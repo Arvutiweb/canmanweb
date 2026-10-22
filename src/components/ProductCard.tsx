@@ -10,26 +10,26 @@ export default function ProductCard({ product, onSelectProduct }: any) {
   const stock = product.stock ?? product.qty ?? product.quantity ?? 1;
 
   return (
-    <div onClick={()=>onSelectProduct(product)} className="group cursor-pointer bg-white rounded-3xl border border-[#e6efff] overflow-hidden hover:shadow-lg transition-all">
-      {/* VALGE SUUR KAST - EI LÕIKA */}
-      <div className="aspect-square bg-[#f8f9fb] rounded-3xl m-2.5 p-2.5 flex items-center justify-center">
-        <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center p-3">
+    <div onClick={()=>onSelectProduct(product)} className="group cursor-pointer bg-white rounded-xl border border-[#e6efff] overflow-hidden hover:shadow-md transition-all">
+      {/* ROUNDED POOLE VÄIKSEM */}
+      <div className="aspect-square bg-[#f8f9fb] rounded-xl m-2 p-2 flex items-center justify-center">
+        <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-3">
           <img 
             src={main} 
             alt={title} 
-            className={`max-w-full max-h-full object-contain rounded-xl transition-all ${second ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`} 
+            className="max-w-full max-h-full object-contain rounded-md" 
           />
           {second && (
             <img 
               src={second} 
               alt={title} 
-              className="max-w-full max-h-full object-contain rounded-xl absolute opacity-0 group-hover:opacity-100" 
+              className="max-w-full max-h-full object-contain rounded-md absolute opacity-0 group-hover:opacity-100 transition-opacity" 
             />
           )}
         </div>
       </div>
 
-      <div className="px-3.5 pb-3.5 pt-1">
+      <div className="px-3 pb-3 pt-1">
         <div className="text-[#0e7aff] text-xs font-bold mb-1">{brand.toUpperCase()}</div>
         <h3 className="text-sm font-semibold leading-tight line-clamp-2 min-h- text-slate-800 mb-3">
           {title}

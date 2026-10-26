@@ -12,7 +12,7 @@
 Vercel should auto-detect Next.js. Verify:
 - **Framework Preset**: Next.js
 - **Build Command**: `npm run build` (auto-detected from vercel.json)
-- **Output Directory**: `out` (auto-detected from vercel.json)
+- **Output Directory**: leave the default; do not set it to `out`
 - **Install Command**: `npm ci`
 
 Click **"Deploy"**
@@ -42,9 +42,8 @@ Add these records for `canman.eu`:
 
 | File | Purpose |
 |------|---------|
-| `vercel.json` | Vercel deployment config (build, output dir) |
-| `next.config.mjs` | Removed GitHub Pages `basePath`/`assetPrefix` |
-| `.vercelignore` | Excludes scripts, data files, docs from deploy |
+| `vercel.json` | Sets install/build commands while leaving output handling to Vercel's Next.js integration |
+| `next.config.js` | Next.js configuration; no GitHub Pages path prefix or static export |
 
 ---
 
@@ -52,12 +51,12 @@ Add these records for `canman.eu`:
 - **GitHub repo stays the source of truth** - push to main → Vercel auto-deploys
 - **Preview deployments** - every PR gets a preview URL
 - **No GitHub Actions needed** - Vercel handles build/deploy
-- **Static export (`output: 'export'`)** - kept for compatibility; can be removed later for full Next.js features
+- **Next.js runtime** - dynamic category and product routes are handled by Next.js on Vercel; do not enable `output: 'export'`
 
 ---
 
 ## Troubleshooting
 - **Build fails**: Check Vercel build logs
-- **404 on refresh**: Ensure `trailingSlash: true` in next.config.mjs
+- **404 on refresh**: Confirm the project uses the Next.js framework preset and the output directory is not overridden
 - **Images not loading**: `images.unoptimized: true` is set
 - **Domain not working**: Check DNS with `dig canman.eu` or `nslookup canman.eu`

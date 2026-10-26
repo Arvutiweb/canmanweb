@@ -1,5 +1,6 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 // Uus header - CANMAN ARVUTID heleda kastiga
@@ -9,8 +10,14 @@ interface HeaderProps {
   onOpenServicesModal?: () => void;
 }
 
-export function Header({ searchQuery, setSearchQuery }: HeaderProps) {
+export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: HeaderProps) {
   const { cartCount, setIsCartOpen } = useCart();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollTo = (id: string) => {
+    setIsMenuOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
@@ -28,6 +35,26 @@ export function Header({ searchQuery, setSearchQuery }: HeaderProps) {
           </div>
         </div>
 
+        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1 text-sm font-medium">
+          <button onClick={() => scrollTo('pood')} className="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 transition">
+            Pood
+          </button>
+          {onOpenServicesModal && (
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                onOpenServicesModal();
+              }}
+              className="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 transition"
+            >
+              Teenused
+            </button>
+          )}
+          <a href="#kontakt" className="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 transition">
+            Kontakt
+          </a>
+        </nav>
+
         {/* Search */}
         <div className="flex-1 max-w-[500px] hidden md:block">
           <div className="relative">
@@ -42,11 +69,43 @@ export function Header({ searchQuery, setSearchQuery }: HeaderProps) {
         </div>
 
         {/* Cart */}
-        <button onClick={() => setIsCartOpen(true)} className="relative bg-slate-900 text-white rounded-full px-5 py-2.5 text-[13px] font-semibold hover:bg-black transition flex items-center gap-2">
+        <button onClick={() => setIsCartOpen(true)} className="relative bg-[#0e4da4] text-white rounded-full px-5 py-2.5 text-[13px] font-semibold hover:bg-[#0a3a7d] transition flex items-center gap-2">
           <span>🛒</span> Korv
-          {cartCount > 0 && <span className="bg-white text-slate-900 text-[11px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">{cartCount}</span>}
+          {cartCount > 0 && <span className="bg-white text-[#0e4da4] text-[11px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">{cartCount}</span>}
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition"
+          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
+
+      {isMenuOpen && (
+        <nav aria-label="Mobile navigation" className="lg:hidden border-t border-slate-200 px-4 py-2">
+          <button onClick={() => scrollTo('pood')} className="block w-full text-left px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-100">
+            Pood
+          </button>
+          {onOpenServicesModal && (
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                onOpenServicesModal();
+              }}
+              className="block w-full text-left px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-100"
+            >
+              Teenused
+            </button>
+          )}
+          <a href="#kontakt" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-100">
+            Kontakt
+          </a>
+        </nav>
+      )}
       
       {/* Mobile search */}
       <div className="md:hidden px-4 pb-3">

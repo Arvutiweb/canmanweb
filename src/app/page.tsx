@@ -102,7 +102,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900">
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} onOpenServicesModal={() => setIsServicesOpen(true)} />
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
+      <main id="pood" className="scroll-mt-24 flex-1 max-w-7xl w-full mx-auto px-4 py-6">
         <div className="mb-6">
           <div className="flex items-center text-xs text-slate-500 space-x-1.5 mb-3 overflow-x-auto py-1">
             <span onClick={handleResetFilters} className="hover:text-[#0e4da4] cursor-pointer font-medium">Avaleht (Home)</span>

@@ -60,6 +60,13 @@ export const ProductModal = ({ product, onClose }: any) => {
           <div className="bg-[#f8f9fb] p-4 md:p-6 flex flex-col">
             {/* Main Image */}
             <div className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-sm">
+              <button
+                type="button"
+                onClick={onClose}
+                className="absolute inset-0 z-0 w-full cursor-zoom-out"
+                aria-label="Sulge tootekaart"
+                title="Kliki pildil sulgemiseks"
+              >
               <div className="absolute inset-0 flex items-center justify-center bg-slate-50">
                 {loadingImg === fullSrc && (
                   <Loader2 className="w-8 h-8 text-[#0e4da4] animate-spin" />
@@ -74,6 +81,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                   priority={activeImg === 0}
                 />
               </div>
+              </button>
               
               {/* Magnifying glass icon - bottom right */}
               {imgs.length > 0 && (

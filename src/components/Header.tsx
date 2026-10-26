@@ -36,7 +36,7 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
         </div>
 
         <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1 text-sm font-medium">
-          <button onClick={() => scrollTo('pood')} className="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 transition">
+          <button onClick={() => scrollTo('pood')} className="px-3 py-2 rounded-lg bg-sky-100 text-[#0e4da4] hover:bg-sky-200 transition">
             Pood
           </button>
           {onOpenServicesModal && (
@@ -45,12 +45,15 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
                 setIsMenuOpen(false);
                 onOpenServicesModal();
               }}
-              className="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 transition"
+              className="px-3 py-2 rounded-lg bg-sky-100 text-[#0e4da4] hover:bg-sky-200 transition"
             >
               Teenused
             </button>
           )}
-          <a href="#kontakt" className="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100 transition">
+          <button onClick={() => scrollTo('tarkvara')} className="px-3 py-2 rounded-lg bg-sky-100 text-[#0e4da4] hover:bg-sky-200 transition">
+            Tarkvara arendused
+          </button>
+          <a href="#kontakt" onClick={() => setIsMenuOpen(false)} className="px-3 py-2 rounded-lg bg-sky-100 text-[#0e4da4] hover:bg-sky-200 transition">
             Kontakt
           </a>
         </nav>
@@ -87,7 +90,7 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
 
       {isMenuOpen && (
         <nav aria-label="Mobile navigation" className="lg:hidden border-t border-slate-200 px-4 py-2">
-          <button onClick={() => scrollTo('pood')} className="block w-full text-left px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-100">
+          <button onClick={() => scrollTo('pood')} className="block w-full text-left px-3 py-2.5 rounded-lg bg-sky-100 text-[#0e4da4] hover:bg-sky-200 mb-1">
             Pood
           </button>
           {onOpenServicesModal && (
@@ -96,12 +99,15 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
                 setIsMenuOpen(false);
                 onOpenServicesModal();
               }}
-              className="block w-full text-left px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-100"
+              className="block w-full text-left px-3 py-2.5 rounded-lg bg-sky-100 text-[#0e4da4] hover:bg-sky-200 mb-1"
             >
               Teenused
             </button>
           )}
-          <a href="#kontakt" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2.5 rounded-lg text-slate-700 hover:bg-slate-100">
+          <button onClick={() => scrollTo('tarkvara')} className="block w-full text-left px-3 py-2.5 rounded-lg bg-sky-100 text-[#0e4da4] hover:bg-sky-200 mb-1">
+            Tarkvara arendused
+          </button>
+          <a href="#kontakt" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2.5 rounded-lg bg-sky-100 text-[#0e4da4] hover:bg-sky-200">
             Kontakt
           </a>
         </nav>

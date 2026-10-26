@@ -13,7 +13,7 @@ import { ServicesModal } from '../components/ServicesModal';
 import { Footer } from '../components/Footer';
 import { allProducts as PRODUCTS } from '../data/productCatalog';
 import { Product, Condition, OrderDetails } from '../types';
-import { Wrench, Truck, MapPin, ChevronRight } from 'lucide-react';
+import { Wrench, Truck, MapPin, ChevronRight, Clock, Phone, Mail, ExternalLink } from 'lucide-react';
 
 const safeLower = (v: any) => String(v || '').toLowerCase();
 const safeStr = (v: any) => String(v || '');
@@ -129,6 +129,97 @@ export default function Home() {
         </div>
 
       </main>
+      <section id="tarkvara" className="scroll-mt-24 bg-white border-y border-slate-200 py-12">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">Tarkvara arendused</h2>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600">
+              Tarkvara arenduse päringute ja projektide arutamiseks võta meiega ühendust.
+            </p>
+          </div>
+          <a
+            href="mailto:canman.systems@gmail.com?subject=Tarkvara%20arendus"
+            className="inline-flex shrink-0 items-center justify-center rounded-lg bg-sky-100 px-5 py-3 text-sm font-semibold text-[#0e4da4] transition hover:bg-sky-200"
+          >
+            Küsi tarkvara arenduse kohta
+          </a>
+        </div>
+      </section>
+      <section id="kontakt" className="scroll-mt-24 border-b border-slate-200 bg-sky-50 py-14">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="rounded-full border border-sky-200 bg-white px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#0e4da4]">
+              Võta ühendust
+            </span>
+            <h2 className="mt-3 text-2xl font-extrabold text-slate-900 sm:text-3xl">
+              Tule kohale või saada meile päring
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Asume Lille tänaval Tallinnas. Tasuta parkimine otse maja ees.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+            <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <MapPin className="h-6 w-6 text-[#0e4da4]" />
+              <h3 className="font-bold text-slate-900">Arvutitöökoda Tallinnas</h3>
+              <div className="space-y-1.5 text-xs leading-relaxed text-slate-600">
+                <p className="font-semibold text-slate-800">Lille 14-4, Tallinn 10614, Harjumaa</p>
+                <p>Kristiine linnaosa</p>
+                <p className="pt-1 font-medium text-emerald-700">Tasuta kliendiparkimine maja ees</p>
+              </div>
+              <a
+                href="https://maps.google.com/?q=Lille+14,+Tallinn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 pt-2 text-xs font-bold text-[#0e4da4] hover:underline"
+              >
+                Ava Google Mapsis <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
+
+            <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <Clock className="h-6 w-6 text-[#0e4da4]" />
+              <h3 className="font-bold text-slate-900">Lahtiolekuajad ja telefon</h3>
+              <div className="space-y-2 text-xs text-slate-600">
+                <div className="flex justify-between border-b border-slate-100 pb-1.5">
+                  <span>Esmaspäev–reede</span>
+                  <span className="font-bold text-slate-800">10:00–18:00</span>
+                </div>
+                <div className="flex justify-between border-b border-slate-100 pb-1.5">
+                  <span>Laupäev–pühapäev</span>
+                  <span className="text-slate-500">Kokkuleppel</span>
+                </div>
+                <div className="pt-2">
+                  <span className="mb-1 block text-slate-500">Telefonitugi</span>
+                  <a href="tel:+3725652062" className="inline-flex items-center gap-2 text-lg font-black text-[#0e4da4] hover:underline">
+                    <Phone className="h-4 w-4" /> +372 5652 062
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <Mail className="h-6 w-6 text-[#0e4da4]" />
+              <h3 className="font-bold text-slate-900">E-post ja ettevõtte info</h3>
+              <div className="space-y-2 text-xs leading-relaxed text-slate-600">
+                <div>
+                  <span className="mb-0.5 block text-slate-500">Kirjuta meile</span>
+                  <a href="mailto:canman.systems@gmail.com" className="text-sm font-bold text-[#0e4da4] hover:underline">
+                    canman.systems@gmail.com
+                  </a>
+                </div>
+                <div className="space-y-0.5 border-t border-slate-100 pt-2">
+                  <p><strong>Canman Systems OÜ</strong></p>
+                  <p>Registrikood: 12147369</p>
+                  <p>KMKR number: EE101478366</p>
+                  <p>Pank: LHV EE517700771001586069</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <Footer onOpenServicesModal={() => setIsServicesOpen(true)} />
       <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
       <CartDrawer onOpenCheckout={() => setIsCheckoutOpen(true)} />

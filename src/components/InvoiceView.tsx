@@ -70,7 +70,7 @@ export const InvoiceView: React.FC<InvoiceViewProps> = ({ order, onClose }) => {
                 <p><strong>Reg.nr.</strong> 12147369 | <strong>K/M</strong> EE101478366</p>
                 <p>Lille 14-4 Tallinn 10614 Harjumaa</p>
                 <p>Tel. 372 5652062 | canman.systems@gmail.com</p>
-                <p className="font-bold text-[#0e4da4]">Pank: LHV EE517700771001586069</p>
+                <p className="font-bold text-[#0e4da4]">Pank: EE517700771001586069</p>
               </div>
             </div>
             <div className="text-right">

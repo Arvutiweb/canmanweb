@@ -3,12 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProductIdParams } from '@/lib/staticProductParams';
-import ProductImageGallery from './ProductImageGallery';
-
-export function generateStaticParams() {
-  return getProductIdParams();
-}
 
 function getAllProducts(){
   const base = path.join(process.cwd(),'src/data/products');
@@ -36,14 +30,25 @@ export default function ToodePage({params}:{params:{id:string}}){
   const norm=(s:string)=> s ? (s.startsWith('/')||s.startsWith('http') ? s : `/images/${s}`) : '/images/placeholder.png';
   const imgs:string[]=(prod.images||prod.Images||prod.rawImages||[]).map(norm).filter(Boolean);
   if(!imgs.length && prod.image) imgs.push(norm(prod.image));
-  if(!imgs.length) imgs.push('/images/placeholder.png');
   const price=prod.finalPrice||prod.salePrice||prod.price;
 
   return (
     <div className="max-w-6xl mx-auto p-4 md:p-8">
       <Link href="/" className="text-sm text-slate-500 hover:text-black mb-6 inline-block">← Tagasi poodi</Link>
       <div className="grid md:grid-cols-2 gap-8 bg-white rounded- border p-6">
-        <ProductImageGallery images={imgs} title={prod.title || prod.name} />
+        {/* GALERII - kõik pildid */}
+        <div>
+          <div className="aspect-square bg-[#f8f9fb] rounded- overflow-hidden">
+            <img id="mainImg" src={imgs[0]} alt={prod.title} className="w-full h-full object-contain p-6 rounded-" />
+          </div>
+          <div className="flex gap-3 mt-4 overflow-x-auto">
+            {imgs.map((src,i)=>(
+              <button key={i} onClick={()=>{ (document.getElementById('mainImg') as HTMLImageElement).src=src }} className="w-20 h-20 shrink-0 bg-[#f8f9fb] rounded-2xl overflow-hidden border hover:border-black transition">
+                <img src={src} className="w-full h-full object-contain p-2" />
+              </button>
+            ))}
+          </div>
+        </div>
         <div>
           <h1 className="text-3xl font-bold">{prod.title||prod.name}</h1>
           <p className="text-2xl font-bold mt-4">{price} €</p>

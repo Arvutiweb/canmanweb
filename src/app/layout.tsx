@@ -1,27 +1,25 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { CartProvider } from '../context/CartContext';
-import { LanguageProvider } from '../context/LanguageContext';
 
 export const metadata: Metadata = {
-  title: 'Canman - IT-Teenused, Arvutiremont & IT-Haldus Tallinnas | canman.eu',
-  description: 'Canman Systems OÜ (canman.eu): Professionaalsed IT-teenused, arvutite ja sülearvutite kiirremont ning IT-haldus äriklientidele Tallinnas ja Harjumaal. Kontrollitud garantiiga äriklassi arvutid ja varuosad. Tel +372 5652 062, Lille 14-4, Tallinn.',
+  title: 'Canman - Arvutid, Kasutatud Arvutid & IT Remont Tallinnas',
+  description: 'Canman e-pood (canman.github.io): Uued ja kasutatud arvutid, sülearvutid, arvutiosad, monitorid ja printerid Tallinnas. IT abi, remont ja tehniku väljakutsed. Tel 5652062, Lille 14 Tallinn.',
   keywords: [
-    'IT-teenused',
-    'arvutiremont Tallinnas',
-    'IT abi',
-    'IT haldus',
-    'sülearvutite remont',
     'arvutid',
     'kasutatud arvutid',
+    'arvutiremont Tallinnas',
+    'sülearvutid',
     'DELL',
     'Lenovo',
     'HP',
     'Apple',
     'monitorid',
+    'arvutiosad',
+    'IT abi',
     'Lille 14 Tallinn',
   ],
-  authors: [{ name: 'Canman Systems OÜ' }],
+  authors: [{ name: 'Canman OÜ' }],
 };
 
 export default function RootLayout({
@@ -30,13 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="et" className="scroll-smooth">
-      <body className="bg-[#ebf5f6] text-slate-900 min-h-screen flex flex-col font-sans">
-        <LanguageProvider>
-          <CartProvider>
-            {children}
-          </CartProvider>
-        </LanguageProvider>
+    <html lang="et">
+      <body className="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

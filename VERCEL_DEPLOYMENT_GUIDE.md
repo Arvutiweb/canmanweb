@@ -44,7 +44,7 @@ Add these records for `canman.eu`:
 |------|---------|
 | `vercel.json` | Sets the install/build commands and static export output directory |
 | `next.config.mjs` | Enables static export and removes GitHub Pages `basePath`/`assetPrefix` |
-| `.vercelignore` | Excludes root-level offline import data, scripts, and documentation from the deployment upload while keeping `src/data` available to the build |
+| `.vercelignore` | Excludes offline import data, scripts, and documentation from the deployment upload |
 
 ---
 

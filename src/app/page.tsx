@@ -111,9 +111,9 @@ export default function Home() {
             {selectedL3 && <><ChevronRight className="w-3 h-3 text-slate-400" /><span className="font-bold text-[#0e4da4]">{selectedL3}</span></>}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-gradient-to-r from-[#0e4da4] to-[#0c3a7a] text-white rounded-xl p-4 shadow-sm">
-            <div className="flex items-center space-x-3"><div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><MapPin className="w-5 h-5 text-yellow-300" /></div><div><h4 className="font-bold text-xs">Lille 14-4 Tallinn 10614 Harjumaa</h4><p className="text- text-blue-100">Kaubale saab ise tasuta jÃ¤rele tulla</p></div></div>
-            <div className="flex items-center space-x-3"><div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><Truck className="w-5 h-5 text-yellow-300" /></div><div><h4 className="font-bold text-xs">Kiire Tarne 1-2 TÃ¶Ã¶pÃ¤eva</h4><p className="text- text-blue-100">Omniva & DPD pakiautomaadid (â‚¬4.90)</p></div></div>
-            <div className="flex items-center space-x-3"><div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><Wrench className="w-5 h-5 text-yellow-300" /></div><div><h4 className="font-bold text-xs">Arvutiremont & IT-Abi</h4><p className="text- text-blue-100">Tel. +372 5652062 â€¢ Canman tÃ¶Ã¶koda</p></div></div>
+            <div className="flex items-center space-x-3"><div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><MapPin className="w-5 h-5 text-yellow-300" /></div><div><h4 className="font-bold text-xs">Lille 14-4 Tallinn 10614 Harjumaa</h4><p className="text- text-blue-100">Kaubale saab ise tasuta järele tulla</p></div></div>
+            <div className="flex items-center space-x-3"><div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><Truck className="w-5 h-5 text-yellow-300" /></div><div><h4 className="font-bold text-xs">Kiire Tarne 1-2 Tööpäeva</h4><p className="text- text-blue-100">Omniva & DPD pakiautomaadid (€4.90)</p></div></div>
+            <div className="flex items-center space-x-3"><div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"><Wrench className="w-5 h-5 text-yellow-300" /></div><div><h4 className="font-bold text-xs">Arvutiremont & IT-Abi</h4><p className="text- text-blue-100">Tel. +372 5652062 • Canman töökoda</p></div></div>
           </div>
         </div>
 

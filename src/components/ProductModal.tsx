@@ -11,7 +11,6 @@ export const ProductModal = ({ product, onClose }: any) => {
   const [prevImg, setPrevImg] = useState<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isFullscreenAnimating, setIsFullscreenAnimating] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
   const [loadingImg, setLoadingImg] = useState<string | null>(null);
   
   if (!product) return null;
@@ -39,6 +38,11 @@ export const ProductModal = ({ product, onClose }: any) => {
 
   const handleImageLoad = (src: string) => {
     setLoadingImg(prev => prev === src ? null : prev);
+  };
+
+  const closeFullscreen = () => {
+    setIsFullscreenAnimating(false);
+    window.setTimeout(() => setIsFullscreen(false), 300);
   };
 
   return (
@@ -242,12 +246,9 @@ export const ProductModal = ({ product, onClose }: any) => {
         {/* Fullscreen Image Modal */}
         {(isFullscreen || isFullscreenAnimating) && (
           <div
-            className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300"
+            className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300 ease-out"
             style={{ opacity: isFullscreenAnimating ? 1 : 0 }}
-            onClick={() => {
-              setIsFullscreenAnimating(false);
-              setTimeout(() => setIsFullscreen(false), 300);
-            }}
+            onClick={closeFullscreen}
             role="dialog"
             aria-modal="true"
             aria-label="Pilt täisekraanis"
@@ -255,8 +256,7 @@ export const ProductModal = ({ product, onClose }: any) => {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setIsFullscreenAnimating(false);
-                setTimeout(() => setIsFullscreen(false), 300);
+                closeFullscreen();
               }}
               className="absolute top-4 right-4 z-[70] bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
               aria-label="Sulge täisekraan"
@@ -264,29 +264,12 @@ export const ProductModal = ({ product, onClose }: any) => {
               <X className="w-6 h-6" />
             </button>
 
-            <div className="relative max-w-[90vw] max-h-[90vh] transform transition-all duration-300"
+            <div className="relative max-w-[90vw] max-h-[90vh] transform transition-[opacity,transform] duration-300 ease-out"
               style={{
                 opacity: isFullscreenAnimating ? 1 : 0,
-                transform: isFullscreenAnimating
-                  ? (isClosing ? 'scale(1.05)' : 'scale(1)')
-                  : 'scale(0.95)'
+                transform: isFullscreenAnimating ? 'scale(1)' : 'scale(0.97)'
               }}
-              onClick={(e) => {
-                e.stopPropagation();
-                // Zoom effect: expand then close
-                if (!isClosing) {
-                  setIsClosing(true);
-                  // First expand (zoom in)
-                  setTimeout(() => {
-                    // Then fade out and close
-                    setIsFullscreenAnimating(false);
-                    setTimeout(() => {
-                      setIsFullscreen(false);
-                      setIsClosing(false);
-                    }, 300);
-                  }, 150);
-                }
-              }}>
+              onClick={closeFullscreen}>
               <Image
                 src={fullSrc}
                 alt={title}

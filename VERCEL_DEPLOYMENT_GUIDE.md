@@ -11,8 +11,8 @@
 ### 2. Configure Project Settings
 Vercel should auto-detect Next.js. Verify:
 - **Framework Preset**: Next.js
-- **Build Command**: `npm run build`
-- **Output Directory**: leave the default for the Next.js framework preset
+- **Build Command**: `npm run build` (auto-detected from vercel.json)
+- **Output Directory**: `out` (auto-detected from vercel.json)
 - **Install Command**: `npm ci`
 
 Click **"Deploy"**
@@ -42,7 +42,7 @@ Add these records for `canman.eu`:
 
 | File | Purpose |
 |------|---------|
-| `vercel.json` | Sets install/build commands; leaves Next.js output handling to Vercel |
+| `vercel.json` | Sets the install/build commands and static export output directory |
 | `next.config.mjs` | Enables static export and removes GitHub Pages `basePath`/`assetPrefix` |
 | `.vercelignore` | Excludes root-level offline import data, scripts, and documentation from the deployment upload while keeping `src/data` available to the build |
 
@@ -52,7 +52,7 @@ Add these records for `canman.eu`:
 - **GitHub repo stays the source of truth** - push to main → Vercel auto-deploys
 - **Preview deployments** - every PR gets a preview URL
 - **No GitHub Actions needed** - Vercel handles build/deploy
-- **Static export (`output: 'export'`)** - pages are generated as static HTML, while Vercel's Next.js framework integration handles the build output
+- **Static export (`output: 'export'`)** - kept for compatibility; can be removed later for full Next.js features
 
 ---
 

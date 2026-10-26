@@ -1,3 +1,9 @@
+import { getSubcategoryParams } from '@/lib/staticProductParams';
+
+export function generateStaticParams() {
+  return getSubcategoryParams();
+}
+
 export default function Page({ params }: { params: { top: string, sub: string } }) {
   return (
     <div className="max-w-7xl mx-auto p-6">

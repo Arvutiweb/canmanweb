@@ -11,7 +11,7 @@
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #f8fafc;
+  background-color: #ebf5f6;
   color: #0f172a;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -24,6 +24,29 @@ body {
 
 .transition-category {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== CANMAN LOGO COLOR SHIFT ANIMATION ===== */
+/* Shaded purple -> lighter tone -> mustard hue -> return (~3-4 seconds per phase, 10s total loop) */
+@keyframes canmanLogoShift {
+  0%, 100% {
+    color: #9333ea; /* Shaded purple */
+    text-shadow: 0 0 16px rgba(147, 51, 234, 0.45);
+  }
+  35% {
+    color: #d8b4fe; /* Lighter lilac / lavender tone */
+    text-shadow: 0 0 20px rgba(216, 180, 254, 0.6);
+  }
+  68% {
+    color: #eab308; /* Warm mustard hue */
+    text-shadow: 0 0 18px rgba(234, 179, 8, 0.5);
+  }
+}
+
+.canman-logo-shift {
+  display: inline-block;
+  animation: canmanLogoShift 10s ease-in-out infinite;
+  will-change: color, text-shadow;
 }
 
 /* ===== PRINT STYLES FOR INVOICE ===== */

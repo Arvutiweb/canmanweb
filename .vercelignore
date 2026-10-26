@@ -1,0 +1,6 @@
+data/
+scripts/
+xls_import.py
+pildi-raport*.json
+README.md
+VERCEL_DEPLOYMENT_GUIDE.md

@@ -42,9 +42,9 @@ Add these records for `canman.eu`:
 
 | File | Purpose |
 |------|---------|
-| `vercel.json` | Vercel deployment config (build, output dir) |
-| `next.config.mjs` | Removed GitHub Pages `basePath`/`assetPrefix` |
-| `.vercelignore` | Excludes scripts, data files, docs from deploy |
+| `vercel.json` | Sets the install/build commands and static export output directory |
+| `next.config.mjs` | Enables static export and removes GitHub Pages `basePath`/`assetPrefix` |
+| `.vercelignore` | Excludes offline import data, scripts, and documentation from the deployment upload |
 
 ---
 

@@ -5,7 +5,7 @@
 ### 1. Connect GitHub to Vercel
 1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
 2. Click **"Add New..."** → **"Project"**
-3. Import `raivoto/canman.github.io` repository
+3. Import `Arvutiweb/canmanweb` repository
 4. Click **"Import"**
 
 ### 2. Configure Project Settings
@@ -59,7 +59,7 @@ Add these records for `canman.eu`:
 ---
 
 ## Notes
-- **GitHub repo stays the source of truth** - push to main → Vercel auto-deploys
+- **Dark-layout GitHub repo stays the source of truth** - push to `main` on `Arvutiweb/canmanweb` → its connected Vercel project auto-deploys
 - **Preview deployments** - every PR gets a preview URL
 - **No GitHub Actions needed** - Vercel handles build/deploy
 - **Next.js runtime** - required for dynamic routes and the service-request email API

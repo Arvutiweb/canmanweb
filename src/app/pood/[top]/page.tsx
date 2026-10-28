@@ -1,4 +1,9 @@
 import Link from 'next/link';
+import { getTopParams } from '@/lib/staticProductParams';
+
+export function generateStaticParams() {
+  return getTopParams();
+}
 
 type Props = {
   params: { top: string };

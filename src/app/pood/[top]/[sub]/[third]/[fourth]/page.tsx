@@ -1,6 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import ClientProducts from './ClientProducts';
+import { getFourthCategoryParams } from '@/lib/staticProductParams';
+
+export function generateStaticParams() {
+  return getFourthCategoryParams();
+}
 
 function slugify(s:string){ return String(s||'').toLowerCase().trim().replace(/[^a-z0-9äöõü]+/g,'-').replace(/^-|-$/g,''); }
 

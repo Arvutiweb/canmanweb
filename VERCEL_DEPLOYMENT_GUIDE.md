@@ -11,11 +11,22 @@
 ### 2. Configure Project Settings
 Vercel should auto-detect Next.js. Verify:
 - **Framework Preset**: Next.js
-- **Build Command**: `npm run build` (auto-detected from vercel.json)
+- **Build Command**: `npm run build`
 - **Output Directory**: leave the default; do not set it to `out`
 - **Install Command**: `npm ci`
 
 Click **"Deploy"**
+
+### Service request email (Resend)
+The "Need Immediate IT Help?" form sends requests through Resend to `canman.systems@gmail.com`.
+In Vercel → **Settings** → **Environment Variables**, add:
+
+| Name | Value |
+|------|-------|
+| `RESEND_API_KEY` | Your Resend API key |
+| `RESEND_FROM_EMAIL` | A sender address on a domain verified with Resend, e.g. `Canman Website <website@canman.eu>` |
+
+Redeploy after adding these variables. Until both are configured, the form will show an error instead of claiming the request was sent.
 
 ### 3. Add Custom Domain: canman.eu
 1. In Vercel project dashboard → **Settings** → **Domains**
@@ -42,8 +53,8 @@ Add these records for `canman.eu`:
 
 | File | Purpose |
 |------|---------|
-| `vercel.json` | Sets install/build commands while leaving output handling to Vercel's Next.js integration |
-| `next.config.js` | Next.js configuration; no GitHub Pages path prefix or static export |
+| `vercel.json` | Sets install/build commands and leaves output handling to Vercel |
+| `next.config.mjs` | Uses the Next.js runtime without GitHub Pages prefixes or static export |
 
 ---
 
@@ -51,12 +62,12 @@ Add these records for `canman.eu`:
 - **GitHub repo stays the source of truth** - push to main → Vercel auto-deploys
 - **Preview deployments** - every PR gets a preview URL
 - **No GitHub Actions needed** - Vercel handles build/deploy
-- **Next.js runtime** - dynamic category and product routes are handled by Next.js on Vercel; do not enable `output: 'export'`
+- **Next.js runtime** - required for dynamic routes and the service-request email API
 
 ---
 
 ## Troubleshooting
 - **Build fails**: Check Vercel build logs
-- **404 on refresh**: Confirm the project uses the Next.js framework preset and the output directory is not overridden
+- **404 on refresh**: Confirm the project uses the Next.js framework preset and default output directory
 - **Images not loading**: `images.unoptimized: true` is set
 - **Domain not working**: Check DNS with `dig canman.eu` or `nslookup canman.eu`

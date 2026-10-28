@@ -1,5 +1,7 @@
+import { getThirdCategoryParams } from '@/lib/staticProductParams';
+
 export function generateStaticParams() {
-  return []
+  return getThirdCategoryParams();
 }
 import fs from 'fs'; 
 import path from 'path'; 

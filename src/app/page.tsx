@@ -37,7 +37,8 @@ import {
   Check,
   Zap,
   ShoppingBag,
-  ExternalLink
+  ExternalLink,
+  Search,
 } from 'lucide-react';
 
 const safeLower = (v: any) => String(v || '').toLowerCase();
@@ -52,7 +53,7 @@ export default function Home() {
   const [conditionFilter, setConditionFilter] = useState<'all' | Condition>('all');
   const [selectedBrand, setSelectedBrand] = useState('');
   const [minPrice, setMinPrice] = useState<number>(0);
-  const [maxPrice, setMaxPrice] = useState<number>(1000);
+  const [maxPrice, setMaxPrice] = useState<number>(0);
   const [sortBy, setSortBy] = useState('popular');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -64,6 +65,12 @@ export default function Home() {
   const [serviceName, setServiceName] = useState('');
   const [servicePhone, setServicePhone] = useState('');
   const [serviceIssue, setServiceIssue] = useState('');
+  const [serviceFormError, setServiceFormError] = useState('');
+  const [isSubmittingServiceRequest, setIsSubmittingServiceRequest] = useState(false);
+  const [processorFilter, setProcessorFilter] = useState('');
+  const [memoryFilter, setMemoryFilter] = useState('');
+  const [diskFilter, setDiskFilter] = useState('');
+  const [operatingSystemFilter, setOperatingSystemFilter] = useState('');
 
   const handleSelectCategory = (l1: string | null, l2: string | null, l3: string | null) => {
     setSelectedL1(l1);
@@ -79,8 +86,12 @@ export default function Home() {
     setConditionFilter('all');
     setSelectedBrand('');
     setMinPrice(0);
-    setMaxPrice(1000);
+    setMaxPrice(0);
     setSortBy('popular');
+    setProcessorFilter('');
+    setMemoryFilter('');
+    setDiskFilter('');
+    setOperatingSystemFilter('');
   };
 
   const availableBrands = useMemo(() => {
@@ -120,7 +131,11 @@ export default function Home() {
       if (conditionFilter !== 'all' && p.condition !== conditionFilter) return false;
       if (selectedBrand && String(p.brand) !== selectedBrand) return false;
       if (minPrice > 0 && Number(p.price) < minPrice) return false;
-      if (maxPrice < 1000 && Number(p.price) > maxPrice) return false;
+      if (maxPrice > 0 && Number(p.price) > maxPrice) return false;
+      if (processorFilter && safeLower(p.specs?.cpu || p.cpu) !== safeLower(processorFilter)) return false;
+      if (memoryFilter && safeLower(p.specs?.ram || p.ram) !== safeLower(memoryFilter)) return false;
+      if (diskFilter && safeLower(p.specs?.storage || p.storage) !== safeLower(diskFilter)) return false;
+      if (operatingSystemFilter && safeLower(p.specs?.os || p.os) !== safeLower(operatingSystemFilter)) return false;
       return true;
     }).sort((a: any, b: any) => {
       if (sortBy === 'price-asc') return Number(a.price) - Number(b.price);
@@ -129,7 +144,7 @@ export default function Home() {
       if (sortBy === 'popular') return (b.isPopular ? 1 : 0) - (a.isPopular ? 1 : 0);
       return 0;
     });
-  }, [searchQuery, selectedL1, selectedL2, selectedL3, conditionFilter, selectedBrand, minPrice, maxPrice, sortBy]);
+  }, [searchQuery, selectedL1, selectedL2, selectedL3, conditionFilter, selectedBrand, minPrice, maxPrice, sortBy, processorFilter, memoryFilter, diskFilter, operatingSystemFilter]);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -138,20 +153,39 @@ export default function Home() {
     }
   };
 
-  const handleServiceSubmit = (e: React.FormEvent) => {
+  const handleServiceSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!servicePhone.trim()) return;
-    setServiceFormSubmitted(true);
+    setServiceFormError('');
+    setIsSubmittingServiceRequest(true);
+
+    try {
+      const response = await fetch('/api/service-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: serviceName.trim(),
+          phone: servicePhone.trim(),
+          issue: serviceIssue.trim(),
+        }),
+      });
+
+      if (!response.ok) {
+        setServiceFormError(t('help_send_error'));
+        return;
+      }
+
+      setServiceFormSubmitted(true);
+    } catch {
+      setServiceFormError(t('help_send_error'));
+    } finally {
+      setIsSubmittingServiceRequest(false);
+    }
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#ebf5f6] text-slate-900 selection:bg-cyan-500 selection:text-white">
       {/* Sticky Header with IT/AI Subtle Background & Full Navigation */}
-      <Header
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        onOpenServicesModal={() => setIsServicesOpen(true)}
-      />
+      <Header />
 
       {/* ============================================================== */}
       {/* HERO SECTION: PRIMARY FOCUS ON IT SERVICES & TECH EXPERTISE */}
@@ -260,9 +294,9 @@ export default function Home() {
                 {serviceFormSubmitted ? (
                   <div className="py-6 text-center space-y-3">
                     <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
-                    <h4 className="font-bold text-white text-base">Päring edukalt saadetud!</h4>
+                    <h4 className="font-bold text-white text-base">{t('help_success_title')}</h4>
                     <p className="text-xs text-slate-300">
-                      Täname! Meie tehnik võtab teiega ühendust 30 minuti jooksul. Kiireloomulise mure korral helistage otse.
+                      {t('help_success_body')}
                     </p>
                     <a
                       href="tel:+3725652062"
@@ -274,6 +308,11 @@ export default function Home() {
                   </div>
                 ) : (
                   <form onSubmit={handleServiceSubmit} className="space-y-3">
+                    {serviceFormError && (
+                      <p role="alert" className="rounded-lg border border-red-500/40 bg-red-500/10 p-3 text-xs text-red-200">
+                        {serviceFormError}
+                      </p>
+                    )}
                     <div>
                       <label className="block text-[11px] font-medium text-slate-300 mb-1">
                         {t('help_name_label')}
@@ -317,10 +356,11 @@ export default function Home() {
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition shadow-md flex items-center justify-center gap-2 mt-2"
+                      disabled={isSubmittingServiceRequest}
+                      className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 disabled:cursor-wait disabled:opacity-70 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition shadow-md flex items-center justify-center gap-2 mt-2"
                     >
                       <Zap className="w-3.5 h-3.5" />
-                      <span>{t('help_submit')}</span>
+                      <span>{isSubmittingServiceRequest ? t('help_sending') : t('help_submit')}</span>
                     </button>
 
                     <div className="flex items-center justify-between text-[11px] text-slate-400 pt-2">
@@ -776,117 +816,59 @@ export default function Home() {
       {/* ============================================================== */}
       {/* 4. E-POOD SECTION (#pood): HARDWARE, REFURBISHED PCS & PARTS */}
       {/* ============================================================== */}
-      <section id="pood" className="py-12 bg-[#edf6f7] border-b border-teal-900/10">
-        <main className="max-w-7xl w-full mx-auto px-4 sm:px-6">
-          <div className="mb-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-              <div>
-                <span className="text-xs font-bold text-[#0e4da4] tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                  CANMAN E-POOD
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
-                  Kontrollitud arvutid, varuosad ja tehnika
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                  Kõik kasutatud seadmed on läbinud tehnilise kontrolli ja tulevad garantiiga. Kaubale saab ise järele tulla Lille 14 töökoda või tellida pakiautomaati.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-500">
-                  Kokku <strong>{filteredProducts.length}</strong> toodet
-                </span>
-              </div>
-            </div>
-
-            {/* Breadcrumb Navigation */}
-            <div className="flex items-center text-xs text-slate-500 space-x-1.5 py-1 overflow-x-auto">
-              <span onClick={handleResetFilters} className="hover:text-[#0e4da4] cursor-pointer font-medium">
-                Kõik tooted
+      <section id="pood" className="min-h-[75vh] border-b border-teal-900/10 bg-[#edf6f7] py-10 sm:py-12">
+        <main className="mx-auto w-full max-w-[1600px] px-4 sm:px-6">
+          <div className="mb-6 flex flex-col gap-5 rounded-2xl bg-gradient-to-r from-[#0e4da4] to-[#0c3a7a] p-5 text-white shadow-lg sm:flex-row sm:items-center sm:justify-between sm:p-7">
+            <h2 className="flex shrink-0 flex-col leading-none">
+              <span className="text-xs font-semibold tracking-[0.24em] text-sky-200 sm:text-sm">
+                {t('shop_title')}
               </span>
-              {selectedL1 && (
-                <>
-                  <ChevronRight className="w-3 h-3 text-slate-400" />
-                  <span onClick={() => handleSelectCategory(selectedL1, null, null)} className="hover:text-[#0e4da4] cursor-pointer font-medium text-slate-700">
-                    {selectedL1}
-                  </span>
-                </>
-              )}
-              {selectedL2 && (
-                <>
-                  <ChevronRight className="w-3 h-3 text-slate-400" />
-                  <span onClick={() => handleSelectCategory(selectedL1, selectedL2, null)} className="hover:text-[#0e4da4] cursor-pointer font-medium text-slate-700">
-                    {selectedL2}
-                  </span>
-                </>
-              )}
-              {selectedL3 && (
-                <>
-                  <ChevronRight className="w-3 h-3 text-slate-400" />
-                  <span className="font-bold text-[#0e4da4]">{selectedL3}</span>
-                </>
-              )}
-            </div>
-
-            {/* Value Proposition Bar for E-Shop */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-gradient-to-r from-[#0e4da4] to-[#0c3a7a] text-white rounded-xl p-4 shadow-sm mt-3">
-              <div className="flex items-center space-x-3">
-                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-yellow-300" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-xs">Lille 14-4, Tallinn 10614</h4>
-                  <p className="text-[11px] text-blue-100">Kaubale saab ise tasuta järele tulla</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <Truck className="w-5 h-5 text-yellow-300" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-xs">Kiire Tarne 1-2 Tööpäeva</h4>
-                  <p className="text-[11px] text-blue-100">Omniva & DPD pakiautomaadid (€4.90)</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3">
-                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <ShieldCheck className="w-5 h-5 text-yellow-300" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-xs">Ametlik Garantii</h4>
-                  <p className="text-[11px] text-blue-100">12–24 kuud garantiid igale tootele</p>
-                </div>
-              </div>
-            </div>
+              <span className="mt-1 text-3xl font-black tracking-tight sm:text-4xl">SHOP</span>
+            </h2>
+            <label className="relative block w-full sm:max-w-2xl sm:flex-1">
+              <span className="sr-only">{t('search_placeholder')}</span>
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder={t('shop_search')}
+                className="w-full rounded-xl border border-white/30 bg-white py-3.5 pl-12 pr-4 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/30 sm:py-4"
+              />
+            </label>
           </div>
 
           {/* Catalog Layout: Left Category Sidebar + Right Product Grid */}
           <div className="flex flex-col lg:flex-row gap-6 items-start">
-            <div className="w-full lg:w-80 lg:shrink-0 lg:sticky lg:top-24">
+            <div className="w-full lg:w-72 lg:shrink-0">
               <CategorySidebar
                 selectedL1={selectedL1}
                 selectedL2={selectedL2}
-                selectedL3={selectedL3}
                 onSelectCategory={handleSelectCategory}
                 products={PRODUCTS as any}
-              />
-            </div>
-            <div className="flex-1 min-w-0 w-full overflow-hidden">
-              <FiltersBar
-                conditionFilter={conditionFilter}
-                setConditionFilter={setConditionFilter}
-                sortBy={sortBy}
-                setSortBy={setSortBy}
                 minPrice={minPrice}
                 maxPrice={maxPrice}
                 setMinPrice={setMinPrice}
                 setMaxPrice={setMaxPrice}
+                processorFilter={processorFilter}
+                setProcessorFilter={setProcessorFilter}
+                memoryFilter={memoryFilter}
+                setMemoryFilter={setMemoryFilter}
+                diskFilter={diskFilter}
+                setDiskFilter={setDiskFilter}
+                operatingSystemFilter={operatingSystemFilter}
+                setOperatingSystemFilter={setOperatingSystemFilter}
+                conditionFilter={conditionFilter}
+                setConditionFilter={setConditionFilter}
+              />
+            </div>
+            <div className="flex-1 min-w-0 w-full overflow-hidden">
+              <FiltersBar
+                sortBy={sortBy}
+                setSortBy={setSortBy}
                 selectedBrand={selectedBrand}
                 setSelectedBrand={setSelectedBrand}
                 availableBrands={availableBrands}
-                totalResults={filteredProducts.length}
                 onReset={handleResetFilters}
               />
               <ProductGrid

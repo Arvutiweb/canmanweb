@@ -9,7 +9,6 @@ import {
   Briefcase,
   Info,
   Phone,
-  Search,
   Menu,
   X,
   Sparkles,
@@ -18,13 +17,7 @@ import {
   Headphones,
 } from 'lucide-react';
 
-interface HeaderProps {
-  searchQuery: string;
-  setSearchQuery: (value: string) => void;
-  onOpenServicesModal?: () => void;
-}
-
-export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: HeaderProps) {
+export function Header() {
   const { cartCount, setIsCartOpen } = useCart();
   const { lang, setLang, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -99,7 +92,7 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
                 <span className="font-extrabold text-lg sm:text-xl tracking-wider canman-logo-shift">
                   CANMAN
                 </span>
-                <span className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center gap-1">
+                <span className="hidden text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 sm:flex items-center gap-1">
                   <Sparkles className="w-2.5 h-2.5 text-cyan-300" />
                   IT & AI
                 </span>
@@ -167,78 +160,8 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
             </button>
           </nav>
 
-          {/* Right Header Actions: Search, Phone CTA, Language Switcher & Cart */}
+          {/* Right Header Actions */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            {/* Quick Search on Desktop */}
-            <div className="relative hidden xl:block w-40 2xl:w-48">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t('search_placeholder')}
-                className="w-full bg-slate-900/90 border border-slate-700/80 rounded-full pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-400 outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition"
-              />
-              <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2" />
-            </div>
-
-            {/* Direct Phone / IT Support CTA - Fits in one single line */}
-            <a
-              href="tel:+3725652062"
-              className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-3 py-1.5 rounded-full text-xs transition shadow-md shadow-cyan-500/20 active:scale-95 whitespace-nowrap shrink-0"
-              title="IT kiirabi ja nõustamine"
-            >
-              <Headphones className="w-3.5 h-3.5 text-slate-950 shrink-0" />
-              <span className="whitespace-nowrap font-bold">+372 5652 062</span>
-            </a>
-
-            {/* Language Selector with Flags (ET / EN) right before the Cart */}
-            <div className="flex items-center bg-slate-900/90 border border-slate-700/80 rounded-full p-0.5 text-xs shrink-0 shadow-inner">
-              <button
-                type="button"
-                onClick={() => setLang('et')}
-                className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold transition-all ${
-                  lang === 'et'
-                    ? 'bg-cyan-500 text-slate-950 shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-                title="Eesti keel"
-              >
-                <span className="text-[13px] leading-none">🇪🇪</span>
-                <span className="text-[11px] font-extrabold">ET</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setLang('en')}
-                className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold transition-all ${
-                  lang === 'en'
-                    ? 'bg-cyan-500 text-slate-950 shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-                title="English"
-              >
-                <span className="text-[13px] leading-none">🇬🇧</span>
-                <span className="text-[11px] font-extrabold">EN</span>
-              </button>
-            </div>
-
-            {/* IT Services Button */}
-            <button
-              onClick={() => onOpenServicesModal?.()}
-              className="relative bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 hover:text-cyan-100 rounded-full px-3 sm:px-3.5 py-1.5 text-xs font-semibold transition border border-cyan-500/30 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0"
-              title="IT Services"
-            >
-              <Wrench className="w-4 h-4 shrink-0" />
-              <span className="hidden sm:inline">IT Services</span>
-            </button>
-
-            <button
-              onClick={() => scrollTo('arikliendile')}
-              className="hidden lg:flex items-center gap-1.5 whitespace-nowrap rounded-full border border-sky-400/40 bg-sky-400/10 px-3 py-1.5 text-xs font-semibold text-sky-200 transition hover:bg-sky-400/20 hover:text-white"
-            >
-              <Sparkles className="h-4 w-4 shrink-0" />
-              <span>Software solutions</span>
-            </button>
-
             {/* Shopping Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
@@ -254,6 +177,59 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
               )}
             </button>
 
+            {/* Direct Phone / IT Support CTA */}
+            <a
+              href="tel:+3725652062"
+              className="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-3 py-1.5 rounded-full text-xs transition shadow-md shadow-cyan-500/20 active:scale-95 whitespace-nowrap shrink-0"
+              title="IT kiirabi ja nõustamine"
+            >
+              <Headphones className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+              <span className="whitespace-nowrap font-bold">+372 5652 062</span>
+            </a>
+
+            {/* Language Selector */}
+            <div className="flex items-center gap-0.5 rounded-full border border-slate-700/80 bg-slate-900/90 p-0.5 text-xs shrink-0 shadow-inner sm:gap-1 sm:p-1">
+              <button
+                type="button"
+                onClick={() => setLang('et')}
+                className={`flex items-center gap-1 px-1.5 py-1.5 rounded-full text-xs font-bold transition-all sm:gap-1.5 sm:px-2.5 ${
+                  lang === 'et'
+                    ? 'bg-white text-slate-950 shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+                title="Eesti keel"
+              >
+                <svg aria-hidden="true" viewBox="0 0 18 12" className="h-3 w-[18px] overflow-hidden rounded-sm">
+                  <path fill="#4891D9" d="M0 0h18v4H0z" />
+                  <path fill="#111" d="M0 4h18v4H0z" />
+                  <path fill="#FFF" d="M0 8h18v4H0z" />
+                </svg>
+                <span className="hidden sm:inline">ET</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                className={`flex items-center gap-1 px-1.5 py-1.5 rounded-full text-xs font-bold transition-all sm:gap-1.5 sm:px-2.5 ${
+                  lang === 'en'
+                    ? 'bg-white text-slate-950 shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+                title="English"
+              >
+                <svg aria-hidden="true" viewBox="0 0 60 30" className="h-3 w-5 overflow-hidden rounded-sm">
+                  <clipPath id="uk-flag-clip"><path d="M0 0h60v30H0z" /></clipPath>
+                  <g clipPath="url(#uk-flag-clip)">
+                    <path fill="#012169" d="M0 0h60v30H0z" />
+                    <path stroke="#FFF" strokeWidth="6" d="m0 0 60 30M60 0 0 30" />
+                    <path stroke="#C8102E" strokeWidth="2" d="m0 0 60 30M60 0 0 30" />
+                    <path stroke="#FFF" strokeWidth="10" d="M30 0v30M0 15h60" />
+                    <path stroke="#C8102E" strokeWidth="6" d="M30 0v30M0 15h60" />
+                  </g>
+                </svg>
+                <span className="hidden sm:inline">EN</span>
+              </button>
+            </div>
+
             {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -268,18 +244,6 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden mt-3 pt-3 border-t border-slate-800 space-y-2 animate-in fade-in slide-in-from-top-2">
-            {/* Mobile Search */}
-            <div className="relative mb-3">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t('search_placeholder')}
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-slate-400 outline-none focus:border-cyan-400"
-              />
-              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
-            </div>
-
             <div className="grid grid-cols-2 gap-2 text-xs font-medium">
               <button
                 onClick={() => scrollTo('teenused')}
@@ -295,14 +259,6 @@ export function Header({ searchQuery, setSearchQuery, onOpenServicesModal }: Hea
               >
                 <Briefcase className="w-4 h-4 text-slate-400" />
                 <span>{t('nav_business')}</span>
-              </button>
-
-              <button
-                onClick={() => scrollTo('arikliendile')}
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-sky-950/40 border border-sky-800/40 text-sky-200 hover:bg-sky-900/50"
-              >
-                <Sparkles className="w-4 h-4 text-sky-300" />
-                <span>Software solutions</span>
               </button>
 
               <button

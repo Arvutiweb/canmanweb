@@ -28,6 +28,8 @@ In Vercel → **Settings** → **Environment Variables**, add:
 
 Redeploy after adding these variables. Until both are configured, the form will show an error instead of claiming the request was sent.
 
+The request email includes the visitor IP address and browser/operating system inferred from the request headers. Location coordinates are included only after the visitor clicks **Share location** and grants the browser's location permission. One optional JPG, PNG, WebP, or PDF attachment is supported (maximum 3 MB).
+
 ### 3. Add Custom Domain: canman.eu
 1. In Vercel project dashboard → **Settings** → **Domains**
 2. Click **"Add"** → enter `canman.eu`

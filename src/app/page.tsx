@@ -63,10 +63,14 @@ export default function Home() {
   // Quick IT Service request state for contact section
   const [serviceFormSubmitted, setServiceFormSubmitted] = useState(false);
   const [serviceName, setServiceName] = useState('');
-  const [servicePhone, setServicePhone] = useState('');
+  const [servicePhone, setServicePhone] = useState('+372 ');
   const [serviceIssue, setServiceIssue] = useState('');
   const [serviceFormError, setServiceFormError] = useState('');
   const [isSubmittingServiceRequest, setIsSubmittingServiceRequest] = useState(false);
+  const [serviceAttachment, setServiceAttachment] = useState<File | null>(null);
+  const [serviceLocation, setServiceLocation] = useState<{ latitude: number; longitude: number } | null>(null);
+  const [isRequestingLocation, setIsRequestingLocation] = useState(false);
+  const [serviceLocationMessage, setServiceLocationMessage] = useState('');
   const [processorFilter, setProcessorFilter] = useState('');
   const [memoryFilter, setMemoryFilter] = useState('');
   const [diskFilter, setDiskFilter] = useState('');
@@ -156,17 +160,28 @@ export default function Home() {
   const handleServiceSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setServiceFormError('');
+
+    if (serviceAttachment && serviceAttachment.size > 3 * 1024 * 1024) {
+      setServiceFormError(t('help_attachment_error'));
+      return;
+    }
+
     setIsSubmittingServiceRequest(true);
 
     try {
+      const formData = new FormData();
+      formData.set('name', serviceName.trim());
+      formData.set('phone', servicePhone.trim());
+      formData.set('issue', serviceIssue.trim());
+      if (serviceAttachment) formData.set('attachment', serviceAttachment);
+      if (serviceLocation) {
+        formData.set('latitude', String(serviceLocation.latitude));
+        formData.set('longitude', String(serviceLocation.longitude));
+      }
+
       const response = await fetch('/api/service-request', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: serviceName.trim(),
-          phone: servicePhone.trim(),
-          issue: serviceIssue.trim(),
-        }),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -180,6 +195,29 @@ export default function Home() {
     } finally {
       setIsSubmittingServiceRequest(false);
     }
+  };
+
+  const handleShareLocation = () => {
+    setServiceLocationMessage('');
+    if (!navigator.geolocation) {
+      setServiceLocationMessage(t('help_location_unavailable'));
+      return;
+    }
+
+    setIsRequestingLocation(true);
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        setServiceLocation({ latitude: coords.latitude, longitude: coords.longitude });
+        setServiceLocationMessage(t('help_location_shared'));
+        setIsRequestingLocation(false);
+      },
+      () => {
+        setServiceLocation(null);
+        setServiceLocationMessage(t('help_location_denied'));
+        setIsRequestingLocation(false);
+      },
+      { enableHighAccuracy: false, maximumAge: 60_000, timeout: 10_000 },
+    );
   };
 
   return (
@@ -352,6 +390,43 @@ export default function Home() {
                         placeholder={t('help_issue_placeholder')}
                         className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 outline-none focus:border-cyan-400 transition"
                       />
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-medium text-slate-300 mb-1" htmlFor="service-attachment">
+                        {t('help_attachment_label')}
+                      </label>
+                      <input
+                        id="service-attachment"
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp,application/pdf"
+                        onChange={(event) => {
+                          const file = event.target.files?.[0] ?? null;
+                          setServiceAttachment(file);
+                          if (file && file.size > 3 * 1024 * 1024) {
+                            setServiceFormError(t('help_attachment_error'));
+                          } else {
+                            setServiceFormError('');
+                          }
+                        }}
+                        className="w-full text-xs text-slate-300 file:mr-3 file:rounded-lg file:border-0 file:bg-slate-700 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-slate-600"
+                      />
+                      <p className="mt-1 text-[10px] text-slate-500">{t('help_attachment_hint')}</p>
+                    </div>
+
+                    <div className="space-y-1">
+                      <button
+                        type="button"
+                        onClick={handleShareLocation}
+                        disabled={isRequestingLocation}
+                        className="rounded-lg border border-slate-700 px-3 py-2 text-[11px] font-medium text-slate-300 transition hover:border-cyan-500 hover:text-white disabled:opacity-60"
+                      >
+                        {isRequestingLocation ? t('help_location_requesting') : t('help_location_button')}
+                      </button>
+                      {serviceLocationMessage && (
+                        <p role="status" className="text-[10px] text-slate-400">{serviceLocationMessage}</p>
+                      )}
+                      <p className="text-[10px] leading-relaxed text-slate-500">{t('help_data_notice')}</p>
                     </div>
 
                     <button

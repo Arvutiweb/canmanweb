@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useThemePalette } from '../context/ThemePaletteContext';
 import {
   Wrench,
   ShoppingBag,
@@ -20,6 +21,7 @@ import {
 export function Header() {
   const { cartCount, setIsCartOpen } = useCart();
   const { lang, setLang, t } = useLanguage();
+  const { palette } = useThemePalette();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollTo = (id: string) => {
@@ -31,7 +33,10 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-950/85 backdrop-blur-xl border-b border-cyan-500/20 text-white shadow-xl relative overflow-hidden transition-all">
+    <header
+      className="sticky top-0 z-50 backdrop-blur-xl border-b border-cyan-500/20 text-white shadow-xl relative overflow-hidden transition-all"
+      style={{ backgroundColor: palette.header }}
+    >
       {/* Subtle IT / AI Theme Background with Circuit & Neural Pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
         <svg

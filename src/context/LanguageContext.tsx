@@ -76,6 +76,13 @@ const translations: Record<Language, Record<string, string>> = {
     filter_all: 'Kõik',
     shop_title: 'CANMAN COMPUTERS',
     shop_search: 'Otsi tooteid, brände või omadusi...',
+    palette_title: 'Värvipalett',
+    palette_header: 'Päise värv',
+    palette_help_panel: 'IT-abi akna värv',
+    palette_presets: 'Eelseadistused',
+    palette_preset: 'Värvipaleti valik',
+    palette_reset: 'Taasta algsed värvid',
+    palette_close: 'Sulge värvipalett',
 
     // Sections
     sec_services_badge: 'PÕHITEENUSED',
@@ -154,6 +161,13 @@ const translations: Record<Language, Record<string, string>> = {
     filter_all: 'All',
     shop_title: 'CANMAN COMPUTERS',
     shop_search: 'Search products, brands, or specifications...',
+    palette_title: 'Color palette',
+    palette_header: 'Header color',
+    palette_help_panel: 'IT help panel color',
+    palette_presets: 'Presets',
+    palette_preset: 'Color palette preset',
+    palette_reset: 'Reset default colors',
+    palette_close: 'Close color palette',
 
     // Sections
     sec_services_badge: 'CORE SERVICES',

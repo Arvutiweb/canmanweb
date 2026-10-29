@@ -12,6 +12,7 @@ import { InvoiceView } from '../components/InvoiceView';
 import { ServicesModal } from '../components/ServicesModal';
 import { Footer } from '../components/Footer';
 import { useLanguage } from '../context/LanguageContext';
+import { useThemePalette } from '../context/ThemePaletteContext';
 import { allProducts as PRODUCTS } from '../data/productCatalog';
 import { Product, Condition, OrderDetails } from '../types';
 import {
@@ -46,6 +47,7 @@ const safeStr = (v: any) => String(v || '');
 
 export default function Home() {
   const { t, lang } = useLanguage();
+  const { palette } = useThemePalette();
   const [selectedL1, setSelectedL1] = useState<string | null>(null);
   const [selectedL2, setSelectedL2] = useState<string | null>(null);
   const [selectedL3, setSelectedL3] = useState<string | null>(null);
@@ -311,7 +313,10 @@ export default function Home() {
 
             {/* Right Fast IT-Help Request Card */}
             <div className="lg:col-span-5">
-              <div className="bg-slate-900/90 border border-cyan-500/30 rounded-2xl p-6 shadow-2xl backdrop-blur-md relative overflow-hidden">
+              <div
+                className="border border-cyan-500/30 rounded-2xl p-6 shadow-2xl backdrop-blur-md relative overflow-hidden transition-colors duration-200"
+                style={{ backgroundColor: palette.helpPanel }}
+              >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">

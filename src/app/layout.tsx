@@ -2,6 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { CartProvider } from '../context/CartContext';
 import { LanguageProvider } from '../context/LanguageContext';
+import { ThemePaletteProvider } from '../context/ThemePaletteContext';
+import { ThemePaletteControls } from '../components/ThemePaletteControls';
 
 export const metadata: Metadata = {
   title: 'Canman - IT-Teenused, Arvutiremont & IT-Haldus Tallinnas | canman.eu',
@@ -33,9 +35,12 @@ export default function RootLayout({
     <html lang="et" className="scroll-smooth">
       <body className="bg-[#ebf5f6] text-slate-900 min-h-screen flex flex-col font-sans">
         <LanguageProvider>
-          <CartProvider>
-            {children}
-          </CartProvider>
+          <ThemePaletteProvider>
+            <CartProvider>
+              {children}
+              <ThemePaletteControls />
+            </CartProvider>
+          </ThemePaletteProvider>
         </LanguageProvider>
       </body>
     </html>

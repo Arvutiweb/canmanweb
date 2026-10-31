@@ -1,0 +1,36 @@
+[
+  {
+    "id": "520143",
+    "sku": "520143",
+    "title": "HDD 320GB 2,5\" Scorpio WD320BPVT",
+    "name": "HDD 320GB 2,5\" Scorpio WD320BPVT",
+    "slug": "hdd-320gb-2-5-scorpio-wd320bpvt-520143",
+    "brand": "",
+    "price": 10,
+    "regularPrice": 10,
+    "salePrice": null,
+    "finalPrice": 10,
+    "category": "Sülearvuti osad kasut.",
+    "categories": "Sülearvuti osad kasut. > Kõvaketas HDD > HDD 3,5” SATA",
+    "categorySlug": "sulearvuti-osad-kasut/kovaketas-hdd/hdd-3-5-sata",
+    "categoryL1": "Sülearvuti osad kasut.",
+    "topCategory": "Sülearvuti osad kasut.",
+    "categoryL2": "Kõvaketas HDD",
+    "subCategory": "Kõvaketas HDD",
+    "categoryL3": "HDD 3,5” SATA",
+    "categoryL4": "",
+    "categoryPath": [
+      "Sülearvuti osad kasut.",
+      "Kõvaketas HDD",
+      "HDD 3,5” SATA"
+    ],
+    "description": "",
+    "shortDescription": "HDD 320GB 2,5” Momentus5400rpm 8MB 2,5\" Scorpio WD320BPVT Sata2",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/WD320BPVT.webp"
+    ],
+    "image": "/images/WD320BPVT.webp"
+  }
+]

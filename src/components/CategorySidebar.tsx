@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { getProductFilterOptions, normalizeProductCondition } from '../lib/productFilters';
 import type { Condition } from '../types';
 
 const safeLower = (value: unknown) => String(value || '').toLowerCase();
@@ -9,6 +10,7 @@ const safeLower = (value: unknown) => String(value || '').toLowerCase();
 interface CategorySidebarProps {
   selectedL1: string | null;
   selectedL2: string | null;
+  selectedL3: string | null;
   onSelectCategory: (level1: string | null, level2: string | null, level3: string | null) => void;
   products: any[];
   minPrice: number;
@@ -30,6 +32,7 @@ interface CategorySidebarProps {
 export function CategorySidebar({
   selectedL1,
   selectedL2,
+  selectedL3,
   onSelectCategory,
   products,
   minPrice,
@@ -51,10 +54,14 @@ export function CategorySidebar({
   const { t, lang } = useLanguage();
 
   const grouped = useMemo(() => {
-    const map = new Map<string, { count: number; subs: Map<string, { count: number }> }>();
+    const map = new Map<string, {
+      count: number;
+      subs: Map<string, { count: number; thirds: Map<string, number> }>;
+    }>();
     (products || []).forEach((product) => {
-      const rawL1 = String(product.categoryL1 || product.topCategory || product.category || 'Muu').trim();
-      const rawL2 = String(product.categoryL2 || product.subCategory || '').trim();
+      const rawL1 = String(product.categoryL1 || product.topCategory || product.categoryPath?.[0] || product.category || 'Muu').trim();
+      const rawL2 = String(product.categoryL2 || product.subCategory || product.categoryPath?.[1] || '').trim();
+      const rawL3 = String(product.categoryL3 || product.sub2Category || product.categoryPath?.[2] || '').trim();
       let baseL1 = rawL1;
       let generation: string | null = null;
       if (rawL1.toLowerCase().includes('desktop kasutatud')) {
@@ -68,25 +75,25 @@ export function CategorySidebar({
       category.count++;
       const subcategory = generation || rawL2;
       if (!subcategory) return;
-      if (!category.subs.has(subcategory)) category.subs.set(subcategory, { count: 0 });
-      category.subs.get(subcategory)!.count++;
+      if (!category.subs.has(subcategory)) {
+        category.subs.set(subcategory, { count: 0, thirds: new Map() });
+      }
+      const sub = category.subs.get(subcategory)!;
+      sub.count++;
+      if (rawL3) sub.thirds.set(rawL3, (sub.thirds.get(rawL3) || 0) + 1);
     });
     return map;
   }, [products]);
 
   const filterOptions = useMemo(() => {
-    const valuesFor = (key: string) => Array.from(new Set(
-      (products || [])
-        .map((product) => String(product.specs?.[key] || product[key] || '').trim())
-        .filter(Boolean)
-    )).sort((a, b) => a.localeCompare(b));
-
     return {
-      processors: valuesFor('cpu'),
-      memories: valuesFor('ram'),
-      disks: valuesFor('storage'),
-      operatingSystems: valuesFor('os'),
-      conditions: Array.from(new Set((products || []).map((product) => String(product.condition || '').trim()).filter(Boolean))).sort(),
+      processors: getProductFilterOptions(products, 'cpu'),
+      memories: getProductFilterOptions(products, 'ram'),
+      disks: getProductFilterOptions(products, 'storage'),
+      operatingSystems: getProductFilterOptions(products, 'os'),
+      conditions: Array.from(new Set(
+        (products || []).map((product) => normalizeProductCondition(product.condition)).filter(Boolean)
+      )).sort(),
     };
   }, [products]);
 
@@ -143,14 +150,29 @@ export function CategorySidebar({
                 {isOpen && (
                   <div className="ml-4 mt-1 space-y-1 border-l-2 border-slate-100 pl-3">
                     {Array.from(data.subs.entries()).map(([sub, subData]) => (
-                      <button
-                        key={sub}
-                        onClick={() => onSelectCategory(base, sub, null)}
-                        className={`flex w-full justify-between rounded-lg px-2 py-1.5 text-left text-sm ${safeLower(selectedL2) === safeLower(sub) ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-50'}`}
-                      >
-                        <span>{sub}</span>
-                        <span>{subData.count}</span>
-                      </button>
+                      <div key={sub}>
+                        <button
+                          onClick={() => onSelectCategory(base, sub, null)}
+                          className={`flex w-full justify-between rounded-lg px-2 py-1.5 text-left text-sm ${safeLower(selectedL2) === safeLower(sub) && !selectedL3 ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-50'}`}
+                        >
+                          <span>{sub}</span>
+                          <span>{subData.count}</span>
+                        </button>
+                        {subData.thirds.size > 0 && (
+                          <div className="ml-3 border-l border-slate-100 pl-2">
+                            {Array.from(subData.thirds.entries()).map(([third, count]) => (
+                              <button
+                                key={third}
+                                onClick={() => onSelectCategory(base, sub, third)}
+                                className={`flex w-full justify-between rounded-lg px-2 py-1 text-left text-xs ${safeLower(selectedL3) === safeLower(third) ? 'bg-blue-50 text-[#0e4da4]' : 'text-slate-500 hover:bg-slate-50'}`}
+                              >
+                                <span>{third}</span>
+                                <span>{count}</span>
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 )}

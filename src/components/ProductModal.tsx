@@ -1,7 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { X, ShoppingBag, ShieldCheck, MapPin, Truck, Plus, Minus, Loader2, ArrowLeft } from 'lucide-react';
+import { X, ShoppingBag, ShieldCheck, MapPin, Truck, Plus, Minus, Loader2, ArrowLeft, ZoomIn } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export const ProductModal = ({ product, onClose }: any) => {
@@ -9,14 +10,21 @@ export const ProductModal = ({ product, onClose }: any) => {
   const [quantity, setQuantity] = useState(1);
   const [activeImg, setActiveImg] = useState(0);
   const [loadingImg, setLoadingImg] = useState<string | null>(null);
+  const [isImageZoomed, setIsImageZoomed] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (isImageZoomed) {
+          setIsImageZoomed(false);
+        } else {
+          onClose();
+        }
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+  }, [isImageZoomed, onClose]);
 
   if (!product) return null;
 
@@ -89,10 +97,12 @@ export const ProductModal = ({ product, onClose }: any) => {
           {/* Image Gallery Section */}
           <div className="bg-[#f8f9fb] p-4 md:p-6 flex flex-col">
             {/* Main Image */}
-            <div
-              className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-sm cursor-pointer group"
-              title="Kliki pildil sulgemiseks ja toodete ruudustikku naasmiseks"
-              onClick={onClose}
+            <button
+              type="button"
+              className="relative aspect-square w-full bg-white rounded-xl overflow-hidden shadow-sm cursor-zoom-in group"
+              title="Kliki pildil suurendamiseks"
+              aria-label={`Suurenda pilti: ${title}`}
+              onClick={() => setIsImageZoomed(true)}
             >
               <div className="absolute inset-0 flex items-center justify-center bg-slate-50">
                 {loadingImg === fullSrc && (
@@ -113,15 +123,9 @@ export const ProductModal = ({ product, onClose }: any) => {
                 </div>
               </div>
 
-              {/* Close hint - bottom right */}
-              {imgs.length > 0 && (
-                <div
-                  className="absolute bottom-3 right-3 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 text-slate-600 group-hover:text-[#0e4da4] rounded-full p-2 transition-colors shadow-sm"
-                  aria-label="Sulge tootekaart"
-                >
-                  <X className="w-5 h-5" />
-                </div>
-              )}
+              <span className="absolute bottom-3 right-3 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 text-slate-600 group-hover:text-[#0e4da4] rounded-full p-2 transition-colors shadow-sm">
+                <ZoomIn className="w-5 h-5" />
+              </span>
 
               {/* Image counter - bottom center */}
               {imgs.length > 1 && (
@@ -129,7 +133,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                   {activeImg + 1} / {imgs.length}
                 </div>
               )}
-            </div>
+            </button>
 
             {/* Thumbnails */}
             {imgs.length > 1 && (
@@ -159,6 +163,15 @@ export const ProductModal = ({ product, onClose }: any) => {
                 ))}
               </div>
             )}
+
+            <button
+              type="button"
+              onClick={onClose}
+              className="mt-4 self-start rounded-lg border border-slate-300 bg-white px-4 py-3 text-xs font-bold text-slate-700 transition-colors hover:bg-slate-100 sm:text-sm flex items-center justify-center gap-1.5"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Sulge</span>
+            </button>
           </div>
 
           {/* Product Details Section */}
@@ -167,10 +180,14 @@ export const ProductModal = ({ product, onClose }: any) => {
               {/* Category / Brand Breadcrumb */}
               <div className="flex items-center space-x-2 text-xs text-slate-500 mb-2 font-medium">
                 <span className="uppercase text-[#0e4da4] font-bold">{product.brand || 'Canman'}</span>
-                {product.categoryL2 && (
+                {(product.categoryL2 || product.categoryL3 || product.categoryPath?.[2]) && (
                   <>
                     <span>•</span>
-                    <span>{product.categoryL2}</span>
+                    <span>
+                      {[product.categoryL2, product.categoryL3 || product.categoryPath?.[2]]
+                        .filter(Boolean)
+                        .join(' • ')}
+                    </span>
                   </>
                 )}
               </div>
@@ -264,26 +281,47 @@ export const ProductModal = ({ product, onClose }: any) => {
               {/* Add to Cart Button */}
               <button
                 onClick={handleAddToCart}
-                className="flex-1 bg-[#0e4da4] hover:bg-[#0a3a7d] text-white font-bold py-3 px-6 rounded-lg text-sm sm:text-base flex items-center justify-center space-x-2 transition-colors shadow-sm hover:shadow-md"
+                className="flex-1 min-w-0 bg-[#0e4da4] hover:bg-[#0a3a7d] text-white font-bold py-3 px-4 rounded-lg text-sm sm:text-base flex items-center justify-center gap-2 transition-colors shadow-sm hover:shadow-md"
               >
-                <ShoppingBag className="w-5 h-5" />
-                <span>Lisa korvi {(priceNum * quantity).toFixed(2)} €</span>
-              </button>
-
-              {/* Close / Return to grid button */}
-              <button
-                type="button"
-                onClick={onClose}
-                className="px-4 py-3 rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs sm:text-sm transition-colors whitespace-nowrap flex items-center justify-center gap-1.5"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span>Sulge</span>
+                <ShoppingBag className="w-5 h-5 shrink-0" />
+                <span className="min-w-0 whitespace-normal text-center leading-snug">
+                  Lisa korvi {(priceNum * quantity).toFixed(2)} €
+                </span>
               </button>
             </div>
           </div>
         </div>
 
       </div>
+      {isImageZoomed && typeof document !== 'undefined' && createPortal(
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 p-4 sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Suurendatud tootepilt: ${title}`}
+          onClick={() => setIsImageZoomed(false)}
+        >
+          <button
+            type="button"
+            className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20"
+            aria-label="Sulge suurendatud pilt"
+            onClick={() => setIsImageZoomed(false)}
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <div className="relative h-full w-full" onClick={() => setIsImageZoomed(false)}>
+            <Image
+              src={fullSrc}
+              alt={title}
+              fill
+              sizes="100vw"
+              className="object-contain"
+              unoptimized
+            />
+          </div>
+        </div>,
+        document.body
+      )}
     </div>
   );
 };

@@ -50,6 +50,11 @@ body {
 }
 
 /* ===== PRINT STYLES FOR INVOICE ===== */
+.help-form-field::placeholder {
+  color: var(--canman-help-input-text, #ffffff);
+  opacity: 0.6;
+}
+
 @media print {
   /* 1. Hide the entire page */
   html, body {

@@ -52,7 +52,7 @@
     "slug": "monitorid",
     "subcategories": [
       {
-        "name": "Monitorid 22ï¿½-25ï¿½",
+        "name": "Monitorid 22″-25″",
         "slug": "monitorid-22-25",
         "count": 2,
         "file": "monitorid/monitorid-22-25.json",
@@ -167,7 +167,7 @@
     "slug": "laptops",
     "subcategories": [
       {
-        "name": "Laptop 14ï¿½",
+        "name": "Laptop 14\"",
         "slug": "laptop-14",
         "count": 1,
         "file": "laptops/laptop-14.json",

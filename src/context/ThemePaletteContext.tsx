@@ -5,12 +5,16 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 interface ThemePalette {
   header: string;
   helpPanel: string;
+  helpInputBackground: string;
+  helpInputText: string;
 }
 
 interface ThemePaletteContextValue {
   palette: ThemePalette;
   setHeaderColor: (color: string) => void;
   setHelpPanelColor: (color: string) => void;
+  setHelpInputBackgroundColor: (color: string) => void;
+  setHelpInputTextColor: (color: string) => void;
   resetPalette: () => void;
 }
 
@@ -18,6 +22,8 @@ const STORAGE_KEY = 'canman_theme_palette';
 const DEFAULT_PALETTE: ThemePalette = {
   header: '#17283f',
   helpPanel: '#1e324a',
+  helpInputBackground: '#000000',
+  helpInputText: '#ffffff',
 };
 
 const ThemePaletteContext = createContext<ThemePaletteContextValue | null>(null);
@@ -41,6 +47,12 @@ export function ThemePaletteProvider({ children }: { children: React.ReactNode }
       setPalette({
         header: isColor(storedPalette.header) ? storedPalette.header : DEFAULT_PALETTE.header,
         helpPanel: isColor(storedPalette.helpPanel) ? storedPalette.helpPanel : DEFAULT_PALETTE.helpPanel,
+        helpInputBackground: isColor(storedPalette.helpInputBackground)
+          ? storedPalette.helpInputBackground
+          : DEFAULT_PALETTE.helpInputBackground,
+        helpInputText: isColor(storedPalette.helpInputText)
+          ? storedPalette.helpInputText
+          : DEFAULT_PALETTE.helpInputText,
       });
     } catch (error) {
       console.error('Unable to load saved theme colors.', error);
@@ -50,6 +62,8 @@ export function ThemePaletteProvider({ children }: { children: React.ReactNode }
   useEffect(() => {
     document.documentElement.style.setProperty('--canman-header-color', palette.header);
     document.documentElement.style.setProperty('--canman-help-panel-color', palette.helpPanel);
+    document.documentElement.style.setProperty('--canman-help-input-background', palette.helpInputBackground);
+    document.documentElement.style.setProperty('--canman-help-input-text', palette.helpInputText);
 
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(palette));
@@ -62,6 +76,8 @@ export function ThemePaletteProvider({ children }: { children: React.ReactNode }
     palette,
     setHeaderColor: (header) => setPalette((current) => ({ ...current, header })),
     setHelpPanelColor: (helpPanel) => setPalette((current) => ({ ...current, helpPanel })),
+    setHelpInputBackgroundColor: (helpInputBackground) => setPalette((current) => ({ ...current, helpInputBackground })),
+    setHelpInputTextColor: (helpInputText) => setPalette((current) => ({ ...current, helpInputText })),
     resetPalette: () => setPalette(DEFAULT_PALETTE),
   };
 

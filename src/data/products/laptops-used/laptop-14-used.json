@@ -45,5 +45,60 @@
     ],
     "stock": 1,
     "condition": "used"
+  },
+  {
+    "id": "340400",
+    "sku": "340400",
+    "title": "DELL Latitude E6400 used",
+    "name": "DELL Latitude E6400 used",
+    "slug": "dell-latitude-e6400-used-340400",
+    "brand": "DELL",
+    "price": 50,
+    "regularPrice": 50,
+    "salePrice": 40,
+    "finalPrice": 40,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 14\" used",
+    "categorySlug": "laptops-used/laptop-14-used",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop 14\" used",
+    "subCategory": "Laptop 14\" used",
+    "description": "Latitude 14\" i5-M520, 4 RAM, 500HDD, DVDRW, HDMI väljund, aku kuni 2h(mõnel 4h)., matt ekraan, kaamera, ID kaardi lugeja, EST klaviatuur, laadija. Äriklassi arvuti, hea klaviatuur. Uus Windowsi install, eemaldatud Windowsi ballast, seadistatud ökonoomseks, lisatud kontori tarkvara, Microsoft Office, pilditöötlus programmid. Parandatud arvuti suurimat ohtu browseri turvalisust. Brave, Chrome turvasetingud paremaks. Tänu seadistusele töötab suhteliselt kiiresti. Välimus korras. Võimalik lisada Doc, klaviatuur, hiir.",
+    "shortDescription": "Latitude 14\" i5-M520, 4 RAM, 500HDD, DVDRW, HDMI väljund,",
+    "stock": 2,
+    "condition": "used",
+    "images": [
+      "/images/DELL_E6400.webp",
+      "/images/DELL_E6400_6h.webp"
+    ],
+    "image": "/images/DELL_E6400.webp"
+  },
+  {
+    "id": "340440",
+    "sku": "340440",
+    "title": "DELL Latitude E6440 used",
+    "name": "DELL Latitude E6440 used",
+    "slug": "dell-latitude-e6440-used-340440",
+    "brand": "DELL",
+    "price": 90,
+    "regularPrice": 90,
+    "salePrice": 85,
+    "finalPrice": 85,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 14\" used",
+    "categorySlug": "laptops-used/laptop-14-used",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop 14\" used",
+    "subCategory": "Laptop 14\" used",
+    "description": "E6440 i5-4300M 8 RAM, M.2 256 SSD + 500GB HDD, 14\" 1600 x 900 pixels LED backlight 16:9 Intel® HD Graphics 4400, Ethernet LAN (RJ-45) port, 3x USB3, HDMI, Mini DisplayPort. Aku 1h, laadija. Soovikorral Dok, klaviatuur. Windows 11 + kontori tarkvara. Uus puhas",
+    "shortDescription": "E6440 i5-4300M 8 RAM, M.2 256 SSD + 500GB HDD, 14\"",
+    "stock": 1,
+    "condition": "used",
+    "images": [
+      "/images/DELL-E6440_4h_aku_i5_4300M.webp"
+    ],
+    "image": "/images/DELL-E6440_4h_aku_i5_4300M.webp"
   }
 ]

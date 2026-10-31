@@ -15,12 +15,23 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 3-gen",
     "subCategory": "used, 3-gen",
-    "image": "/images/Esprimo-P700.png,Esprimo-t200_aga.png",
+    "image": "/images/Esprimo-P700.webp",
     "images": [
-      "/images/Esprimo-P700.png,Esprimo-t200_aga.png"
+      "/images/Esprimo-P700.webp",
+      "/images/Esprimo-t200_taga.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": 90,
+    "finalPrice": 90,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 3-gen"
+    ],
+    "description": "ESPRIMO P700 E90+ Intel B630/4GB/320GB/DVDRW Miditower W7P Fujitsu",
+    "shortDescription": "Fujitsu ESPRIMO P700 E90+ B630 W7P"
   },
   {
     "id": "320075",
@@ -38,12 +49,22 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 3-gen",
     "subCategory": "used, 3-gen",
-    "image": "/images/Ordi-Metal_must.png",
+    "image": "/images/Ordi-Metal_must.webp",
     "images": [
-      "/images/Ordi-Metal_must.png"
+      "/images/Ordi-Metal_must.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": null,
+    "finalPrice": 50,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 3-gen"
+    ],
+    "description": "ORDI i3-3220/4GB/500GB/DVDRW/ID reader/KB/Mouse",
+    "shortDescription": "I3-3220/4/500 Windows 10"
   },
   {
     "id": "320103",
@@ -61,12 +82,22 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 3-gen",
     "subCategory": "used, 3-gen",
-    "image": "/images/DellOptiPlex3010SFF_2.png",
+    "image": "/images/DellOptiPlex3010SFF_2.webp",
     "images": [
-      "/images/DellOptiPlex3010SFF_2.png"
+      "/images/DellOptiPlex3010SFF_2.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": 50,
+    "finalPrice": 50,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 3-gen"
+    ],
+    "description": "i3-3220, 8GB, 500GB, DVDRW, W10P",
+    "shortDescription": "i3-3220, 8GB, 500GB, DVDRW, W10P"
   },
   {
     "id": "320100",
@@ -84,11 +115,21 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 3-gen",
     "subCategory": "used, 3-gen",
-    "image": "/images/HP6300Pro_2.png",
+    "image": "/images/HP6300Pro_2.webp",
     "images": [
-      "/images/HP6300Pro_2.png"
+      "/images/HP6300Pro_2.webp"
     ],
-    "stock": 1,
-    "condition": "used"
+    "stock": 2,
+    "condition": "used",
+    "salePrice": 40,
+    "finalPrice": 40,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 3-gen"
+    ],
+    "description": "HP Compaq Pro 6300 i3-3220 4GB RAM, 500GB HDD. It has dual independent monitor support via VGA and digital DisplayPort 1.1a video interfaces",
+    "shortDescription": "HP Compaq Pro 6300 SFF, Intel Core i3-3220"
   }
 ]

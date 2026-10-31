@@ -1,0 +1,36 @@
+[
+  {
+    "id": "520139",
+    "sku": "520139",
+    "title": "HDD 320GB 2,5\" Momentus ST320LT020",
+    "name": "HDD 320GB 2,5\" Momentus ST320LT020",
+    "slug": "hdd-320gb-2-5-momentus-st320lt020-520139",
+    "brand": "",
+    "price": 10,
+    "regularPrice": 10,
+    "salePrice": null,
+    "finalPrice": 10,
+    "category": "Sülearvuti osad kasut.",
+    "categories": "Sülearvuti osad kasut. > Kõvaketas HDD > HDD 3,5” SATA",
+    "categorySlug": "sulearvuti-osad-kasut/kovaketas-hdd/hdd-3-5-sata",
+    "categoryL1": "Sülearvuti osad kasut.",
+    "topCategory": "Sülearvuti osad kasut.",
+    "categoryL2": "Kõvaketas HDD",
+    "subCategory": "Kõvaketas HDD",
+    "description": "",
+    "shortDescription": "HDD 320GB 2,5\" Momentus ST320LT020 Sata2",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/ST320LT020.webp"
+    ],
+    "image": "/images/ST320LT020.webp",
+    "categoryL3": "HDD 3,5” SATA",
+    "categoryL4": "",
+    "categoryPath": [
+      "Sülearvuti osad kasut.",
+      "Kõvaketas HDD",
+      "HDD 3,5” SATA"
+    ]
+  }
+]

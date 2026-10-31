@@ -8,18 +8,32 @@
     "price": 90,
     "salePrice": null,
     "finalPrice": 90,
-    "topCategory": "Desktop kasutatud / used, 6-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 6-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 6-gen"
+      "Desktop kasutatud",
+      "used, 6-gen"
     ],
     "brand": "HP",
     "tags": "HP ProDesk 600 SFF i5-7500",
     "color": "Silver",
-    "images": [],
+    "images": [
+      "/images/ProDesk-600-G3.webp"
+    ],
     "rawImages": [],
-    "description": "HP ProDesk 600 SFF i5-6400, 8GB RAM, 240GB, Uus puhastatud, kiirendatud Windows 11 Pro install, Viirusetärje, suurendatud turvalisus, Office apps lisatud . Vike korpus. Sobib t tegemiseks. Vajadusel Windows 11 Pro ",
+    "description": "HP ProDesk 600 SFF i5-6400, 8GB RAM, 240GB, Uus puhastatud, kiirendatud Windows 11 Pro install, Viiruset�rje, suurendatud turvalisus, Office apps lisatud. V�ike korpus. Sobib t�� tegemiseks. Vajadusel Windows 11 Pro",
     "shortDescription": "HP ProDesk 600 SFF i5-6400, 8GB RAM, 240GB",
-    "specs": ""
+    "specs": "",
+    "slug": "hp-prodesk-600-sff-i5-6400-320121",
+    "regularPrice": 90,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 6-gen",
+    "categorySlug": "desktop-kasutatud/used-6-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 6-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/ProDesk-600-G3.webp"
   }
 ]

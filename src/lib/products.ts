@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export type Product = {
+  id?: string | number;
   sku: string;
   title: string;
   name: string;
@@ -31,12 +32,30 @@ export function getProducts(top: string, sub: string) {
   return JSON.parse(fs.readFileSync(p,'utf8'));
 }
 
+function getProductFiles(directory: string): string[] {
+  if (!fs.existsSync(directory)) return [];
+
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) return getProductFiles(entryPath);
+    return entry.isFile() && entry.name.endsWith('.json') ? [entryPath] : [];
+  });
+}
+
 export function getAllProducts() {
-  const all: any[] = [];
-  for (const top of getAllCategories()) {
-    for (const sub of getSubcategories(top)) {
-      all.push(...getProducts(top, sub));
-    }
-  }
-  return all;
+  const files = getProductFiles(path.join(process.cwd(), 'src/data/products'))
+    .sort((a, b) => a.split(path.sep).length - b.split(path.sep).length || a.localeCompare(b));
+  const productsById = new Map<string, Product>();
+
+  files.forEach((file, index) => {
+    const products: unknown = JSON.parse(fs.readFileSync(file, 'utf8'));
+    if (!Array.isArray(products)) return;
+
+    products.forEach((product: Product, productIndex: number) => {
+      const identity = product.sku || product.id || `${file}:${index}:${productIndex}`;
+      productsById.set(String(identity), product);
+    });
+  });
+
+  return Array.from(productsById.values());
 }

@@ -3,24 +3,38 @@
     "id": "320101",
     "sku": "320101",
     "title": "HP PRO Desk",
-    "name": "HP EliteDesk ProDesk",
+    "name": "HP PRO Desk",
     "stock": 1,
     "price": 90,
     "salePrice": 40,
     "finalPrice": 40,
-    "topCategory": "Desktop kasutatud / used, 4-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 4-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 4-gen"
+      "Desktop kasutatud",
+      "used, 4-gen"
     ],
     "brand": "HP",
     "tags": "Desktop, i5",
     "color": "",
-    "images": [],
+    "images": [
+      "/images/HP-ProDesk-G1-i5_4570.webp"
+    ],
     "rawImages": [],
-    "description": "HP EliteDesk ProDesk i5 4570, 8GB RAM, 500GB HDD, DVDRW Window 10. New fast tiny Windows 10 install, office apps added.",
+    "description": "HP EliteDesk ProDesk i5 4570, 8GB RAM, 500GB HDD, DVDRW Window 10. New fast tiny Windows 10 install, office apps added. DELL",
     "shortDescription": "Desktop HP EliteDesk ProDesk i5 4570",
-    "specs": ""
+    "specs": "",
+    "slug": "hp-pro-desk-320101",
+    "regularPrice": 90,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 4-gen",
+    "categorySlug": "desktop-kasutatud/used-4-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 4-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/HP-ProDesk-G1-i5_4570.webp"
   },
   {
     "id": "320102",
@@ -31,18 +45,32 @@
     "price": 60,
     "salePrice": 55,
     "finalPrice": 55,
-    "topCategory": "Desktop kasutatud / used, 4-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 4-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 4-gen"
+      "Desktop kasutatud",
+      "used, 4-gen"
     ],
     "brand": "DELL",
     "tags": "DELL, i3, OptiPlex",
     "color": "Gray",
-    "images": [],
+    "images": [
+      "/images/Dell_Optiplex-7020.webp"
+    ],
     "rawImages": [],
     "description": "i3-4150, 8GB, 500GB, DVDRW, W10P",
     "shortDescription": "i3-4150, 8GB, 500GB, DVDRW, W10P",
-    "specs": ""
+    "specs": "",
+    "slug": "dell-optiplex-7020-sff-320102",
+    "regularPrice": 60,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 4-gen",
+    "categorySlug": "desktop-kasutatud/used-4-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 4-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/Dell_Optiplex-7020.webp"
   }
 ]

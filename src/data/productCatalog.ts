@@ -17,11 +17,21 @@ import laptop14a from './products/laptops-used/laptop-14.json';
 import laptop1213 from './products/laptops-used/laptop-12-13-used.json';
 import laptop15 from './products/laptops-used/laptop-15-used.json';
 import laptop14used from './products/laptops-used/laptop-14-used.json';
+import { autoProducts } from './productCatalog/autoProducts';
 
-export const allProducts = [
+const catalogProducts = [
   ...cpu, ...combo, ...emaplaat, ...ram,
   ...monitorid,
   ...laserprinter, ...toonerLaser, ...toonerid,
   ...used3, ...used2, ...used4, ...used7, ...used6,
-  ...laptop14, ...laptop14a, ...laptop1213, ...laptop15, ...laptop14used
+  ...laptop14, ...laptop14a, ...laptop1213, ...laptop15, ...laptop14used,
+  ...autoProducts,
 ] as any[];
+
+const productsBySku = new Map<string, any>();
+catalogProducts.forEach((product, index) => {
+  const identity = product.sku || product.specs?.SKU || product.id || `product-${index}`;
+  productsBySku.set(String(identity), product);
+});
+
+export const allProducts = Array.from(productsBySku.values());

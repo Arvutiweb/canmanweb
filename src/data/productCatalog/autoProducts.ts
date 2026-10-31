@@ -10,22 +10,35 @@ export const autoProducts: any[] = [
     "price": 60,
     "salePrice": 110,
     "finalPrice": 110,
-    "topCategory": "Desktop kasutatud / used, 2-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 2-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 2-gen"
+      "Desktop kasutatud",
+      "used, 2-gen"
     ],
     "brand": "Fujitsu",
     "tags": "Desktop, Fsprimo",
     "color": "Gray",
     "images": [
-      "/images/placeholder.webp"
+      "/images/Esprimo-P700.webp",
+      "/images/Esprimo-t200_taga.webp"
     ],
     "rawImages": [],
     "description": "ESPRIMO P700 E90+ Intel i5-2500/4GB/320GB/DVDRW Miditower W7P",
     "shortDescription": "Fujitsu ESPRIMO P700 E90+ B630 W7P",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "esprimo-p700-i5-2500-320002",
+    "regularPrice": 60,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 2-gen",
+    "categorySlug": "desktop-kasutatud/used-2-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 2-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/Esprimo-P700.webp"
   },
   {
     "id": "320001",
@@ -36,22 +49,35 @@ export const autoProducts: any[] = [
     "price": 60,
     "salePrice": 90,
     "finalPrice": 90,
-    "topCategory": "Desktop kasutatud / used, 3-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 3-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 3-gen"
+      "Desktop kasutatud",
+      "used, 3-gen"
     ],
     "brand": "Fujitsu",
     "tags": "Desktop, Fsprimo",
     "color": "Gray",
     "images": [
-      "/images/placeholder.webp"
+      "/images/Esprimo-P700.webp",
+      "/images/Esprimo-t200_taga.webp"
     ],
     "rawImages": [],
-    "description": "ESPRIMO P700 E90+ Intel B630/4GB/320GB/DVDRW Miditower W7P",
+    "description": "ESPRIMO P700 E90+ Intel B630/4GB/320GB/DVDRW Miditower W7P Fujitsu",
     "shortDescription": "Fujitsu ESPRIMO P700 E90+ B630 W7P",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "fujitsu-esprimo-p700-320001",
+    "regularPrice": 60,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 3-gen",
+    "categorySlug": "desktop-kasutatud/used-3-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 3-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/Esprimo-P700.webp"
   },
   {
     "id": "320075",
@@ -62,22 +88,34 @@ export const autoProducts: any[] = [
     "price": 50,
     "salePrice": null,
     "finalPrice": 50,
-    "topCategory": "Desktop kasutatud / used, 3-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 3-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 3-gen"
+      "Desktop kasutatud",
+      "used, 3-gen"
     ],
     "brand": "ORDI",
     "tags": "Desktop, i3, ORDI",
     "color": "Black",
     "images": [
-      "/images/placeholder.webp"
+      "/images/Ordi-Metal_must.webp"
     ],
     "rawImages": [],
     "description": "ORDI i3-3220/4GB/500GB/DVDRW/ID reader/KB/Mouse",
     "shortDescription": "I3-3220/4/500 Windows 10",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "ordi-metal-i3-3220-320075",
+    "regularPrice": 50,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 3-gen",
+    "categorySlug": "desktop-kasutatud/used-3-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 3-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/Ordi-Metal_must.webp"
   },
   {
     "id": "320103",
@@ -86,24 +124,36 @@ export const autoProducts: any[] = [
     "name": "DELL OptiPlex 3/3010 SFF",
     "stock": 1,
     "price": 90,
-    "salePrice": 40,
-    "finalPrice": 40,
-    "topCategory": "Desktop kasutatud / used, 3-gen",
-    "subCategory": "general",
+    "salePrice": 50,
+    "finalPrice": 50,
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 3-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 3-gen"
+      "Desktop kasutatud",
+      "used, 3-gen"
     ],
     "brand": "DELL",
     "tags": "DELL, i3, Optiplex",
     "color": "Gray",
     "images": [
-      "/images/placeholder.webp"
+      "/images/DellOptiPlex3010SFF_2.webp"
     ],
     "rawImages": [],
     "description": "i3-3220, 8GB, 500GB, DVDRW, W10P",
-    "shortDescription": "",
+    "shortDescription": "i3-3220, 8GB, 500GB, DVDRW, W10P",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "dell-optiplex-3-3010-sff-320103",
+    "regularPrice": 90,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 3-gen",
+    "categorySlug": "desktop-kasutatud/used-3-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 3-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/DellOptiPlex3010SFF_2.webp"
   },
   {
     "id": "320100",
@@ -114,22 +164,34 @@ export const autoProducts: any[] = [
     "price": 45,
     "salePrice": 40,
     "finalPrice": 40,
-    "topCategory": "Desktop kasutatud / used, 3-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 3-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 3-gen"
+      "Desktop kasutatud",
+      "used, 3-gen"
     ],
     "brand": "HP",
     "tags": "Desktop, i3",
     "color": "",
     "images": [
-      "/images/placeholder.webp"
+      "/images/HP6300Pro_2.webp"
     ],
     "rawImages": [],
-    "description": "The HP Compaq Pro 6300 Small Form Factor PC is with Intel Q75 Express chipset supporting Intel 2nd and 3rd generation core processors featuring Intel HD Graphics Intel 82579LM GbE integrated network connection, DDR3 Synchronous Dynamic Random Access Memory (SDRAM). It has dual independent monitor support via VGA and digital DisplayPort 1.1a video interfaces",
-    "shortDescription": "HP Compaq Pro 6300 SFF, Intel Core i3-3220 ",
+    "description": "HP Compaq Pro 6300 i3-3220 4GB RAM, 500GB HDD. It has dual independent monitor support via VGA and digital DisplayPort 1.1a video interfaces",
+    "shortDescription": "HP Compaq Pro 6300 SFF, Intel Core i3-3220",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "hp-6300-pro-sff-320100",
+    "regularPrice": 45,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 3-gen",
+    "categorySlug": "desktop-kasutatud/used-3-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 3-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/HP6300Pro_2.webp"
   },
   {
     "id": "320000",
@@ -161,27 +223,39 @@ export const autoProducts: any[] = [
     "id": "320101",
     "sku": "320101",
     "title": "HP PRO Desk",
-    "name": "HP EliteDesk ProDesk",
+    "name": "HP PRO Desk",
     "stock": 1,
     "price": 90,
     "salePrice": 40,
     "finalPrice": 40,
-    "topCategory": "Desktop kasutatud / used, 4-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 4-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 4-gen"
+      "Desktop kasutatud",
+      "used, 4-gen"
     ],
     "brand": "HP",
     "tags": "Desktop, i5",
     "color": "",
     "images": [
-      "/images/placeholder.webp"
+      "/images/HP-ProDesk-G1-i5_4570.webp"
     ],
     "rawImages": [],
-    "description": "HP EliteDesk ProDesk i5 4570, 8GB RAM, 500GB HDD, DVDRW Window 10. New fast tiny Windows 10 install, office apps added.",
+    "description": "HP EliteDesk ProDesk i5 4570, 8GB RAM, 500GB HDD, DVDRW Window 10. New fast tiny Windows 10 install, office apps added. DELL",
     "shortDescription": "Desktop HP EliteDesk ProDesk i5 4570",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "hp-pro-desk-320101",
+    "regularPrice": 90,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 4-gen",
+    "categorySlug": "desktop-kasutatud/used-4-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 4-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/HP-ProDesk-G1-i5_4570.webp"
   },
   {
     "id": "320102",
@@ -192,22 +266,34 @@ export const autoProducts: any[] = [
     "price": 60,
     "salePrice": 55,
     "finalPrice": 55,
-    "topCategory": "Desktop kasutatud / used, 4-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 4-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 4-gen"
+      "Desktop kasutatud",
+      "used, 4-gen"
     ],
     "brand": "DELL",
     "tags": "DELL, i3, OptiPlex",
     "color": "Gray",
     "images": [
-      "/images/placeholder.webp"
+      "/images/Dell_Optiplex-7020.webp"
     ],
     "rawImages": [],
     "description": "i3-4150, 8GB, 500GB, DVDRW, W10P",
     "shortDescription": "i3-4150, 8GB, 500GB, DVDRW, W10P",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "dell-optiplex-7020-sff-320102",
+    "regularPrice": 60,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 4-gen",
+    "categorySlug": "desktop-kasutatud/used-4-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 4-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/Dell_Optiplex-7020.webp"
   },
   {
     "id": "320121",
@@ -218,22 +304,34 @@ export const autoProducts: any[] = [
     "price": 90,
     "salePrice": null,
     "finalPrice": 90,
-    "topCategory": "Desktop kasutatud / used, 6-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 6-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 6-gen"
+      "Desktop kasutatud",
+      "used, 6-gen"
     ],
     "brand": "HP",
     "tags": "HP ProDesk 600 SFF i5-7500",
     "color": "Silver",
     "images": [
-      "/images/placeholder.webp"
+      "/images/ProDesk-600-G3.webp"
     ],
     "rawImages": [],
-    "description": "HP ProDesk 600 SFF i5-6400, 8GB RAM, 240GB, Uus puhastatud, kiirendatud Windows 11 Pro install, Viirusetärje, suurendatud turvalisus, Office apps lisatud . Vike korpus. Sobib t tegemiseks. Vajadusel Windows 11 Pro ",
+    "description": "HP ProDesk 600 SFF i5-6400, 8GB RAM, 240GB, Uus puhastatud, kiirendatud Windows 11 Pro install, Viiruset�rje, suurendatud turvalisus, Office apps lisatud. V�ike korpus. Sobib t�� tegemiseks. Vajadusel Windows 11 Pro",
     "shortDescription": "HP ProDesk 600 SFF i5-6400, 8GB RAM, 240GB",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "hp-prodesk-600-sff-i5-6400-320121",
+    "regularPrice": 90,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 6-gen",
+    "categorySlug": "desktop-kasutatud/used-6-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 6-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/ProDesk-600-G3.webp"
   },
   {
     "id": "320120",
@@ -244,22 +342,34 @@ export const autoProducts: any[] = [
     "price": 100,
     "salePrice": null,
     "finalPrice": 100,
-    "topCategory": "Desktop kasutatud / used, 7-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 7-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 7-gen"
+      "Desktop kasutatud",
+      "used, 7-gen"
     ],
     "brand": "HP",
     "tags": "HP ProDesk 600 SFF i5-7500",
     "color": "Silver",
     "images": [
-      "/images/placeholder.webp"
+      "/images/ProDesk-600-G3.webp"
     ],
     "rawImages": [],
-    "description": "HP ProDesk 600 SFF i5-7500, 8GB RAM, 240GB, Uus puhastatud, kiirendatud Windows 11 Pro install, Viirusetärje, suurendatud turvalisus, Office apps lisatud . Vike korpus. Sobib t tegemiseks. Vajadusel Windows 11 Pro ",
+    "description": "HP ProDesk 600 SFF i5-7500, 8GB RAM, 240GB, Uus puhastatud, kiirendatud Windows 11 Pro install, Viiruset�rje, suurendatud turvalisus, Office apps lisatud. V�ike korpus. Sobib t�� tegemiseks. Vajadusel Windows 11 Pro",
     "shortDescription": "HP ProDesk 600 SFF i5-7500, 8GB RAM, 240GB",
     "specs": "",
-    "imageUrl": "/images/placeholder.webp"
+    "imageUrl": "/images/placeholder.webp",
+    "slug": "hp-prodesk-600-sff-i5-7500-320120",
+    "regularPrice": 100,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 7-gen",
+    "categorySlug": "desktop-kasutatud/used-7-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 7-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/ProDesk-600-G3.webp"
   },
   {
     "id": "340075",
@@ -271,10 +381,10 @@ export const autoProducts: any[] = [
     "salePrice": 745,
     "finalPrice": 745,
     "topCategory": "Laptops",
-    "subCategory": "Laptop 14",
+    "subCategory": "Laptop 14\"",
     "categoryPath": [
       "Laptops",
-      "Laptop 14"
+      "Laptop 14\""
     ],
     "brand": "Lenovo",
     "tags": "Lenovo",
@@ -316,12 +426,13 @@ export const autoProducts: any[] = [
       "/images/DELL-E6330_W10.webp"
     ],
     "rawImages": [
-      "DELL-E6330_W10.webp"
+      "/images/DELL-E6330_W10.webp"
     ],
     "description": "Notebook Latitude E6330 14\" i5-3340M DDR3-4GB 500GB WIN10P ID Card Screen WXGA 1366x768 matte",
     "shortDescription": "",
     "specs": "",
-    "imageUrl": "/images/DELL-E6330_W10.webp"
+    "imageUrl": "/images/DELL-E6330_W10.webp",
+    "image": "/images/DELL-E6330_W10.webp"
   },
   {
     "id": "340003",
@@ -343,18 +454,19 @@ export const autoProducts: any[] = [
     "color": "Black Silver",
     "images": [
       "/images/DELL-E6220.webp",
-      "/images/DELL-E6220_3h.webp",
-      "/images/DELL-E6220_W7P_4_250HDD.webp"
+      "/images/dell-E6220_3h.webp",
+      "/images/dell-E6220_w7p_4_250hdd.webp"
     ],
     "rawImages": [
-      "DELL-E6220.webp",
-      "DELL-E6220_3h.webp",
-      "DELL-E6220_W7P_4_250HDD.webp"
+      "/images/DELL-E6220.webp",
+      "/images/dell-E6220_3h.webp",
+      "/images/dell-E6220_w7p_4_250hdd.webp"
     ],
     "description": "Notebook Latitude E6220 12,5\" i5-2520M DDR3-4GB 500GB WIN10P ID Card Screen WXGA 1366x768 matte",
     "shortDescription": "",
     "specs": "",
-    "imageUrl": "/images/DELL-E6220.webp"
+    "imageUrl": "/images/DELL-E6220.webp",
+    "image": "/images/DELL-E6220.webp"
   },
   {
     "id": "340004",
@@ -410,13 +522,14 @@ export const autoProducts: any[] = [
       "/images/DELL-E4310_pealt.webp"
     ],
     "rawImages": [
-      "DELL-E4310.webp",
-      "DELL-E4310_pealt.webp"
+      "/images/DELL-E4310.webp",
+      "/images/DELL-E4310_pealt.webp"
     ],
     "description": "Notebook Latitude E4310 14,1\" i5-520M DDR3-4GB 320GB WIN10P DVDRW ID Card Screen WXGA 1400x900 matte",
     "shortDescription": "",
     "specs": "",
-    "imageUrl": "/images/DELL-E4310.webp"
+    "imageUrl": "/images/DELL-E4310.webp",
+    "image": "/images/DELL-E4310.webp"
   },
   {
     "id": "340006",
@@ -440,12 +553,13 @@ export const autoProducts: any[] = [
       "/images/Dell-E4320.webp"
     ],
     "rawImages": [
-      "Dell-E4320.webp"
+      "/images/Dell-E4320.webp"
     ],
     "description": "13,3\" matt ekraan, prots. i5-2520M, DDR3-4GB RAM, 320HDD, DVDRW, ID kaardi lugeja, aku umbes 1h20m, Windows 10",
     "shortDescription": "I5-2520M 13,3\" 4GB, 320GB",
     "specs": "",
-    "imageUrl": "/images/Dell-E4320.webp"
+    "imageUrl": "/images/Dell-E4320.webp",
+    "image": "/images/Dell-E4320.webp"
   },
   {
     "id": "340010",
@@ -469,12 +583,13 @@ export const autoProducts: any[] = [
       "/images/Lenovo-x250.webp"
     ],
     "rawImages": [
-      "Lenovo-x250.webp"
+      "/images/Lenovo-x250.webp"
     ],
     "description": "Lenovo X250 8GB RAM, 240 SSD, 12.5\" HD (1366x768) LED matt, Webcam, Klaviatuur EST valgustusega, Mälukaardilugeja, ID lugeja, VGA, Ethernet (RJ-45), USB 3.0, MiniDP, Dock pesa. Aku umbes 2h. Windows 10 Pro. Uus ”konoomne Windowsi install, mis tästab arvuti väärtust. Eemaldatud ballast, telemeetria, suurendatud turvalisust ja eluiga. Lisatud kontori tarkvara",
     "shortDescription": "Lenovo X250, 8GB RAM, 240 GB SSD",
     "specs": "",
-    "imageUrl": "/images/Lenovo-x250.webp"
+    "imageUrl": "/images/Lenovo-x250.webp",
+    "image": "/images/Lenovo-x250.webp"
   },
   {
     "id": "340012",
@@ -500,14 +615,15 @@ export const autoProducts: any[] = [
       "/images/Leno_i5_6300U_6h_W10_900px.webp"
     ],
     "rawImages": [
-      "Lenovo-X260.webp",
-      "Leno_i5_6300U_6h_W10.webp",
-      "Leno_i5_6300U_6h_W10_900px.webp"
+      "/images/Lenovo-X260.webp",
+      "/images/Leno_i5_6300U_6h_W10.webp",
+      "/images/Leno_i5_6300U_6h_W10_900px.webp"
     ],
     "description": "i5-6300U, 8-250 GB, 13,3\" matt, EE klaviatuur, orig. laadija, kaks akut. Windows 10 puhastatud kiire, lisatud programmid ja Office. aku näitab 4h",
     "shortDescription": "Lenovo X260 13,3” i5-6300U Windows10",
     "specs": "",
-    "imageUrl": "/images/Lenovo-X260.webp"
+    "imageUrl": "/images/Lenovo-X260.webp",
+    "image": "/images/Lenovo-X260.webp"
   },
   {
     "id": "340001",
@@ -532,13 +648,14 @@ export const autoProducts: any[] = [
       "/images/E6410_RU.webp"
     ],
     "rawImages": [
-      "E6410_4_250.webp",
-      "E6410_RU.webp"
+      "/images/E6410_4_250.webp",
+      "/images/E6410_RU.webp"
     ],
     "description": "Notebook Latitude E6410 14,1\" i5-560 DDR3-4GB 500GB WIN10P DVDRW ID Card Screen WXGA 1400x900 matte",
     "shortDescription": "Notebook Latitude E6410 i5-560",
     "specs": "",
-    "imageUrl": "/images/E6410_4_250.webp"
+    "imageUrl": "/images/E6410_4_250.webp",
+    "image": "/images/E6410_4_250.webp"
   },
   {
     "id": "340019",
@@ -559,17 +676,18 @@ export const autoProducts: any[] = [
     "tags": "Latitude",
     "color": "Black",
     "images": [
-      "/images/DELL-E6420_W10.webp",
+      "/images/dell-E6420_w10.webp",
       "/images/DELL-E6420_ees.webp"
     ],
     "rawImages": [
-      "DELL-E6420_W10.webp",
-      "DELL-E6420_ees.webp"
+      "/images/dell-E6420_w10.webp",
+      "/images/DELL-E6420_ees.webp"
     ],
     "description": "Notebook Latitude E6420 14\" i5-2520M DDR3-4GB 500GB WIN10P DVDRW ID Card Screen WXGA 1366x768 matte",
     "shortDescription": "Notebook Latitude E6430 14\" i5",
     "specs": "",
-    "imageUrl": "/images/DELL-E6420_W10.webp"
+    "imageUrl": "/images/dell-E6420_w10.webp",
+    "image": "/images/dell-E6420_w10.webp"
   },
   {
     "id": "340015",
@@ -593,12 +711,13 @@ export const autoProducts: any[] = [
       "/images/DELL-E6420.webp"
     ],
     "rawImages": [
-      "DELL-E6420.webp"
+      "/images/DELL-E6420.webp"
     ],
     "description": "Latitude 14\" i5-2520M, 8 RAM, 240SSD, DVDRW, HDMI väljund, aku kuni 2h., matt ekraan, kaamera, ID kaardi lugeja, EST klaviatuur, laadija. Äriklassi arvuti, hea klaviatuur. Uus Windowsi install, eemaldatud Windowsi ballast, seadistatud ökonoomseks, lisatud kontori tarkvara, Microsoft Office, pilditöötlus programmid. Parandatud arvuti suurimat ohtu browseri turvalisust. Firefoxil muudetud 5 turvasetingut paremaks. Tänu seadistusele töötab suhteliselt kiiresti. Välimus korras. Võimalik lisada Doc, klaviatuur, hiir. ",
     "shortDescription": "Latitude 14\" i5-2520M, 8 RAM, 240SSD, DVDRW",
     "specs": "",
-    "imageUrl": "/images/DELL-E6420.webp"
+    "imageUrl": "/images/DELL-E6420.webp",
+    "image": "/images/DELL-E6420.webp"
   },
   {
     "id": "340016",
@@ -623,13 +742,14 @@ export const autoProducts: any[] = [
       "/images/DELL-E5470_at.webp"
     ],
     "rawImages": [
-      "DELL-E5470.webp",
-      "DELL-E5470_at.webp"
+      "/images/DELL-E5470.webp",
+      "/images/DELL-E5470_at.webp"
     ],
     "description": "DELL Latitude E5470 i5-6440HQ 8GB RAM, 250 GB SSD, 14” FHD Graphics Radeon 7 M360 + Intel HD Graphics 530, Windows 10, puhastatud kiire, lisatud kontori tarkvara",
     "shortDescription": "DELL Latitude E5470 i5-6440HQ",
     "specs": "",
-    "imageUrl": "/images/DELL-E5470.webp"
+    "imageUrl": "/images/DELL-E5470.webp",
+    "image": "/images/DELL-E5470.webp"
   },
   {
     "id": "340018",
@@ -650,21 +770,20 @@ export const autoProducts: any[] = [
     "tags": "Lenovo",
     "color": "Black",
     "images": [
-      "/images/DELL-E7440_ees.webp",
-      "/images/DELL-E7440_eest.webp",
+      "/images/dell-E7440_ees.webp",
       "/images/DELL-E7440_pealt.webp",
-      "/images/DELL-E7440_taga.webp"
+      "/images/dell-E7440_taga.webp"
     ],
     "rawImages": [
-      "DELL-E7440_ees.webp",
-      "DELL-E7440_eest.webp",
-      "DELL-E7440_pealt.webp",
-      "DELL-E7440_taga.webp"
+      "/images/dell-E7440_ees.webp",
+      "/images/DELL-E7440_pealt.webp",
+      "/images/dell-E7440_taga.webp"
     ],
     "description": "E7440 i5-4300U 8 RAM, 256 SSD, 14\" Full HD 1920 x 1080 pixels LED backlight 16:9 Intel® HD Graphics 4400, Ethernet LAN (RJ-45) port, 3x USB3, HDMI, Mini DisplayPort. Aku 1h, laadija. Soovikorral Dok, klaviatuur. Windows 11 + kontori tarkvara. Uus puhas ",
     "shortDescription": "E7440 8 RAM, 256 SSD, 14\" Full HD 1920 x 1080 pixels ",
     "specs": "",
-    "imageUrl": "/images/DELL-E7440_ees.webp"
+    "imageUrl": "/images/dell-E7440_ees.webp",
+    "image": "/images/dell-E7440_ees.webp"
   },
   {
     "id": "340017",
@@ -688,12 +807,13 @@ export const autoProducts: any[] = [
       "/images/DELL-Latitude-E5520_2h.webp"
     ],
     "rawImages": [
-      "DELL-Latitude-E5520_2h.webp"
+      "/images/DELL-Latitude-E5520_2h.webp"
     ],
     "description": "Korralik Latitude E5520 i3-2330M 8GB RAM, 120SSD. Hea klaviatuuriga, hea matt ektaaniga 15,6\", DVDRW, HDMI, ID kaardi lugeja, SD kaart, VGA, Klaviatuur skandinaavia. Uus Windows 10, puhastatud, kiirendatud, lisatud kontori tarkvara, turvalisus parandatud. Aku u-3h. näitab vahest 7h (pildil). Kogult suur, raskem kui väksema klassi arvutid. Eeliseks just tipp tasemel Windowsi seadistus. Parandatud arvuti suurimat ohtu browseri turvalisust. Firefoxil muudetud 5 turvasetingut paremaks. ",
     "shortDescription": "Latitude E5520 i3-2330M 8GB RAM, 120SSD. ",
     "specs": "",
-    "imageUrl": "/images/DELL-Latitude-E5520_2h.webp"
+    "imageUrl": "/images/DELL-Latitude-E5520_2h.webp",
+    "image": "/images/DELL-Latitude-E5520_2h.webp"
   },
   {
     "id": "340022",
@@ -717,12 +837,13 @@ export const autoProducts: any[] = [
       "/images/HP-250_G7.webp"
     ],
     "rawImages": [
-      "HP-250_G7.webp"
+      "/images/HP-250_G7.webp"
     ],
     "description": "I3-7020U, 8GB, 256SSD NVMe, uus Windows 11. V„he kasutatud. Aku 2-3h.",
     "shortDescription": "",
     "specs": "",
-    "imageUrl": "/images/HP-250_G7.webp"
+    "imageUrl": "/images/HP-250_G7.webp",
+    "image": "/images/HP-250_G7.webp"
   },
   {
     "id": "511110",
@@ -743,17 +864,18 @@ export const autoProducts: any[] = [
     "tags": "Combo",
     "color": "",
     "images": [
-      "/images/ASUS_P8H61_ i3_3220.webp",
-      "/images/Ema-prose-ASUS_P8H61_ i3_3220_taga.webp"
+      "/images/Ema-prose-ASUS_P8H61_i3_3220.webp",
+      "/images/Ema-prose-ASUS_P8H61_i3_3220_taga.webp"
     ],
     "rawImages": [
-      "ASUS_P8H61_ i3_3220.webp",
-      "Ema-prose-ASUS_P8H61_ i3_3220_taga.webp"
+      "/images/Ema-prose-ASUS_P8H61_i3_3220.webp",
+      "/images/Ema-prose-ASUS_P8H61_i3_3220_taga.webp"
     ],
     "description": "ASUS_P8H61_ i3_3220 cooler Intel",
     "shortDescription": "ASUS_P8H61_ i3_3220 cooler Intel",
     "specs": "",
-    "imageUrl": "/images/ASUS_P8H61_ i3_3220.webp"
+    "imageUrl": "/images/Ema-prose-ASUS_P8H61_i3_3220.webp",
+    "image": "/images/Ema-prose-ASUS_P8H61_i3_3220.webp"
   },
   {
     "id": "510168",
@@ -984,15 +1106,16 @@ export const autoProducts: any[] = [
     "tags": "Intel Protsessor",
     "color": "",
     "images": [
-      "/images/I-protsessor_i5_desktop.png"
+      "/images/I-protsessor_i5_desktop.webp"
     ],
     "rawImages": [
-      "I-protsessor_i5_desktop.png"
+      "/images/I-protsessor_i5_desktop.webp"
     ],
     "description": "Protsessor Intel i5-4590   ",
     "shortDescription": "",
     "specs": "",
-    "imageUrl": "/images/I-protsessor_i5_desktop.png"
+    "imageUrl": "/images/I-protsessor_i5_desktop.webp",
+    "image": "/images/I-protsessor_i5_desktop.webp"
   },
   {
     "id": "520310",
@@ -1013,15 +1136,16 @@ export const autoProducts: any[] = [
     "tags": "Intel Protsessor",
     "color": "",
     "images": [
-      "/images/I-protsessor_i5_desktop.png"
+      "/images/I-protsessor_i5_desktop.webp"
     ],
     "rawImages": [
-      "I-protsessor_i5_desktop.png"
+      "/images/I-protsessor_i5_desktop.webp"
     ],
     "description": "Core I5 I5-6400 Quad-Core (4 Core) 2.70 Ghz Processor - Socket H4 Lga-1151 ",
     "shortDescription": "Core I5 I5-6400 Quad-Core (4 Core) 2.70 Ghz Processor - Socket H4 Lga-1151 ",
     "specs": "",
-    "imageUrl": "/images/I-protsessor_i5_desktop.png"
+    "imageUrl": "/images/I-protsessor_i5_desktop.webp",
+    "image": "/images/I-protsessor_i5_desktop.webp"
   },
   {
     "id": "555005",
@@ -1033,57 +1157,61 @@ export const autoProducts: any[] = [
     "salePrice": null,
     "finalPrice": 40,
     "topCategory": "Monitorid",
-    "subCategory": "Monitorid 22-25",
+    "subCategory": "Monitorid 22″-25″",
     "categoryPath": [
       "Monitorid",
-      "Monitorid 22-25"
+      "Monitorid 22″-25″"
     ],
     "brand": "Samsung",
     "tags": "Samsung, Monitor",
     "color": "",
     "images": [
-      "/images/Sam-S24E450b.webp",
-      "/images/Sam-S24E450b_label.webp"
+      "/images/Mon_Sam_S24E450b.webp",
+      "/images/Mon_Sam_S24E450B_taga.webp",
+      "/images/Mon_Sam_S24E450B_label.webp"
     ],
     "rawImages": [
-      "Sam-S24E450b.webp",
-      "Sam-S24E450b_label.webp"
+      "/images/Mon_Sam_S24E450b.webp",
+      "/images/Mon_Sam_S24E450B_taga.webp",
+      "/images/Mon_Sam_S24E450B_label.webp"
     ],
     "description": "Monitor 24\" Sam SyncMaster SA450 HD reg. kõrgusega          ",
     "shortDescription": "Monitor 24\" Sam SyncMaster SA450 HD reg. kõrgusega          ",
     "specs": "",
-    "imageUrl": "/images/Sam-S24E450b.webp"
+    "imageUrl": "/images/Mon_Sam_S24E450b.webp",
+    "image": "/images/Mon_Sam_S24E450b.webp"
   },
   {
     "id": "555009",
     "sku": "555009",
-    "title": "Monitor 22 ViwSonic",
-    "name": "Monitor 22 ViwSonic",
+    "title": "Monitor 22\" ViwSonic",
+    "name": "Monitor 22\" ViwSonic",
     "stock": 1,
     "price": 10,
     "salePrice": null,
     "finalPrice": 10,
     "topCategory": "Monitorid",
-    "subCategory": "Monitorid 22-25",
+    "subCategory": "Monitorid 22″-25″",
     "categoryPath": [
       "Monitorid",
-      "Monitorid 22-25"
+      "Monitorid 22″-25″"
     ],
     "brand": "",
     "tags": "",
     "color": "",
     "images": [
-      "/images/ViewSonic_22_eest_odav.webp",
-      "/images/ViewSonic_22_taga_odav.webp"
+      "/images/Mon_ViewSonic_VA2232w.webp",
+      "/images/Mon_ViewSonic_2216w.webp"
     ],
     "rawImages": [
-      "ViewSonic_22_eest_odav.webp",
-      "ViewSonic_22_taga_odav.webp"
+      "/images/Mon_ViewSonic_VA2232w.webp",
+      "/images/Mon_ViewSonic_2216w.webp"
     ],
-    "description": "Monitor 22 ViwSonic",
-    "shortDescription": "Monitor 22 ViwSonic",
+    "description": "Monitor 22\" ViwSonic",
+    "shortDescription": "Monitor 22\" ViwSonic",
     "specs": "",
-    "imageUrl": "/images/ViewSonic_22_eest_odav.webp"
+    "imageUrl": "/images/Mon_ViewSonic_VA2232w.webp",
+    "image": "/images/Mon_ViewSonic_VA2232w.webp"
   },
   {
     "id": "410006",
@@ -1229,5 +1357,196 @@ export const autoProducts: any[] = [
     "shortDescription": "Toner Smasung-ML1710 65g",
     "specs": "",
     "imageUrl": "/images/Toner-Smasung-ML1710_65g.webp"
+  },
+  {
+    "id": "340400",
+    "sku": "340400",
+    "title": "DELL Latitude E6400 used",
+    "name": "DELL Latitude E6400 used",
+    "slug": "dell-latitude-e6400-used-340400",
+    "brand": "DELL",
+    "price": 50,
+    "regularPrice": 50,
+    "salePrice": 40,
+    "finalPrice": 40,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 14\" used",
+    "categorySlug": "laptops-used/laptop-14-used",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop 14\" used",
+    "subCategory": "Laptop 14\" used",
+    "description": "Latitude 14\" i5-M520, 4 RAM, 500HDD, DVDRW, HDMI väljund, aku kuni 2h(mõnel 4h)., matt ekraan, kaamera, ID kaardi lugeja, EST klaviatuur, laadija. Äriklassi arvuti, hea klaviatuur. Uus Windowsi install, eemaldatud Windowsi ballast, seadistatud ökonoomseks, lisatud kontori tarkvara, Microsoft Office, pilditöötlus programmid. Parandatud arvuti suurimat ohtu browseri turvalisust. Brave, Chrome turvasetingud paremaks. Tänu seadistusele töötab suhteliselt kiiresti. Välimus korras. Võimalik lisada Doc, klaviatuur, hiir.",
+    "shortDescription": "Latitude 14\" i5-M520, 4 RAM, 500HDD, DVDRW, HDMI väljund,",
+    "stock": 2,
+    "condition": "used",
+    "images": [
+      "/images/DELL_E6400.webp",
+      "/images/DELL_E6400_6h.webp"
+    ],
+    "image": "/images/DELL_E6400.webp"
+  },
+  {
+    "id": "340440",
+    "sku": "340440",
+    "title": "DELL Latitude E6440 used",
+    "name": "DELL Latitude E6440 used",
+    "slug": "dell-latitude-e6440-used-340440",
+    "brand": "DELL",
+    "price": 90,
+    "regularPrice": 90,
+    "salePrice": 85,
+    "finalPrice": 85,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 14\" used",
+    "categorySlug": "laptops-used/laptop-14-used",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop 14\" used",
+    "subCategory": "Laptop 14\" used",
+    "description": "E6440 i5-4300M 8 RAM, M.2 256 SSD + 500GB HDD, 14\" 1600 x 900 pixels LED backlight 16:9 Intel® HD Graphics 4400, Ethernet LAN (RJ-45) port, 3x USB3, HDMI, Mini DisplayPort. Aku 1h, laadija. Soovikorral Dok, klaviatuur. Windows 11 + kontori tarkvara. Uus puhas",
+    "shortDescription": "E6440 i5-4300M 8 RAM, M.2 256 SSD + 500GB HDD, 14\"",
+    "stock": 1,
+    "condition": "used",
+    "images": [
+      "/images/DELL-E6440_4h_aku_i5_4300M.webp"
+    ],
+    "image": "/images/DELL-E6440_4h_aku_i5_4300M.webp"
+  },
+  {
+    "id": "521016",
+    "sku": "521016",
+    "title": "Kõvaketas 500GB WD500AAKX",
+    "name": "Kõvaketas 500GB WD500AAKX",
+    "slug": "kovaketas-500gb-wd500aakx-521016",
+    "brand": "",
+    "price": 10,
+    "regularPrice": 10,
+    "salePrice": null,
+    "finalPrice": 10,
+    "category": "Lauarvuti osad kasut.",
+    "categories": "Lauarvuti osad kasut. > Kõvaketas HDD > HDD SATA",
+    "categorySlug": "lauarvuti-osad-kasut/kovaketas-hdd/hdd-sata",
+    "categoryL1": "Lauarvuti osad kasut.",
+    "topCategory": "Lauarvuti osad kasut.",
+    "categoryL2": "Kõvaketas HDD",
+    "subCategory": "Kõvaketas HDD",
+    "description": "",
+    "shortDescription": "Kõvaketas 500GB 7200rpm 16MB SATA WD500AAKX",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/WD500AAKX.webp"
+    ],
+    "image": "/images/WD500AAKX.webp",
+    "categoryL3": "HDD SATA",
+    "categoryL4": "",
+    "categoryPath": [
+      "Lauarvuti osad kasut.",
+      "Kõvaketas HDD",
+      "HDD SATA"
+    ]
+  },
+  {
+    "id": "521012",
+    "sku": "521012",
+    "title": "KõvaketasWD 2TB WD2002FYPS",
+    "name": "KõvaketasWD 2TB WD2002FYPS",
+    "slug": "kovaketaswd-2tb-wd2002fyps-521012",
+    "brand": "",
+    "price": 35,
+    "regularPrice": 35,
+    "salePrice": null,
+    "finalPrice": 35,
+    "category": "Lauarvuti osad kasut.",
+    "categories": "Lauarvuti osad kasut. > Kõvaketas HDD > HDD SATA",
+    "categorySlug": "lauarvuti-osad-kasut/kovaketas-hdd/hdd-sata",
+    "categoryL1": "Lauarvuti osad kasut.",
+    "topCategory": "Lauarvuti osad kasut.",
+    "categoryL2": "Kõvaketas HDD",
+    "subCategory": "Kõvaketas HDD",
+    "description": "",
+    "shortDescription": "KõvaketasWD 2TB 64MB SATA WD2002FYPS",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/WD2002FYPS.webp"
+    ],
+    "image": "/images/WD2002FYPS.webp",
+    "categoryL3": "HDD SATA",
+    "categoryL4": "",
+    "categoryPath": [
+      "Lauarvuti osad kasut.",
+      "Kõvaketas HDD",
+      "HDD SATA"
+    ]
+  },
+  {
+    "id": "520139",
+    "sku": "520139",
+    "title": "HDD 320GB 2,5\" Momentus ST320LT020",
+    "name": "HDD 320GB 2,5\" Momentus ST320LT020",
+    "slug": "hdd-320gb-2-5-momentus-st320lt020-520139",
+    "brand": "",
+    "price": 10,
+    "regularPrice": 10,
+    "salePrice": null,
+    "finalPrice": 10,
+    "category": "Sülearvuti osad kasut.",
+    "categories": "Sülearvuti osad kasut. > Kõvaketas HDD > HDD 3,5” SATA",
+    "categorySlug": "sulearvuti-osad-kasut/kovaketas-hdd/hdd-3-5-sata",
+    "categoryL1": "Sülearvuti osad kasut.",
+    "topCategory": "Sülearvuti osad kasut.",
+    "categoryL2": "Kõvaketas HDD",
+    "subCategory": "Kõvaketas HDD",
+    "description": "",
+    "shortDescription": "HDD 320GB 2,5\" Momentus ST320LT020 Sata2",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/ST320LT020.webp"
+    ],
+    "image": "/images/ST320LT020.webp",
+    "categoryL3": "HDD 3,5” SATA",
+    "categoryL4": "",
+    "categoryPath": [
+      "Sülearvuti osad kasut.",
+      "Kõvaketas HDD",
+      "HDD 3,5” SATA"
+    ]
+  },
+  {
+    "id": "520143",
+    "sku": "520143",
+    "title": "HDD 320GB 2,5\" Scorpio WD320BPVT",
+    "name": "HDD 320GB 2,5\" Scorpio WD320BPVT",
+    "slug": "hdd-320gb-2-5-scorpio-wd320bpvt-520143",
+    "brand": "",
+    "price": 10,
+    "regularPrice": 10,
+    "salePrice": null,
+    "finalPrice": 10,
+    "category": "Sülearvuti osad kasut.",
+    "categories": "Sülearvuti osad kasut. > Kõvaketas HDD > HDD 3,5” SATA",
+    "categorySlug": "sulearvuti-osad-kasut/kovaketas-hdd/hdd-3-5-sata",
+    "categoryL1": "Sülearvuti osad kasut.",
+    "topCategory": "Sülearvuti osad kasut.",
+    "categoryL2": "Kõvaketas HDD",
+    "subCategory": "Kõvaketas HDD",
+    "categoryL3": "HDD 3,5” SATA",
+    "categoryL4": "",
+    "categoryPath": [
+      "Sülearvuti osad kasut.",
+      "Kõvaketas HDD",
+      "HDD 3,5” SATA"
+    ],
+    "description": "",
+    "shortDescription": "HDD 320GB 2,5” Momentus5400rpm 8MB 2,5\" Scorpio WD320BPVT Sata2",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/WD320BPVT.webp"
+    ],
+    "image": "/images/WD320BPVT.webp"
   }
 ];

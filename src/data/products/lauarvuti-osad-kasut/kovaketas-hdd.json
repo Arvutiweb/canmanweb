@@ -1,0 +1,70 @@
+[
+  {
+    "id": "521016",
+    "sku": "521016",
+    "title": "Kõvaketas 500GB WD500AAKX",
+    "name": "Kõvaketas 500GB WD500AAKX",
+    "slug": "kovaketas-500gb-wd500aakx-521016",
+    "brand": "",
+    "price": 10,
+    "regularPrice": 10,
+    "salePrice": null,
+    "finalPrice": 10,
+    "category": "Lauarvuti osad kasut.",
+    "categories": "Lauarvuti osad kasut. > Kõvaketas HDD > HDD SATA",
+    "categorySlug": "lauarvuti-osad-kasut/kovaketas-hdd/hdd-sata",
+    "categoryL1": "Lauarvuti osad kasut.",
+    "topCategory": "Lauarvuti osad kasut.",
+    "categoryL2": "Kõvaketas HDD",
+    "subCategory": "Kõvaketas HDD",
+    "description": "",
+    "shortDescription": "Kõvaketas 500GB 7200rpm 16MB SATA WD500AAKX",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/WD500AAKX.webp"
+    ],
+    "image": "/images/WD500AAKX.webp",
+    "categoryL3": "HDD SATA",
+    "categoryL4": "",
+    "categoryPath": [
+      "Lauarvuti osad kasut.",
+      "Kõvaketas HDD",
+      "HDD SATA"
+    ]
+  },
+  {
+    "id": "521012",
+    "sku": "521012",
+    "title": "KõvaketasWD 2TB WD2002FYPS",
+    "name": "KõvaketasWD 2TB WD2002FYPS",
+    "slug": "kovaketaswd-2tb-wd2002fyps-521012",
+    "brand": "",
+    "price": 35,
+    "regularPrice": 35,
+    "salePrice": null,
+    "finalPrice": 35,
+    "category": "Lauarvuti osad kasut.",
+    "categories": "Lauarvuti osad kasut. > Kõvaketas HDD > HDD SATA",
+    "categorySlug": "lauarvuti-osad-kasut/kovaketas-hdd/hdd-sata",
+    "categoryL1": "Lauarvuti osad kasut.",
+    "topCategory": "Lauarvuti osad kasut.",
+    "categoryL2": "Kõvaketas HDD",
+    "subCategory": "Kõvaketas HDD",
+    "description": "",
+    "shortDescription": "KõvaketasWD 2TB 64MB SATA WD2002FYPS",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/WD2002FYPS.webp"
+    ],
+    "image": "/images/WD2002FYPS.webp",
+    "categoryL3": "HDD SATA",
+    "categoryL4": "",
+    "categoryPath": [
+      "Lauarvuti osad kasut.",
+      "Kõvaketas HDD",
+      "HDD SATA"
+    ]
+  }
+]

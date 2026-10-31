@@ -15,11 +15,21 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 6-gen",
     "subCategory": "used, 6-gen",
-    "image": "/images/ProDesk-600-G3.png",
+    "image": "/images/ProDesk-600-G3.webp",
     "images": [
-      "/images/ProDesk-600-G3.png"
+      "/images/ProDesk-600-G3.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": null,
+    "finalPrice": 90,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 6-gen"
+    ],
+    "description": "HP ProDesk 600 SFF i5-6400, 8GB RAM, 240GB, Uus puhastatud, kiirendatud Windows 11 Pro install, Viiruset�rje, suurendatud turvalisus, Office apps lisatud. V�ike korpus. Sobib t�� tegemiseks. Vajadusel Windows 11 Pro",
+    "shortDescription": "HP ProDesk 600 SFF i5-6400, 8GB RAM, 240GB"
   }
 ]

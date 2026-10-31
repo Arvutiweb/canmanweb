@@ -8,19 +8,34 @@
     "price": 60,
     "salePrice": 90,
     "finalPrice": 90,
-    "topCategory": "Desktop kasutatud / used, 3-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 3-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 3-gen"
+      "Desktop kasutatud",
+      "used, 3-gen"
     ],
     "brand": "Fujitsu",
     "tags": "Desktop, Fsprimo",
     "color": "Gray",
-    "images": [],
+    "images": [
+      "/images/Esprimo-P700.webp",
+      "/images/Esprimo-t200_taga.webp"
+    ],
     "rawImages": [],
-    "description": "ESPRIMO P700 E90+ Intel B630/4GB/320GB/DVDRW Miditower W7P",
+    "description": "ESPRIMO P700 E90+ Intel B630/4GB/320GB/DVDRW Miditower W7P Fujitsu",
     "shortDescription": "Fujitsu ESPRIMO P700 E90+ B630 W7P",
-    "specs": ""
+    "specs": "",
+    "slug": "fujitsu-esprimo-p700-320001",
+    "regularPrice": 60,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 3-gen",
+    "categorySlug": "desktop-kasutatud/used-3-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 3-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/Esprimo-P700.webp"
   },
   {
     "id": "320075",
@@ -31,19 +46,33 @@
     "price": 50,
     "salePrice": null,
     "finalPrice": 50,
-    "topCategory": "Desktop kasutatud / used, 3-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 3-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 3-gen"
+      "Desktop kasutatud",
+      "used, 3-gen"
     ],
     "brand": "ORDI",
     "tags": "Desktop, i3, ORDI",
     "color": "Black",
-    "images": [],
+    "images": [
+      "/images/Ordi-Metal_must.webp"
+    ],
     "rawImages": [],
     "description": "ORDI i3-3220/4GB/500GB/DVDRW/ID reader/KB/Mouse",
     "shortDescription": "I3-3220/4/500 Windows 10",
-    "specs": ""
+    "specs": "",
+    "slug": "ordi-metal-i3-3220-320075",
+    "regularPrice": 50,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 3-gen",
+    "categorySlug": "desktop-kasutatud/used-3-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 3-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/Ordi-Metal_must.webp"
   },
   {
     "id": "320103",
@@ -52,21 +81,35 @@
     "name": "DELL OptiPlex 3/3010 SFF",
     "stock": 1,
     "price": 90,
-    "salePrice": 40,
-    "finalPrice": 40,
-    "topCategory": "Desktop kasutatud / used, 3-gen",
-    "subCategory": "general",
+    "salePrice": 50,
+    "finalPrice": 50,
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 3-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 3-gen"
+      "Desktop kasutatud",
+      "used, 3-gen"
     ],
     "brand": "DELL",
     "tags": "DELL, i3, Optiplex",
     "color": "Gray",
-    "images": [],
+    "images": [
+      "/images/DellOptiPlex3010SFF_2.webp"
+    ],
     "rawImages": [],
     "description": "i3-3220, 8GB, 500GB, DVDRW, W10P",
-    "shortDescription": "",
-    "specs": ""
+    "shortDescription": "i3-3220, 8GB, 500GB, DVDRW, W10P",
+    "specs": "",
+    "slug": "dell-optiplex-3-3010-sff-320103",
+    "regularPrice": 90,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 3-gen",
+    "categorySlug": "desktop-kasutatud/used-3-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 3-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/DellOptiPlex3010SFF_2.webp"
   },
   {
     "id": "320100",
@@ -77,19 +120,33 @@
     "price": 45,
     "salePrice": 40,
     "finalPrice": 40,
-    "topCategory": "Desktop kasutatud / used, 3-gen",
-    "subCategory": "general",
+    "topCategory": "Desktop kasutatud",
+    "subCategory": "used, 3-gen",
     "categoryPath": [
-      "Desktop kasutatud / used, 3-gen"
+      "Desktop kasutatud",
+      "used, 3-gen"
     ],
     "brand": "HP",
     "tags": "Desktop, i3",
     "color": "",
-    "images": [],
+    "images": [
+      "/images/HP6300Pro_2.webp"
+    ],
     "rawImages": [],
-    "description": "The HP Compaq Pro 6300 Small Form Factor PC is with Intel Q75 Express chipset supporting Intel 2nd and 3rd generation core processors featuring Intel HD Graphics Intel 82579LM GbE integrated network connection, DDR3 Synchronous Dynamic Random Access Memory (SDRAM). It has dual independent monitor support via VGA and digital DisplayPort 1.1a video interfaces",
-    "shortDescription": "HP Compaq Pro 6300 SFF, Intel Core i3-3220 ",
-    "specs": ""
+    "description": "HP Compaq Pro 6300 i3-3220 4GB RAM, 500GB HDD. It has dual independent monitor support via VGA and digital DisplayPort 1.1a video interfaces",
+    "shortDescription": "HP Compaq Pro 6300 SFF, Intel Core i3-3220",
+    "specs": "",
+    "slug": "hp-6300-pro-sff-320100",
+    "regularPrice": 45,
+    "category": "Desktop kasutatud",
+    "categories": "Desktop kasutatud > used, 3-gen",
+    "categorySlug": "desktop-kasutatud/used-3-gen",
+    "categoryL1": "Desktop kasutatud",
+    "categoryL2": "used, 3-gen",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "used",
+    "image": "/images/HP6300Pro_2.webp"
   },
   {
     "id": "320000",

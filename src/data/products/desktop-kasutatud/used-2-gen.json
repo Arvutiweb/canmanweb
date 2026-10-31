@@ -15,12 +15,23 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 2-gen",
     "subCategory": "used, 2-gen",
-    "image": "/images/Esprimo-P700.png,Esprimo-t200_aga.png",
+    "image": "/images/Esprimo-P700.webp",
     "images": [
-      "/images/Esprimo-P700.png,Esprimo-t200_aga.png"
+      "/images/Esprimo-P700.webp",
+      "/images/Esprimo-t200_taga.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": 110,
+    "finalPrice": 110,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 2-gen"
+    ],
+    "description": "ESPRIMO P700 E90+ Intel i5-2500/4GB/320GB/DVDRW Miditower W7P",
+    "shortDescription": "Fujitsu ESPRIMO P700 E90+ B630 W7P"
   },
   {
     "id": "320124",
@@ -38,14 +49,24 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 2-gen",
     "subCategory": "used, 2-gen",
-    "image": "/images/HP_i5_2500_ees.png",
+    "image": "/images/HP_i5_2500_ees.webp",
     "images": [
-      "/images/HP_i5_2500_ees.png",
-      "/images/Desktop-HP_i5_2500_taga.png",
-      "/images/Desktop-HP_i5_2500_sees.png"
+      "/images/HP_i5_2500_ees.webp",
+      "/images/Desktop-HP_i5_2500_taga.webp",
+      "/images/Desktop-HP_i5_2500_sees.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": 30,
+    "finalPrice": 30,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 2-gen"
+    ],
+    "description": "HP i5-2500 4GB RAM, 500GB HDD",
+    "shortDescription": ""
   },
   {
     "id": "320125",
@@ -63,13 +84,23 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 2-gen",
     "subCategory": "used, 2-gen",
-    "image": "/images/HP_i5_2500_ees.png",
+    "image": "/images/HP_i5_2500_ees.webp",
     "images": [
-      "/images/HP_i5_2500_ees.png",
-      "/images/Desktop-HP_i5_2500_taga.png",
-      "/images/Desktop-HP_i5_2500_sees.png"
+      "/images/HP_i5_2500_ees.webp",
+      "/images/Desktop-HP_i5_2500_taga.webp",
+      "/images/Desktop-HP_i5_2500_sees.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": 40,
+    "finalPrice": 40,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 2-gen"
+    ],
+    "description": "HP i5-2500 8GB RAM, 500GB HDD",
+    "shortDescription": ""
   }
 ]

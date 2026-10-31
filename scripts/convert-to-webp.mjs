@@ -1,10 +1,13 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import sharp from 'sharp';
 
-const IN_DIR = 'data/incoming';
-const OUT_DIR = 'public/images';
-const ARCHIVE_DIR = 'data/originals'; // kuhu originaalid alles jäävad
+const PROJECT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const IN_DIR = path.join(PROJECT_DIR, 'data/incoming');
+const OUT_DIR = path.join(PROJECT_DIR, 'public/images');
+const ARCHIVE_DIR = path.join(PROJECT_DIR, 'data/originals');
+const MAX_IMAGE_DIMENSION = 1200;
 
 if (!fs.existsSync(IN_DIR)) fs.mkdirSync(IN_DIR, { recursive: true });
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -20,27 +23,58 @@ if (files.length === 0) {
 console.log(`Leitud ${files.length} pilti, alustan...`);
 
 let ok = 0;
+let originalBytes = 0;
+let webpBytes = 0;
 for (const file of files) {
   const inPath = path.join(IN_DIR, file);
   const base = path.parse(file).name;
   const outPath = path.join(OUT_DIR, base + '.webp');
-  const archivePath = path.join(ARCHIVE_DIR, file);
+  const tempPath = path.join(OUT_DIR, `.${base}.${process.pid}.tmp.webp`);
 
   try {
-    await sharp(inPath)
-      .resize({ width: 1200, withoutEnlargement: true }) // max 1200px, piisab poele
-      .webp({ quality: 80 })
-      .toFile(outPath);
+    const originalSize = fs.statSync(inPath).size;
 
-    // tõsta originaal arhiivi
+    await sharp(inPath)
+      .rotate()
+      .resize({
+        width: MAX_IMAGE_DIMENSION,
+        height: MAX_IMAGE_DIMENSION,
+        fit: 'inside',
+        withoutEnlargement: true,
+      })
+      .webp({ quality: 78, effort: 6, smartSubsample: true })
+      .toFile(tempPath);
+
+    fs.renameSync(tempPath, outPath);
+
+    const outputSize = fs.statSync(outPath).size;
+    let archiveName = file;
+    let archivePath = path.join(ARCHIVE_DIR, archiveName);
+    let suffix = 1;
+    while (fs.existsSync(archivePath)) {
+      archiveName = `${path.parse(file).name}-${suffix}${path.extname(file)}`;
+      archivePath = path.join(ARCHIVE_DIR, archiveName);
+      suffix++;
+    }
+
     fs.renameSync(inPath, archivePath);
-    console.log(`OK ${file} -> ${base}.webp`);
+    originalBytes += originalSize;
+    webpBytes += outputSize;
+    const reduction = originalSize > 0 ? Math.round((1 - outputSize / originalSize) * 100) : 0;
+    console.log(`OK ${file} -> ${base}.webp (${reduction}% smaller)`);
     ok++;
   } catch (e) {
-    console.error(`VIGA ${file}: ${e.message}`);
+    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    console.error(`VIGA ${file}: ${e instanceof Error ? e.message : String(e)}`);
   }
 }
 
 console.log(`\nVALMIS - ${ok}/${files.length} teisendatud`);
+if (originalBytes > 0) {
+  const savedBytes = originalBytes - webpBytes;
+  const savedPercent = Math.round((1 - webpBytes / originalBytes) * 100);
+  console.log(`Suuruse muutus kokku: ${(originalBytes / 1024 / 1024).toFixed(2)} MB -> ${(webpBytes / 1024 / 1024).toFixed(2)} MB (${savedPercent}% väiksem)`);
+  if (savedBytes < 0) console.log(`Märkus: WebP-failid on kokku ${(-savedBytes / 1024).toFixed(1)} KB suuremad kui originaalid.`);
+}
 console.log(`Uued webp: ${OUT_DIR}`);
 console.log(`Originaalid: ${ARCHIVE_DIR}`);

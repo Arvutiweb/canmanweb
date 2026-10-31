@@ -15,7 +15,14 @@ const PRESETS = [
 export function ThemePaletteControls() {
   const [isOpen, setIsOpen] = useState(false);
   const { lang, t } = useLanguage();
-  const { palette, setHeaderColor, setHelpPanelColor, resetPalette } = useThemePalette();
+  const {
+    palette,
+    setHeaderColor,
+    setHelpPanelColor,
+    setHelpInputBackgroundColor,
+    setHelpInputTextColor,
+    resetPalette,
+  } = useThemePalette();
 
   return (
     <div className="fixed right-0 top-1/2 z-[70] -translate-y-1/2">
@@ -55,6 +62,28 @@ export function ThemePaletteControls() {
                 value={palette.helpPanel}
                 onChange={(event) => setHelpPanelColor(event.target.value)}
                 aria-label={t('palette_help_panel')}
+                className="h-9 w-12 cursor-pointer rounded border-0 bg-transparent p-0"
+              />
+            </label>
+
+            <label className="flex items-center justify-between gap-3 text-xs text-slate-200">
+              <span>{t('palette_help_input_background')}</span>
+              <input
+                type="color"
+                value={palette.helpInputBackground}
+                onChange={(event) => setHelpInputBackgroundColor(event.target.value)}
+                aria-label={t('palette_help_input_background')}
+                className="h-9 w-12 cursor-pointer rounded border-0 bg-transparent p-0"
+              />
+            </label>
+
+            <label className="flex items-center justify-between gap-3 text-xs text-slate-200">
+              <span>{t('palette_help_input_text')}</span>
+              <input
+                type="color"
+                value={palette.helpInputText}
+                onChange={(event) => setHelpInputTextColor(event.target.value)}
+                aria-label={t('palette_help_input_text')}
                 className="h-9 w-12 cursor-pointer rounded border-0 bg-transparent p-0"
               />
             </label>

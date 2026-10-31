@@ -14,6 +14,7 @@ import { Footer } from '../components/Footer';
 import { useLanguage } from '../context/LanguageContext';
 import { useThemePalette } from '../context/ThemePaletteContext';
 import { allProducts as PRODUCTS } from '../data/productCatalog';
+import { matchesProductFilter, normalizeProductCondition } from '../lib/productFilters';
 import { Product, Condition, OrderDetails } from '../types';
 import {
   Wrench,
@@ -44,6 +45,7 @@ import {
 
 const safeLower = (v: any) => String(v || '').toLowerCase();
 const safeStr = (v: any) => String(v || '');
+const local = (et: string, en: string, lang: string) => lang === 'en' ? en : et;
 
 export default function Home() {
   const { t, lang } = useLanguage();
@@ -115,7 +117,9 @@ export default function Home() {
         const matchesTitle = safeLower(p.title || p.name).includes(query);
         const matchesBrand = safeLower(p.brand).includes(query);
         const matchesSpecs = safeLower(p.shortSpec || p.shortDescription || p.description).includes(query);
-        const matchesCat = safeLower(p.categoryL1 || p.topCategory || p.category).includes(query) || safeLower(p.categoryL2 || p.subCategory).includes(query);
+        const matchesCat = safeLower(p.categoryL1 || p.topCategory || p.category).includes(query)
+          || safeLower(p.categoryL2 || p.subCategory).includes(query)
+          || safeLower(p.categoryL3 || p.sub2Category || p.categoryPath?.[2]).includes(query);
         if (!matchesTitle && !matchesBrand && !matchesSpecs && !matchesCat) return false;
       }
       if (selectedL1) {
@@ -133,15 +137,16 @@ export default function Home() {
         const pL2 = safeLower(p.categoryL2 || p.subCategory);
         if (!pL1.includes(sel) && !pL2.includes(sel)) return false;
       }
-      if (selectedL3 && p.categoryL3 && safeLower(p.categoryL3) !== safeLower(selectedL3)) return false;
-      if (conditionFilter !== 'all' && p.condition !== conditionFilter) return false;
+      const productL3 = p.categoryL3 || p.sub2Category || p.categoryPath?.[2];
+      if (selectedL3 && safeLower(productL3) !== safeLower(selectedL3)) return false;
+      if (conditionFilter !== 'all' && normalizeProductCondition(p.condition) !== conditionFilter) return false;
       if (selectedBrand && String(p.brand) !== selectedBrand) return false;
       if (minPrice > 0 && Number(p.price) < minPrice) return false;
       if (maxPrice > 0 && Number(p.price) > maxPrice) return false;
-      if (processorFilter && safeLower(p.specs?.cpu || p.cpu) !== safeLower(processorFilter)) return false;
-      if (memoryFilter && safeLower(p.specs?.ram || p.ram) !== safeLower(memoryFilter)) return false;
-      if (diskFilter && safeLower(p.specs?.storage || p.storage) !== safeLower(diskFilter)) return false;
-      if (operatingSystemFilter && safeLower(p.specs?.os || p.os) !== safeLower(operatingSystemFilter)) return false;
+      if (!matchesProductFilter(p, 'cpu', processorFilter)) return false;
+      if (!matchesProductFilter(p, 'ram', memoryFilter)) return false;
+      if (!matchesProductFilter(p, 'storage', diskFilter)) return false;
+      if (!matchesProductFilter(p, 'os', operatingSystemFilter)) return false;
       return true;
     }).sort((a: any, b: any) => {
       if (sortBy === 'price-asc') return Number(a.price) - Number(b.price);
@@ -366,7 +371,8 @@ export default function Home() {
                         value={serviceName}
                         onChange={(e) => setServiceName(e.target.value)}
                         placeholder={t('help_name_placeholder')}
-                        className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 outline-none focus:border-cyan-400 transition"
+                        style={{ backgroundColor: palette.helpInputBackground, color: palette.helpInputText }}
+                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-xs outline-none focus:border-cyan-400 transition"
                       />
                     </div>
 
@@ -380,7 +386,8 @@ export default function Home() {
                         value={servicePhone}
                         onChange={(e) => setServicePhone(e.target.value)}
                         placeholder="+372 5XX XXXXX"
-                        className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 outline-none focus:border-cyan-400 transition"
+                        style={{ backgroundColor: palette.helpInputBackground, color: palette.helpInputText }}
+                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-xs outline-none focus:border-cyan-400 transition"
                       />
                     </div>
 
@@ -393,7 +400,8 @@ export default function Home() {
                         value={serviceIssue}
                         onChange={(e) => setServiceIssue(e.target.value)}
                         placeholder={t('help_issue_placeholder')}
-                        className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 outline-none focus:border-cyan-400 transition"
+                        style={{ backgroundColor: palette.helpInputBackground, color: palette.helpInputText }}
+                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-xs outline-none focus:border-cyan-400 transition"
                       />
                     </div>
 
@@ -414,7 +422,7 @@ export default function Home() {
                             setServiceFormError('');
                           }
                         }}
-                        className="w-full text-xs text-slate-300 file:mr-3 file:rounded-lg file:border-0 file:bg-slate-700 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-slate-600"
+                        className="w-full text-xs text-white file:mr-3 file:rounded-lg file:border-0 file:bg-black file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-slate-900"
                       />
                       <p className="mt-1 text-[10px] text-slate-500">{t('help_attachment_hint')}</p>
                     </div>
@@ -424,7 +432,7 @@ export default function Home() {
                         type="button"
                         onClick={handleShareLocation}
                         disabled={isRequestingLocation}
-                        className="rounded-lg border border-slate-700 px-3 py-2 text-[11px] font-medium text-slate-300 transition hover:border-cyan-500 hover:text-white disabled:opacity-60"
+                        className="rounded-lg border border-slate-700 bg-black px-3 py-2 text-[11px] font-medium text-white transition hover:border-cyan-500 hover:bg-slate-900 disabled:opacity-60"
                       >
                         {isRequestingLocation ? t('help_location_requesting') : t('help_location_button')}
                       </button>
@@ -465,13 +473,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold text-[#0e4da4] tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-              PÕHITEENUSED
+              {local('PÕHITEENUSED', 'CORE SERVICES', lang)}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">
-              Kõik IT-teenused ja arvutiremont ühest kohast
+              {local('Kõik IT-teenused ja arvutiremont ühest kohast', 'All IT Services & Computer Repairs in One Place', lang)}
             </h2>
             <p className="text-sm text-slate-600 mt-2">
-              Pakume kiiret ja professionaalset IT-tuge nii eraisikutele kui ka ettevõtetele. Tule Canman töökotta või telli tehnik kohale.
+              {local('Pakume kiiret ja professionaalset IT-tuge nii eraisikutele kui ka ettevõtetele. Tule Canman töökotta või telli tehnik kohale.', 'We provide fast, professional IT support for individuals and businesses. Visit the Canman workshop or book an on-site technician.', lang)}
             </p>
           </div>
 
@@ -482,22 +490,22 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#0e4da4] flex items-center justify-center mb-4 group-hover:bg-[#0e4da4] group-hover:text-white transition-colors">
                   <Laptop className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-lg text-slate-900 mb-2">Arvutite & Sülearvutite Remont</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">{local('Arvutite & Sülearvutite Remont', 'Desktop & Laptop Repair', lang)}</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Riistvaraline diagnostika, ekraanide ja klaviatuuride vahetus, emaplaadi jootetööd, toitepesade remont ning vedelikukahjustuste likvideerimine.
+                  {local('Riistvaraline diagnostika, ekraanide ja klaviatuuride vahetus, emaplaadi jootetööd, toitepesade remont ning vedelikukahjustuste likvideerimine.', 'Hardware diagnostics, screen and keyboard replacements, motherboard soldering, charging port repairs, and liquid damage repair.', lang)}
                 </p>
                 <ul className="text-xs text-slate-700 space-y-1.5 mb-6">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Diagnostika 15 € (remondil tasuta)</span>
+                    <span>{local('Diagnostika 15 € (remondil tasuta)', 'Diagnostics €15 (free with repair)', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Enamik varuosi kohapeal laos olemas</span>
+                    <span>{local('Enamik varuosi kohapeal laos olemas', 'Most spare parts in stock', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Garantiiga teostus 24–48h</span>
+                    <span>{local('Garantiiga teostus 24–48h', 'Repairs with warranty in 24–48 hours', lang)}</span>
                   </li>
                 </ul>
               </div>
@@ -505,7 +513,7 @@ export default function Home() {
                 onClick={() => setIsServicesOpen(true)}
                 className="w-full py-2.5 px-4 bg-white border border-slate-300 text-slate-800 rounded-xl text-xs font-semibold hover:bg-[#0e4da4] hover:text-white hover:border-[#0e4da4] transition-colors flex items-center justify-center gap-1.5"
               >
-                <span>Vaata hinnakirja & detaile</span>
+                <span>{local('Vaata hinnakirja & detaile', 'View prices & details', lang)}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -517,24 +525,24 @@ export default function Home() {
                   <Briefcase className="w-6 h-6" />
                 </div>
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="font-bold text-lg text-slate-900">Äriklindi IT-Haldus</h3>
+                  <h3 className="font-bold text-lg text-slate-900">{local('Ärikliendi IT-haldus', 'Business IT Support', lang)}</h3>
                   <span className="text-[10px] font-bold bg-[#0e4da4] text-white px-2 py-0.5 rounded-full">B2B</span>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Terviklik IT-osakonna asendusteenus väike- ja keskmistele ettevõtetele. Töökohtade hooldus, serverite monitooring, kasutajatugi ja riistvarahaldus.
+                  {local('Terviklik IT-osakonna asendusteenus väike- ja keskmistele ettevõtetele. Töökohtade hooldus, serverite monitooring, kasutajatugi ja riistvarahaldus.', 'Complete outsourced IT department for small and medium-sized businesses, including workstation maintenance, server monitoring, user support, and hardware management.', lang)}
                 </p>
                 <ul className="text-xs text-slate-700 space-y-1.5 mb-6">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Ennetav hooldus ja kiire kaughaldustugi</span>
+                    <span>{local('Ennetav hooldus ja kiire kaughaldustugi', 'Preventive maintenance and fast remote support', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Microsoft 365, e-post ja litsentsid</span>
+                    <span>{local('Microsoft 365, e-post ja litsentsid', 'Microsoft 365, email, and licensing', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Fikseeritud kuutasu ilma üllatusteta</span>
+                    <span>{local('Fikseeritud kuutasu ilma üllatusteta', 'Fixed monthly fee with no surprises', lang)}</span>
                   </li>
                 </ul>
               </div>
@@ -542,7 +550,7 @@ export default function Home() {
                 onClick={() => scrollTo('arikliendile')}
                 className="w-full py-2.5 px-4 bg-[#0e4da4] text-white rounded-xl text-xs font-semibold hover:bg-blue-800 transition-colors flex items-center justify-center gap-1.5"
               >
-                <span>Tutvu äripakettidega</span>
+                <span>{local('Tutvu äripakettidega', 'Explore business plans', lang)}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -553,22 +561,22 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#0e4da4] flex items-center justify-center mb-4 group-hover:bg-[#0e4da4] group-hover:text-white transition-colors">
                   <Truck className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-lg text-slate-900 mb-2">Tehniku Väljakutse (Tallinn & Harjumaa)</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">{local('Tehniku väljakutse (Tallinn & Harjumaa)', 'On-site Technician (Tallinn & Harju County)', lang)}</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Kogenud IT-spetsialisti kohaletulek kontorisse või koju. Printerite, võrguseadmete, uute arvutite paigaldus ja tõrgete likvideerimine kohapeal.
+                  {local('Kogenud IT-spetsialisti kohaletulek kontorisse või koju. Printerite, võrguseadmete, uute arvutite paigaldus ja tõrgete likvideerimine kohapeal.', 'An experienced IT specialist visits your home or office to set up printers, network equipment, and computers or troubleshoot issues on-site.', lang)}
                 </p>
                 <ul className="text-xs text-slate-700 space-y-1.5 mb-6">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Tunnitasu: 35 € / tund</span>
+                    <span>{local('Tunnitasu: 35 € / tund', 'Hourly rate: €35', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Kohapealne võrgu ja printerite seadistus</span>
+                    <span>{local('Kohapealne võrgu ja printerite seadistus', 'On-site network and printer setup', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Võimalus seade töökotta remonti toimetada</span>
+                    <span>{local('Võimalus seade töökotta remonti toimetada', 'Workshop repairs also available', lang)}</span>
                   </li>
                 </ul>
               </div>
@@ -577,7 +585,7 @@ export default function Home() {
                 className="w-full py-2.5 px-4 bg-white border border-slate-300 text-slate-800 rounded-xl text-xs font-semibold hover:bg-[#0e4da4] hover:text-white hover:border-[#0e4da4] transition-colors flex items-center justify-center gap-1.5"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>Telli väljakutse: 5652 062</span>
+                <span>{local('Telli väljakutse: 5652 062', 'Book a visit: 5652 062', lang)}</span>
               </a>
             </div>
 
@@ -587,22 +595,22 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#0e4da4] flex items-center justify-center mb-4 group-hover:bg-[#0e4da4] group-hover:text-white transition-colors">
                   <Cpu className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-lg text-slate-900 mb-2">Tolmust Puhastus & Termopasta</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">{local('Tolmust puhastus & termopasta', 'Dust Cleaning & Thermal Paste', lang)}</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Arvuti kuumeneb või ventilaator undab? Põhjalik tolmust puhastus ja tipptasemel termopasta (Arctic MX-4/MX-6) vahetus pikendab arvuti eluiga märgatavalt.
+                  {local('Arvuti kuumeneb või ventilaator undab? Põhjalik tolmust puhastus ja tipptasemel termopasta (Arctic MX-4/MX-6) vahetus pikendab arvuti eluiga märgatavalt.', 'Is your computer overheating or noisy? A thorough clean and premium thermal paste replacement (Arctic MX-4/MX-6) can significantly extend its life.', lang)}
                 </p>
                 <ul className="text-xs text-slate-700 space-y-1.5 mb-6">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Lauaarvutid: 25 €</span>
+                    <span>{local('Lauaarvutid: 25 €', 'Desktop PCs: €25', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Sülearvutid: 30 € – 40 €</span>
+                    <span>{local('Sülearvutid: 30 € – 40 €', 'Laptops: €30–€40', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Vaiksem töö ja madalamad temperatuurid</span>
+                    <span>{local('Vaiksem töö ja madalamad temperatuurid', 'Quieter operation and lower temperatures', lang)}</span>
                   </li>
                 </ul>
               </div>
@@ -610,7 +618,7 @@ export default function Home() {
                 onClick={() => setIsServicesOpen(true)}
                 className="w-full py-2.5 px-4 bg-white border border-slate-300 text-slate-800 rounded-xl text-xs font-semibold hover:bg-[#0e4da4] hover:text-white hover:border-[#0e4da4] transition-colors flex items-center justify-center gap-1.5"
               >
-                <span>Broneeri hooldus</span>
+                <span>{local('Broneeri hooldus', 'Book maintenance', lang)}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -621,22 +629,22 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#0e4da4] flex items-center justify-center mb-4 group-hover:bg-[#0e4da4] group-hover:text-white transition-colors">
                   <HardDrive className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-lg text-slate-900 mb-2">Andmete Taastamine & Varundus</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">{local('Andmete taastamine & varundus', 'Data Recovery & Backup', lang)}</h3>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                  Kustutatud failide, vigaste kõvaketaste (HDD), SSD ketaste ja mälukaartide andmete päästmine. Automaatsete pilvevarunduste seadistus ettevõtetele.
+                  {local('Kustutatud failide, vigaste kõvaketaste (HDD), SSD ketaste ja mälukaartide andmete päästmine. Automaatsete pilvevarunduste seadistus ettevõtetele.', 'Recovery of deleted files and data from damaged HDDs, SSDs, and memory cards. Automated cloud backup setup for businesses.', lang)}
                 </p>
                 <ul className="text-xs text-slate-700 space-y-1.5 mb-6">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Andmete päästmine alates 30 €</span>
+                    <span>{local('Andmete päästmine alates 30 €', 'Data recovery from €30', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Andmete turvaline kloonimine uuele SSD-le</span>
+                    <span>{local('Andmete turvaline kloonimine uuele SSD-le', 'Secure data cloning to a new SSD', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>100% konfidentsiaalsus garanteeritud</span>
+                    <span>{local('100% konfidentsiaalsus garanteeritud', '100% confidentiality guaranteed', lang)}</span>
                   </li>
                 </ul>
               </div>
@@ -644,7 +652,7 @@ export default function Home() {
                 onClick={() => setIsServicesOpen(true)}
                 className="w-full py-2.5 px-4 bg-white border border-slate-300 text-slate-800 rounded-xl text-xs font-semibold hover:bg-[#0e4da4] hover:text-white hover:border-[#0e4da4] transition-colors flex items-center justify-center gap-1.5"
               >
-                <span>Küsi andmete taastamist</span>
+                <span>{local('Küsi andmete taastamist', 'Request data recovery', lang)}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -657,24 +665,24 @@ export default function Home() {
                   <Bot className="w-6 h-6" />
                 </div>
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="font-bold text-lg text-white">AI & Töövoogude Automatiseerimine</h3>
-                  <span className="text-[10px] font-bold bg-cyan-500 text-slate-950 px-2 py-0.5 rounded-full">UUS</span>
+                  <h3 className="font-bold text-lg text-white">{local('AI & töövoogude automatiseerimine', 'AI & Workflow Automation', lang)}</h3>
+                  <span className="text-[10px] font-bold bg-cyan-500 text-slate-950 px-2 py-0.5 rounded-full">{local('UUS', 'NEW', lang)}</span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed mb-4">
-                  Aitame ettevõtetel integreerida kaasaegseid AI-tööriistu, Microsoft Copilot lahendusi ja automatiseerida rutiinseid andmetöötluse protsesse.
+                  {local('Aitame ettevõtetel integreerida kaasaegseid AI-tööriistu, Microsoft Copilot lahendusi ja automatiseerida rutiinseid andmetöötluse protsesse.', 'We help businesses adopt modern AI tools and Microsoft Copilot, and automate routine data processing.', lang)}
                 </p>
                 <ul className="text-xs text-slate-200 space-y-1.5 mb-6">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                    <span>Kohalikud & pilvepõhised AI mudelid</span>
+                    <span>{local('Kohalikud & pilvepõhised AI mudelid', 'Local & cloud-based AI models', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                    <span>Töövoogude automatiseerimine</span>
+                    <span>{local('Töövoogude automatiseerimine', 'Workflow automation', lang)}</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                    <span>Praktiline koolitus ja konsultatsioon</span>
+                    <span>{local('Praktiline koolitus ja konsultatsioon', 'Practical training and consulting', lang)}</span>
                   </li>
                 </ul>
               </div>
@@ -682,7 +690,7 @@ export default function Home() {
                 onClick={() => scrollTo('kontakt')}
                 className="w-full py-2.5 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 rounded-xl text-xs font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-1.5"
               >
-                <span>Küsi AI konsultatsiooni</span>
+                <span>{local('Küsi AI konsultatsiooni', 'Request an AI consultation', lang)}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -698,37 +706,37 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <span className="text-xs font-bold text-cyan-400 tracking-widest uppercase bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-800/60">
-                ÄRIKLIENDI LAHENDUSED
+                {local('ÄRIKLIENDI LAHENDUSED', 'BUSINESS SOLUTIONS', lang)}
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-                Terve IT-osakonna tugi ilma palgatöötaja kuludeta
+                {local('Terve IT-osakonna tugi ilma palgatöötaja kuludeta', 'Full IT department support without the cost of an in-house hire', lang)}
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Canman Systems OÜ pakub väike- ja keskmise suurusega ettevõtetele lepingulist IT-täisteenust. Me tagame, et Sinu kontori arvutid, printerid, serverid ja võrk töötavad sujuvalt iga päev.
+                {local('Canman Systems OÜ pakub väike- ja keskmise suurusega ettevõtetele lepingulist IT-täisteenust. Me tagame, et Sinu kontori arvutid, printerid, serverid ja võrk töötavad sujuvalt iga päev.', 'Canman Systems OÜ provides managed IT services for small and medium-sized businesses. We keep your office computers, printers, servers, and network running smoothly every day.', lang)}
               </p>
 
               <div className="space-y-3 pt-2">
                 <div className="flex items-start gap-3 bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60">
                   <ShieldCheck className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-sm text-white">Kiire reageerimisaeg (SLA)</h4>
-                    <p className="text-xs text-slate-400">Kaugabi algus 15 minuti jooksul, kriitiliste rikete korral tehnik kohal 1-2 tunniga.</p>
+                    <h4 className="font-bold text-sm text-white">{local('Kiire reageerimisaeg (SLA)', 'Fast response times (SLA)', lang)}</h4>
+                    <p className="text-xs text-slate-400">{local('Kaugabi algus 15 minuti jooksul, kriitiliste rikete korral tehnik kohal 1-2 tunniga.', 'Remote support starts within 15 minutes; for critical failures, a technician can be on-site within 1–2 hours.', lang)}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60">
                   <Server className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-sm text-white">Ennetav monitooring & Turvalisus</h4>
-                    <p className="text-xs text-slate-400">Jälgime riistvara tervist, varunduste õnnestumist ja turvapaiku enne, kui rike tööd takistab.</p>
+                    <h4 className="font-bold text-sm text-white">{local('Ennetav monitooring & turvalisus', 'Proactive monitoring & security', lang)}</h4>
+                    <p className="text-xs text-slate-400">{local('Jälgime riistvara tervist, varunduste õnnestumist ja turvapaiku enne, kui rike tööd takistab.', 'We monitor hardware health, backup status, and security updates before problems disrupt your work.', lang)}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60">
                   <ShoppingBag className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-sm text-white">Arvutipargi soodne uuendamine</h4>
-                    <p className="text-xs text-slate-400">Lepingulistele klientidele e-poe arvutid ja varuosad erihinnaga ning seadistatud kujul.</p>
+                    <h4 className="font-bold text-sm text-white">{local('Arvutipargi soodne uuendamine', 'Cost-effective hardware upgrades', lang)}</h4>
+                    <p className="text-xs text-slate-400">{local('Lepingulistele klientidele e-poe arvutid ja varuosad erihinnaga ning seadistatud kujul.', 'Contract customers receive special pricing on shop computers and parts, configured and ready to use.', lang)}</p>
                   </div>
                 </div>
               </div>
@@ -739,13 +747,13 @@ export default function Home() {
                   className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs transition shadow-lg shadow-cyan-500/20 flex items-center gap-2"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>Helista ja küsi pakkumist</span>
+                  <span>{local('Helista ja küsi pakkumist', 'Call us for a quote', lang)}</span>
                 </a>
                 <button
                   onClick={() => scrollTo('kontakt')}
                   className="bg-white/10 hover:bg-white/20 text-white px-5 py-3 rounded-xl text-xs font-semibold transition"
                 >
-                  Saada hinnapäring
+                  {local('Saada hinnapäring', 'Request a quote', lang)}
                 </button>
               </div>
             </div>
@@ -754,41 +762,41 @@ export default function Home() {
             <div className="lg:col-span-6">
               <div className="bg-gradient-to-br from-slate-800/90 to-slate-900 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl">
                 <h3 className="font-bold text-lg text-white mb-6 border-b border-slate-700 pb-3 flex items-center justify-between">
-                  <span>Mida Canman IT-haldus sisaldab?</span>
-                  <span className="text-xs text-cyan-400 font-semibold">Täisteenus</span>
+                  <span>{local('Mida Canman IT-haldus sisaldab?', 'What is included in Canman IT support?', lang)}</span>
+                  <span className="text-xs text-cyan-400 font-semibold">{local('Täisteenus', 'Full service', lang)}</span>
                 </h3>
 
                 <div className="space-y-4 text-xs text-slate-300">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                    <span className="font-medium">Töökoha kaughaldus ja kasutajatugi</span>
-                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> Sisaldub</span>
+                    <span className="font-medium">{local('Töökoha kaughaldus ja kasutajatugi', 'Remote workstation management and user support', lang)}</span>
+                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> {local('Sisaldub', 'Included', lang)}</span>
                   </div>
                   <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                    <span className="font-medium">Viirusetõrje & Turvavärskenduste haldus</span>
-                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> Sisaldub</span>
+                    <span className="font-medium">{local('Viirusetõrje & turvavärskenduste haldus', 'Antivirus and security update management', lang)}</span>
+                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> {local('Sisaldub', 'Included', lang)}</span>
                   </div>
                   <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                    <span className="font-medium">Automaatne andmete pilvevarundus</span>
-                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> Sisaldub</span>
+                    <span className="font-medium">{local('Automaatne andmete pilvevarundus', 'Automated cloud backups', lang)}</span>
+                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> {local('Sisaldub', 'Included', lang)}</span>
                   </div>
                   <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                    <span className="font-medium">Kontori võrgu, ruuterite ja WiFi optimeerimine</span>
-                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> Sisaldub</span>
+                    <span className="font-medium">{local('Kontori võrgu, ruuterite ja WiFi optimeerimine', 'Office network, router, and Wi-Fi optimization', lang)}</span>
+                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> {local('Sisaldub', 'Included', lang)}</span>
                   </div>
                   <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                    <span className="font-medium">Tehniku väljasõidud Tallinna piires</span>
-                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> Prioriteetne</span>
+                    <span className="font-medium">{local('Tehniku väljasõidud Tallinna piires', 'Technician visits in Tallinn', lang)}</span>
+                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> {local('Prioriteetne', 'Priority', lang)}</span>
                   </div>
                   <div className="flex items-center justify-between pb-1">
-                    <span className="font-medium">Asendusseadmed remondi ajaks</span>
-                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> Tasuta</span>
+                    <span className="font-medium">{local('Asendusseadmed remondi ajaks', 'Loan devices during repairs', lang)}</span>
+                    <span className="text-emerald-400 font-bold flex items-center gap-1"><Check className="w-4 h-4" /> {local('Tasuta', 'Free', lang)}</span>
                   </div>
                 </div>
 
                 <div className="mt-8 bg-cyan-950/40 border border-cyan-800/50 rounded-xl p-4 text-center">
-                  <p className="text-xs text-slate-300 mb-2">Äripakettide kuutasu alates:</p>
-                  <div className="text-3xl font-black text-cyan-400">15 € <span className="text-xs font-normal text-slate-400">/ arvuti kuus</span></div>
-                  <p className="text-[11px] text-slate-400 mt-1">Lõplik hind sõltub seadmete arvust ja reageerimisajast.</p>
+                  <p className="text-xs text-slate-300 mb-2">{local('Äripakettide kuutasu alates:', 'Business plans from:', lang)}</p>
+                  <div className="text-3xl font-black text-cyan-400">15 € <span className="text-xs font-normal text-slate-400">{local('/ arvuti kuus', '/ computer per month', lang)}</span></div>
+                  <p className="text-[11px] text-slate-400 mt-1">{local('Lõplik hind sõltub seadmete arvust ja reageerimisajast.', 'Final pricing depends on the number of devices and response time.', lang)}</p>
                 </div>
               </div>
             </div>
@@ -803,13 +811,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold text-[#0e4da4] tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-              LÄBIPAISTEV HINNASTUS
+              {local('LÄBIPAISTEV HINNASTUS', 'TRANSPARENT PRICING', lang)}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">
-              Standardtööde ja IT-Abi Hinnakiri
+              {local('Standardtööde ja IT-Abi Hinnakiri', 'Standard Service & IT Support Price List', lang)}
             </h2>
             <p className="text-sm text-slate-600 mt-2">
-              Kõik hinnad on selged ja läbipaistvad. Enne remondi alustamist kooskõlastame alati maksumuse.
+              {local('Kõik hinnad on selged ja läbipaistvad. Enne remondi alustamist kooskõlastame alati maksumuse.', 'Our pricing is clear and transparent. We always confirm the cost before starting a repair.', lang)}
             </p>
           </div>
 
@@ -817,67 +825,67 @@ export default function Home() {
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-2">
-                  <h4 className="font-bold text-slate-900 text-sm">Arvuti diagnostika</h4>
+                  <h4 className="font-bold text-slate-900 text-sm">{local('Arvuti diagnostika', 'Computer diagnostics', lang)}</h4>
                   <span className="font-extrabold text-[#0e4da4] text-base">15 €</span>
                 </div>
-                <p className="text-xs text-slate-500">Rikke tuvastamine ja remondi eelarve. Remonditöö tellimisel on diagnostika tasuta!</p>
+                <p className="text-xs text-slate-500">{local('Rikke tuvastamine ja remondi eelarve. Remonditöö tellimisel on diagnostika tasuta!', 'Fault identification and repair estimate. Diagnostics are free when you order a repair!', lang)}</p>
               </div>
-              <span className="text-[11px] text-emerald-600 font-medium mt-3">Valmib: samal või järgmisel päeval</span>
+              <span className="text-[11px] text-emerald-600 font-medium mt-3">{local('Valmib: samal või järgmisel päeval', 'Ready: same or next day', lang)}</span>
             </div>
 
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-2">
-                  <h4 className="font-bold text-slate-900 text-sm">Windows / Linux paigaldus</h4>
+                  <h4 className="font-bold text-slate-900 text-sm">{local('Windows / Linux paigaldus', 'Windows / Linux installation', lang)}</h4>
                   <span className="font-extrabold text-[#0e4da4] text-base">25 € – 50 €</span>
                 </div>
-                <p className="text-xs text-slate-500">Uus puhas operatsioonisüsteem, draiverid, viirusetõrje ja vajalikud baasprogrammid.</p>
+                <p className="text-xs text-slate-500">{local('Uus puhas operatsioonisüsteem, draiverid, viirusetõrje ja vajalikud baasprogrammid.', 'Fresh operating system installation with drivers, antivirus, and essential software.', lang)}</p>
               </div>
-              <span className="text-[11px] text-emerald-600 font-medium mt-3">Valmib: 24h jooksul</span>
+              <span className="text-[11px] text-emerald-600 font-medium mt-3">{local('Valmib: 24h jooksul', 'Ready within 24 hours', lang)}</span>
             </div>
 
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-2">
-                  <h4 className="font-bold text-slate-900 text-sm">Tolmust puhastus + termopasta</h4>
+                  <h4 className="font-bold text-slate-900 text-sm">{local('Tolmust puhastus + termopasta', 'Dust cleaning + thermal paste', lang)}</h4>
                   <span className="font-extrabold text-[#0e4da4] text-base">25 € – 40 €</span>
                 </div>
-                <p className="text-xs text-slate-500">Jahutussüsteemi hooldus laua- ja sülearvutitele. Kõrgekvaliteetne termopasta.</p>
+                <p className="text-xs text-slate-500">{local('Jahutussüsteemi hooldus laua- ja sülearvutitele. Kõrgekvaliteetne termopasta.', 'Cooling system maintenance for desktops and laptops with high-quality thermal paste.', lang)}</p>
               </div>
-              <span className="text-[11px] text-emerald-600 font-medium mt-3">Valmib: 1 tööpäev</span>
+              <span className="text-[11px] text-emerald-600 font-medium mt-3">{local('Valmib: 1 tööpäev', 'Ready in 1 business day', lang)}</span>
             </div>
 
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-2">
-                  <h4 className="font-bold text-slate-900 text-sm">Kiire SSD paigaldus</h4>
+                  <h4 className="font-bold text-slate-900 text-sm">{local('Kiire SSD paigaldus', 'Quick SSD installation', lang)}</h4>
                   <span className="font-extrabold text-[#0e4da4] text-base">40 €</span>
                 </div>
-                <p className="text-xs text-slate-500">Uue kiire SSD paigaldus ja vanade andmete ning süsteemi 1:1 kloonimine.</p>
+                <p className="text-xs text-slate-500">{local('Uue kiire SSD paigaldus ja vanade andmete ning süsteemi 1:1 kloonimine.', 'Install a fast new SSD and clone your existing data and system 1:1.', lang)}</p>
               </div>
-              <span className="text-[11px] text-emerald-600 font-medium mt-3">Arvuti muutub 5–10x kiiremaks</span>
+              <span className="text-[11px] text-emerald-600 font-medium mt-3">{local('Arvuti muutub 5–10x kiiremaks', 'Make your computer 5–10x faster', lang)}</span>
             </div>
 
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-2">
-                  <h4 className="font-bold text-slate-900 text-sm">Tehniku väljasõit Tallinnas</h4>
+                  <h4 className="font-bold text-slate-900 text-sm">{local('Tehniku väljasõit Tallinnas', 'On-site technician in Tallinn', lang)}</h4>
                   <span className="font-extrabold text-[#0e4da4] text-base">35 € / tund</span>
                 </div>
-                <p className="text-xs text-slate-500">IT-spetsialisti visiit koju või kontorisse. Võrgu, ruuteri ja printerite häälestus.</p>
+                <p className="text-xs text-slate-500">{local('IT-spetsialisti visiit koju või kontorisse. Võrgu, ruuteri ja printerite häälestus.', 'An IT specialist visits your home or office to configure your network, router, and printers.', lang)}</p>
               </div>
-              <span className="text-[11px] text-emerald-600 font-medium mt-3">Tallinn ja lähivallad</span>
+              <span className="text-[11px] text-emerald-600 font-medium mt-3">{local('Tallinn ja lähivallad', 'Tallinn and nearby areas', lang)}</span>
             </div>
 
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-2">
-                  <h4 className="font-bold text-slate-900 text-sm">Andmete taastamine</h4>
+                  <h4 className="font-bold text-slate-900 text-sm">{local('Andmete taastamine', 'Data recovery', lang)}</h4>
                   <span className="font-extrabold text-[#0e4da4] text-base">alates 30 €</span>
                 </div>
-                <p className="text-xs text-slate-500">Kustutatud failide või rikkis kõvaketaste andmete päästmine laboris.</p>
+                <p className="text-xs text-slate-500">{local('Kustutatud failide või rikkis kõvaketaste andmete päästmine laboris.', 'Lab recovery of deleted files or data from damaged hard drives.', lang)}</p>
               </div>
-              <span className="text-[11px] text-emerald-600 font-medium mt-3">Tasuta esmane hinnang</span>
+              <span className="text-[11px] text-emerald-600 font-medium mt-3">{local('Tasuta esmane hinnang', 'Free initial assessment', lang)}</span>
             </div>
           </div>
 
@@ -886,7 +894,7 @@ export default function Home() {
               onClick={() => setIsServicesOpen(true)}
               className="inline-flex items-center gap-2 text-xs font-bold text-[#0e4da4] hover:underline"
             >
-              <span>Ava täielik hinnakiri ja garantiitingimused</span>
+              <span>{local('Ava täielik hinnakiri ja garantiitingimused', 'View the full price list and warranty terms', lang)}</span>
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -903,7 +911,7 @@ export default function Home() {
               <span className="text-xs font-semibold tracking-[0.24em] text-sky-200 sm:text-sm">
                 {t('shop_title')}
               </span>
-              <span className="mt-1 text-3xl font-black tracking-tight sm:text-4xl">SHOP</span>
+              <span className="mt-1 text-3xl font-black tracking-tight sm:text-4xl">{local('Pood', 'Shop', lang)}</span>
             </h2>
             <label className="relative block w-full sm:max-w-2xl sm:flex-1">
               <span className="sr-only">{t('search_placeholder')}</span>
@@ -924,6 +932,7 @@ export default function Home() {
               <CategorySidebar
                 selectedL1={selectedL1}
                 selectedL2={selectedL2}
+                selectedL3={selectedL3}
                 onSelectCategory={handleSelectCategory}
                 products={PRODUCTS as any}
                 minPrice={minPrice}
@@ -969,30 +978,30 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <span className="text-xs font-bold text-[#0e4da4] tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                ETTEVÕTTEST
+                {local('ETTEVÕTTEST', 'ABOUT US', lang)}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Canman Systems OÜ — 20+ aastat IT-kogemust Tallinnas
+                {local('Canman Systems OÜ — 20+ aastat IT-kogemust Tallinnas', 'Canman Systems OÜ — 20+ Years of IT Experience in Tallinn', lang)}
               </h2>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Asutatud eesmärgiga pakkuda klientidele ausat, kiiret ja tehniliselt kompromissitut IT-abi. Meie töökoda Tallinnas Kristiine linnaosas (Lille 14) on spetsialiseerunud arvutite, sülearvutite ja serverite komponenttasandi remondile ja hooldusele.
+                {local('Asutatud eesmärgiga pakkuda klientidele ausat, kiiret ja tehniliselt kompromissitut IT-abi. Meie töökoda Tallinnas Kristiine linnaosas (Lille 14) on spetsialiseerunud arvutite, sülearvutite ja serverite komponenttasandi remondile ja hooldusele.', 'Founded to provide customers with honest, fast, and technically uncompromising IT support. Our workshop in the Kristiine district of Tallinn (Lille 14) specializes in component-level repairs and maintenance for computers, laptops, and servers.', lang)}
               </p>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Lisaks IT-teenustele kontrollime ja taastame äriklassi arvuteid (Dell Latitude & OptiPlex, Lenovo ThinkPad & ThinkCentre, HP EliteBook), andes neile uue elu ja kindla garantii.
+                {local('Lisaks IT-teenustele kontrollime ja taastame äriklassi arvuteid (Dell Latitude & OptiPlex, Lenovo ThinkPad & ThinkCentre, HP EliteBook), andes neile uue elu ja kindla garantii.', 'Alongside our IT services, we inspect and refurbish business-class computers (Dell Latitude & OptiPlex, Lenovo ThinkPad & ThinkCentre, HP EliteBook), giving them a new lease on life with a dependable warranty.', lang)}
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
                 <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-teal-900/10 text-center">
                   <div className="text-2xl font-black text-[#0e4da4]">20+</div>
-                  <div className="text-xs text-slate-500 mt-1">Aastat kogemust</div>
+                  <div className="text-xs text-slate-500 mt-1">{local('Aastat kogemust', 'Years of experience', lang)}</div>
                 </div>
                 <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-teal-900/10 text-center">
                   <div className="text-2xl font-black text-[#0e4da4]">10 000+</div>
-                  <div className="text-xs text-slate-500 mt-1">Hooldatud seadet</div>
+                  <div className="text-xs text-slate-500 mt-1">{local('Hooldatud seadet', 'Devices serviced', lang)}</div>
                 </div>
                 <div className="p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-teal-900/10 text-center">
                   <div className="text-2xl font-black text-[#0e4da4]">100%</div>
-                  <div className="text-xs text-slate-500 mt-1">Rahulolugarantii</div>
+                  <div className="text-xs text-slate-500 mt-1">{local('Rahulolugarantii', 'Customer satisfaction', lang)}</div>
                 </div>
               </div>
             </div>
@@ -1004,30 +1013,30 @@ export default function Home() {
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-base text-white">Canman Kvaliteedilubadus</h3>
-                    <p className="text-xs text-slate-400">Läbipaistev ja usaldusväärne IT-partner</p>
+                    <h3 className="font-bold text-base text-white">{local('Canman Kvaliteedilubadus', 'The Canman Quality Promise', lang)}</h3>
+                    <p className="text-xs text-slate-400">{local('Läbipaistev ja usaldusväärne IT-partner', 'A transparent and reliable IT partner', lang)}</p>
                   </div>
                 </div>
 
                 <ul className="space-y-3 text-xs text-slate-300">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                    <span><strong>Aus diagnostika:</strong> me ei vaheta detaile, mis ei vaja vahetamist. Enne remonti räägime täpse hinna.</span>
+                    <span><strong>{local('Aus diagnostika:', 'Honest diagnostics:', lang)}</strong> {local('me ei vaheta detaile, mis ei vaja vahetamist. Enne remonti räägime täpse hinna.', 'we never replace parts unnecessarily. We confirm the exact price before repairs.', lang)}</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                    <span><strong>Andmete puutumatus:</strong> Sinu failid, fotod ja äriandmed on kaitstud rangete privaatsusreeglitega.</span>
+                    <span><strong>{local('Andmete puutumatus:', 'Data privacy:', lang)}</strong> {local('Sinu failid, fotod ja äriandmed on kaitstud rangete privaatsusreeglitega.', 'Your files, photos, and business data are protected by strict privacy practices.', lang)}</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                    <span><strong>Ametlik arve ja garantii:</strong> era- ja äriklientidele käibemaksuga arve ning kuni 2-aastane garantii.</span>
+                    <span><strong>{local('Ametlik arve ja garantii:', 'Official invoice and warranty:', lang)}</strong> {local('era- ja äriklientidele käibemaksuga arve ning kuni 2-aastane garantii.', 'VAT invoices for private and business customers, plus a warranty of up to 2 years.', lang)}</span>
                   </li>
                 </ul>
 
                 <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                  <span>Asukoht: Lille 14-4, Tallinn</span>
+                  <span>{local('Asukoht:', 'Location:', lang)} Lille 14-4, Tallinn</span>
                   <a href="tel:+3725652062" className="text-cyan-400 font-bold hover:underline">
-                    Tel: +372 5652 062
+                    {local('Tel:', 'Phone:', lang)} +372 5652 062
                   </a>
                 </div>
               </div>
@@ -1043,13 +1052,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold text-[#0e4da4] tracking-widest uppercase bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-              VÕTA ÜHENDUST
+              {local('VÕTA ÜHENDUST', 'GET IN TOUCH', lang)}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">
-              Tule kohale või saada meile päring
+              {local('Tule kohale või saada meile päring', 'Visit Our Workshop or Send an Inquiry', lang)}
             </h2>
             <p className="text-sm text-slate-600 mt-2">
-              Asume mugavas asukohas Lille tänaval Tallinnas. Tasuta parkimine otse maja ees.
+              {local('Asume mugavas asukohas Lille tänaval Tallinnas. Tasuta parkimine otse maja ees.', 'We are conveniently located on Lille Street in Tallinn, with free parking right outside.', lang)}
             </p>
           </div>
 
@@ -1059,11 +1068,11 @@ export default function Home() {
               <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0e4da4] flex items-center justify-center">
                 <MapPin className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-base text-slate-900">Arvutitöökoda Tallinnas</h3>
+              <h3 className="font-bold text-base text-slate-900">{local('Arvutitöökoda Tallinnas', 'Computer Workshop in Tallinn', lang)}</h3>
               <div className="text-xs text-slate-600 space-y-1.5 leading-relaxed">
                 <p className="font-semibold text-slate-800">Lille 14-4, Tallinn 10614, Harjumaa</p>
-                <p>Kristiine linnaosa (Telliskivi ja Paldiski mnt lähedal)</p>
-                <p className="text-emerald-600 font-medium pt-1">✓ Tasuta kliendiparkimine otse maja ees</p>
+                <p>{local('Kristiine linnaosa (Telliskivi ja Paldiski mnt lähedal)', 'Kristiine district (near Telliskivi and Paldiski Road)', lang)}</p>
+                <p className="text-emerald-600 font-medium pt-1">✓ {local('Tasuta kliendiparkimine otse maja ees', 'Free customer parking right outside', lang)}</p>
               </div>
               <a
                 href="https://maps.google.com/?q=Lille+14,+Tallinn"
@@ -1071,7 +1080,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0e4da4] hover:underline pt-2"
               >
-                <span>Ava Google Mapsis</span>
+                <span>{local('Ava Google Mapsis', 'Open in Google Maps', lang)}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -1081,18 +1090,18 @@ export default function Home() {
               <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0e4da4] flex items-center justify-center">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-base text-slate-900">Lahtiolekuajad & Telefon</h3>
+              <h3 className="font-bold text-base text-slate-900">{local('Lahtiolekuajad & Telefon', 'Opening Hours & Phone', lang)}</h3>
               <div className="text-xs text-slate-600 space-y-2">
                 <div className="flex justify-between border-b border-slate-100 pb-1.5">
-                  <span>Esmaspäev – Reede:</span>
+                  <span>{local('Esmaspäev – Reede:', 'Monday – Friday:', lang)}</span>
                   <span className="font-bold text-slate-800">10:00 – 18:00</span>
                 </div>
                 <div className="flex justify-between border-b border-slate-100 pb-1.5">
-                  <span>Laupäev – Pühapäev:</span>
-                  <span className="text-slate-400">Kokkuleppel / Suletud</span>
+                  <span>{local('Laupäev – Pühapäev:', 'Saturday – Sunday:', lang)}</span>
+                  <span className="text-slate-400">{local('Kokkuleppel / Suletud', 'By appointment / Closed', lang)}</span>
                 </div>
                 <div className="pt-2">
-                  <span className="block text-slate-500 mb-1">Kiire telefonitugi:</span>
+                  <span className="block text-slate-500 mb-1">{local('Kiire telefonitugi:', 'Quick phone support:', lang)}</span>
                   <a href="tel:+3725652062" className="text-lg font-black text-[#0e4da4] hover:underline flex items-center gap-2">
                     <Phone className="w-4 h-4" />
                     +372 5652 062
@@ -1106,19 +1115,19 @@ export default function Home() {
               <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0e4da4] flex items-center justify-center">
                 <Mail className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-base text-slate-900">E-post & Ettevõtte info</h3>
+              <h3 className="font-bold text-base text-slate-900">{local('E-post & Ettevõtte info', 'Email & Business Details', lang)}</h3>
               <div className="text-xs text-slate-600 space-y-2 leading-relaxed">
                 <div>
-                  <span className="block text-slate-500 mb-0.5">Kirjuta meile:</span>
+                  <span className="block text-slate-500 mb-0.5">{local('Kirjuta meile:', 'Email us:', lang)}</span>
                   <a href="mailto:canman.systems@gmail.com" className="font-bold text-[#0e4da4] hover:underline text-sm">
                     canman.systems@gmail.com
                   </a>
                 </div>
                 <div className="pt-2 border-t border-slate-100 space-y-0.5">
                   <p><strong>Canman Systems OÜ</strong></p>
-                  <p>Registrikood: 12147369</p>
-                  <p>KMKR number: EE101478366</p>
-                  <p>Pank: LHV EE517700771001586069</p>
+                  <p>{local('Registrikood:', 'Registration code:', lang)} 12147369</p>
+                  <p>{local('KMKR number:', 'VAT number:', lang)} EE101478366</p>
+                  <p>{local('Pank:', 'Bank:', lang)} LHV EE517700771001586069</p>
                 </div>
               </div>
             </div>

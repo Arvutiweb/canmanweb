@@ -20,7 +20,17 @@
       "/images/HP-ProDesk-G1-i5_4570.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": 40,
+    "finalPrice": 40,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 4-gen"
+    ],
+    "description": "HP EliteDesk ProDesk i5 4570, 8GB RAM, 500GB HDD, DVDRW Window 10. New fast tiny Windows 10 install, office apps added. DELL",
+    "shortDescription": "Desktop HP EliteDesk ProDesk i5 4570"
   },
   {
     "id": "320102",
@@ -38,11 +48,21 @@
     "topCategory": "Desktop kasutatud",
     "categoryL2": "used, 4-gen",
     "subCategory": "used, 4-gen",
-    "image": "/images/Dell_Optiplex-7020.png",
+    "image": "/images/Dell_Optiplex-7020.webp",
     "images": [
-      "/images/Dell_Optiplex-7020.png"
+      "/images/Dell_Optiplex-7020.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "salePrice": 55,
+    "finalPrice": 55,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Desktop kasutatud",
+      "used, 4-gen"
+    ],
+    "description": "i3-4150, 8GB, 500GB, DVDRW, W10P",
+    "shortDescription": "i3-4150, 8GB, 500GB, DVDRW, W10P"
   }
 ]

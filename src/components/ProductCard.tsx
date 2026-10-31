@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { ShoppingCart, CheckCircle2 } from 'lucide-react';
 
 export default function ProductCard({ product, onSelectProduct }: any) {
@@ -12,8 +13,14 @@ export default function ProductCard({ product, onSelectProduct }: any) {
     <div onClick={()=>onSelectProduct(product)} className="cursor-pointer bg-white rounded-xl border border-[#e6efff] overflow-hidden hover:shadow-md transition-all">
       {/* PILT - EI HÜPPA */}
       <div className="aspect-square bg-[#f8f9fb] rounded-xl m-2 p-2 flex items-center justify-center">
-        <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-3">
-          <img src={main} alt={title} className="max-w-full max-h-full object-contain rounded-md" />
+        <div className="relative w-full h-full bg-white rounded-lg p-3">
+          <Image
+            src={main}
+            alt={title}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-contain rounded-md p-3"
+          />
         </div>
       </div>
 

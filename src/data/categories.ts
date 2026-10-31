@@ -13,7 +13,7 @@ export const CATEGORIES: CategoryL1[] = [
       { id: 'emaplaat', name: 'Emaplaat' },
       {
         id: 'm-lu-dimm',
-        name: 'Mï¿½lu DIMM',
+        name: 'Mälu DIMM',
         subcategories: [
           { id: 'pc3', name: 'PC3' },
           { id: 'pc4', name: 'PC4' },
@@ -26,7 +26,7 @@ export const CATEGORIES: CategoryL1[] = [
     id: 'monitorid',
     name: 'Monitorid',
     subcategories: [
-      { id: 'monitorid-22-25', name: 'Monitorid 22ï¿½-25ï¿½' },
+      { id: 'monitorid-22-25', name: 'Monitorid 22″-25″' },
     ],
   },
   {
@@ -63,7 +63,7 @@ export const CATEGORIES: CategoryL1[] = [
     id: 'laptops',
     name: 'Laptops',
     subcategories: [
-      { id: 'laptop-14', name: 'Laptop 14ï¿½' },
+      { id: 'laptop-14', name: 'Laptop 14"' },
     ],
   },
 ];

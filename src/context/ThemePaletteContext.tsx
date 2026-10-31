@@ -23,7 +23,7 @@ const DEFAULT_PALETTE: ThemePalette = {
   header: '#17283f',
   helpPanel: '#1e324a',
   helpInputBackground: '#000000',
-  helpInputText: '#ffffff',
+  helpInputText: '#e6e6e6',
 };
 
 const ThemePaletteContext = createContext<ThemePaletteContextValue | null>(null);

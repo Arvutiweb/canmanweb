@@ -422,7 +422,7 @@ export default function Home() {
                             setServiceFormError('');
                           }
                         }}
-                        className="w-full text-xs text-white file:mr-3 file:rounded-lg file:border-0 file:bg-black file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white hover:file:bg-slate-900"
+                        className="w-full text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-gradient-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-2 file:text-xs file:font-bold file:text-slate-950 hover:file:from-cyan-400 hover:file:to-blue-500"
                       />
                       <p className="mt-1 text-[10px] text-slate-500">{t('help_attachment_hint')}</p>
                     </div>
@@ -432,7 +432,7 @@ export default function Home() {
                         type="button"
                         onClick={handleShareLocation}
                         disabled={isRequestingLocation}
-                        className="rounded-lg border border-slate-700 bg-black px-3 py-2 text-[11px] font-medium text-white transition hover:border-cyan-500 hover:bg-slate-900 disabled:opacity-60"
+                        className="rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-3 py-2 text-[11px] font-bold text-slate-950 shadow-md transition hover:from-cyan-400 hover:to-blue-500 disabled:cursor-wait disabled:opacity-70"
                       >
                         {isRequestingLocation ? t('help_location_requesting') : t('help_location_button')}
                       </button>

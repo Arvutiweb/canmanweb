@@ -12,14 +12,14 @@ export default function ProductCard({ product, onSelectProduct }: any) {
   return (
     <div onClick={()=>onSelectProduct(product)} className="cursor-pointer bg-white rounded-xl border border-[#e6efff] overflow-hidden hover:shadow-md transition-all">
       {/* PILT - EI HÜPPA */}
-      <div className="aspect-square bg-[#f8f9fb] rounded-lg m-1.5 p-1.5 flex items-center justify-center">
-        <div className="relative w-full h-full bg-white rounded-md p-1">
+      <div className="aspect-square bg-[#f8f9fb] rounded-sm m-1.5 p-1.5 flex items-center justify-center">
+        <div className="relative w-full h-full bg-white rounded-sm p-1">
           <Image
             src={main}
             alt={title}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-contain rounded-md p-2"
+            className="object-contain rounded-sm p-2"
           />
         </div>
       </div>

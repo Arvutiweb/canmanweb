@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Header } from '../components/Header';
 import { CategorySidebar } from '../components/CategorySidebar';
 import { FiltersBar } from '../components/FiltersBar';
@@ -15,6 +15,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useThemePalette } from '../context/ThemePaletteContext';
 import { allProducts as PRODUCTS } from '../data/productCatalog';
 import { matchesProductFilter, normalizeProductCondition } from '../lib/productFilters';
+import { getMainCategoryName } from '../lib/productCategories';
 import { Product, Condition, OrderDetails } from '../types';
 import {
   Wrench,
@@ -46,6 +47,8 @@ import {
 const safeLower = (v: any) => String(v || '').toLowerCase();
 const safeStr = (v: any) => String(v || '');
 const local = (et: string, en: string, lang: string) => lang === 'en' ? en : et;
+const DEFAULT_CATEGORY_STORAGE_KEY = 'canman_default_home_category';
+const MAIN_CATEGORIES = Array.from(new Set((PRODUCTS as any[]).map(getMainCategoryName)));
 
 export default function Home() {
   const { t, lang } = useLanguage();
@@ -53,6 +56,7 @@ export default function Home() {
   const [selectedL1, setSelectedL1] = useState<string | null>(null);
   const [selectedL2, setSelectedL2] = useState<string | null>(null);
   const [selectedL3, setSelectedL3] = useState<string | null>(null);
+  const [defaultCategory, setDefaultCategory] = useState<string | null>(MAIN_CATEGORIES[0] || null);
   const [searchQuery, setSearchQuery] = useState('');
   const [conditionFilter, setConditionFilter] = useState<'all' | Condition>('all');
   const [selectedBrand, setSelectedBrand] = useState('');
@@ -72,6 +76,7 @@ export default function Home() {
   const [serviceFormError, setServiceFormError] = useState('');
   const [isSubmittingServiceRequest, setIsSubmittingServiceRequest] = useState(false);
   const [serviceAttachment, setServiceAttachment] = useState<File | null>(null);
+  const serviceAttachmentInput = useRef<HTMLInputElement>(null);
   const [serviceLocation, setServiceLocation] = useState<{ latitude: number; longitude: number } | null>(null);
   const [isRequestingLocation, setIsRequestingLocation] = useState(false);
   const [serviceLocationMessage, setServiceLocationMessage] = useState('');
@@ -79,6 +84,28 @@ export default function Home() {
   const [memoryFilter, setMemoryFilter] = useState('');
   const [diskFilter, setDiskFilter] = useState('');
   const [operatingSystemFilter, setOperatingSystemFilter] = useState('');
+
+  useEffect(() => {
+    try {
+      const savedCategory = localStorage.getItem(DEFAULT_CATEGORY_STORAGE_KEY);
+      if (savedCategory && MAIN_CATEGORIES.includes(savedCategory)) {
+        setDefaultCategory(savedCategory);
+      } else if (MAIN_CATEGORIES[0]) {
+        localStorage.setItem(DEFAULT_CATEGORY_STORAGE_KEY, MAIN_CATEGORIES[0]);
+      }
+    } catch {
+      // The in-memory default remains available when storage is disabled.
+    }
+  }, []);
+
+  const handleSetDefaultCategory = (category: string) => {
+    setDefaultCategory(category);
+    try {
+      localStorage.setItem(DEFAULT_CATEGORY_STORAGE_KEY, category);
+    } catch {
+      // The selection still applies until the page is reloaded.
+    }
+  };
 
   const handleSelectCategory = (l1: string | null, l2: string | null, l3: string | null) => {
     setSelectedL1(l1);
@@ -156,6 +183,13 @@ export default function Home() {
       return 0;
     });
   }, [searchQuery, selectedL1, selectedL2, selectedL3, conditionFilter, selectedBrand, minPrice, maxPrice, sortBy, processorFilter, memoryFilter, diskFilter, operatingSystemFilter]);
+
+  const displayedProducts = useMemo(() => {
+    const categoryFilteredProducts = !selectedL1 && !selectedL2 && !selectedL3 && !searchQuery.trim() && defaultCategory
+      ? filteredProducts.filter((product: any) => getMainCategoryName(product) === defaultCategory)
+      : filteredProducts;
+    return categoryFilteredProducts.slice(0, 24);
+  }, [filteredProducts, selectedL1, selectedL2, selectedL3, searchQuery, defaultCategory]);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -410,6 +444,7 @@ export default function Home() {
                         {t('help_attachment_label')}
                       </label>
                       <input
+                        ref={serviceAttachmentInput}
                         id="service-attachment"
                         type="file"
                         accept="image/jpeg,image/png,image/webp,application/pdf"
@@ -422,8 +457,20 @@ export default function Home() {
                             setServiceFormError('');
                           }
                         }}
-                        className="w-full text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-gradient-to-r file:from-cyan-500 file:to-blue-600 file:px-3 file:py-2 file:text-xs file:font-bold file:text-slate-950 hover:file:from-cyan-400 hover:file:to-blue-500"
+                        className="hidden"
                       />
+                      <div className="flex min-w-0 items-center gap-3 text-xs">
+                        <button
+                          type="button"
+                          onClick={() => serviceAttachmentInput.current?.click()}
+                          className="shrink-0 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-3 py-2 text-xs font-bold text-slate-950 transition hover:from-cyan-400 hover:to-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                        >
+                          {t('help_choose_file')}
+                        </button>
+                        <span className="min-w-0 truncate text-slate-300" aria-live="polite">
+                          {serviceAttachment?.name || t('help_no_file_selected')}
+                        </span>
+                      </div>
                       <p className="mt-1 text-[10px] text-slate-500">{t('help_attachment_hint')}</p>
                     </div>
 
@@ -934,6 +981,8 @@ export default function Home() {
                 selectedL2={selectedL2}
                 selectedL3={selectedL3}
                 onSelectCategory={handleSelectCategory}
+                defaultCategory={defaultCategory}
+                onSetDefaultCategory={handleSetDefaultCategory}
                 products={PRODUCTS as any}
                 minPrice={minPrice}
                 maxPrice={maxPrice}
@@ -961,9 +1010,10 @@ export default function Home() {
                 onReset={handleResetFilters}
               />
               <ProductGrid
-                products={filteredProducts as any}
+                products={displayedProducts as any}
                 onSelectProduct={(p: any) => setSelectedProduct(p)}
                 onResetFilters={handleResetFilters}
+                maxRows={6}
               />
             </div>
           </div>

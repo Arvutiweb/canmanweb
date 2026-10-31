@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
+import { Star } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getProductFilterOptions, normalizeProductCondition } from '../lib/productFilters';
+import { getMainCategoryName } from '../lib/productCategories';
 import type { Condition } from '../types';
 
 const safeLower = (value: unknown) => String(value || '').toLowerCase();
@@ -12,6 +14,8 @@ interface CategorySidebarProps {
   selectedL2: string | null;
   selectedL3: string | null;
   onSelectCategory: (level1: string | null, level2: string | null, level3: string | null) => void;
+  defaultCategory: string | null;
+  onSetDefaultCategory: (category: string) => void;
   products: any[];
   minPrice: number;
   maxPrice: number;
@@ -34,6 +38,8 @@ export function CategorySidebar({
   selectedL2,
   selectedL3,
   onSelectCategory,
+  defaultCategory,
+  onSetDefaultCategory,
   products,
   minPrice,
   maxPrice,
@@ -59,13 +65,12 @@ export function CategorySidebar({
       subs: Map<string, { count: number; thirds: Map<string, number> }>;
     }>();
     (products || []).forEach((product) => {
-      const rawL1 = String(product.categoryL1 || product.topCategory || product.categoryPath?.[0] || product.category || 'Muu').trim();
+      const baseL1 = getMainCategoryName(product);
       const rawL2 = String(product.categoryL2 || product.subCategory || product.categoryPath?.[1] || '').trim();
       const rawL3 = String(product.categoryL3 || product.sub2Category || product.categoryPath?.[2] || '').trim();
-      let baseL1 = rawL1;
       let generation: string | null = null;
-      if (rawL1.toLowerCase().includes('desktop kasutatud')) {
-        baseL1 = 'Desktop kasutatud / used';
+      if (baseL1 === 'Desktop kasutatud / used') {
+        const rawL1 = String(product.categoryL1 || product.topCategory || product.categoryPath?.[0] || product.category || '').trim();
         if (rawL1.includes(',')) generation = rawL1.split(',')[1]?.trim() || null;
         if (!generation && rawL2 && /\d+-gen/i.test(rawL2)) generation = rawL2;
       }
@@ -137,16 +142,28 @@ export function CategorySidebar({
             const isOpen = open[base] ?? isActive;
             return (
               <div key={base}>
-                <button
-                  onClick={() => {
-                    setOpen((current) => ({ ...current, [base]: !current[base] }));
-                    onSelectCategory(base, null, null);
-                  }}
-                  className={`flex w-full justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold ${isActive ? 'bg-blue-50 text-[#0e4da4]' : 'hover:bg-slate-50'}`}
-                >
-                  <span>› {base}</span>
-                  <span className="rounded-full bg-slate-100 px-2 text-xs">{data.count}</span>
-                </button>
+                <div className="flex items-center">
+                  <button
+                    onClick={() => {
+                      setOpen((current) => ({ ...current, [base]: !current[base] }));
+                      onSelectCategory(base, null, null);
+                    }}
+                    className={`flex min-w-0 flex-1 justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold ${isActive ? 'bg-blue-50 text-[#0e4da4]' : 'hover:bg-slate-50'}`}
+                  >
+                    <span className="truncate">› {base}</span>
+                    <span className="ml-2 rounded-full bg-slate-100 px-2 text-xs">{data.count}</span>
+                  </button>
+                  <button
+                    type="button"
+                    aria-label={`${defaultCategory === base ? t('default_home_category') : t('set_default_home_category')}: ${base}`}
+                    aria-pressed={defaultCategory === base}
+                    title={defaultCategory === base ? t('default_home_category') : t('set_default_home_category')}
+                    onClick={() => onSetDefaultCategory(base)}
+                    className="ml-1 rounded-lg p-2 text-amber-500 transition hover:bg-amber-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                  >
+                    <Star className={`h-4 w-4 ${defaultCategory === base ? 'fill-current' : ''}`} />
+                  </button>
+                </div>
                 {isOpen && (
                   <div className="ml-4 mt-1 space-y-1 border-l-2 border-slate-100 pl-3">
                     {Array.from(data.subs.entries()).map(([sub, subData]) => (

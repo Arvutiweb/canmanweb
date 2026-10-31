@@ -40,16 +40,16 @@ export default function ToodePage({params}:{params:{id:string}}){
   const price=prod.finalPrice||prod.salePrice||prod.price;
 
   return (
-    <div className="max-w-6xl mx-auto p-4 md:p-8">
-      <Link href="/" className="text-sm text-slate-500 hover:text-black mb-6 inline-block">← Tagasi poodi</Link>
-      <div className="grid md:grid-cols-2 gap-8 bg-white rounded- border p-6">
+    <div className="mx-auto max-w-5xl p-3 md:p-5">
+      <Link href="/" className="mb-3 inline-block text-sm text-slate-500 hover:text-black">← Tagasi poodi</Link>
+      <div className="grid gap-4 rounded-xl border bg-white p-3 md:grid-cols-2 md:gap-5 md:p-4">
         <ProductImageGallery images={imgs} title={prod.title || prod.name} />
         <div>
-          <h1 className="text-3xl font-bold">{prod.title||prod.name}</h1>
-          <p className="text-2xl font-bold mt-4">{price} €</p>
-          <p className="text-slate-500 mt-2 text-sm">{prod.description||prod.shortSpec||''}</p>
-          <button className="mt-8 w-full bg-[#0e4da4] text-white rounded-full py-4 font-bold">Lisa korvi</button>
-          <div className="mt-6 text-xs text-slate-400">SKU: {prod.sku||prod.id} • {imgs.length} fotot</div>
+          <h1 className="text-2xl font-bold">{prod.title||prod.name}</h1>
+          <p className="mt-3 text-xl font-bold">{price} €</p>
+          <p className="mt-2 text-sm text-slate-500">{prod.description||prod.shortSpec||''}</p>
+          <button className="mt-5 w-full rounded-full bg-[#0e4da4] py-3 font-bold text-white">Lisa korvi</button>
+          <div className="mt-4 text-xs text-slate-400">SKU: {prod.sku||prod.id} • {imgs.length} fotot</div>
         </div>
       </div>
     </div>

@@ -2,8 +2,9 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-export default function ProductGrid({ products, onSelectProduct, onResetFilters }: any) {
+export default function ProductGrid({ products, onSelectProduct, onResetFilters, maxRows }: any) {
   const list = (products || []).filter((p:any)=> p && (p.id || p.sku || p.name || p.title));
+  const visibleList = maxRows ? list.slice(0, maxRows * 4) : list;
 
   if (!list.length) {
     return (
@@ -15,13 +16,20 @@ export default function ProductGrid({ products, onSelectProduct, onResetFilters 
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-      {list.map((product: any, i:number) => (
-        <ProductCard 
+    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4">
+      {visibleList.map((product: any, i:number) => (
+        <div
           key={String(product.id || product.sku || product.name || i)} 
-          product={product} 
-          onSelectProduct={onSelectProduct} 
-        />
+          className={
+            maxRows && i >= maxRows * 3
+              ? 'hidden lg:block'
+              : maxRows && i >= maxRows * 2
+                ? 'hidden sm:block'
+                : ''
+          }
+        >
+          <ProductCard product={product} onSelectProduct={onSelectProduct} />
+        </div>
       ))}
     </div>
   );

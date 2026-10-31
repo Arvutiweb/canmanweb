@@ -13,12 +13,12 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
 
   return (
     <div>
-      <div className="relative aspect-square overflow-hidden bg-[#f8f9fb]">
+      <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#f8f9fb]">
         <Image
           src={images[activeImage]}
           alt={title}
           fill
-          className="h-full w-full object-contain p-6"
+          className="h-full w-full rounded-2xl object-contain p-6"
           unoptimized
         />
       </div>
@@ -28,7 +28,7 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
             key={src + index}
             type="button"
             onClick={() => setActiveImage(index)}
-            className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border bg-[#f8f9fb] transition hover:border-black"
+            className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border bg-[#f8f9fb] transition hover:border-black"
             aria-label={`Show image ${index + 1} of ${title}`}
             aria-pressed={activeImage === index}
           >
@@ -36,7 +36,7 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
               src={src}
               alt=""
               fill
-              className="object-contain p-2"
+              className="rounded-lg object-contain p-2"
               unoptimized
             />
           </button>

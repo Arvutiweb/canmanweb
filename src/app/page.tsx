@@ -188,7 +188,7 @@ export default function Home() {
     const categoryFilteredProducts = !selectedL1 && !selectedL2 && !selectedL3 && !searchQuery.trim() && defaultCategory
       ? filteredProducts.filter((product: any) => getMainCategoryName(product) === defaultCategory)
       : filteredProducts;
-    return categoryFilteredProducts.slice(0, 24);
+    return categoryFilteredProducts;
   }, [filteredProducts, selectedL1, selectedL2, selectedL3, searchQuery, defaultCategory]);
 
   const scrollTo = (id: string) => {

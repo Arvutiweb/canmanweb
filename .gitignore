@@ -6,3 +6,5 @@ data/import/
 data/originals/
 scripts/*.bat
 scripts/*.py
+
+tsconfig.tsbuildinfo

@@ -466,14 +466,15 @@ export const autoProducts: any[] = [
     "shortDescription": "",
     "specs": "",
     "imageUrl": "/images/DELL-E6220.webp",
-    "image": "/images/DELL-E6220.webp"
+    "image": "/images/DELL-E6220.webp",
+    "regularPrice": 50
   },
   {
     "id": "340004",
     "sku": "340004",
     "title": "Notebook Latitude E6320 used",
     "name": "Notebook Latitude E6320 used",
-    "stock": 1,
+    "stock": 0,
     "price": 50,
     "salePrice": null,
     "finalPrice": 50,
@@ -497,7 +498,8 @@ export const autoProducts: any[] = [
     "description": "Notebook Latitude E6320 12,5\" i5-2520M DDR3-4GB 500GB WIN10P ID Card Screen WXGA 1366x768 matte",
     "shortDescription": "",
     "specs": "",
-    "imageUrl": "/images/DELL-E6320_EST.webp"
+    "imageUrl": "/images/DELL-E6320_EST.webp",
+    "regularPrice": 50
   },
   {
     "id": "340002",
@@ -610,20 +612,22 @@ export const autoProducts: any[] = [
     "tags": "Lenovo",
     "color": "Black",
     "images": [
-      "/images/Lenovo-X260.webp",
-      "/images/Leno_i5_6300U_6h_W10.webp",
-      "/images/Leno_i5_6300U_6h_W10_900px.webp"
+      "/images/x260_veel.webp",
+      "/images/X260.webp",
+      "/images/x260_pealt_adapteriga.webp",
+      "/images/x260_alt.webp"
     ],
     "rawImages": [
-      "/images/Lenovo-X260.webp",
-      "/images/Leno_i5_6300U_6h_W10.webp",
-      "/images/Leno_i5_6300U_6h_W10_900px.webp"
+      "/images/x260_veel.webp",
+      "/images/X260.webp",
+      "/images/x260_pealt_adapteriga.webp",
+      "/images/x260_alt.webp"
     ],
     "description": "i5-6300U, 8-250 GB, 13,3\" matt, EE klaviatuur, orig. laadija, kaks akut. Windows 10 puhastatud kiire, lisatud programmid ja Office. aku näitab 4h",
     "shortDescription": "Lenovo X260 13,3” i5-6300U Windows10",
     "specs": "",
-    "imageUrl": "/images/Lenovo-X260.webp",
-    "image": "/images/Lenovo-X260.webp"
+    "imageUrl": "/images/x260_veel.webp",
+    "image": "/images/x260_veel.webp"
   },
   {
     "id": "340001",
@@ -1077,15 +1081,15 @@ export const autoProducts: any[] = [
     "tags": "Intel Protsessor",
     "color": "",
     "images": [
-      "/images/I-protsessor_i5_desktop.png"
+      "/images/I-protsessor_i5_desktop.webp"
     ],
     "rawImages": [
-      "I-protsessor_i5_desktop.png"
+      "I-protsessor_i5_desktop.webp"
     ],
     "description": "4th-generation desktop processor featuring 4 cores, 4 threads, a 3.1 GHz base clock, and a 3.3 GHz boost clock. Released in 2013 on the LGA 1150 socket ",
     "shortDescription": "Protsessor Intel i5-4440",
     "specs": "",
-    "imageUrl": "/images/I-protsessor_i5_desktop.png"
+    "imageUrl": "/images/I-protsessor_i5_desktop.webp"
   },
   {
     "id": "520301",

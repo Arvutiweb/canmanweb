@@ -50,9 +50,15 @@ body {
 }
 
 /* ===== PRINT STYLES FOR INVOICE ===== */
+.help-form-field {
+  background-color: var(--canman-help-input-background, #e6e6e6) !important;
+  color: var(--canman-help-input-text, #000000) !important;
+  -webkit-text-fill-color: var(--canman-help-input-text, #000000) !important;
+}
+
 .help-form-field::placeholder {
-  color: var(--canman-help-input-text, #ffffff);
-  opacity: 0.6;
+  color: var(--canman-help-input-text, #000000);
+  opacity: 1;
 }
 
 @media print {

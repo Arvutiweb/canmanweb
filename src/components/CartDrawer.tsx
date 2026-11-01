@@ -94,7 +94,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ onOpenCheckout }) => {
                       src={getCartThumbnail(product)}
                       alt={product.title}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       unoptimized
                       onError={(event) => {
                         if (!event.currentTarget.src.endsWith('/images/placeholder.png')) {

@@ -15,9 +15,9 @@
     "topCategory": "Lauarvuti osad kasut.",
     "categoryL2": "Protsessor PC",
     "subCategory": "Protsessor PC",
-    "image": "/images/I-protsessor_i5_desktop.png",
+    "image": "/images/I-protsessor_i5_desktop.webp",
     "images": [
-      "/images/I-protsessor_i5_desktop.png"
+      "/images/I-protsessor_i5_desktop.webp"
     ],
     "stock": 1,
     "condition": "new"

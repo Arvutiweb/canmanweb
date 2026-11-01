@@ -22,8 +22,8 @@ const STORAGE_KEY = 'canman_theme_palette';
 const DEFAULT_PALETTE: ThemePalette = {
   header: '#17283f',
   helpPanel: '#1e324a',
-  helpInputBackground: '#000000',
-  helpInputText: '#e6e6e6',
+  helpInputBackground: '#e6e6e6',
+  helpInputText: '#000000',
 };
 
 const ThemePaletteContext = createContext<ThemePaletteContextValue | null>(null);
@@ -44,15 +44,21 @@ export function ThemePaletteProvider({ children }: { children: React.ReactNode }
       if (!parsed || typeof parsed !== 'object') return;
 
       const storedPalette = parsed as Record<string, unknown>;
+      const helpInputBackground = isColor(storedPalette.helpInputBackground)
+        ? storedPalette.helpInputBackground
+        : DEFAULT_PALETTE.helpInputBackground;
+      const savedHelpInputText = isColor(storedPalette.helpInputText)
+        ? storedPalette.helpInputText
+        : DEFAULT_PALETTE.helpInputText;
+      const isPreviousDefault =
+        helpInputBackground.toLowerCase() === '#000000' &&
+        ['#e6e6e6', '#ffffff'].includes(savedHelpInputText.toLowerCase());
+
       setPalette({
         header: isColor(storedPalette.header) ? storedPalette.header : DEFAULT_PALETTE.header,
         helpPanel: isColor(storedPalette.helpPanel) ? storedPalette.helpPanel : DEFAULT_PALETTE.helpPanel,
-        helpInputBackground: isColor(storedPalette.helpInputBackground)
-          ? storedPalette.helpInputBackground
-          : DEFAULT_PALETTE.helpInputBackground,
-        helpInputText: isColor(storedPalette.helpInputText)
-          ? storedPalette.helpInputText
-          : DEFAULT_PALETTE.helpInputText,
+        helpInputBackground: isPreviousDefault ? DEFAULT_PALETTE.helpInputBackground : helpInputBackground,
+        helpInputText: isPreviousDefault ? DEFAULT_PALETTE.helpInputText : savedHelpInputText,
       });
     } catch (error) {
       console.error('Unable to load saved theme colors.', error);

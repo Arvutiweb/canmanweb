@@ -45,7 +45,8 @@
       "/images/dell-E6220_w7p_4_250hdd.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "used",
+    "finalPrice": 50
   },
   {
     "id": "340002",
@@ -133,11 +134,12 @@
     "topCategory": "Laptops used",
     "categoryL2": "Laptop 12-13 used",
     "subCategory": "Laptop 12-13 used",
-    "image": "/images/Lenovo-X260.webp",
+    "image": "/images/x260_veel.webp",
     "images": [
-      "/images/Lenovo-X260.webp",
-      "/images/Leno_i5_6300U_6h_W10.webp",
-      "/images/Leno_i5_6300U_6h_W10_900px.webp"
+      "/images/x260_veel.webp",
+      "/images/X260.webp",
+      "/images/x260_pealt_adapteriga.webp",
+      "/images/x260_alt.webp"
     ],
     "stock": 1,
     "condition": "used"

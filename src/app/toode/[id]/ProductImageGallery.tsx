@@ -13,12 +13,12 @@ export default function ProductImageGallery({ images, title }: ProductImageGalle
 
   return (
     <div>
-      <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#f8f9fb]">
+      <div className="relative aspect-square overflow-hidden rounded-3xl bg-[#f8f9fb]">
         <Image
           src={images[activeImage]}
           alt={title}
           fill
-          className="h-full w-full rounded-2xl object-contain p-6"
+          className="h-full w-full rounded-3xl object-contain p-6"
           unoptimized
         />
       </div>

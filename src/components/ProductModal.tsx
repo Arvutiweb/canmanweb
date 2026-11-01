@@ -99,12 +99,12 @@ export const ProductModal = ({ product, onClose }: any) => {
             {/* Main Image */}
             <button
               type="button"
-              className="relative aspect-square w-full bg-white rounded-2xl overflow-hidden shadow-sm cursor-zoom-in group"
+              className="relative aspect-square w-full overflow-hidden rounded-3xl bg-white shadow-sm cursor-zoom-in group"
               title="Kliki pildil suurendamiseks"
               aria-label={`Suurenda pilti: ${title}`}
               onClick={() => setIsImageZoomed(true)}
             >
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-50">
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-3xl bg-slate-50">
                 {loadingImg === fullSrc && (
                   <Loader2 className="w-8 h-8 text-[#0e4da4] animate-spin" />
                 )}
@@ -113,7 +113,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                     src={fullSrc}
                     alt={title}
                     fill
-                    className={`rounded-2xl object-contain p-4 md:p-6 transition-opacity duration-300 ${
+                    className={`rounded-3xl object-contain p-4 md:p-6 transition-opacity duration-300 ${
                       loadingImg === fullSrc ? 'opacity-0' : 'opacity-100'
                     }`}
                     unoptimized
@@ -142,7 +142,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className={`w-16 h-16 shrink-0 bg-white rounded-xl overflow-hidden border-2 transition-all duration-200 ${
+                    className={`w-16 h-16 shrink-0 bg-slate-50 rounded-xl overflow-hidden border-2 transition-all duration-200 ${
                       activeImg === i
                         ? 'border-[#0e4da4] shadow-sm ring-2 ring-[#0e4da4]/20'
                         : 'border-slate-200 hover:border-slate-300'
@@ -155,7 +155,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                         src={src}
                         alt={`${title} - vaade ${i + 1}`}
                         fill
-                        className="rounded-lg object-cover p-1.5"
+                        className="rounded-lg object-contain p-1.5"
                         unoptimized
                       />
                     </div>
@@ -309,13 +309,13 @@ export const ProductModal = ({ product, onClose }: any) => {
           >
             <X className="h-6 w-6" />
           </button>
-          <div className="relative h-full w-full overflow-hidden rounded-2xl" onClick={() => setIsImageZoomed(false)}>
+          <div className="relative h-full w-full overflow-hidden rounded-3xl" onClick={() => setIsImageZoomed(false)}>
             <Image
               src={fullSrc}
               alt={title}
               fill
               sizes="100vw"
-              className="rounded-2xl object-contain"
+              className="rounded-3xl object-contain"
               unoptimized
             />
           </div>

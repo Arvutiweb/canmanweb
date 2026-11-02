@@ -100,6 +100,7 @@ export async function POST(request: Request) {
   }
 
   const userAgent = (request.headers.get('user-agent') || '').slice(0, 500);
+  const browser = formData.get('browser') === 'Brave' ? 'Brave' : getBrowser(userAgent);
   const ipAddress = request.headers.get('x-real-ip')?.trim()
     || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
     || 'Unavailable';
@@ -138,7 +139,7 @@ export async function POST(request: Request) {
           `IP address: ${ipAddress}`,
           `Location: ${location}`,
           `Device type (inferred): ${getDeviceType(userAgent)}`,
-          `Browser: ${getBrowser(userAgent)}`,
+          `Browser: ${browser}`,
           `Operating system: ${getOperatingSystem(userAgent)}`,
           `Browser user-agent: ${userAgent || 'Unavailable'}`,
         ].join('\n'),

@@ -55,6 +55,12 @@ const local = (et: string, en: string, lang: string) => lang === 'en' ? en : et;
 const DEFAULT_CATEGORY_STORAGE_KEY = 'canman_default_home_category';
 const MAIN_CATEGORIES = Array.from(new Set((PRODUCTS as any[]).map(getMainCategoryName)));
 
+type NavigatorWithBrave = Navigator & {
+  brave?: {
+    isBrave?: () => Promise<boolean>;
+  };
+};
+
 export default function Home() {
   const { t, lang } = useLanguage();
   const { palette } = useThemePalette();
@@ -219,6 +225,14 @@ export default function Home() {
       formData.set('name', serviceName.trim());
       formData.set('phone', servicePhone.trim());
       formData.set('issue', serviceIssue.trim());
+      const brave = (navigator as NavigatorWithBrave).brave;
+      if (brave?.isBrave) {
+        try {
+          if (await brave.isBrave()) formData.set('browser', 'Brave');
+        } catch (error) {
+          console.warn('Unable to detect Brave; browser identification will use the user-agent.', error);
+        }
+      }
       if (serviceAttachment) formData.set('attachment', serviceAttachment);
       if (serviceLocation) {
         formData.set('latitude', String(serviceLocation.latitude));

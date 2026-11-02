@@ -31,8 +31,11 @@ const translations: Record<Language, Record<string, string>> = {
     hero_title_2: ' ja arvutite kiirhooldus',
     hero_subtitle: 'Arvutipargi lepinguline haldus ettevõtetele, riistvara kiirdiagnostika ja remont Canman töökojas (Lille 14, Tallinn) ning kogenud IT-tehniku väljakutsed kontorisse või koju.',
     btn_services: 'Vaata IT-teenuseid',
-    btn_business: 'IT-Haldus ärikliendile',
+    btn_software_solutions: 'Tarkvaralahendused',
     btn_shop: 'E-Pood (Arvutid)',
+    cookie_notice_title: 'Küpsiste ja kohaliku salvestuse teavitus',
+    cookie_notice_body: 'Kasutame brauseri kohalikku salvestusruumi ostukorvi ja saidi eelistuste meelespidamiseks. Praegu ei kasuta me analüütika- ega reklaamiküpsiseid.',
+    cookie_notice_dismiss: 'Selge',
     
     // Trust pills
     trust_diag: 'Diagnostika 24h',
@@ -124,8 +127,11 @@ const translations: Record<Language, Record<string, string>> = {
     hero_title_2: ' & Computer Maintenance',
     hero_subtitle: 'Contracted IT management for companies, fast hardware diagnostics & repair in Canman workshop (Lille 14, Tallinn), and on-site technician callouts to your office or home.',
     btn_services: 'View IT Services',
-    btn_business: 'Business IT Support',
+    btn_software_solutions: 'Software Solutions',
     btn_shop: 'Shop (Computers)',
+    cookie_notice_title: 'Cookie and local storage notice',
+    cookie_notice_body: 'We use your browser’s local storage to remember your cart and site preferences. We currently do not use analytics or advertising cookies.',
+    cookie_notice_dismiss: 'Got it',
 
     // Trust pills
     trust_diag: 'Diagnostics 24h',

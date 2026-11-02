@@ -40,8 +40,13 @@ import {
   Check,
   Zap,
   ShoppingBag,
+  ShoppingCart,
   ExternalLink,
   Search,
+  Settings,
+  Code2,
+  Database,
+  Calculator,
 } from 'lucide-react';
 
 const safeLower = (v: any) => String(v || '').toLowerCase();
@@ -313,11 +318,11 @@ export default function Home() {
                 </button>
 
                 <button
-                  onClick={() => scrollTo('arikliendile')}
+                  onClick={() => scrollTo('software-solutions')}
                   className="bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold px-5 py-3 rounded-xl text-sm transition flex items-center gap-2"
                 >
-                  <Briefcase className="w-4 h-4 text-cyan-300" />
-                  <span>{t('btn_business')}</span>
+                  <Bot className="w-4 h-4 text-cyan-300" />
+                  <span>{t('btn_software_solutions')}</span>
                 </button>
 
                 <button
@@ -745,8 +750,145 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SOFTWARE SOLUTIONS */}
+      <section id="software-solutions" className="scroll-mt-24 border-b border-blue-900/10 bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#0e4da4]">
+              {local('TARKVARALAHENDUSED', 'SOFTWARE SOLUTIONS', lang)}
+            </span>
+            <h2 className="mt-3 text-2xl font-extrabold text-slate-900 sm:text-3xl">
+              {local('Tarkvara, veebilehed ja nutikas automatiseerimine', 'Software, websites, and practical automation', lang)}
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              {local(
+                'Seadistame ja arendame töökindlaid lahendusi, mis ühendavad sinu arvuti, veebilehe ja igapäevased töövood.',
+                'We configure and build reliable solutions that connect your computer, website, and everyday workflows.',
+                lang,
+              )}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-blue-400 hover:shadow-lg">
+              <div>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-[#0e4da4] transition-colors group-hover:bg-[#0e4da4] group-hover:text-white">
+                  <Settings className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold text-slate-900">{local('Windowsi seadistamine ja varundus', 'Windows setup and backup automation', lang)}</h3>
+                <p className="mb-4 text-xs leading-relaxed text-slate-600">
+                  {local(
+                    'Seadistame Windowsi, kasutajakontod, programmid ja turvaseaded. Automatiseerime failide ja oluliste andmete varukoopiate tegemise.',
+                    'We configure Windows, user accounts, applications, and security settings, and automate backups of files and important data.',
+                    lang,
+                  )}
+                </p>
+              </div>
+              <button onClick={() => scrollTo('kontakt')} className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:border-[#0e4da4] hover:bg-[#0e4da4] hover:text-white">
+                {local('Küsi pakkumist', 'Request a quote', lang)} <ChevronRight className="h-4 w-4" />
+              </button>
+            </article>
+
+            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-blue-400 hover:shadow-lg">
+              <div>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-[#0e4da4] transition-colors group-hover:bg-[#0e4da4] group-hover:text-white">
+                  <Code2 className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold text-slate-900">{local('WordPressi haldamine ja arendamine', 'WordPress maintenance and development', lang)}</h3>
+                <p className="mb-4 text-xs leading-relaxed text-slate-600">
+                  {local(
+                    'Hooldame ja arendame WordPressi kodulehti: uuendused, varukoopiad, turvalisus, veaparandused ja uued funktsioonid.',
+                    'We maintain and develop WordPress websites, including updates, backups, security, bug fixes, and new features.',
+                    lang,
+                  )}
+                </p>
+              </div>
+              <button onClick={() => scrollTo('kontakt')} className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:border-[#0e4da4] hover:bg-[#0e4da4] hover:text-white">
+                {local('Küsi pakkumist', 'Request a quote', lang)} <ChevronRight className="h-4 w-4" />
+              </button>
+            </article>
+
+            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-blue-400 hover:shadow-lg">
+              <div>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-[#0e4da4] transition-colors group-hover:bg-[#0e4da4] group-hover:text-white">
+                  <Database className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold text-slate-900">{local('WordPressi andmete automatiseerimine', 'WordPress data automation', lang)}</h3>
+                <p className="mb-4 text-xs leading-relaxed text-slate-600">
+                  {local(
+                    'Automatiseerime WordPressi kodulehe andmete lisamist ja muutmist, et korduvad sisuhalduse ülesanded oleksid kiiremad ja täpsemad.',
+                    'We automate adding and updating website data in WordPress, making repetitive content-management tasks faster and more accurate.',
+                    lang,
+                  )}
+                </p>
+              </div>
+              <button onClick={() => scrollTo('kontakt')} className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:border-[#0e4da4] hover:bg-[#0e4da4] hover:text-white">
+                {local('Küsi pakkumist', 'Request a quote', lang)} <ChevronRight className="h-4 w-4" />
+              </button>
+            </article>
+
+            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-blue-400 hover:shadow-lg">
+              <div>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-[#0e4da4] transition-colors group-hover:bg-[#0e4da4] group-hover:text-white">
+                  <Code2 className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold text-slate-900">{local('Reacti ja Next.js kodulehed', 'React and Next.js websites', lang)}</h3>
+                <p className="mb-4 text-xs leading-relaxed text-slate-600">
+                  {local(
+                    'Loome kiired ja tänapäevased Reacti ja Next.js veebilehed ning arendame olemasolevaid lahendusi edasi.',
+                    'We build fast, modern websites with React and Next.js and continue developing existing solutions.',
+                    lang,
+                  )}
+                </p>
+              </div>
+              <button onClick={() => scrollTo('kontakt')} className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:border-[#0e4da4] hover:bg-[#0e4da4] hover:text-white">
+                {local('Küsi pakkumist', 'Request a quote', lang)} <ChevronRight className="h-4 w-4" />
+              </button>
+            </article>
+
+            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-blue-400 hover:shadow-lg">
+              <div>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-[#0e4da4] transition-colors group-hover:bg-[#0e4da4] group-hover:text-white">
+                  <Calculator className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold text-slate-900">{local('Raamatupidamise ja kodulehe sidumine', 'Accounting and website integration', lang)}</h3>
+                <p className="mb-4 text-xs leading-relaxed text-slate-600">
+                  {local(
+                    'Seome raamatupidamisprogrammi ja kodulehe andmed, et vähendada käsitsi sisestamist ning hoida info süsteemide vahel kooskõlas.',
+                    'We connect accounting software with website data to reduce manual entry and keep information consistent across systems.',
+                    lang,
+                  )}
+                </p>
+              </div>
+              <button onClick={() => scrollTo('kontakt')} className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:border-[#0e4da4] hover:bg-[#0e4da4] hover:text-white">
+                {local('Küsi pakkumist', 'Request a quote', lang)} <ChevronRight className="h-4 w-4" />
+              </button>
+            </article>
+
+            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-blue-400 hover:shadow-lg">
+              <div>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-[#0e4da4] transition-colors group-hover:bg-[#0e4da4] group-hover:text-white">
+                  <ShoppingCart className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-bold text-slate-900">{local('E-poe arendamine ja hooldus', 'E-commerce development and maintenance', lang)}</h3>
+                <p className="mb-4 text-xs leading-relaxed text-slate-600">
+                  {local(
+                    'Arendame ja hooldame e-poode ning aitame toodete, tellimuste, maksete ja muude vajalike funktsioonide seadistamisega.',
+                    'We develop and maintain online stores and help configure products, orders, payments, and other essential features.',
+                    lang,
+                  )}
+                </p>
+              </div>
+              <button onClick={() => scrollTo('kontakt')} className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:border-[#0e4da4] hover:bg-[#0e4da4] hover:text-white">
+                {local('Küsi pakkumist', 'Request a quote', lang)} <ChevronRight className="h-4 w-4" />
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {/* ============================================================== */}
-      {/* 2. ÄRIKLIENDILE SECTION (#arikliendile): IT-HALDUS ETTEVÕTETELE */}
+      {/* 3. ÄRIKLIENDILE SECTION (#arikliendile): IT-HALDUS ETTEVÕTETELE */}
       {/* ============================================================== */}
       <section id="arikliendile" className="py-16 bg-slate-900 text-white border-b border-slate-800 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">

@@ -4,6 +4,7 @@ import { CartProvider } from '../context/CartContext';
 import { LanguageProvider } from '../context/LanguageContext';
 import { ThemePaletteProvider } from '../context/ThemePaletteContext';
 import { ThemePaletteControls } from '../components/ThemePaletteControls';
+import { CookieNotice } from '../components/CookieNotice';
 
 export const metadata: Metadata = {
   title: 'Canman - IT-Teenused, Arvutiremont & IT-Haldus Tallinnas | canman.eu',
@@ -39,6 +40,7 @@ export default function RootLayout({
             <CartProvider>
               {children}
               <ThemePaletteControls />
+              <CookieNotice />
             </CartProvider>
           </ThemePaletteProvider>
         </LanguageProvider>

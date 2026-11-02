@@ -28,6 +28,13 @@ function getOperatingSystem(userAgent: string) {
   return 'Unknown';
 }
 
+function getDeviceType(userAgent: string) {
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobile))/i.test(userAgent)) return 'Tablet';
+  if (/(mobi|iphone|ipod|android)/i.test(userAgent)) return 'Mobile';
+  if (userAgent) return 'Desktop';
+  return 'Unknown';
+}
+
 export async function POST(request: Request) {
   let formData: FormData;
 
@@ -92,10 +99,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'email_not_configured' }, { status: 503 });
   }
 
-  const userAgent = request.headers.get('user-agent') || '';
+  const userAgent = (request.headers.get('user-agent') || '').slice(0, 500);
   const ipAddress = request.headers.get('x-real-ip')?.trim()
     || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
     || 'Unavailable';
+  const receivedAt = new Date();
+  const estoniaTimestamp = new Intl.DateTimeFormat('et-EE', {
+    timeZone: 'Europe/Tallinn',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hourCycle: 'h23',
+  }).format(receivedAt);
 
   try {
     const response = await fetch('https://api.resend.com/emails', {
@@ -113,11 +131,16 @@ export async function POST(request: Request) {
           `Phone: ${phone}`,
           `Issue: ${issue || 'Not specified'}`,
           '',
+          `Request received (Europe/Tallinn): ${estoniaTimestamp}`,
+          `Request received (UTC): ${receivedAt.toISOString()}`,
+          '',
           'Visitor information:',
           `IP address: ${ipAddress}`,
           `Location: ${location}`,
+          `Device type (inferred): ${getDeviceType(userAgent)}`,
           `Browser: ${getBrowser(userAgent)}`,
           `Operating system: ${getOperatingSystem(userAgent)}`,
+          `Browser user-agent: ${userAgent || 'Unavailable'}`,
         ].join('\n'),
         ...(attachment ? { attachments: [attachment] } : {}),
       }),

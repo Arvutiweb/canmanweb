@@ -7,7 +7,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/images/canman-systems-it-services-v3.webp',
+        source: '/images/canman-systems-it-services-v4.webp',
         headers: [
           {
             key: 'Cache-Control',

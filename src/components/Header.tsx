@@ -84,14 +84,16 @@ export function Header() {
             }}
             className="flex items-center gap-2 sm:gap-3 group focus:outline-none shrink-0"
           >
-            <Image
-              src="/images/canman-systems-it-services-v1.webp"
-              alt="Canman Systems – IT services"
-              width={226}
-              height={123}
-              priority
-              className="h-[68px] w-auto rounded-md bg-white p-1 transition-transform duration-200 group-hover:scale-[1.02] sm:h-[76px]"
-            />
+            <span className="inline-flex rounded-full bg-white px-3 py-1.5 shadow-sm transition-transform duration-200 group-hover:scale-[1.02]">
+              <Image
+                src="/images/canman-systems-it-services-v2.webp"
+                alt="Canman Systems – IT services"
+                width={170}
+                height={71}
+                priority
+                className="h-[42px] w-auto sm:h-12"
+              />
+            </span>
           </a>
 
           {/* Desktop Navigation Menu (Primary focus: IT Services & Solutions) */}

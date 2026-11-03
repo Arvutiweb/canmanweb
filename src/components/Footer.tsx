@@ -51,13 +51,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenServicesModal, onServicesO
           {/* Col 1: About & Identity */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <Image
-                src="/images/canman-systems-it-services-v1.webp"
-                alt="Canman Systems – IT services"
-                width={226}
-                height={123}
-                className="h-14 w-auto rounded-md bg-white p-1"
-              />
+              <span className="inline-flex rounded-full bg-white px-2.5 py-1 shadow-sm">
+                <Image
+                  src="/images/canman-systems-it-services-v2.webp"
+                  alt="Canman Systems – IT services"
+                  width={170}
+                  height={71}
+                  className="h-9 w-auto"
+                />
+              </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               {local('Professionaalsed IT-teenused, arvutite ja sülearvutite remont ning äriklientide IT-haldus Tallinnas ja Harjumaal. Usaldusväärne riistvara diagnostika ja kontrollitud garantiiga tehnika.', 'Professional IT services, computer and laptop repairs, and business IT support in Tallinn and Harju County. Reliable hardware diagnostics and quality-checked equipment with a warranty.')}

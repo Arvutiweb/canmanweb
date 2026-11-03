@@ -53,10 +53,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenServicesModal, onServicesO
             <div className="flex items-center gap-2">
               <span className="inline-flex rounded-full bg-white px-2.5 py-1 shadow-sm">
                 <Image
-                  src="/images/canman-systems-it-services-v2.webp"
+                  src="/images/canman-systems-it-services-v3.webp"
                   alt="Canman Systems – IT services"
-                  width={170}
-                  height={71}
+                  width={359}
+                  height={145}
                   className="h-9 w-auto"
                 />
               </span>

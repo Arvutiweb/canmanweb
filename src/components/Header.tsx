@@ -86,10 +86,10 @@ export function Header() {
           >
             <span className="inline-flex rounded-full bg-white px-3 py-1.5 shadow-sm transition-transform duration-200 group-hover:scale-[1.02]">
               <Image
-                src="/images/canman-systems-it-services-v2.webp"
+                src="/images/canman-systems-it-services-v3.webp"
                 alt="Canman Systems – IT services"
-                width={170}
-                height={71}
+                width={359}
+                height={145}
                 priority
                 className="h-[42px] w-auto sm:h-12"
               />

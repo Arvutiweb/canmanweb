@@ -26,13 +26,13 @@ export default function PoodTopPage({ params }: Props) {
         {name}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Link href={`/pood/${slug}/pliiatsid`} className="border p-4 rounded hover:shadow">
+        <Link href={`/pood/${slug}/pliiatsid`} prefetch={false} className="border p-4 rounded hover:shadow">
           <h3 className="font-bold">Alamkategooria näide</h3>
           <p className="text-sm text-gray-500">Tooted tulevad siia</p>
         </Link>
       </div>
       <div className="mt-6">
-        <Link href="/pood" className="text-blue-600 underline">
+        <Link href="/pood" prefetch={false} className="text-blue-600 underline">
           ← Tagasi poodi
         </Link>
       </div>

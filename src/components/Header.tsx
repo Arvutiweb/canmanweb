@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useCart } from '../context/CartContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useThemePalette } from '../context/ThemePaletteContext';
@@ -12,8 +13,6 @@ import {
   Phone,
   Menu,
   X,
-  Sparkles,
-  Bot,
   Receipt,
   Headphones,
 } from 'lucide-react';
@@ -85,27 +84,14 @@ export function Header() {
             }}
             className="flex items-center gap-2 sm:gap-3 group focus:outline-none shrink-0"
           >
-            <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-200">
-                <Bot className="w-5 h-5 text-white" />
-              </div>
-              <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-slate-950 rounded-full animate-pulse" title="Süsteemid ja tugi aktiivne" />
-            </div>
-
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-lg sm:text-xl tracking-wider canman-logo-shift">
-                  CANMAN
-                </span>
-                <span className="hidden text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 sm:flex items-center gap-1">
-                  <Sparkles className="w-2.5 h-2.5 text-cyan-300" />
-                  IT & AI
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-400 font-medium tracking-wide hidden sm:block">
-                {t('tagline')}
-              </p>
-            </div>
+            <Image
+              src="/images/canman-systems-it-services-v1.webp"
+              alt="Canman Systems – IT services"
+              width={226}
+              height={123}
+              priority
+              className="h-[68px] w-auto rounded-md bg-white p-1 transition-transform duration-200 group-hover:scale-[1.02] sm:h-[76px]"
+            />
           </a>
 
           {/* Desktop Navigation Menu (Primary focus: IT Services & Solutions) */}

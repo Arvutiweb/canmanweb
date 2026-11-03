@@ -41,7 +41,7 @@ export default function ToodePage({params}:{params:{id:string}}){
 
   return (
     <div className="mx-auto max-w-5xl p-3 md:p-5">
-      <Link href="/" className="mb-3 inline-block text-sm text-slate-500 hover:text-black">← Tagasi poodi</Link>
+      <Link href="/" prefetch={false} className="mb-3 inline-block text-sm text-slate-500 hover:text-black">← Tagasi poodi</Link>
       <div className="grid gap-4 rounded-xl border bg-white p-3 md:grid-cols-2 md:gap-5 md:p-4">
         <ProductImageGallery images={imgs} title={prod.title || prod.name} />
         <div>

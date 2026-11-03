@@ -15,7 +15,7 @@ export default function ClientProducts({products, params}: any){
   return (
     <div className="mx-auto max-w-7xl p-4 md:p-6">
       <div className="text- text-slate-500 mb-4 flex gap-2">
-        <Link href="/pood" className="hover:underline">Pood</Link> / <span>{category}</span>
+        <Link href="/pood" prefetch={false} className="hover:underline">Pood</Link> / <span>{category}</span>
       </div>
       <h1 className="mb-6 text-2xl font-bold">{category} <span className="text-lg font-normal text-slate-400">({products.length})</span></h1>
       <ProductGrid products={products} onSelectProduct={setSelected} onResetFilters={()=>{}} />

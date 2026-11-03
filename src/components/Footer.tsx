@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useLanguage } from '../context/LanguageContext';
 import {
   Wrench,
-  Bot,
   MapPin,
   Phone,
   Mail,
@@ -51,13 +51,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenServicesModal, onServicesO
           {/* Col 1: About & Identity */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white">
-                <Bot className="w-4 h-4" />
-              </div>
-              <span className="font-extrabold text-lg tracking-wider canman-logo-shift">CANMAN</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                IT & AI
-              </span>
+              <Image
+                src="/images/canman-systems-it-services-v1.webp"
+                alt="Canman Systems – IT services"
+                width={226}
+                height={123}
+                className="h-14 w-auto rounded-md bg-white p-1"
+              />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               {local('Professionaalsed IT-teenused, arvutite ja sülearvutite remont ning äriklientide IT-haldus Tallinnas ja Harjumaal. Usaldusväärne riistvara diagnostika ja kontrollitud garantiiga tehnika.', 'Professional IT services, computer and laptop repairs, and business IT support in Tallinn and Harju County. Reliable hardware diagnostics and quality-checked equipment with a warranty.')}

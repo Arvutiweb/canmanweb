@@ -52,7 +52,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenServicesModal, onServicesO
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <Image
-                src="/images/canman-systems-it-services-v4.webp"
+                src="/images/canman-systems-it-services-v5.webp"
                 alt="Canman Systems – IT services"
                 width={500}
                 height={304}

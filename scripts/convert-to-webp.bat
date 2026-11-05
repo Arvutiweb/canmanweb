@@ -1,5 +1,5 @@
-cd /d C:\Users\raivo\Documents\canman.github.io
-pip install Pillow
-python scripts/convert-to-webp.py
+@echo off
+cd /d "%~dp0.."
+python scripts\convert-to-webp.py
 
-pause ...
+pause

@@ -165,7 +165,10 @@
     "brand": "ORDI",
     "tags": "Desktop, ",
     "color": "",
-    "images": [],
+    "images": [
+      "/images/Kasutatud_Desktop_arvutid.jpg",
+      "/images/Kasutatud_Desktop_arvutid_taga.jpg"
+    ],
     "rawImages": [],
     "description": "Kasutatud Desktop 2-3 gen",
     "shortDescription": "Kasutatud Desktop 2-3 gen",

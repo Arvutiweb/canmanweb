@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "import:xls": "echo no-import",
-    "convert:webp": "node scripts/convert-to-webp.mjs"
+    "convert:webp": "node scripts/convert-to-webp.mjs",
+    "round:existing-images": "node scripts/round-existing-images.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",

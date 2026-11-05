@@ -1,9 +1,11 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import { ShoppingCart, CheckCircle2 } from 'lucide-react';
 
 export default function ProductCard({ product, onSelectProduct }: any) {
   const main = product.images?.[0] || product.image || '/images/placeholder.png';
+  const [imageSrc, setImageSrc] = useState(main);
   const title = product.title || product.name || '';
   const price = product.finalPrice || product.price || '';
   const brand = product.brand || product.title?.split(' ')[0] || '';
@@ -15,11 +17,16 @@ export default function ProductCard({ product, onSelectProduct }: any) {
       <div className="m-1.5 flex aspect-square items-center justify-center overflow-hidden rounded-3xl bg-[#f8f9fb] p-1.5">
         <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#f8f9fb] p-1">
           <Image
-            src={main}
+            src={imageSrc}
             alt={title}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             className="rounded-2xl object-contain p-2"
+            onError={() => {
+              if (imageSrc !== '/images/placeholder.png') {
+                setImageSrc('/images/placeholder.png');
+              }
+            }}
           />
         </div>
       </div>

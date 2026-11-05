@@ -97,6 +97,34 @@ export default function Home() {
   const [operatingSystemFilter, setOperatingSystemFilter] = useState('');
 
   useEffect(() => {
+    if (window.location.hash) return;
+
+    const shopSection = document.getElementById('pood');
+    if (!shopSection) return;
+
+    let secondFrame = 0;
+    let cancelled = false;
+    const scrollToShop = () => {
+      const headerHeight = document.querySelector('header')?.getBoundingClientRect().height ?? 0;
+      const top = window.scrollY + shopSection.getBoundingClientRect().top - headerHeight;
+      window.scrollTo({ top, behavior: 'instant' });
+    };
+    const frame = window.requestAnimationFrame(() => {
+      scrollToShop();
+      secondFrame = window.requestAnimationFrame(scrollToShop);
+    });
+    document.fonts.ready.then(() => {
+      if (!cancelled) scrollToShop();
+    });
+
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(frame);
+      window.cancelAnimationFrame(secondFrame);
+    };
+  }, []);
+
+  useEffect(() => {
     try {
       const savedCategory = localStorage.getItem(DEFAULT_CATEGORY_STORAGE_KEY);
       if (savedCategory && MAIN_CATEGORIES.includes(savedCategory)) {
@@ -372,7 +400,8 @@ export default function Home() {
             {/* Right Fast IT-Help Request Card */}
             <div className="lg:col-span-5">
               <div
-                className="border border-cyan-500/30 rounded-2xl p-6 shadow-2xl backdrop-blur-md relative overflow-hidden transition-colors duration-200"
+                id="help-request"
+                className="scroll-mt-[84px] border border-cyan-500/30 rounded-2xl px-6 pb-6 pt-0 shadow-2xl backdrop-blur-md relative overflow-hidden transition-colors duration-200"
                 style={{ backgroundColor: palette.helpPanel }}
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
@@ -1107,7 +1136,7 @@ export default function Home() {
       {/* ============================================================== */}
       {/* 4. E-POOD SECTION (#pood): HARDWARE, REFURBISHED PCS & PARTS */}
       {/* ============================================================== */}
-      <section id="pood" className="min-h-[75vh] border-b border-teal-900/10 bg-[#edf6f7] py-10 sm:py-12">
+      <section id="pood" className="min-h-[75vh] border-b border-teal-900/10 bg-[#edf6f7] pb-10 pt-0 sm:pb-12">
         <main className="mx-auto w-full max-w-[1600px] px-4 sm:px-6">
           <div className="mb-6 flex flex-col gap-5 rounded-2xl bg-gradient-to-r from-[#0e4da4] to-[#0c3a7a] p-5 text-white shadow-lg sm:flex-row sm:items-center sm:justify-between sm:p-7">
             <h2 className="flex shrink-0 flex-col leading-none">

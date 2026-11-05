@@ -25,10 +25,13 @@ export function Header() {
 
   const scrollTo = (id: string) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.requestAnimationFrame(() => {
+      const element = document.getElementById(id);
+      if (!element) return;
+      const headerHeight = document.querySelector('header')?.getBoundingClientRect().height ?? 0;
+      const top = window.scrollY + element.getBoundingClientRect().top - headerHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
   };
 
   return (
@@ -96,12 +99,21 @@ export function Header() {
 
           {/* Desktop Navigation Menu (Primary focus: IT Services & Solutions) */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-[13px] font-medium text-slate-300">
-            {/* IT Teenused (Primary) */}
+            {/* E-Pood (Primary) */}
             <button
-              onClick={() => scrollTo('teenused')}
+              onClick={() => scrollTo('pood')}
               className="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5 text-cyan-300 font-semibold"
             >
-              <Wrench className="w-4 h-4 text-cyan-400" />
+              <ShoppingBag className="w-4 h-4 text-cyan-400" />
+              <span>{t('nav_shop')}</span>
+            </button>
+
+            {/* IT Teenused */}
+            <button
+              onClick={() => scrollTo('teenused')}
+              className="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5"
+            >
+              <Wrench className="w-4 h-4 text-slate-400" />
               <span>{t('nav_services')}</span>
             </button>
 
@@ -112,15 +124,6 @@ export function Header() {
             >
               <Briefcase className="w-4 h-4 text-slate-400" />
               <span>{t('nav_business')}</span>
-            </button>
-
-            {/* E-Pood (Hardware & Refurbished) */}
-            <button
-              onClick={() => scrollTo('pood')}
-              className="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5"
-            >
-              <ShoppingBag className="w-4 h-4 text-slate-400" />
-              <span>{t('nav_shop')}</span>
             </button>
 
             {/* Hinnakiri */}
@@ -143,7 +146,7 @@ export function Header() {
 
             {/* Kontakt */}
             <button
-              onClick={() => scrollTo('kontakt')}
+              onClick={() => scrollTo('help-request')}
               className="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5"
             >
               <Phone className="w-4 h-4 text-slate-400" />
@@ -237,10 +240,18 @@ export function Header() {
           <div className="lg:hidden mt-3 pt-3 border-t border-slate-800 space-y-2 animate-in fade-in slide-in-from-top-2">
             <div className="grid grid-cols-2 gap-2 text-xs font-medium">
               <button
-                onClick={() => scrollTo('teenused')}
+                onClick={() => scrollTo('pood')}
                 className="flex items-center gap-2 p-2.5 rounded-lg bg-cyan-950/40 border border-cyan-800/40 text-cyan-300 hover:bg-cyan-900/50"
               >
-                <Wrench className="w-4 h-4 text-cyan-400" />
+                <ShoppingBag className="w-4 h-4 text-cyan-400" />
+                <span>{t('nav_shop')}</span>
+              </button>
+
+              <button
+                onClick={() => scrollTo('teenused')}
+                className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 hover:bg-slate-800"
+              >
+                <Wrench className="w-4 h-4 text-slate-400" />
                 <span>{t('nav_services')}</span>
               </button>
 
@@ -250,14 +261,6 @@ export function Header() {
               >
                 <Briefcase className="w-4 h-4 text-slate-400" />
                 <span>{t('nav_business')}</span>
-              </button>
-
-              <button
-                onClick={() => scrollTo('pood')}
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 hover:bg-slate-800"
-              >
-                <ShoppingBag className="w-4 h-4 text-slate-400" />
-                <span>{t('nav_shop')}</span>
               </button>
 
               <button
@@ -277,7 +280,7 @@ export function Header() {
               </button>
 
               <button
-                onClick={() => scrollTo('kontakt')}
+                onClick={() => scrollTo('help-request')}
                 className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 hover:bg-slate-800"
               >
                 <Phone className="w-4 h-4 text-slate-400" />

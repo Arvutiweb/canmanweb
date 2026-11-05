@@ -11,6 +11,7 @@ export const ProductModal = ({ product, onClose }: any) => {
   const [activeImg, setActiveImg] = useState(0);
   const [loadingImg, setLoadingImg] = useState<string | null>(null);
   const [isImageZoomed, setIsImageZoomed] = useState(false);
+  const [failedImages, setFailedImages] = useState<Set<string>>(() => new Set());
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -41,7 +42,13 @@ export const ProductModal = ({ product, onClose }: any) => {
     if (single) imgs = [norm(single)];
   }
   if (!imgs.length) imgs = ['/images/placeholder.png'];
-  const fullSrc = imgs[activeImg] || imgs[0];
+  const originalFullSrc = imgs[activeImg] || imgs[0];
+  const fullSrc = failedImages.has(originalFullSrc) ? '/images/placeholder.png' : originalFullSrc;
+  const displayImage = (src: string) => failedImages.has(src) ? '/images/placeholder.png' : src;
+  const handleImageError = (src: string) => {
+    setFailedImages((current) => new Set(current).add(src));
+    setLoadingImg((current) => current === src ? null : current);
+  };
 
   const title = product.title || product.name || product.sku || '';
   const rawPrice = product.finalPrice || product.salePrice || product.price || 0;
@@ -118,6 +125,7 @@ export const ProductModal = ({ product, onClose }: any) => {
                     }`}
                     unoptimized
                     onLoad={() => handleImageLoad(fullSrc)}
+                    onError={() => handleImageError(originalFullSrc)}
                     priority={activeImg === 0}
                   />
                 </div>
@@ -152,11 +160,12 @@ export const ProductModal = ({ product, onClose }: any) => {
                   >
                     <div className="w-full h-full relative">
                       <Image
-                        src={src}
+                        src={displayImage(src)}
                         alt={`${title} - vaade ${i + 1}`}
                         fill
                         className="rounded-lg object-contain p-1.5"
                         unoptimized
+                        onError={() => handleImageError(src)}
                       />
                     </div>
                   </button>

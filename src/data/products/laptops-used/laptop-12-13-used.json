@@ -125,8 +125,8 @@
     "name": "Lenovo X260 13,3” i5-6300U Windows10",
     "slug": "lenovo-x260-13-3-i5-6300u-windows10-340012",
     "brand": "Lenovo",
-    "price": 120,
-    "regularPrice": 120,
+    "price": 120.0,
+    "regularPrice": 120.0,
     "category": "Laptops used",
     "categories": "Laptops used> Laptop 12-13 used",
     "categorySlug": "laptops-used/laptop-12-13-used",
@@ -141,7 +141,10 @@
       "/images/x260_pealt_adapteriga.webp",
       "/images/x260_alt.webp"
     ],
-    "stock": 1,
-    "condition": "used"
+    "stock": 2,
+    "condition": "used",
+    "sale_price": 95.0,
+    "salePrice": 95.0,
+    "finalPrice": 95.0
   }
 ]

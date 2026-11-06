@@ -117,6 +117,8 @@ if (originalBytes > 0) {
   if (savedBytes < 0) console.log(`Märkus: WebP-failid on kokku ${(-savedBytes / 1024).toFixed(1)} KB suuremad kui originaalid.`);
 }
 if (conversionFailed > 0) console.error(`Teisendamata: ${conversionFailed}`);
-if (cleanupFailed > 0) console.error(`Sisendfaili kustutamine ebaõnnestus: ${cleanupFailed}`);
+if (cleanupFailed > 0) {
+  console.warn(`HOIATUS: ${cleanupFailed} sisendfaili jäi kustutamata; WebP-väljundid on loodud.`);
+}
 console.log(`Uued webp: ${OUT_DIR}`);
-if (conversionFailed > 0 || cleanupFailed > 0) process.exitCode = 1;
+if (conversionFailed > 0) process.exitCode = 1;

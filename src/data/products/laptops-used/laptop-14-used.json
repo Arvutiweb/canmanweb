@@ -100,5 +100,41 @@
       "/images/DELL-E6440_4h_aku_i5_4300M.webp"
     ],
     "image": "/images/DELL-E6440_4h_aku_i5_4300M.webp"
+  },
+  {
+    "id": "340021",
+    "sku": "340021",
+    "title": "DELL Inspiron N411Z i3-2330M",
+    "name": "DELL Inspiron N411Z i3-2330M",
+    "slug": "dell-inspiron-n411z-i3-2330m-340021",
+    "brand": "DELL",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 55,
+    "finalPrice": 55,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 14\" used",
+    "categorySlug": "laptops-used/laptop-14-used",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop 14\" used",
+    "subCategory": "Laptop 14\" used",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Laptops used",
+      "Laptop 14\" used"
+    ],
+    "description": "",
+    "shortDescription": "DELL Inspiron N411Z i3-2330M, 6GB, 500GB. Windows 10 optimeeritud, mälu piisavalt, ketas suur, Rahulikuks kasutamiseks, tõrkeid pole ette tulnud",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/DELL_Inspiron-N411Z.webp",
+      "/images/DELL_Inspiron-N411Z_pealt.webp",
+      "/images/DELL_Inspiron-N411Z_kulg.webp",
+      "/images/DELL_Inspiron-N411Z_alt.webp"
+    ],
+    "image": "/images/DELL_Inspiron-N411Z.webp"
   }
 ]

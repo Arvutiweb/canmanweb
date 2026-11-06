@@ -1953,17 +1953,17 @@ export const autoProducts: any[] = [
     "salePrice": 55,
     "finalPrice": 55,
     "category": "Laptops used",
-    "categories": "Laptops used > used, 2-gen",
-    "categorySlug": "laptops-used/used-2-gen",
+    "categories": "Laptops used > Laptop 14\" used",
+    "categorySlug": "laptops-used/laptop-14-used",
     "categoryL1": "Laptops used",
     "topCategory": "Laptops used",
-    "categoryL2": "used, 2-gen",
-    "subCategory": "used, 2-gen",
+    "categoryL2": "Laptop 14\" used",
+    "subCategory": "Laptop 14\" used",
     "categoryL3": "",
     "categoryL4": "",
     "categoryPath": [
       "Laptops used",
-      "used, 2-gen"
+      "Laptop 14\" used"
     ],
     "description": "",
     "shortDescription": "DELL Inspiron N411Z i3-2330M, 6GB, 500GB. Windows 10 optimeeritud, mälu piisavalt, ketas suur, Rahulikuks kasutamiseks, tõrkeid pole ette tulnud",

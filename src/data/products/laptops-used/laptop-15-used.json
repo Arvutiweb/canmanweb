@@ -25,24 +25,37 @@
   {
     "id": "340022",
     "sku": "340022",
-    "title": "HP 250 G7",
-    "name": "HP 250 G7",
-    "slug": "hp-250-g7-340022",
-    "brand": "HP",
-    "price": 175,
-    "regularPrice": 175,
+    "title": "ASUS X551C 15\" Win10",
+    "name": "ASUS X551C 15\" Win10",
+    "slug": "asus-x551c-15-win10-340022",
+    "brand": "ASUS",
+    "price": 0,
+    "regularPrice": 0,
     "category": "Laptops used",
-    "categories": "Laptops used > Laptop 15 used",
+    "categories": "Laptops used > Laptop 15\" used",
     "categorySlug": "laptops-used/laptop-15-used",
     "categoryL1": "Laptops used",
     "topCategory": "Laptops used",
-    "categoryL2": "Laptop 15 used",
-    "subCategory": "Laptop 15 used",
-    "image": "/images/HP-250_G7.webp",
+    "categoryL2": "Laptop 15\" used",
+    "subCategory": "Laptop 15\" used",
+    "image": "/images/ASUS-X551C.webp",
     "images": [
-      "/images/HP-250_G7.webp"
+      "/images/ASUS-X551C.webp",
+      "/images/ASUS-X551C_protsessid.webp",
+      "/images/ASUS_X551C_pealt.webp",
+      "/images/ASUS_X551C_alt.webp"
     ],
     "stock": 1,
-    "condition": "used"
+    "condition": "kasut.",
+    "salePrice": 40,
+    "finalPrice": 40,
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Laptops used",
+      "Laptop 15\" used"
+    ],
+    "description": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD. Värske puhastatud ökonoomne install, ainult 60 protsessi. Arvuti on nõrga protsessoriga, aga Internet toimib, videod jooksevad, rahulikuks kasutamiseks. Kaasa laadija, aku ei pea",
+    "shortDescription": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD"
   }
 ]

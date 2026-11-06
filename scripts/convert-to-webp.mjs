@@ -6,7 +6,9 @@ import { createTemporaryDirectory } from './temporary-workspace.mjs';
 
 const PROJECT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const IN_DIR = path.join(PROJECT_DIR, 'incoming');
-const OUT_DIR = path.join(PROJECT_DIR, 'public/images');
+const OUT_DIR = path.resolve(
+  process.env.CANMAN_WEBP_OUTPUT_DIR || path.join(PROJECT_DIR, 'public/images')
+);
 
 function createRoundedMask(width, height) {
   const radius = Math.max(1, Math.round(Math.min(width, height) * 0.035));
@@ -93,11 +95,13 @@ try {
       webpBytes += outputSize;
       const reduction = originalSize > 0 ? Math.round((1 - outputSize / originalSize) * 100) : 0;
       console.log(`OK ${file} -> ${base}.webp (${reduction}% smaller)`);
-      try {
-        await deleteIncomingImage(inPath);
-      } catch (e) {
-        cleanupFailed++;
-        console.error(`VIGA sisendfaili kustutamisel ${file}: ${e instanceof Error ? e.message : String(e)}`);
+      if (process.env.CANMAN_KEEP_INCOMING !== '1') {
+        try {
+          await deleteIncomingImage(inPath);
+        } catch (e) {
+          cleanupFailed++;
+          console.error(`VIGA sisendfaili kustutamisel ${file}: ${e instanceof Error ? e.message : String(e)}`);
+        }
       }
     } catch (e) {
       conversionFailed++;

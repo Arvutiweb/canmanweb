@@ -823,32 +823,45 @@ export const autoProducts: any[] = [
   {
     "id": "340022",
     "sku": "340022",
-    "title": "HP 250 G7",
-    "name": "HP 250 G7",
+    "title": "ASUS X551C 15\" Win10",
+    "name": "ASUS X551C 15\" Win10",
     "stock": 1,
-    "price": 175,
-    "salePrice": null,
-    "finalPrice": 175,
+    "price": 0,
+    "salePrice": 40,
+    "finalPrice": 40,
     "topCategory": "Laptops used",
     "subCategory": "Laptop 15\" used",
     "categoryPath": [
       "Laptops used",
       "Laptop 15\" used"
     ],
-    "brand": "HP",
+    "brand": "ASUS",
     "tags": "HP",
     "color": "",
     "images": [
-      "/images/HP-250_G7.webp"
+      "/images/ASUS-X551C.webp",
+      "/images/ASUS-X551C_protsessid.webp",
+      "/images/ASUS_X551C_pealt.webp",
+      "/images/ASUS_X551C_alt.webp"
     ],
     "rawImages": [
       "/images/HP-250_G7.webp"
     ],
-    "description": "I3-7020U, 8GB, 256SSD NVMe, uus Windows 11. V„he kasutatud. Aku 2-3h.",
-    "shortDescription": "",
+    "description": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD. Värske puhastatud ökonoomne install, ainult 60 protsessi. Arvuti on nõrga protsessoriga, aga Internet toimib, videod jooksevad, rahulikuks kasutamiseks. Kaasa laadija, aku ei pea",
+    "shortDescription": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD",
     "specs": "",
     "imageUrl": "/images/HP-250_G7.webp",
-    "image": "/images/HP-250_G7.webp"
+    "image": "/images/ASUS-X551C.webp",
+    "slug": "asus-x551c-15-win10-340022",
+    "regularPrice": 0,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 15\" used",
+    "categorySlug": "laptops-used/laptop-15-used",
+    "categoryL1": "Laptops used",
+    "categoryL2": "Laptop 15\" used",
+    "categoryL3": "",
+    "categoryL4": "",
+    "condition": "kasut."
   },
   {
     "id": "511110",

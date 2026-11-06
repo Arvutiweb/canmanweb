@@ -823,45 +823,38 @@ export const autoProducts: any[] = [
   {
     "id": "340022",
     "sku": "340022",
-    "title": "ASUS X551C 15\" Win10",
-    "name": "ASUS X551C 15\" Win10",
+    "title": "HP 250 G7",
+    "name": "HP 250 G7",
     "stock": 1,
-    "price": 0,
-    "salePrice": 40,
-    "finalPrice": 40,
+    "price": 175,
+    "salePrice": null,
+    "finalPrice": 175,
     "topCategory": "Laptops used",
     "subCategory": "Laptop 15\" used",
     "categoryPath": [
       "Laptops used",
       "Laptop 15\" used"
     ],
-    "brand": "ASUS",
+    "brand": "HP",
     "tags": "HP",
     "color": "",
     "images": [
-      "/images/ASUS-X551C.webp",
-      "/images/ASUS-X551C_protsessid.webp",
-      "/images/ASUS_X551C_pealt.webp",
-      "/images/ASUS_X551C_alt.webp"
+      "/images/HP-250_G7.webp"
     ],
     "rawImages": [
       "/images/HP-250_G7.webp"
     ],
-    "description": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD. Värske puhastatud ökonoomne install, ainult 60 protsessi. Arvuti on nõrga protsessoriga, aga Internet toimib, videod jooksevad, rahulikuks kasutamiseks. Kaasa laadija, aku ei pea",
-    "shortDescription": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD",
+    "description": "I3-7020U, 8GB, 256SSD NVMe, uus Windows 11. Vähe kasutatud. Aku 2-3h.",
+    "shortDescription": "I3-7020U, 8GB, 256SSD NVMe",
     "specs": "",
     "imageUrl": "/images/HP-250_G7.webp",
-    "image": "/images/ASUS-X551C.webp",
-    "slug": "asus-x551c-15-win10-340022",
-    "regularPrice": 0,
+    "image": "/images/HP-250_G7.webp",
     "category": "Laptops used",
     "categories": "Laptops used > Laptop 15\" used",
     "categorySlug": "laptops-used/laptop-15-used",
     "categoryL1": "Laptops used",
     "categoryL2": "Laptop 15\" used",
-    "categoryL3": "",
-    "categoryL4": "",
-    "condition": "kasut."
+    "condition": "used"
   },
   {
     "id": "511110",

@@ -7,6 +7,7 @@ export default function ProductCard({ product, onSelectProduct }: any) {
   const main = product.images?.[0] || product.image || '/images/placeholder.png';
   const [imageSrc, setImageSrc] = useState(main);
   const title = product.title || product.name || '';
+  const sku = product.sku || product.id || '';
   const price = product.finalPrice || product.price || '';
   const brand = product.brand || product.title?.split(' ')[0] || '';
   const stock = product.stock ?? product.qty ?? product.quantity ?? 1;
@@ -36,6 +37,7 @@ export default function ProductCard({ product, onSelectProduct }: any) {
         <h3 className="text-xs font-semibold leading-tight line-clamp-2 min-h-[2rem] text-slate-800 mb-2">
           {title}
         </h3>
+        {sku && <div className="text-[10px] text-slate-500 mb-2">SKU={sku}</div>}
 
         <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 text-[10px] font-medium px-2 py-0.5 rounded-full mb-2">
           <CheckCircle2 className="w-3 h-3" /> Laos {stock} tk.

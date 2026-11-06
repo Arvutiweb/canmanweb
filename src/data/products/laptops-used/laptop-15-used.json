@@ -57,5 +57,41 @@
     ],
     "description": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD. Värske puhastatud ökonoomne install, ainult 60 protsessi. Arvuti on nõrga protsessoriga, aga Internet toimib, videod jooksevad, rahulikuks kasutamiseks. Kaasa laadija, aku ei pea",
     "shortDescription": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD"
+  },
+  {
+    "id": "340023",
+    "sku": "340023",
+    "title": "ASUS X551C 15\" Win10",
+    "name": "ASUS X551C 15\" Win10",
+    "slug": "asus-x551c-15-win10-340023",
+    "brand": "ASUS",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 40,
+    "finalPrice": 40,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 15\" used",
+    "categorySlug": "laptops-used/laptop-15-used",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop 15\" used",
+    "subCategory": "Laptop 15\" used",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Laptops used",
+      "Laptop 15\" used"
+    ],
+    "description": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD. Värske puhastatud ökonoomne install, ainult 60 protsessi. Arvuti on nõrga protsessoriga, aga Internet toimib, videod jooksevad, rahulikuks kasutamiseks. Kaasa laadija, aku ei pea",
+    "shortDescription": "ASUS 1007U Celeron 1,5GHz ökonoomne protsessor, 4GB RAM, 500GB HDD",
+    "stock": 1,
+    "condition": "kasut.",
+    "images": [
+      "/images/ASUS-X551C.webp",
+      "/images/ASUS-X551C_protsessid.webp",
+      "/images/ASUS_X551C_pealt.webp",
+      "/images/ASUS_X551C_alt.webp"
+    ],
+    "image": "/images/ASUS-X551C.webp"
   }
 ]

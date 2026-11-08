@@ -6,9 +6,7 @@ import { createTemporaryDirectory } from './temporary-workspace.mjs';
 
 const PROJECT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const IN_DIR = path.join(PROJECT_DIR, 'incoming');
-const OUT_DIR = path.resolve(
-  process.env.CANMAN_WEBP_OUTPUT_DIR || path.join(PROJECT_DIR, 'public/images')
-);
+const OUT_DIR = path.join(PROJECT_DIR, 'public/images');
 
 function createRoundedMask(width, height) {
   const radius = Math.max(1, Math.round(Math.min(width, height) * 0.035));
@@ -41,7 +39,7 @@ if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 const files = fs.readdirSync(IN_DIR).filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f));
 
 if (files.length === 0) {
-  console.log('incoming tühi - pole midagi teha');
+  console.log('incoming-kaustas pole toetatud pilte - pole midagi teha');
   process.exit(0);
 }
 
@@ -95,13 +93,11 @@ try {
       webpBytes += outputSize;
       const reduction = originalSize > 0 ? Math.round((1 - outputSize / originalSize) * 100) : 0;
       console.log(`OK ${file} -> ${base}.webp (${reduction}% smaller)`);
-      if (process.env.CANMAN_KEEP_INCOMING !== '1') {
-        try {
-          await deleteIncomingImage(inPath);
-        } catch (e) {
-          cleanupFailed++;
-          console.error(`VIGA sisendfaili kustutamisel ${file}: ${e instanceof Error ? e.message : String(e)}`);
-        }
+      try {
+        await deleteIncomingImage(inPath);
+      } catch (e) {
+        cleanupFailed++;
+        console.error(`VIGA sisendfaili kustutamisel ${file}: ${e instanceof Error ? e.message : String(e)}`);
       }
     } catch (e) {
       conversionFailed++;
@@ -125,4 +121,4 @@ if (cleanupFailed > 0) {
   console.warn(`HOIATUS: ${cleanupFailed} sisendfaili jäi kustutamata; WebP-väljundid on loodud.`);
 }
 console.log(`Uued webp: ${OUT_DIR}`);
-if (conversionFailed > 0) process.exitCode = 1;
+if (conversionFailed > 0 || cleanupFailed > 0) process.exitCode = 1;

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "458199",
+    "sku": "458199",
+    "title": "Hama bracket adapter for camcorders",
+    "name": "Hama bracket adapter for camcorders",
+    "slug": "hama-bracket-adapter-for-camcorders-458199",
+    "brand": "Hama",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 15,
+    "finalPrice": 15,
+    "category": "Video devices",
+    "categories": "Video devices > videography accessories",
+    "categorySlug": "video-devices/videography-accessories",
+    "categoryL1": "Video devices",
+    "topCategory": "Video devices",
+    "categoryL2": "videography accessories",
+    "subCategory": "videography accessories",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Video devices",
+      "videography accessories"
+    ],
+    "description": "Hama Accessory Adapter (Zubehöradapter) (Model 6429). This mounting bracket adapter allows you to physically attach extra equipment to specific 4.8V Panasonic, Blaupunkt, Metz, and Bosch camcorders",
+    "shortDescription": "Hama Accessory Adapter (Zubehöradapter) (Model 6429)",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/mounting_bracket_adapter_Model_6429.webp"
+    ],
+    "image": "/images/mounting_bracket_adapter_Model_6429.webp"
+  },
+  {
+    "id": "458198",
+    "sku": "458198",
+    "title": "Magnum 15 Video for vintage video cameras",
+    "name": "Magnum 15 Video for vintage video cameras",
+    "slug": "magnum-15-video-for-vintage-video-cameras-458198",
+    "brand": "Hama",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 15,
+    "finalPrice": 15,
+    "category": "Video devices",
+    "categories": "Video devices > videography accessories",
+    "categorySlug": "video-devices/videography-accessories",
+    "categoryL1": "Video devices",
+    "topCategory": "Video devices",
+    "categoryL2": "videography accessories",
+    "subCategory": "videography accessories",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Video devices",
+      "videography accessories"
+    ],
+    "description": "Hama Magnum 15 Video Light (Videoleuchte) (Model 6424). A 4.8V / 15W compact continuous halogen hot-shoe light used to illuminate scenes while recording with vintage video cameras",
+    "shortDescription": "Hama Magnum 15 Video Light (Videoleuchte) (Model 6424)",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Hama_Magnum_15_Video_Light_.webp"
+    ],
+    "image": "/images/Hama_Magnum_15_Video_Light_.webp"
+  }
+]

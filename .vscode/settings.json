@@ -1,7 +1,5 @@
 {
   "terminal.integrated.env.windows": {
-    "CANMAN_TEMP_DIR": "R:\\canman_react_temp",
-    "TEMP": "R:\\canman_react_temp",
-    "TMP": "R:\\canman_react_temp"
+    "CANMAN_TEMP_DIR": "R:\\canman_react_temp"
   }
 }

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "565043",
+    "sku": "565043",
+    "title": "Hiir Optiline md-335 USB",
+    "name": "Hiir Optiline md-335 USB",
+    "slug": "hiir-optiline-md-335-usb-565043",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Lauarvuti osad",
+    "categories": "Lauarvuti osad > Hiired USB",
+    "categorySlug": "lauarvuti-osad/hiired-usb",
+    "categoryL1": "Lauarvuti osad",
+    "topCategory": "Lauarvuti osad",
+    "categoryL2": "Hiired USB",
+    "subCategory": "Hiired USB",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Lauarvuti osad",
+      "Hiired USB"
+    ],
+    "description": "",
+    "shortDescription": "Mouse Optical 3D 5 Button USB Gray",
+    "stock": 3,
+    "condition": "uus",
+    "images": [
+      "/images/Mouse_Optical_USB_gray.webp",
+      "/images/Mouse_Optical_USB_spec.webp"
+    ],
+    "image": "/images/Mouse_Optical_USB_gray.webp"
+  }
+]

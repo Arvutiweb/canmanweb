@@ -1,0 +1,35 @@
+[
+  {
+    "id": "423300",
+    "sku": "423300",
+    "title": "Kaardiluja kirjutaja USB2 3,5”",
+    "name": "Kaardiluja kirjutaja USB2 3,5”",
+    "slug": "kaardiluja-kirjutaja-usb2-3-5-423300",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 22,
+    "finalPrice": 22,
+    "category": "Adapterid",
+    "categories": "Adapterid > Kaardilugejad",
+    "categorySlug": "adapterid/kaardilugejad",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "Kaardilugejad",
+    "subCategory": "Kaardilugejad",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "Kaardilugejad"
+    ],
+    "description": "",
+    "shortDescription": "Card Reader Writer USB2 3,5” Front Panel",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Card_Reader_Writer_USB.webp"
+    ],
+    "image": "/images/Card_Reader_Writer_USB.webp"
+  }
+]

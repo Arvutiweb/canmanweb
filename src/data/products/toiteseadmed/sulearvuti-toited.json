@@ -1,0 +1,35 @@
+[
+  {
+    "id": "648001",
+    "sku": "648001",
+    "title": "IBM AC Adapter 16V 4,5A.",
+    "name": "IBM AC Adapter 16V 4,5A.",
+    "slug": "ibm-ac-adapter-16v-4-5a-648001",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 15,
+    "finalPrice": 15,
+    "category": "Toiteseadmed",
+    "categories": "Toiteseadmed > Sülearvuti toited",
+    "categorySlug": "toiteseadmed/sulearvuti-toited",
+    "categoryL1": "Toiteseadmed",
+    "topCategory": "Toiteseadmed",
+    "categoryL2": "Sülearvuti toited",
+    "subCategory": "Sülearvuti toited",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Toiteseadmed",
+      "Sülearvuti toited"
+    ],
+    "description": "",
+    "shortDescription": "IBM AC Adapter 16V 4,5A.",
+    "stock": 2,
+    "condition": "new",
+    "images": [
+      "/images/IBM_AC_Adapter_16V_4_5A.webp"
+    ],
+    "image": "/images/IBM_AC_Adapter_16V_4_5A.webp"
+  }
+]

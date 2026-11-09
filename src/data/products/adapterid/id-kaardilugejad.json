@@ -1,0 +1,35 @@
+[
+  {
+    "id": "426040",
+    "sku": "426040",
+    "title": "ID-Kaardi lugeja sisemine",
+    "name": "ID-Kaardi lugeja sisemine",
+    "slug": "id-kaardi-lugeja-sisemine-426040",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Adapterid",
+    "categories": "Adapterid > ID-Kaardilugejad",
+    "categorySlug": "adapterid/id-kaardilugejad",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "ID-Kaardilugejad",
+    "subCategory": "ID-Kaardilugejad",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "ID-Kaardilugejad"
+    ],
+    "description": "",
+    "shortDescription": "ID-Kaardi lugeja sisemine 3,5” CompaqFlash kaardi lugeja",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/ID_Reader_AKASA.webp"
+    ],
+    "image": "/images/ID_Reader_AKASA.webp"
+  }
+]

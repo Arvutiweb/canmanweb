@@ -1,0 +1,35 @@
+[
+  {
+    "id": "559801",
+    "sku": "559801",
+    "title": "Adapter USB3 2port PCI-E",
+    "name": "Adapter USB3 2port PCI-E",
+    "slug": "adapter-usb3-2port-pci-e-559801",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Adapterid",
+    "categories": "Adapterid > USB3",
+    "categorySlug": "adapterid/usb3",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "USB3",
+    "subCategory": "USB3",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "USB3"
+    ],
+    "description": "",
+    "shortDescription": "Adapter USB3 2port PCI-E",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Adapter_USB_3_PCI-E.webp"
+    ],
+    "image": "/images/Adapter_USB_3_PCI-E.webp"
+  }
+]

@@ -1824,7 +1824,7 @@ export const autoProducts: any[] = [
     "color": "",
     "specs": {},
     "shortDescription": "Adapter USB-C to HDTV + USB3 + Type-C 4K UHD",
-    "description": "",
+    "description": "HDMI image resolution: 4K@30Hz and FULL HD 1080pInput connector: USB-C male compatible with thunderbolt3Output connector: HDMI female + USB3.0 female + PD (power delivery)PD USB-C connector for charging 20V to 5A (100W power supply, charging)USB3.0 connector for connecting flash memory or other USB device or for powering via USB, speed up to 5GbpsThe adapter transmits digital image and soundPlug and play.Type C connector with the ability to connect in any directionColor: silver and grayCompact molded durable casePackaged in a bag with EAN code and descriptionWorks with new USB-C devices supporting DisplayPort Alternate modes",
     "images": [
       "/images/Connector_USB-C_to_USB_USB-C_HDMI_4K.webp",
       "/images/Adapter_USB-C_to_HDTV_Type-C_USB_discription.webp"
@@ -2084,5 +2084,243 @@ export const autoProducts: any[] = [
       "/images/Hama_Magnum_15_Video_Light_.webp"
     ],
     "image": "/images/Hama_Magnum_15_Video_Light_.webp"
+  },
+  {
+    "id": "559801",
+    "sku": "559801",
+    "title": "Adapter USB3 2port PCI-E",
+    "name": "Adapter USB3 2port PCI-E",
+    "slug": "adapter-usb3-2port-pci-e-559801",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Adapterid",
+    "categories": "Adapterid > USB3",
+    "categorySlug": "adapterid/usb3",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "USB3",
+    "subCategory": "USB3",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "USB3"
+    ],
+    "description": "",
+    "shortDescription": "Adapter USB3 2port PCI-E",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Adapter_USB_3_PCI-E.webp"
+    ],
+    "image": "/images/Adapter_USB_3_PCI-E.webp"
+  },
+  {
+    "id": "423300",
+    "sku": "423300",
+    "title": "Kaardiluja kirjutaja USB2 3,5”",
+    "name": "Kaardiluja kirjutaja USB2 3,5”",
+    "slug": "kaardiluja-kirjutaja-usb2-3-5-423300",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 22,
+    "finalPrice": 22,
+    "category": "Adapterid",
+    "categories": "Adapterid > Kaardilugejad",
+    "categorySlug": "adapterid/kaardilugejad",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "Kaardilugejad",
+    "subCategory": "Kaardilugejad",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "Kaardilugejad"
+    ],
+    "description": "",
+    "shortDescription": "Card Reader Writer USB2 3,5” Front Panel",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Card_Reader_Writer_USB.webp"
+    ],
+    "image": "/images/Card_Reader_Writer_USB.webp"
+  },
+  {
+    "id": "426040",
+    "sku": "426040",
+    "title": "ID-Kaardi lugeja sisemine",
+    "name": "ID-Kaardi lugeja sisemine",
+    "slug": "id-kaardi-lugeja-sisemine-426040",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Adapterid",
+    "categories": "Adapterid > ID-Kaardilugejad",
+    "categorySlug": "adapterid/id-kaardilugejad",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "ID-Kaardilugejad",
+    "subCategory": "ID-Kaardilugejad",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "ID-Kaardilugejad"
+    ],
+    "description": "",
+    "shortDescription": "ID-Kaardi lugeja sisemine 3,5” CompaqFlash kaardi lugeja",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/ID_Reader_AKASA.webp"
+    ],
+    "image": "/images/ID_Reader_AKASA.webp"
+  },
+  {
+    "id": "565043",
+    "sku": "565043",
+    "title": "Hiir Optiline md-335 USB",
+    "name": "Hiir Optiline md-335 USB",
+    "slug": "hiir-optiline-md-335-usb-565043",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Lauarvuti osad",
+    "categories": "Lauarvuti osad > Hiired USB",
+    "categorySlug": "lauarvuti-osad/hiired-usb",
+    "categoryL1": "Lauarvuti osad",
+    "topCategory": "Lauarvuti osad",
+    "categoryL2": "Hiired USB",
+    "subCategory": "Hiired USB",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Lauarvuti osad",
+      "Hiired USB"
+    ],
+    "description": "",
+    "shortDescription": "Mouse Optical 3D 5 Button USB Gray",
+    "stock": 3,
+    "condition": "uus",
+    "images": [
+      "/images/Mouse_Optical_USB_gray.webp",
+      "/images/Mouse_Optical_USB_spec.webp"
+    ],
+    "image": "/images/Mouse_Optical_USB_gray.webp"
+  },
+  {
+    "id": "990230",
+    "sku": "990230",
+    "title": "HP Compaq C2D nc6400 T2400",
+    "name": "HP Compaq C2D nc6400 T2400",
+    "slug": "hp-compaq-c2d-nc6400-t2400-990230",
+    "brand": "HP",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 25,
+    "finalPrice": 25,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 14\" used",
+    "categorySlug": "laptops-used/laptop-14-used",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop 14\" used",
+    "subCategory": "Laptop 14\" used",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Laptops used",
+      "Laptop 14\" used"
+    ],
+    "description": "",
+    "shortDescription": "HP Compaq C2D T2400, 2GB RAM, 320HDD",
+    "stock": 1,
+    "condition": "used",
+    "images": [
+      "/images/HP_Compaq_C2D.webp",
+      "/images/HP_Compaq_C2D_XP.webp",
+      "/images/HP_Compaq_C2D_pealt.webp",
+      "/images/HP_Compaq_C2D_pealt.webp",
+      "/images/HP_Compaq_C2D_alt.webp"
+    ],
+    "image": "/images/HP_Compaq_C2D.webp"
+  },
+  {
+    "id": "990231",
+    "sku": "990231",
+    "title": "IBM T61",
+    "name": "IBM T61",
+    "slug": "ibm-t61-990231",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 20,
+    "finalPrice": 20,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop 14\" used",
+    "categorySlug": "laptops-used/laptop-14-used",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop 14\" used",
+    "subCategory": "Laptop 14\" used",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Laptops used",
+      "Laptop 14\" used"
+    ],
+    "description": "",
+    "shortDescription": "",
+    "stock": 1,
+    "condition": "used",
+    "images": [
+      "/images/IBM_T61.webp",
+      "/images/IBM_T61_eest.webp",
+      "/images/IBM_T61_alt.webp"
+    ],
+    "image": "/images/IBM_T61.webp"
+  },
+  {
+    "id": "648001",
+    "sku": "648001",
+    "title": "IBM AC Adapter 16V 4,5A.",
+    "name": "IBM AC Adapter 16V 4,5A.",
+    "slug": "ibm-ac-adapter-16v-4-5a-648001",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 15,
+    "finalPrice": 15,
+    "category": "Toiteseadmed",
+    "categories": "Toiteseadmed > Sülearvuti toited",
+    "categorySlug": "toiteseadmed/sulearvuti-toited",
+    "categoryL1": "Toiteseadmed",
+    "topCategory": "Toiteseadmed",
+    "categoryL2": "Sülearvuti toited",
+    "subCategory": "Sülearvuti toited",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Toiteseadmed",
+      "Sülearvuti toited"
+    ],
+    "description": "",
+    "shortDescription": "IBM AC Adapter 16V 4,5A.",
+    "stock": 2,
+    "condition": "new",
+    "images": [
+      "/images/IBM_AC_Adapter_16V_4_5A.webp"
+    ],
+    "image": "/images/IBM_AC_Adapter_16V_4_5A.webp"
   }
 ];

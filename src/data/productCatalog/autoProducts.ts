@@ -2322,5 +2322,39 @@ export const autoProducts: any[] = [
       "/images/IBM_AC_Adapter_16V_4_5A.webp"
     ],
     "image": "/images/IBM_AC_Adapter_16V_4_5A.webp"
+  },
+  {
+    "id": "870199",
+    "sku": "870199",
+    "title": "ActiMates PC Pack",
+    "name": "ActiMates PC Pack",
+    "slug": "actimates-pc-pack-870199",
+    "brand": "Microsoft",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Mängud",
+    "categories": "Mängud > PC vanad",
+    "categorySlug": "mangud/pc-vanad",
+    "categoryL1": "Mängud",
+    "topCategory": "Mängud",
+    "categoryL2": "PC vanad",
+    "subCategory": "PC vanad",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Mängud",
+      "PC vanad"
+    ],
+    "description": "",
+    "shortDescription": "Lets ActiMates Talk and Play with your PC",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Games_ActiMates_PC_Pack.webp",
+      "/images/Games_ActiMates_PC_Pack_taga.webp"
+    ],
+    "image": "/images/Games_ActiMates_PC_Pack.webp"
   }
 ];

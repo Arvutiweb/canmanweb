@@ -1,0 +1,35 @@
+[
+  {
+    "id": "742000",
+    "sku": "742000",
+    "title": "Cabel patch 05m RJ45 green",
+    "name": "Cabel patch 05m RJ45 green",
+    "slug": "cabel-patch-05m-rj45-green-742000",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 5,
+    "finalPrice": 5,
+    "category": "Kaabel",
+    "categories": "Kaabel > Pach",
+    "categorySlug": "kaabel/pach",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Pach",
+    "subCategory": "Pach",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Pach"
+    ],
+    "description": "",
+    "shortDescription": "Cabel patch 05m RJ45 green",
+    "stock": 20,
+    "condition": "uus",
+    "images": [
+      "/images/Cabel_patch_05m_RJ45_green.webp"
+    ],
+    "image": "/images/Cabel_patch_05m_RJ45_green.webp"
+  }
+]

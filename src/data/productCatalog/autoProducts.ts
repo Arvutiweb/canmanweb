@@ -1567,11 +1567,11 @@ export const autoProducts: any[] = [
     "name": "Arc A750 Intel Graphick Card",
     "slug": "arc-a750-intel-graphick-card-535100",
     "brand": "Intel",
-    "price": 420.0,
-    "regularPrice": 420.0,
-    "salePrice": 345.0,
-    "finalPrice": 345.0,
-    "stock": 0,
+    "price": 420,
+    "regularPrice": 420,
+    "salePrice": 325,
+    "finalPrice": 325,
+    "stock": 1,
     "condition": "uus",
     "category": "Lauarvuti osad",
     "categories": "Lauarvuti osad > Graafika kaardid",
@@ -2230,17 +2230,17 @@ export const autoProducts: any[] = [
     "salePrice": 25,
     "finalPrice": 25,
     "category": "Laptops used",
-    "categories": "Laptops used > Laptop 14\" used",
-    "categorySlug": "laptops-used/laptop-14-used",
+    "categories": "Laptops used > Laptop Old",
+    "categorySlug": "laptops-used/laptop-old",
     "categoryL1": "Laptops used",
     "topCategory": "Laptops used",
-    "categoryL2": "Laptop 14\" used",
-    "subCategory": "Laptop 14\" used",
+    "categoryL2": "Laptop Old",
+    "subCategory": "Laptop Old",
     "categoryL3": "",
     "categoryL4": "",
     "categoryPath": [
       "Laptops used",
-      "Laptop 14\" used"
+      "Laptop Old"
     ],
     "description": "",
     "shortDescription": "HP Compaq C2D T2400, 2GB RAM, 320HDD",
@@ -2267,17 +2267,17 @@ export const autoProducts: any[] = [
     "salePrice": 20,
     "finalPrice": 20,
     "category": "Laptops used",
-    "categories": "Laptops used > Laptop 14\" used",
-    "categorySlug": "laptops-used/laptop-14-used",
+    "categories": "Laptops used > Laptop Old",
+    "categorySlug": "laptops-used/laptop-old",
     "categoryL1": "Laptops used",
     "topCategory": "Laptops used",
-    "categoryL2": "Laptop 14\" used",
-    "subCategory": "Laptop 14\" used",
+    "categoryL2": "Laptop Old",
+    "subCategory": "Laptop Old",
     "categoryL3": "",
     "categoryL4": "",
     "categoryPath": [
       "Laptops used",
-      "Laptop 14\" used"
+      "Laptop Old"
     ],
     "description": "",
     "shortDescription": "",
@@ -2356,5 +2356,38 @@ export const autoProducts: any[] = [
       "/images/Games_ActiMates_PC_Pack_taga.webp"
     ],
     "image": "/images/Games_ActiMates_PC_Pack.webp"
+  },
+  {
+    "id": "742000",
+    "sku": "742000",
+    "title": "Cabel patch 05m RJ45 green",
+    "name": "Cabel patch 05m RJ45 green",
+    "slug": "cabel-patch-05m-rj45-green-742000",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 5,
+    "finalPrice": 5,
+    "category": "Kaabel",
+    "categories": "Kaabel > Pach",
+    "categorySlug": "kaabel/pach",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Pach",
+    "subCategory": "Pach",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Pach"
+    ],
+    "description": "",
+    "shortDescription": "Cabel patch 05m RJ45 green",
+    "stock": 20,
+    "condition": "uus",
+    "images": [
+      "/images/Cabel_patch_05m_RJ45_green.webp"
+    ],
+    "image": "/images/Cabel_patch_05m_RJ45_green.webp"
   }
 ];

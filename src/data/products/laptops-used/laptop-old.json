@@ -1,0 +1,74 @@
+[
+  {
+    "id": "990230",
+    "sku": "990230",
+    "title": "HP Compaq C2D nc6400 T2400",
+    "name": "HP Compaq C2D nc6400 T2400",
+    "slug": "hp-compaq-c2d-nc6400-t2400-990230",
+    "brand": "HP",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 25,
+    "finalPrice": 25,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop Old",
+    "categorySlug": "laptops-used/laptop-old",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop Old",
+    "subCategory": "Laptop Old",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Laptops used",
+      "Laptop Old"
+    ],
+    "description": "",
+    "shortDescription": "HP Compaq C2D T2400, 2GB RAM, 320HDD",
+    "stock": 1,
+    "condition": "used",
+    "images": [
+      "/images/HP_Compaq_C2D.webp",
+      "/images/HP_Compaq_C2D_XP.webp",
+      "/images/HP_Compaq_C2D_pealt.webp",
+      "/images/HP_Compaq_C2D_pealt.webp",
+      "/images/HP_Compaq_C2D_alt.webp"
+    ],
+    "image": "/images/HP_Compaq_C2D.webp"
+  },
+  {
+    "id": "990231",
+    "sku": "990231",
+    "title": "IBM T61",
+    "name": "IBM T61",
+    "slug": "ibm-t61-990231",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 20,
+    "finalPrice": 20,
+    "category": "Laptops used",
+    "categories": "Laptops used > Laptop Old",
+    "categorySlug": "laptops-used/laptop-old",
+    "categoryL1": "Laptops used",
+    "topCategory": "Laptops used",
+    "categoryL2": "Laptop Old",
+    "subCategory": "Laptop Old",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Laptops used",
+      "Laptop Old"
+    ],
+    "description": "",
+    "shortDescription": "",
+    "stock": 1,
+    "condition": "used",
+    "images": [
+      "/images/IBM_T61.webp",
+      "/images/IBM_T61_eest.webp",
+      "/images/IBM_T61_alt.webp"
+    ],
+    "image": "/images/IBM_T61.webp"
+  }
+]

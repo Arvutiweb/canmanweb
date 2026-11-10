@@ -1,0 +1,35 @@
+[
+  {
+    "id": "582024",
+    "sku": "582024",
+    "title": "Vivanco kõrvaklapid SR97 TV",
+    "name": "Vivanco kõrvaklapid SR97 TV",
+    "slug": "vivanco-korvaklapid-sr97-tv-582024",
+    "brand": "",
+    "price": 12,
+    "regularPrice": 12,
+    "salePrice": null,
+    "finalPrice": 12,
+    "category": "Heli seadmed",
+    "categories": "Heli seadmed > Kõrvaklapid juhtmevabad",
+    "categorySlug": "heli-seadmed/korvaklapid-juhtmevabad",
+    "categoryL1": "Heli seadmed",
+    "topCategory": "Heli seadmed",
+    "categoryL2": "Kõrvaklapid juhtmevabad",
+    "subCategory": "Kõrvaklapid juhtmevabad",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Heli seadmed",
+      "Kõrvaklapid juhtmevabad"
+    ],
+    "description": "",
+    "shortDescription": "",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Headset_SR_97TV.webp"
+    ],
+    "image": "/images/Headset_SR_97TV.webp"
+  }
+]

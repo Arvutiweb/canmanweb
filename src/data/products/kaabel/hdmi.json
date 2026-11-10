@@ -1,0 +1,35 @@
+[
+  {
+    "id": "459101",
+    "sku": "459101",
+    "title": "Cable_HDMI-HDMI_8K_Model_ZC-HD001 1m",
+    "name": "Cable_HDMI-HDMI_8K_Model_ZC-HD001 1m",
+    "slug": "cable-hdmi-hdmi-8k-model-zc-hd001-1m-459101",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 12,
+    "finalPrice": 12,
+    "category": "Kaabel",
+    "categories": "Kaabel > HDMI",
+    "categorySlug": "kaabel/hdmi",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "HDMI",
+    "subCategory": "HDMI",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "HDMI"
+    ],
+    "description": "",
+    "shortDescription": "Cable_HDMI-HDMI_8K_Model_ZC-HD001",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Cable_HDMI-HDMI_8K_Model_ZC-HD001.webp"
+    ],
+    "image": "/images/Cable_HDMI-HDMI_8K_Model_ZC-HD001.webp"
+  }
+]

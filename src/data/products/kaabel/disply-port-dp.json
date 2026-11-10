@@ -1,0 +1,35 @@
+[
+  {
+    "id": "459401",
+    "sku": "459401",
+    "title": "Cable DP to DP DP1 4-8K 1,5m",
+    "name": "Cable DP to DP DP1 4-8K 1,5m",
+    "slug": "cable-dp-to-dp-dp1-4-8k-1-5m-459401",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 14,
+    "finalPrice": 14,
+    "category": "Kaabel",
+    "categories": "Kaabel > Disply Port DP",
+    "categorySlug": "kaabel/disply-port-dp",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Disply Port DP",
+    "subCategory": "Disply Port DP",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Disply Port DP"
+    ],
+    "description": "",
+    "shortDescription": "Cable_DP_to_DP_DP1_4-8K_1_5m",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Cable_DP_to_DP_DP1_4-8K_1_5m.webp"
+    ],
+    "image": "/images/Cable_DP_to_DP_DP1_4-8K_1_5m.webp"
+  }
+]

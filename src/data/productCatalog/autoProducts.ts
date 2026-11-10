@@ -2389,5 +2389,238 @@ export const autoProducts: any[] = [
       "/images/Cabel_patch_05m_RJ45_green.webp"
     ],
     "image": "/images/Cabel_patch_05m_RJ45_green.webp"
+  },
+  {
+    "id": "459300",
+    "sku": "459300",
+    "title": "Cable_USB-C_to_DP_CO-X901_8K60Hz",
+    "name": "Cable_USB-C_to_DP_CO-X901_8K60Hz",
+    "slug": "cable-usb-c-to-dp-co-x901-8k60hz-459300",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 18,
+    "finalPrice": 18,
+    "category": "Kaabel",
+    "categories": "Kaabel > Type-C",
+    "categorySlug": "kaabel/type-c",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Type-C",
+    "subCategory": "Type-C",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Type-C"
+    ],
+    "description": "",
+    "shortDescription": "Cable_USB-C_to_DP_CO-X901_8K60Hz",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Cable-USB-C-to-DP_CO-X901_8K60Hz.webp",
+      "/images/Cable_USB-C_to_DP_CO-X901_8K60Hz.webp"
+    ],
+    "image": "/images/Cable-USB-C-to-DP_CO-X901_8K60Hz.webp"
+  },
+  {
+    "id": "459102",
+    "sku": "459102",
+    "title": "Cable DVI-to-HDMI",
+    "name": "Cable DVI-to-HDMI",
+    "slug": "cable-dvi-to-hdmi-459102",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 12,
+    "finalPrice": 12,
+    "category": "Kaabel",
+    "categories": "Kaabel > DVI",
+    "categorySlug": "kaabel/dvi",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "DVI",
+    "subCategory": "DVI",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "DVI"
+    ],
+    "description": "",
+    "shortDescription": "Cable DVI-to-HDMI 1m",
+    "stock": 2,
+    "condition": "new",
+    "images": [
+      "/images/Cable_DVI-to-HDMI.webp",
+      "/images/Cable_DVI-to-HDMI.webp"
+    ],
+    "image": "/images/Cable_DVI-to-HDMI.webp"
+  },
+  {
+    "id": "459401",
+    "sku": "459401",
+    "title": "Cable DP to DP DP1 4-8K 1,5m",
+    "name": "Cable DP to DP DP1 4-8K 1,5m",
+    "slug": "cable-dp-to-dp-dp1-4-8k-1-5m-459401",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 14,
+    "finalPrice": 14,
+    "category": "Kaabel",
+    "categories": "Kaabel > Disply Port DP",
+    "categorySlug": "kaabel/disply-port-dp",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Disply Port DP",
+    "subCategory": "Disply Port DP",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Disply Port DP"
+    ],
+    "description": "",
+    "shortDescription": "Cable_DP_to_DP_DP1_4-8K_1_5m",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Cable_DP_to_DP_DP1_4-8K_1_5m.webp"
+    ],
+    "image": "/images/Cable_DP_to_DP_DP1_4-8K_1_5m.webp"
+  },
+  {
+    "id": "459101",
+    "sku": "459101",
+    "title": "Cable_HDMI-HDMI_8K_Model_ZC-HD001 1m",
+    "name": "Cable_HDMI-HDMI_8K_Model_ZC-HD001 1m",
+    "slug": "cable-hdmi-hdmi-8k-model-zc-hd001-1m-459101",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 12,
+    "finalPrice": 12,
+    "category": "Kaabel",
+    "categories": "Kaabel > HDMI",
+    "categorySlug": "kaabel/hdmi",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "HDMI",
+    "subCategory": "HDMI",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "HDMI"
+    ],
+    "description": "",
+    "shortDescription": "Cable_HDMI-HDMI_8K_Model_ZC-HD001",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Cable_HDMI-HDMI_8K_Model_ZC-HD001.webp"
+    ],
+    "image": "/images/Cable_HDMI-HDMI_8K_Model_ZC-HD001.webp"
+  },
+  {
+    "id": "582024",
+    "sku": "582024",
+    "title": "Vivanco kõrvaklapid SR97 TV",
+    "name": "Vivanco kõrvaklapid SR97 TV",
+    "slug": "vivanco-korvaklapid-sr97-tv-582024",
+    "brand": "",
+    "price": 12,
+    "regularPrice": 12,
+    "salePrice": null,
+    "finalPrice": 12,
+    "category": "Heli seadmed",
+    "categories": "Heli seadmed > Kõrvaklapid juhtmevabad",
+    "categorySlug": "heli-seadmed/korvaklapid-juhtmevabad",
+    "categoryL1": "Heli seadmed",
+    "topCategory": "Heli seadmed",
+    "categoryL2": "Kõrvaklapid juhtmevabad",
+    "subCategory": "Kõrvaklapid juhtmevabad",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Heli seadmed",
+      "Kõrvaklapid juhtmevabad"
+    ],
+    "description": "",
+    "shortDescription": "",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Headset_SR_97TV.webp"
+    ],
+    "image": "/images/Headset_SR_97TV.webp"
+  },
+  {
+    "id": "559901",
+    "sku": "559901",
+    "title": "Adapter Oxford COM PCI",
+    "name": "Adapter Oxford COM PCI",
+    "slug": "adapter-oxford-com-pci-559901",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Adapterid",
+    "categories": "Adapterid > COM",
+    "categorySlug": "adapterid/com",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "COM",
+    "subCategory": "COM",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "COM"
+    ],
+    "description": "",
+    "shortDescription": "Adapter COM PCI Oxford Semiconductor OX16PCI954",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Kaart_PCI_COM_Oxford.webp"
+    ],
+    "image": "/images/Kaart_PCI_COM_Oxford.webp"
+  },
+  {
+    "id": "55903",
+    "sku": "55903",
+    "title": "Kaart PCI COM 2x",
+    "name": "Kaart PCI COM 2x",
+    "slug": "kaart-pci-com-2x-55903",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": null,
+    "finalPrice": 0,
+    "category": "Adapterid",
+    "categories": "Adapterid > COM",
+    "categorySlug": "adapterid/com",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "COM",
+    "subCategory": "COM",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "COM"
+    ],
+    "description": "",
+    "shortDescription": "Kaart PCI COM 2x",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Kaart_PCI_COM_2x.webp"
+    ],
+    "image": "/images/Kaart_PCI_COM_2x.webp"
   }
 ];

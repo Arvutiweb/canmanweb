@@ -1,0 +1,36 @@
+[
+  {
+    "id": "459300",
+    "sku": "459300",
+    "title": "Cable_USB-C_to_DP_CO-X901_8K60Hz",
+    "name": "Cable_USB-C_to_DP_CO-X901_8K60Hz",
+    "slug": "cable-usb-c-to-dp-co-x901-8k60hz-459300",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 18,
+    "finalPrice": 18,
+    "category": "Kaabel",
+    "categories": "Kaabel > Type-C",
+    "categorySlug": "kaabel/type-c",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Type-C",
+    "subCategory": "Type-C",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Type-C"
+    ],
+    "description": "",
+    "shortDescription": "Cable_USB-C_to_DP_CO-X901_8K60Hz",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Cable-USB-C-to-DP_CO-X901_8K60Hz.webp",
+      "/images/Cable_USB-C_to_DP_CO-X901_8K60Hz.webp"
+    ],
+    "image": "/images/Cable-USB-C-to-DP_CO-X901_8K60Hz.webp"
+  }
+]

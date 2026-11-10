@@ -1,0 +1,68 @@
+[
+  {
+    "id": "559901",
+    "sku": "559901",
+    "title": "Adapter Oxford COM PCI",
+    "name": "Adapter Oxford COM PCI",
+    "slug": "adapter-oxford-com-pci-559901",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 11,
+    "finalPrice": 11,
+    "category": "Adapterid",
+    "categories": "Adapterid > COM",
+    "categorySlug": "adapterid/com",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "COM",
+    "subCategory": "COM",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "COM"
+    ],
+    "description": "",
+    "shortDescription": "Adapter COM PCI Oxford Semiconductor OX16PCI954",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Kaart_PCI_COM_Oxford.webp"
+    ],
+    "image": "/images/Kaart_PCI_COM_Oxford.webp"
+  },
+  {
+    "id": "55903",
+    "sku": "55903",
+    "title": "Kaart PCI COM 2x",
+    "name": "Kaart PCI COM 2x",
+    "slug": "kaart-pci-com-2x-55903",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": null,
+    "finalPrice": 0,
+    "category": "Adapterid",
+    "categories": "Adapterid > COM",
+    "categorySlug": "adapterid/com",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "COM",
+    "subCategory": "COM",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "COM"
+    ],
+    "description": "",
+    "shortDescription": "Kaart PCI COM 2x",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Kaart_PCI_COM_2x.webp"
+    ],
+    "image": "/images/Kaart_PCI_COM_2x.webp"
+  }
+]

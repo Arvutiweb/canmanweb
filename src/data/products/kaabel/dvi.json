@@ -1,0 +1,36 @@
+[
+  {
+    "id": "459102",
+    "sku": "459102",
+    "title": "Cable DVI-to-HDMI",
+    "name": "Cable DVI-to-HDMI",
+    "slug": "cable-dvi-to-hdmi-459102",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 12,
+    "finalPrice": 12,
+    "category": "Kaabel",
+    "categories": "Kaabel > DVI",
+    "categorySlug": "kaabel/dvi",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "DVI",
+    "subCategory": "DVI",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "DVI"
+    ],
+    "description": "",
+    "shortDescription": "Cable DVI-to-HDMI 1m",
+    "stock": 2,
+    "condition": "new",
+    "images": [
+      "/images/Cable_DVI-to-HDMI.webp",
+      "/images/Cable_DVI-to-HDMI.webp"
+    ],
+    "image": "/images/Cable_DVI-to-HDMI.webp"
+  }
+]

@@ -2622,5 +2622,38 @@ export const autoProducts: any[] = [
       "/images/Kaart_PCI_COM_2x.webp"
     ],
     "image": "/images/Kaart_PCI_COM_2x.webp"
+  },
+  {
+    "id": "559904",
+    "sku": "559904",
+    "title": "Adapter Firewire PCI",
+    "name": "Adapter Firewire PCI",
+    "slug": "adapter-firewire-pci-559904",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 14,
+    "finalPrice": 14,
+    "category": "Adapterid",
+    "categories": "Adapterid > Firewire",
+    "categorySlug": "adapterid/firewire",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "Firewire",
+    "subCategory": "Firewire",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "Firewire"
+    ],
+    "description": "",
+    "shortDescription": "Adapter Firewire PCI",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Kaart_Firewire.webp"
+    ],
+    "image": "/images/Kaart_Firewire.webp"
   }
 ];

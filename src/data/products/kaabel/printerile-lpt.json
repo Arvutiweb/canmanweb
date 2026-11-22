@@ -1,0 +1,36 @@
+[
+  {
+    "id": "464099",
+    "sku": "464099",
+    "title": "Kaabel Printerile Paraleel DB25 male 36 Centronics male",
+    "name": "Kaabel Printerile Paraleel DB25 male 36 Centronics male",
+    "slug": "kaabel-printerile-paraleel-db25-male-36-centronics-male-464099",
+    "brand": "",
+    "price": 14,
+    "regularPrice": 14,
+    "salePrice": null,
+    "finalPrice": 14,
+    "category": "Kaabel",
+    "categories": "Kaabel > Printerile LPT",
+    "categorySlug": "kaabel/printerile-lpt",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Printerile LPT",
+    "subCategory": "Printerile LPT",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Printerile LPT"
+    ],
+    "description": "",
+    "shortDescription": "Kaabel Printerile Paraleel DB25 male 36 Centronics male",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Kaabel_Printerile_Paraleel_DB25_male_36_Centronics_male.webp",
+      "/images/Kaabel_Printerile_Paraleel_DB25_male_36_Centronics_male_info.webp"
+    ],
+    "image": "/images/Kaabel_Printerile_Paraleel_DB25_male_36_Centronics_male.webp"
+  }
+]

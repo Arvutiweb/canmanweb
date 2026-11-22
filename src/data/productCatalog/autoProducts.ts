@@ -2689,5 +2689,39 @@ export const autoProducts: any[] = [
       "/images/Kaabel_Printerile_Paraleel_DB25_male_36_Centronics_male_info.webp"
     ],
     "image": "/images/Kaabel_Printerile_Paraleel_DB25_male_36_Centronics_male.webp"
+  },
+  {
+    "id": "560078",
+    "sku": "560078",
+    "title": "Kassa klaviatuur Cherry mehaaniline PS2",
+    "name": "Kassa klaviatuur Cherry mehaaniline PS2",
+    "slug": "kassa-klaviatuur-cherry-mehaaniline-ps2-560078",
+    "brand": "",
+    "price": 0,
+    "regularPrice": 0,
+    "salePrice": 25,
+    "finalPrice": 25,
+    "category": "Kassaseadmed",
+    "categories": "Kassaseadmed > Klaviatuurid",
+    "categorySlug": "kassaseadmed/klaviatuurid",
+    "categoryL1": "Kassaseadmed",
+    "topCategory": "Kassaseadmed",
+    "categoryL2": "Klaviatuurid",
+    "subCategory": "Klaviatuurid",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kassaseadmed",
+      "Klaviatuurid"
+    ],
+    "description": "",
+    "shortDescription": "Kassa klaviatuur Cherry mehaaniline PS2 valge",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Kassa_klaviatuur_Cherry_mehaaniline_PS2.webp",
+      "/images/Kassa_klaviatuur_Cherry_karp_mehaaniline_PS2.webp"
+    ],
+    "image": "/images/Kassa_klaviatuur_Cherry_mehaaniline_PS2.webp"
   }
 ];

@@ -2757,5 +2757,39 @@ export const autoProducts: any[] = [
       "/images/Logilink_USB_30.webp"
     ],
     "image": "/images/Logilink_UAO112A_USB_30_.webp"
+  },
+  {
+    "id": "565025",
+    "sku": "565025",
+    "title": "Lisa randmetugi GEL Mouse Wristrest",
+    "name": "Lisa randmetugi GEL Mouse Wristrest",
+    "slug": "lisa-randmetugi-gel-mouse-wristrest-565025",
+    "brand": "",
+    "price": 6,
+    "regularPrice": 6,
+    "salePrice": null,
+    "finalPrice": 6,
+    "category": "Arvuti lisaseadmed",
+    "categories": "Arvuti lisaseadmed > Läetoed",
+    "categorySlug": "arvuti-lisaseadmed/laetoed",
+    "categoryL1": "Arvuti lisaseadmed",
+    "topCategory": "Arvuti lisaseadmed",
+    "categoryL2": "Läetoed",
+    "subCategory": "Läetoed",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Arvuti lisaseadmed",
+      "Läetoed"
+    ],
+    "description": "",
+    "shortDescription": "Lisa randmetugi GEL Mouse Wristrest alt",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Lisa_randmetugi_GEL_Mouse_Wristrest.webp",
+      "/images/Lisa_randmetugi_GEL_Mouse_Wristrest_alt.webp"
+    ],
+    "image": "/images/Lisa_randmetugi_GEL_Mouse_Wristrest.webp"
   }
 ];

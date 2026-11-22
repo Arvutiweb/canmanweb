@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="et" className="scroll-smooth">
-      <body className="bg-[#ebf5f6] text-slate-900 min-h-screen flex flex-col font-sans">
+      <body className="bg-[#fbf8f2] text-slate-900 min-h-screen flex flex-col font-sans">
         <LanguageProvider>
           <ThemePaletteProvider>
             <CartProvider>

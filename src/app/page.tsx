@@ -47,6 +47,11 @@ import {
   Code2,
   Database,
   Calculator,
+  BookOpen,
+  Newspaper,
+  FileText,
+  HelpCircle,
+  Lightbulb,
 } from 'lucide-react';
 
 const safeLower = (v: any) => String(v || '').toLowerCase();
@@ -309,43 +314,43 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#ebf5f6] text-slate-900 selection:bg-cyan-500 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#fbf8f2] text-stone-900 selection:bg-[#d99b26] selection:text-white">
       {/* Sticky Header with IT/AI Subtle Background & Full Navigation */}
       <Header />
 
       {/* ============================================================== */}
       {/* HERO SECTION: PRIMARY FOCUS ON IT SERVICES & TECH EXPERTISE */}
       {/* ============================================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-[#0e274e] text-white pt-10 pb-16 lg:py-20 rounded-b-[36px] sm:rounded-b-[48px] lg:rounded-b-[56px] shadow-2xl border-b border-cyan-500/30">
-        {/* Subtle Cyber Grid & Glowing Orbs Background */}
-        <div className="absolute inset-0 pointer-events-none opacity-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#382b12] via-[#523f1a] to-[#6F5627] text-[#F2D6C5] pt-10 pb-16 lg:py-20 rounded-b-[36px] sm:rounded-b-[48px] lg:rounded-b-[56px] shadow-xl border-b border-[#876a31]/40">
+        {/* Subtle Warm Grid Background */}
+        <div className="absolute inset-0 pointer-events-none opacity-10">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="hero-circuit" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#38bdf8" strokeWidth="0.5" />
-                <circle cx="0" cy="0" r="1.5" fill="#38bdf8" />
+                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#d99b26" strokeWidth="0.5" />
+                <circle cx="0" cy="0" r="1.5" fill="#d99b26" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#hero-circuit)" />
           </svg>
         </div>
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#d99b26]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#876a31]/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#d99b26]/20 border border-[#d99b26]/40 text-[#F2D6C5] text-xs font-semibold">
+                <Sparkles className="w-3.5 h-3.5 text-[#d99b26]" />
                 <span>{t('hero_badge')}</span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-bold tracking-tight leading-snug text-sky-200/90">
-                {t('hero_title_1')}<span className="text-sky-400 font-extrabold">{t('hero_title_highlight')}</span>{t('hero_title_2')}
+              <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-bold tracking-tight leading-snug text-[#F2D6C5]">
+                {t('hero_title_1')}<span className="text-[#d99b26] font-extrabold">{t('hero_title_highlight')}</span>{t('hero_title_2')}
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-[#F2D6C5]/85 leading-relaxed max-w-2xl">
                 {t('hero_subtitle')}
               </p>
 
@@ -353,7 +358,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
                   onClick={() => scrollTo('teenused')}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-6 py-3 rounded-xl text-sm transition shadow-lg shadow-cyan-500/25 flex items-center gap-2 active:scale-95"
+                  className="bg-[#d99b26] hover:bg-[#bf8319] text-stone-950 font-bold px-6 py-3 rounded-xl text-sm transition shadow-md shadow-[#d99b26]/20 flex items-center gap-2 active:scale-95"
                 >
                   <Wrench className="w-4 h-4" />
                   <span>{t('btn_services')}</span>
@@ -361,9 +366,9 @@ export default function Home() {
 
                 <button
                   onClick={() => scrollTo('software-solutions')}
-                  className="bg-white/10 hover:bg-white/15 text-white border border-white/20 font-semibold px-5 py-3 rounded-xl text-sm transition flex items-center gap-2"
+                  className="bg-[#382b12]/70 hover:bg-[#382b12]/90 text-[#F2D6C5] border border-[#876a31]/50 font-semibold px-5 py-3 rounded-xl text-sm transition flex items-center gap-2"
                 >
-                  <Bot className="w-4 h-4 text-cyan-300" />
+                  <Bot className="w-4 h-4 text-[#d99b26]" />
                   <span>{t('btn_software_solutions')}</span>
                 </button>
 

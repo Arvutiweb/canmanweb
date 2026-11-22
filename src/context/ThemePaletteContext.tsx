@@ -18,12 +18,12 @@ interface ThemePaletteContextValue {
   resetPalette: () => void;
 }
 
-const STORAGE_KEY = 'canman_theme_palette';
+const STORAGE_KEY = 'canman_theme_palette_v2';
 const DEFAULT_PALETTE: ThemePalette = {
-  header: '#17283f',
-  helpPanel: '#1e324a',
-  helpInputBackground: '#e6e6e6',
-  helpInputText: '#000000',
+  header: '#6F5627',
+  helpPanel: '#5c4720',
+  helpInputBackground: '#fbf8f2',
+  helpInputText: '#2e2518',
 };
 
 const ThemePaletteContext = createContext<ThemePaletteContextValue | null>(null);

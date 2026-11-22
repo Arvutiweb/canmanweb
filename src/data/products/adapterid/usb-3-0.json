@@ -1,0 +1,36 @@
+[
+  {
+    "id": "440021",
+    "sku": "440021",
+    "title": "HUB Logilink UA0112A USB 3.0 4 port",
+    "name": "HUB Logilink UA0112A USB 3.0 4 port",
+    "slug": "hub-logilink-ua0112a-usb-3-0-4-port-440021",
+    "brand": "",
+    "price": 14,
+    "regularPrice": 14,
+    "salePrice": null,
+    "finalPrice": 14,
+    "category": "Adapterid",
+    "categories": "Adapterid > USB 3,0",
+    "categorySlug": "adapterid/usb-3-0",
+    "categoryL1": "Adapterid",
+    "topCategory": "Adapterid",
+    "categoryL2": "USB 3,0",
+    "subCategory": "USB 3,0",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Adapterid",
+      "USB 3,0"
+    ],
+    "description": "",
+    "shortDescription": "HUB USB 3.0 4 port Logilink",
+    "stock": 1,
+    "condition": "new",
+    "images": [
+      "/images/Logilink_UAO112A_USB_30_.webp",
+      "/images/Logilink_USB_30.webp"
+    ],
+    "image": "/images/Logilink_UAO112A_USB_30_.webp"
+  }
+]

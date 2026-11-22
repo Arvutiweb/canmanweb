@@ -1,0 +1,36 @@
+[
+  {
+    "id": "527018",
+    "sku": "527018",
+    "title": "Mälukaart CompactFlash 4,0 GB Extreme III SanDisk",
+    "name": "Mälukaart CompactFlash 4,0 GB Extreme III SanDisk",
+    "slug": "malukaart-compactflash-4-0-gb-extreme-iii-sandisk-527018",
+    "brand": "",
+    "price": 30,
+    "regularPrice": 30,
+    "salePrice": 25,
+    "finalPrice": 25,
+    "category": "Mälukaartid",
+    "categories": "Mälukaartid > CompactFlash",
+    "categorySlug": "malukaartid/compactflash",
+    "categoryL1": "Mälukaartid",
+    "topCategory": "Mälukaartid",
+    "categoryL2": "CompactFlash",
+    "subCategory": "CompactFlash",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Mälukaartid",
+      "CompactFlash"
+    ],
+    "description": "",
+    "shortDescription": "Mälukaart CompactFlash 4,0 GB Extreme Performance III SanDisk",
+    "stock": 3,
+    "condition": "uus",
+    "images": [
+      "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk.webp",
+      "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk_taga.webp"
+    ],
+    "image": "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk.webp"
+  }
+]

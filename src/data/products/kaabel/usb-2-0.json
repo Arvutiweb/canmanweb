@@ -1,0 +1,36 @@
+[
+  {
+    "id": "458059",
+    "sku": "458059",
+    "title": "Kaabel USB 2,0 1,8m",
+    "name": "Kaabel USB 2,0 1,8m",
+    "slug": "kaabel-usb-2-0-1-8m-458059",
+    "brand": "",
+    "price": 5,
+    "regularPrice": 5,
+    "salePrice": null,
+    "finalPrice": 5,
+    "category": "Kaabel",
+    "categories": "Kaabel > USB 2,0",
+    "categorySlug": "kaabel/usb-2-0",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "USB 2,0",
+    "subCategory": "USB 2,0",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "USB 2,0"
+    ],
+    "description": "",
+    "shortDescription": "Kaabel USB 2,0 1,8m Defender",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Kaabel_USB_2.0_1.8m_Defender.webp",
+      "/images/Kaabel_USB_2.0_1.8m_Defender_info.webp"
+    ],
+    "image": "/images/Kaabel_USB_2.0_1.8m_Defender.webp"
+  }
+]

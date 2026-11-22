@@ -2791,5 +2791,107 @@ export const autoProducts: any[] = [
       "/images/Lisa_randmetugi_GEL_Mouse_Wristrest_alt.webp"
     ],
     "image": "/images/Lisa_randmetugi_GEL_Mouse_Wristrest.webp"
+  },
+  {
+    "id": "458059",
+    "sku": "458059",
+    "title": "Kaabel USB 2,0 1,8m",
+    "name": "Kaabel USB 2,0 1,8m",
+    "slug": "kaabel-usb-2-0-1-8m-458059",
+    "brand": "",
+    "price": 5,
+    "regularPrice": 5,
+    "salePrice": null,
+    "finalPrice": 5,
+    "category": "Kaabel",
+    "categories": "Kaabel > USB 2,0",
+    "categorySlug": "kaabel/usb-2-0",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "USB 2,0",
+    "subCategory": "USB 2,0",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "USB 2,0"
+    ],
+    "description": "",
+    "shortDescription": "Kaabel USB 2,0 1,8m Defender",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Kaabel_USB_2.0_1.8m_Defender.webp",
+      "/images/Kaabel_USB_2.0_1.8m_Defender_info.webp"
+    ],
+    "image": "/images/Kaabel_USB_2.0_1.8m_Defender.webp"
+  },
+  {
+    "id": "459050",
+    "sku": "459050",
+    "title": "Toitekaabel EURO 240V 1,5m must",
+    "name": "Toitekaabel EURO 240V 1,5m must",
+    "slug": "toitekaabel-euro-240v-1-5m-must-459050",
+    "brand": "",
+    "price": 12,
+    "regularPrice": 12,
+    "salePrice": null,
+    "finalPrice": 12,
+    "category": "Kaabel",
+    "categories": "Kaabel > Toitekaabel 240V",
+    "categorySlug": "kaabel/toitekaabel-240v",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Toitekaabel 240V",
+    "subCategory": "Toitekaabel 240V",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Toitekaabel 240V"
+    ],
+    "description": "",
+    "shortDescription": "Toitekaabel EURO 240V 1,5m must",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Toitekaabel_EURO_1.5m_must.webp",
+      "/images/Toitekaabel_EURO_1.5m_taga_must.webp"
+    ],
+    "image": "/images/Toitekaabel_EURO_1.5m_must.webp"
+  },
+  {
+    "id": "527018",
+    "sku": "527018",
+    "title": "Mälukaart CompactFlash 4,0 GB Extreme III SanDisk",
+    "name": "Mälukaart CompactFlash 4,0 GB Extreme III SanDisk",
+    "slug": "malukaart-compactflash-4-0-gb-extreme-iii-sandisk-527018",
+    "brand": "",
+    "price": 30,
+    "regularPrice": 30,
+    "salePrice": 25,
+    "finalPrice": 25,
+    "category": "Mälukaartid",
+    "categories": "Mälukaartid > CompactFlash",
+    "categorySlug": "malukaartid/compactflash",
+    "categoryL1": "Mälukaartid",
+    "topCategory": "Mälukaartid",
+    "categoryL2": "CompactFlash",
+    "subCategory": "CompactFlash",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Mälukaartid",
+      "CompactFlash"
+    ],
+    "description": "",
+    "shortDescription": "Mälukaart CompactFlash 4,0 GB Extreme Performance III SanDisk",
+    "stock": 3,
+    "condition": "uus",
+    "images": [
+      "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk.webp",
+      "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk_taga.webp"
+    ],
+    "image": "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk.webp"
   }
 ];

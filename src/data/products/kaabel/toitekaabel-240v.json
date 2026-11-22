@@ -1,0 +1,36 @@
+[
+  {
+    "id": "459050",
+    "sku": "459050",
+    "title": "Toitekaabel EURO 240V 1,5m must",
+    "name": "Toitekaabel EURO 240V 1,5m must",
+    "slug": "toitekaabel-euro-240v-1-5m-must-459050",
+    "brand": "",
+    "price": 12,
+    "regularPrice": 12,
+    "salePrice": null,
+    "finalPrice": 12,
+    "category": "Kaabel",
+    "categories": "Kaabel > Toitekaabel 240V",
+    "categorySlug": "kaabel/toitekaabel-240v",
+    "categoryL1": "Kaabel",
+    "topCategory": "Kaabel",
+    "categoryL2": "Toitekaabel 240V",
+    "subCategory": "Toitekaabel 240V",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Kaabel",
+      "Toitekaabel 240V"
+    ],
+    "description": "",
+    "shortDescription": "Toitekaabel EURO 240V 1,5m must",
+    "stock": 1,
+    "condition": "uus",
+    "images": [
+      "/images/Toitekaabel_EURO_1.5m_must.webp",
+      "/images/Toitekaabel_EURO_1.5m_taga_must.webp"
+    ],
+    "image": "/images/Toitekaabel_EURO_1.5m_must.webp"
+  }
+]

@@ -125,31 +125,31 @@ export const Footer: React.FC<FooterProps> = ({ onOpenServicesModal, onServicesO
             <ul className="space-y-2 text-xs text-stone-400">
               <li>
                 <button onClick={() => scrollTo('pood')} className="hover:text-[#d99b26] transition flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-stone-600" />
+                  <ChevronRight className="w-3 h-3 text-[#d99b26]" />
                   {local('E-Pood (Lauaarvutid, Sülearvutid)', 'Shop (Desktops, Laptops)')}
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo('pood')} className="hover:text-[#d99b26] transition flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-stone-600" />
+                  <ChevronRight className="w-3 h-3 text-[#d99b26]" />
                   {local('Arvutikomponendid ja varuosad', 'Computer components and parts')}
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo('hinnakiri')} className="hover:text-[#d99b26] transition flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-stone-600" />
+                  <ChevronRight className="w-3 h-3 text-[#d99b26]" />
                   {local('Teenuste ja remondi hinnakiri', 'Service and repair price list')}
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo('meist')} className="hover:text-[#d99b26] transition flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-stone-600" />
+                  <ChevronRight className="w-3 h-3 text-[#d99b26]" />
                   {local('Ettevõttest ja garantiitingimused', 'About us and warranty terms')}
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo('kontakt')} className="hover:text-[#d99b26] transition flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-stone-600" />
+                  <ChevronRight className="w-3 h-3 text-[#d99b26]" />
                   {local('Asukoht ja kontaktandmed', 'Location and contact details')}
                 </button>
               </li>

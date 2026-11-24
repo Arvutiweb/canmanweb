@@ -516,7 +516,7 @@ export default function Home() {
                         <button
                           type="button"
                           onClick={() => serviceAttachmentInput.current?.click()}
-                          className="shrink-0 rounded-lg bg-[#0e4da4] px-3 py-2 text-xs font-bold text-white transition hover:bg-[#0e4da4]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e4da4]"
+                          className="shrink-0 rounded-lg bg-[#5c4720] px-3 py-2 text-xs font-bold text-white transition hover:bg-[#5c4720]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5c4720]"
                         >
                           {t('help_choose_file')}
                         </button>
@@ -532,7 +532,7 @@ export default function Home() {
                         type="button"
                         onClick={handleShareLocation}
                         disabled={isRequestingLocation}
-                        className="rounded-lg bg-[#0e4da4] px-3 py-2 text-[11px] font-bold text-white shadow-md transition hover:bg-[#0e4da4]/90 disabled:cursor-wait disabled:opacity-70"
+                        className="rounded-lg bg-[#5c4720] px-3 py-2 text-[11px] font-bold text-white shadow-md transition hover:bg-[#5c4720]/90 disabled:cursor-wait disabled:opacity-70"
                       >
                         {isRequestingLocation ? t('help_location_requesting') : t('help_location_button')}
                       </button>
@@ -545,7 +545,7 @@ export default function Home() {
                     <button
                       type="submit"
                       disabled={isSubmittingServiceRequest}
-                      className="w-full bg-[#0e4da4] hover:bg-[#0e4da4]/90 disabled:cursor-wait disabled:opacity-70 text-white font-bold py-2.5 rounded-lg text-xs transition shadow-md flex items-center justify-center gap-2 mt-2"
+                      className="w-full bg-[#5c4720] hover:bg-[#5c4720]/90 disabled:cursor-wait disabled:opacity-70 text-white font-bold py-2.5 rounded-lg text-xs transition shadow-md flex items-center justify-center gap-2 mt-2"
                     >
                       <Zap className="w-3.5 h-3.5" />
                       <span>{isSubmittingServiceRequest ? t('help_sending') : t('help_submit')}</span>
@@ -1408,6 +1408,122 @@ export default function Home() {
                   className="text-xs font-bold text-[#5c4720] hover:underline flex items-center gap-1"
                 >
                   {local('Loe edasi →', 'Read more →', lang)}
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================== */}
+      {/* 5b. IT UUDISED SECTION (#uudised): ARVUTIUUDISED */}
+      {/* ============================================================== */}
+      <section id="uudised" className="py-16 bg-[#fbf8f2] border-b border-[#87682f]/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-bold text-[#5c4720] tracking-widest uppercase bg-[#fbf8f2] px-3 py-1 rounded-full border border-[#d99b26]/30">
+              {local('ARVUTIUUDISED', 'IT NEWS', lang)}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-900 mt-3">
+              {local('Viimased IT-uudised ja tehnikauudised', 'Latest IT News and Tech Updates', lang)}
+            </h2>
+            <p className="text-sm text-stone-600 mt-2">
+              {local('Ajankohtased uudised arvutitehnika, tarkvara ja IT-turvalisuse valdkonnas.', 'Current news about computer technology, software, and IT security.', lang)}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* News 1: Koduserver Raspberry Pi */}
+            <article className="group bg-white rounded-2xl border border-stone-200 p-6 hover:shadow-lg hover:border-[#d99b26] transition-all flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-[#d99b26]/15 text-[#5c4720] flex items-center justify-center mb-4 group-hover:bg-[#5c4720] group-hover:text-white transition-colors">
+                <Server className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-2">
+                {local('Koduserver Raspberry Pi: oma pilv ilma kuusmaksueta', 'Home Server Raspberry Pi: Your Own Cloud Without Monthly Fees', lang)}
+              </h3>
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+                {local('Uus artikkel selgitab, kuidas ehitada koduserver Raspberry Pi põhjal failide jagamiseks, varukoopiate tegemiseks ja mediaserveriks.', 'New article explains how to build a home server based on Raspberry Pi for file sharing, backups, and media server.', lang)}
+              </p>
+              <div className="mt-auto pt-4 border-t border-stone-100">
+                <a href="#" className="text-xs font-bold text-[#5c4720] hover:underline flex items-center gap-1">
+                  {local('Loe uudist →', 'Read news →', lang)}
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+              </div>
+            </article>
+
+            {/* News 2: Debian serveri seadistus */}
+            <article className="group bg-white rounded-2xl border border-stone-200 p-6 hover:shadow-lg hover:border-[#d99b26] transition-all flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-[#d99b26]/15 text-[#5c4720] flex items-center justify-center mb-4 group-hover:bg-[#5c4720] group-hover:text-white transition-colors">
+                <HardDrive className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-2">
+                {local('Debian serveri seadistus samm-sammult', 'Debian Server Setup Step by Step', lang)}
+              </h3>
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+                {local('Juhend Debiani paigaldamiseks, SSH seadistamiseks ja tulemüüri konfigureerimiseks.', 'Guide for installing Debian, setting up SSH, and configuring the firewall.', lang)}
+              </p>
+              <div className="mt-auto pt-4 border-t border-stone-100">
+                <a href="#" className="text-xs font-bold text-[#5c4720] hover:underline flex items-center gap-1">
+                  {local('Loe uudist →', 'Read news →', lang)}
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+              </div>
+            </article>
+
+            {/* News 3: Lenovo sülearvutid 2026 */}
+            <article className="group bg-white rounded-2xl border border-stone-200 p-6 hover:shadow-lg hover:border-[#d99b26] transition-all flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-[#d99b26]/15 text-[#5c4720] flex items-center justify-center mb-4 group-hover:bg-[#5c4720] group-hover:text-white transition-colors">
+                <Laptop className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-2">
+                {local('Lenovo sülearvutite uudised 2026: ThinkPad, IdeaPad, Legion', 'Lenovo Laptop News 2026: ThinkPad, IdeaPad, Legion', lang)}
+              </h3>
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+                {local('Ülevaade Lenovo uuestest sülearvutitest: ekraanid, protsessorid ja akude eluiga.', 'Overview of Lenovo\'s new laptops: screens, processors, and battery life.', lang)}
+              </p>
+              <div className="mt-auto pt-4 border-t border-stone-100">
+                <a href="#" className="text-xs font-bold text-[#5c4720] hover:underline flex items-center gap-1">
+                  {local('Loe uudist →', 'Read news →', lang)}
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+              </div>
+            </article>
+
+            {/* News 4: Inteli protsessorid 2026 */}
+            <article className="group bg-white rounded-2xl border border-stone-200 p-6 hover:shadow-lg hover:border-[#d99b26] transition-all flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-[#d99b26]/15 text-[#5c4720] flex items-center justify-center mb-4 group-hover:bg-[#5c4720] group-hover:text-white transition-colors">
+                <Cpu className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-2">
+                {local('Inteli uued protsessorid 2026: Core Ultra ja i-sarjad', 'Intel\'s New Processors 2026: Core Ultra and i-series', lang)}
+              </h3>
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+                {local('Mis on uut Inteli uuemates protsessori-sarjades ja mida valida oma arvutisse.', 'What\'s new in Intel\'s latest processor series and what to choose for your computer.', lang)}
+              </p>
+              <div className="mt-auto pt-4 border-t border-stone-100">
+                <a href="#" className="text-xs font-bold text-[#5c4720] hover:underline flex items-center gap-1">
+                  {local('Loe uudist →', 'Read news →', lang)}
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+              </div>
+            </article>
+
+            {/* News 5: Multimedia seadmed */}
+            <article className="group bg-white rounded-2xl border border-stone-200 p-6 hover:shadow-lg hover:border-[#d99b26] transition-all flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-[#d99b26]/15 text-[#5c4720] flex items-center justify-center mb-4 group-hover:bg-[#5c4720] group-hover:text-white transition-colors">
+                <Headphones className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg text-stone-900 mb-2">
+                {local('Multimedia seadmed 2026: kõlarid, klahviväljad ja monitorid', 'Multimedia Devices 2026: Speakers, Headphones, and Monitors', lang)}
+              </h3>
+              <p className="text-xs text-stone-600 leading-relaxed mb-4">
+                {local('Kuidas valida õiged kõlarid, klahviväljad, monitorid ja kaabelid kodutoele või kontorile.', 'How to choose the right speakers, headphones, monitors, and cables for home or office.', lang)}
+              </p>
+              <div className="mt-auto pt-4 border-t border-stone-100">
+                <a href="#" className="text-xs font-bold text-[#5c4720] hover:underline flex items-center gap-1">
+                  {local('Loe uudist →', 'Read news →', lang)}
                   <ArrowRight className="w-3 h-3" />
                 </a>
               </div>

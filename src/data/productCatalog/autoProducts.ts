@@ -2770,17 +2770,17 @@ export const autoProducts: any[] = [
     "salePrice": null,
     "finalPrice": 6,
     "category": "Arvuti lisaseadmed",
-    "categories": "Arvuti lisaseadmed > Läetoed",
-    "categorySlug": "arvuti-lisaseadmed/laetoed",
+    "categories": "Arvuti lisaseadmed > Käetoed",
+    "categorySlug": "arvuti-lisaseadmed/kaetoed",
     "categoryL1": "Arvuti lisaseadmed",
     "topCategory": "Arvuti lisaseadmed",
-    "categoryL2": "Läetoed",
-    "subCategory": "Läetoed",
+    "categoryL2": "Käetoed",
+    "subCategory": "Käetoed",
     "categoryL3": "",
     "categoryL4": "",
     "categoryPath": [
       "Arvuti lisaseadmed",
-      "Läetoed"
+      "Käetoed"
     ],
     "description": "",
     "shortDescription": "Lisa randmetugi GEL Mouse Wristrest alt",

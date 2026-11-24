@@ -20,10 +20,10 @@ interface ThemePaletteContextValue {
 
 const STORAGE_KEY = 'canman_theme_palette_v2';
 const DEFAULT_PALETTE: ThemePalette = {
-  header: '#6F5627',
-  helpPanel: '#5c4720',
-  helpInputBackground: '#fbf8f2',
-  helpInputText: '#2e2518',
+  header: '#5c4720',
+  helpPanel: '#4a381a',
+  helpInputBackground: '#f5f0e8',
+  helpInputText: '#3d2f1c',
 };
 
 const ThemePaletteContext = createContext<ThemePaletteContextValue | null>(null);

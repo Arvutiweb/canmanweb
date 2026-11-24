@@ -108,12 +108,12 @@ export function CategorySidebar({
     onChange: (value: string) => void,
     options: string[],
   ) => (
-    <label className="block text-xs font-medium text-slate-600">
+    <label className="block text-xs font-medium text-stone-600">
       <span className="mb-1 block">{label}</span>
       <select
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition focus:border-[#0e4da4] focus:ring-2 focus:ring-blue-100"
+        className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-800 outline-none transition focus:border-[#5c4720] focus:ring-2 focus:ring-[#d99b26]/20"
       >
         <option value="">{t('filter_all')}</option>
         {options.map((option) => (
@@ -127,12 +127,12 @@ export function CategorySidebar({
 
   return (
     <div className="space-y-4">
-      <section className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
-        <h3 className="mb-4 font-bold tracking-widest text-slate-800 uppercase">{lang === 'en' ? 'Categories' : 'Kategooriad'}</h3>
+      <section className="rounded-2xl border border-stone-100 bg-white p-5 shadow-sm">
+        <h3 className="mb-4 font-bold tracking-widest text-stone-800 uppercase">{lang === 'en' ? 'Categories' : 'Kategooriad'}</h3>
         <div className="space-y-1">
           <button
             onClick={() => onSelectCategory(null, null, null)}
-            className={`flex w-full justify-between rounded-xl px-3 py-2.5 text-left text-sm ${!selectedL1 ? 'bg-[#0e4da4] text-white' : 'hover:bg-slate-50'}`}
+            className={`flex w-full justify-between rounded-xl px-3 py-2.5 text-left text-sm ${!selectedL1 ? 'bg-[#5c4720] text-white' : 'hover:bg-stone-50'}`}
           >
             <span>{lang === 'en' ? 'All categories' : 'Kõik kategooriad'}</span>
             <span>{products?.length || 0}</span>
@@ -148,10 +148,10 @@ export function CategorySidebar({
                       setOpen((current) => ({ ...current, [base]: !current[base] }));
                       onSelectCategory(base, null, null);
                     }}
-                    className={`flex min-w-0 flex-1 justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold ${isActive ? 'bg-blue-50 text-[#0e4da4]' : 'hover:bg-slate-50'}`}
+                    className={`flex min-w-0 flex-1 justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold ${isActive ? 'bg-[#d99b26]/15 text-[#5c4720]' : 'hover:bg-stone-50'}`}
                   >
                     <span className="truncate">› {base}</span>
-                    <span className="ml-2 rounded-full bg-slate-100 px-2 text-xs">{data.count}</span>
+                    <span className="ml-2 rounded-full bg-stone-100 px-2 text-xs">{data.count}</span>
                   </button>
                   <button
                     type="button"
@@ -165,23 +165,23 @@ export function CategorySidebar({
                   </button>
                 </div>
                 {isOpen && (
-                  <div className="ml-4 mt-1 space-y-1 border-l-2 border-slate-100 pl-3">
+                  <div className="ml-4 mt-1 space-y-1 border-l-2 border-stone-100 pl-3">
                     {Array.from(data.subs.entries()).map(([sub, subData]) => (
                       <div key={sub}>
                         <button
                           onClick={() => onSelectCategory(base, sub, null)}
-                          className={`flex w-full justify-between rounded-lg px-2 py-1.5 text-left text-sm ${safeLower(selectedL2) === safeLower(sub) && !selectedL3 ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-50'}`}
+                          className={`flex w-full justify-between rounded-lg px-2 py-1.5 text-left text-sm ${safeLower(selectedL2) === safeLower(sub) && !selectedL3 ? 'bg-stone-900 text-white' : 'text-stone-600 hover:bg-stone-50'}`}
                         >
                           <span>{sub}</span>
                           <span>{subData.count}</span>
                         </button>
                         {subData.thirds.size > 0 && (
-                          <div className="ml-3 border-l border-slate-100 pl-2">
+                          <div className="ml-3 border-l border-stone-100 pl-2">
                             {Array.from(subData.thirds.entries()).map(([third, count]) => (
                               <button
                                 key={third}
                                 onClick={() => onSelectCategory(base, sub, third)}
-                                className={`flex w-full justify-between rounded-lg px-2 py-1 text-left text-xs ${safeLower(selectedL3) === safeLower(third) ? 'bg-blue-50 text-[#0e4da4]' : 'text-slate-500 hover:bg-slate-50'}`}
+                                className={`flex w-full justify-between rounded-lg px-2 py-1 text-left text-xs ${safeLower(selectedL3) === safeLower(third) ? 'bg-[#d99b26]/15 text-[#5c4720]' : 'text-stone-500 hover:bg-stone-50'}`}
                               >
                                 <span>{third}</span>
                                 <span>{count}</span>
@@ -199,13 +199,13 @@ export function CategorySidebar({
         </div>
       </section>
 
-      <section className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
-        <h3 className="mb-4 font-bold tracking-widest text-slate-800 uppercase">{t('filter_title')}</h3>
+      <section className="rounded-2xl border border-stone-100 bg-white p-5 shadow-sm">
+        <h3 className="mb-4 font-bold tracking-widest text-stone-800 uppercase">{t('filter_title')}</h3>
         <div className="space-y-4">
           <fieldset>
-            <legend className="mb-1 text-xs font-medium text-slate-600">{t('filter_price')}</legend>
+            <legend className="mb-1 text-xs font-medium text-stone-600">{t('filter_price')}</legend>
             <div className="grid grid-cols-2 gap-2">
-              <label htmlFor="filter-min-price" className="text-[11px] text-slate-500">
+              <label htmlFor="filter-min-price" className="text-[11px] text-stone-500">
                 {t('filter_min_price')}
                 <input
                   id="filter-min-price"
@@ -213,10 +213,10 @@ export function CategorySidebar({
                   min="0"
                   value={minPrice}
                   onChange={(event) => setMinPrice(Number(event.target.value) || 0)}
-                  className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-sm text-slate-800 outline-none focus:border-[#0e4da4]"
+                  className="mt-1 w-full rounded-lg border border-stone-200 px-2.5 py-2 text-sm text-stone-800 outline-none focus:border-[#5c4720]"
                 />
               </label>
-              <label htmlFor="filter-max-price" className="text-[11px] text-slate-500">
+              <label htmlFor="filter-max-price" className="text-[11px] text-stone-500">
                 {t('filter_max_price')}
                 <input
                   id="filter-max-price"
@@ -224,7 +224,7 @@ export function CategorySidebar({
                   min="0"
                   value={maxPrice}
                   onChange={(event) => setMaxPrice(Number(event.target.value) || 0)}
-                  className="mt-1 w-full rounded-lg border border-slate-200 px-2.5 py-2 text-sm text-slate-800 outline-none focus:border-[#0e4da4]"
+                  className="mt-1 w-full rounded-lg border border-stone-200 px-2.5 py-2 text-sm text-stone-800 outline-none focus:border-[#5c4720]"
                 />
               </label>
             </div>

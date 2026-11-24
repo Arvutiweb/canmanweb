@@ -13,10 +13,10 @@ export default function ProductCard({ product, onSelectProduct }: any) {
   const stock = product.stock ?? product.qty ?? product.quantity ?? 1;
 
   return (
-    <div onClick={()=>onSelectProduct(product)} className="cursor-pointer bg-white rounded-xl border border-[#e6efff] overflow-hidden hover:shadow-md transition-all">
+    <div onClick={()=>onSelectProduct(product)} className="cursor-pointer bg-white rounded-xl border border-stone-100 overflow-hidden hover:shadow-md transition-all">
       {/* PILT - EI HÜPPA */}
-      <div className="m-1.5 flex aspect-square items-center justify-center overflow-hidden rounded-3xl bg-[#f8f9fb] p-1.5">
-        <div className="relative h-full w-full overflow-hidden rounded-2xl bg-[#f8f9fb] p-1">
+      <div className="m-1.5 flex aspect-square items-center justify-center overflow-hidden rounded-3xl bg-stone-50 p-1.5">
+        <div className="relative h-full w-full overflow-hidden rounded-2xl bg-stone-50 p-1">
           <Image
             src={imageSrc}
             alt={title}
@@ -33,19 +33,19 @@ export default function ProductCard({ product, onSelectProduct }: any) {
       </div>
 
       <div className="px-2.5 pb-2.5 pt-1">
-        <div className="text-[#0e7aff] text-[10px] font-bold mb-1">{brand.toUpperCase()}</div>
-        <h3 className="text-xs font-semibold leading-tight line-clamp-2 min-h-[2rem] text-slate-800 mb-2">
+        <div className="text-[#5c4720] text-[10px] font-bold mb-1">{brand.toUpperCase()}</div>
+        <h3 className="text-xs font-semibold leading-tight line-clamp-2 min-h-[2rem] text-stone-800 mb-2">
           {title}
         </h3>
-        {sku && <div className="text-[10px] text-slate-500 mb-2">SKU={sku}</div>}
+        {sku && <div className="text-[10px] text-stone-500 mb-2">SKU={sku}</div>}
 
         <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 text-[10px] font-medium px-2 py-0.5 rounded-full mb-2">
           <CheckCircle2 className="w-3 h-3" /> Laos {stock} tk.
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-sm font-extrabold text-[#0e4da4]">€{price}</span>
-          <button className="bg-[#0e4da4] text-white rounded-full px-3 py-1 flex items-center gap-1 text-[10px] font-bold">
+          <span className="text-sm font-extrabold text-[#5c4720]">€{price}</span>
+          <button className="bg-[#5c4720] text-white rounded-full px-3 py-1 flex items-center gap-1 text-[10px] font-bold">
             <ShoppingCart className="w-3 h-3" /> Lisa
           </button>
         </div>

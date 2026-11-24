@@ -516,7 +516,7 @@ export default function Home() {
                         <button
                           type="button"
                           onClick={() => serviceAttachmentInput.current?.click()}
-                          className="shrink-0 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-3 py-2 text-xs font-bold text-slate-950 transition hover:from-cyan-400 hover:to-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                          className="shrink-0 rounded-lg bg-gradient-to-r from-amber-400 to-amber-600 px-3 py-2 text-xs font-bold text-slate-950 transition hover:from-amber-300 hover:to-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
                         >
                           {t('help_choose_file')}
                         </button>
@@ -532,7 +532,7 @@ export default function Home() {
                         type="button"
                         onClick={handleShareLocation}
                         disabled={isRequestingLocation}
-                        className="rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-3 py-2 text-[11px] font-bold text-slate-950 shadow-md transition hover:from-cyan-400 hover:to-blue-500 disabled:cursor-wait disabled:opacity-70"
+                        className="rounded-lg bg-gradient-to-r from-amber-400 to-amber-600 px-3 py-2 text-[11px] font-bold text-slate-950 shadow-md transition hover:from-amber-300 hover:to-amber-700 disabled:cursor-wait disabled:opacity-70"
                       >
                         {isRequestingLocation ? t('help_location_requesting') : t('help_location_button')}
                       </button>
@@ -545,7 +545,7 @@ export default function Home() {
                     <button
                       type="submit"
                       disabled={isSubmittingServiceRequest}
-                      className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 disabled:cursor-wait disabled:opacity-70 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition shadow-md flex items-center justify-center gap-2 mt-2"
+                      className="w-full bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-700 disabled:cursor-wait disabled:opacity-70 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition shadow-md flex items-center justify-center gap-2 mt-2"
                     >
                       <Zap className="w-3.5 h-3.5" />
                       <span>{isSubmittingServiceRequest ? t('help_sending') : t('help_submit')}</span>

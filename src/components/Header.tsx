@@ -49,7 +49,7 @@ export function Header() {
       {/* ============================================================== */}
       {/* ROW 1: Logo, Primary Navigation & Fast Actions (Kitsas riba)   */}
       {/* ============================================================== */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-1.5 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-1 relative z-10">
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Logo - Uus kitsas formaat */}
           <a

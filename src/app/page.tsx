@@ -449,7 +449,7 @@ export default function Home() {
                       </p>
                     )}
                     <div>
-                      <label className="block text-[11px] font-medium text-slate-300 mb-1">
+                      <label className="block text-xs font-medium text-[#F2D6C5] mb-1">
                         {t('help_name_label')}
                       </label>
                       <input
@@ -459,12 +459,12 @@ export default function Home() {
                         onChange={(e) => setServiceName(e.target.value)}
                         placeholder={t('help_name_placeholder')}
                         style={{ backgroundColor: palette.helpInputBackground, color: palette.helpInputText }}
-                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-xs outline-none focus:border-cyan-400 transition"
+                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-sm outline-none focus:border-cyan-400 transition"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-medium text-slate-300 mb-1">
+                      <label className="block text-xs font-medium text-[#F2D6C5] mb-1">
                         {t('help_phone_label')}
                       </label>
                       <input
@@ -474,12 +474,12 @@ export default function Home() {
                         onChange={(e) => setServicePhone(e.target.value)}
                         placeholder="+372 5XX XXXXX"
                         style={{ backgroundColor: palette.helpInputBackground, color: palette.helpInputText }}
-                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-xs outline-none focus:border-cyan-400 transition"
+                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-sm outline-none focus:border-cyan-400 transition"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-medium text-slate-300 mb-1">
+                      <label className="block text-xs font-medium text-[#F2D6C5] mb-1">
                         {t('help_issue_label')}
                       </label>
                       <input
@@ -488,12 +488,12 @@ export default function Home() {
                         onChange={(e) => setServiceIssue(e.target.value)}
                         placeholder={t('help_issue_placeholder')}
                         style={{ backgroundColor: palette.helpInputBackground, color: palette.helpInputText }}
-                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-xs outline-none focus:border-cyan-400 transition"
+                        className="help-form-field w-full border border-slate-700 rounded-lg px-3 py-2 text-sm outline-none focus:border-cyan-400 transition"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-medium text-slate-300 mb-1" htmlFor="service-attachment">
+                      <label className="block text-xs font-medium text-[#F2D6C5] mb-1" htmlFor="service-attachment">
                         {t('help_attachment_label')}
                       </label>
                       <input
@@ -512,7 +512,7 @@ export default function Home() {
                         }}
                         className="hidden"
                       />
-                      <div className="flex min-w-0 items-center gap-3 text-xs">
+                      <div className="flex min-w-0 items-center gap-3 text-sm">
                         <button
                           type="button"
                           onClick={() => serviceAttachmentInput.current?.click()}
@@ -520,11 +520,11 @@ export default function Home() {
                         >
                           {t('help_choose_file')}
                         </button>
-                        <span className="min-w-0 truncate text-slate-300" aria-live="polite">
+                        <span className="min-w-0 truncate text-[#F2D6C5]" aria-live="polite">
                           {serviceAttachment?.name || t('help_no_file_selected')}
                         </span>
                       </div>
-                      <p className="mt-1 text-[10px] text-slate-500">{t('help_attachment_hint')}</p>
+                      <p className="mt-1 text-xs text-[#F2D6C5]/90">{t('help_attachment_hint')}</p>
                     </div>
 
                     <div className="space-y-1">
@@ -537,9 +537,9 @@ export default function Home() {
                         {isRequestingLocation ? t('help_location_requesting') : t('help_location_button')}
                       </button>
                       {serviceLocationMessage && (
-                        <p role="status" className="text-[10px] text-slate-400">{serviceLocationMessage}</p>
+                        <p role="status" className="text-xs text-[#F2D6C5]/90">{serviceLocationMessage}</p>
                       )}
-                      <p className="text-[10px] leading-relaxed text-slate-500">{t('help_data_notice')}</p>
+                      <p className="text-xs leading-relaxed text-[#F2D6C5]/90">{t('help_data_notice')}</p>
                     </div>
 
                     <button
@@ -551,9 +551,9 @@ export default function Home() {
                       <span>{isSubmittingServiceRequest ? t('help_sending') : t('help_submit')}</span>
                     </button>
 
-                    <div className="flex items-center justify-between text-[11px] text-slate-400 pt-2">
+                    <div className="flex items-center justify-between text-xs text-[#F2D6C5] pt-2">
                       <span>{t('help_call_text')}</span>
-                      <a href="tel:+3725652062" className="text-cyan-400 font-bold hover:underline flex items-center gap-1">
+                      <a href="tel:+3725652062" className="text-[#F2D6C5] font-bold hover:underline flex items-center gap-1">
                         <Phone className="w-3 h-3" />
                         +372 5652 062
                       </a>
@@ -1142,7 +1142,7 @@ export default function Home() {
       {/* 4. E-POOD SECTION (#pood): HARDWARE, REFURBISHED PCS & PARTS */}
       {/* ============================================================== */}
       <section id="pood" className="min-h-[75vh] border-b border-[#87682f]/10 bg-[#f5f0e8] pb-10 pt-0 sm:pb-12">
-        <main className="mx-auto w-full max-w-[1200px] px-4 sm:px-6">
+        <main className="mx-auto w-full max-w-[1600px] px-4 sm:px-6">
           <div className="mb-6 flex flex-col gap-5 rounded-2xl bg-gradient-to-r from-[#5c4720] to-[#3d2f1c] p-5 text-white shadow-lg sm:flex-row sm:items-center sm:justify-between sm:p-7">
             <h2 className="flex shrink-0 flex-col leading-none">
               <span className="text-xs font-semibold tracking-[0.24em] text-[#d99b26] sm:text-sm">

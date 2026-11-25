@@ -32,7 +32,7 @@ const translations: Record<Language, Record<string, string>> = {
     hero_subtitle: 'Arvutipargi lepinguline haldus ettevõtetele, riistvara kiirdiagnostika ja remont Canman töökojas (Lille 14, Tallinn) ning kogenud IT-tehniku väljakutsed kontorisse või koju.',
     btn_services: 'Vaata IT-teenuseid',
     btn_software_solutions: 'Tarkvaralahendused',
-    btn_shop: 'E-Pood (Arvutid)',
+    btn_shop: 'Sales and Ordering',
     cookie_notice_title: 'Küpsiste ja kohaliku salvestuse teavitus',
     cookie_notice_body: 'Kasutame brauseri kohalikku salvestusruumi ostukorvi ja saidi eelistuste meelespidamiseks. Praegu ei kasuta me analüütika- ega reklaamiküpsiseid.',
     cookie_notice_dismiss: 'Selge',

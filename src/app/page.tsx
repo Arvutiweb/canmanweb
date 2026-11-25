@@ -374,9 +374,9 @@ export default function Home() {
 
                 <button
                   onClick={() => scrollTo('pood')}
-                  className="bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 font-medium px-4 py-3 rounded-xl text-sm transition flex items-center gap-2"
+                  className="bg-[#5c4720] hover:bg-[#4a381a] text-white font-bold px-4 py-3 rounded-xl text-sm transition flex items-center gap-2 border border-[#87682f]/40"
                 >
-                  <ShoppingBag className="w-4 h-4 text-slate-400" />
+                  <ShoppingBag className="w-4 h-4 text-[#d99b26]" />
                   <span>{t('btn_shop')}</span>
                 </button>
               </div>

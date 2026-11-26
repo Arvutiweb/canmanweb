@@ -1,20 +1,21 @@
 import pathlib
 import subprocess
 import sys
+import time
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ODS_FILES = (
-    "WPI_Arvutiosad.ods",
-    "WPI_Connectors.ods",
-    "WPI_Desktops.ods",
-    "WPI_Notebooks.ods",
-    "WPI_NotebookU.ods",
-)
 
 
 def main():
     importer = ROOT / "scripts" / "import_ODS.py"
-    ods_paths = [str(ROOT / "scripts" / name) for name in ODS_FILES]
+    one_hour_ago = time.time() - 3600
+    ods_paths = sorted(
+        str(p) for p in ROOT.glob("**/*.ods")
+        if p.stat().st_mtime >= one_hour_ago
+    )
+    if not ods_paths:
+        print("HOIATUS: Viimase tunni jooksul muudatud ODS-faile ei leitud.")
+        return
     subprocess.run([sys.executable, str(importer), *ods_paths], cwd=ROOT, check=True)
 
 

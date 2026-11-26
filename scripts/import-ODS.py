@@ -35,7 +35,10 @@ def resolve_image(name):
 
 def main():
     import sys
-    ods = pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/"scripts/WPI_Notebooks.ods"
+    if len(sys.argv) < 2:
+        print("HOIATUS: ODS-faili ei antud käsurea argumendina.")
+        return
+    ods = pathlib.Path(sys.argv[1])
     
     sku_map = {}
     file_cache = {}

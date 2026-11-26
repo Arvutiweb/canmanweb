@@ -1,8 +1,16 @@
 import pandas as pd, os, shutil, glob
+import pathlib
+import time
 
 OUTPUT="image/output"
 PUBLIC="public/images"
-ODS=["WPI_Notebooks.ods","WPI_Desktops.ods","WPI_Arvutiosad.ods"]
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+one_hour_ago = time.time() - 3600
+ODS = sorted(
+    str(p) for p in ROOT.glob("**/*.ods")
+    if p.stat().st_mtime >= one_hour_ago
+)
 
 os.makedirs(PUBLIC,exist_ok=True)
 

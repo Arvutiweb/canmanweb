@@ -257,7 +257,10 @@ def main():
     ods_files = [
         pathlib.Path(arg) if pathlib.Path(arg).is_absolute() else ROOT / arg
         for arg in sys.argv[1:]
-    ] or [ROOT / "scripts/WPI_Notebooks.ods"]
+    ]
+    if not ods_files:
+        print("HOIATUS: ODS-faile ei antud käsurea argumendina.")
+        return
     for ods in ods_files:
         if not ods.is_file():
             raise FileNotFoundError(f"ODS-faili ei leitud: {ods}")

@@ -2896,44 +2896,6 @@ export const autoProducts: any[] = [
     "image": "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk.webp"
   },
   {
-    "id": "648001_1",
-    "sku": "648001_1",
-    "title": "IBM AC Adapter 16V 4,5A.",
-    "name": "IBM AC Adapter 16V 4,5A.",
-    "slug": "ibm-ac-adapter-16v-4-5a-648001-1",
-    "brand": "",
-    "price": 15.0,
-    "regularPrice": 15.0,
-    "salePrice": null,
-    "finalPrice": 15.0,
-    "stock": 2,
-    "condition": "uus",
-    "category": "Toiteseadmed",
-    "categories": "Toiteseadmed > Sülearvuti toited",
-    "categorySlug": "toiteseadmed/sulearvuti-toited",
-    "categoryL1": "Toiteseadmed",
-    "topCategory": "Toiteseadmed",
-    "categoryL2": "Sülearvuti toited",
-    "subCategory": "Sülearvuti toited",
-    "categoryL3": "",
-    "categoryL4": "",
-    "categoryPath": [
-      "Toiteseadmed",
-      "Sülearvuti toited"
-    ],
-    "tags": "Adapter",
-    "color": "",
-    "specs": {},
-    "shortDescription": "IBM AC Adapter 16V 4,5A.",
-    "description": "",
-    "images": [
-      "/images/placeholder.webp"
-    ],
-    "image": "/images/placeholder.webp",
-    "imageUrl": "/images/placeholder.webp",
-    "rawImages": []
-  },
-  {
     "id": "459101_1",
     "sku": "459101_1",
     "title": "Võrgu adapter England EURO 110-240V 7,5A",

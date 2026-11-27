@@ -383,6 +383,9 @@ def main():
                 processed["rows"][row_index] = action
                 print(f"{ods.name}: {sku} n -> uus toode lisatud")
                 continue
+            if action == "n" and sku in sku_map:
+                print(f"HOIATUS: ID=n SKU {sku} ({ods.name}) on juba kataloogis - topelt SKU, toodet ei lisatud.")
+                continue
             if sku not in sku_map:
                 print(f"HOIATUS: ID={action} SKU {sku} ({ods.name}) ei leidu tootekataloogis.")
                 continue

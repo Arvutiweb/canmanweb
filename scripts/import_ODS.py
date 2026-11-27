@@ -367,7 +367,7 @@ def main():
                 continue
             raw = str(row[c_images]).strip()
             parts = [x.strip() for x in raw.replace(";", ",").split(",") if x.strip()]
-            if action == "n" and sku not in sku_map:
+            if action in ("n", "i") and sku not in sku_map:
                 product = create_product(row, cols, [resolve_image(name) for name in parts])
                 auto_products.append(product)
                 sku_map[sku] = [("auto", auto_products, len(auto_products) - 1)]
@@ -381,7 +381,7 @@ def main():
                     },
                 )
                 processed["rows"][row_index] = action
-                print(f"{ods.name}: {sku} n -> uus toode lisatud")
+                print(f"{ods.name}: {sku} {action} -> uus toode lisatud")
                 continue
             if action == "n" and sku in sku_map:
                 print(f"HOIATUS: ID=n SKU {sku} ({ods.name}) on juba kataloogis - topelt SKU, toodet ei lisatud.")

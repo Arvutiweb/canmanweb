@@ -1,5 +1,5 @@
 // AUTO-GENERATED - ära muuda käsitsi! Genereeritud 2026-09-14T20:02:56.700Z
-// 17 failist, 58 toodet
+// 17 failist, 88 toodet
 export const autoProducts: any[] = [
   {
     "id": "320002",
@@ -2453,10 +2453,11 @@ export const autoProducts: any[] = [
     "stock": 1,
     "condition": "new",
     "images": [
-      "/images/Cable_DVI-to-HDMI.webp",
-      "/images/Cable_DVI-to-HDMI.webp"
+      "/images/placeholder.webp",
+      "/images/Toite_pikenduskaabel_filter_6_pesa_info.webp"
     ],
-    "image": "/images/Cable_DVI-to-HDMI.webp"
+    "image": "/images/placeholder.webp",
+    "imageUrl": "/images/placeholder.webp"
   },
   {
     "id": "459401",
@@ -2893,5 +2894,82 @@ export const autoProducts: any[] = [
       "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk_taga.webp"
     ],
     "image": "/images/Mälukaart_CompactFlash_4.0_GB_Extreme_III_SanDisk.webp"
+  },
+  {
+    "id": "648001_1",
+    "sku": "648001_1",
+    "title": "IBM AC Adapter 16V 4,5A.",
+    "name": "IBM AC Adapter 16V 4,5A.",
+    "slug": "ibm-ac-adapter-16v-4-5a-648001-1",
+    "brand": "",
+    "price": 15.0,
+    "regularPrice": 15.0,
+    "salePrice": null,
+    "finalPrice": 15.0,
+    "stock": 2,
+    "condition": "uus",
+    "category": "Toiteseadmed",
+    "categories": "Toiteseadmed > Sülearvuti toited",
+    "categorySlug": "toiteseadmed/sulearvuti-toited",
+    "categoryL1": "Toiteseadmed",
+    "topCategory": "Toiteseadmed",
+    "categoryL2": "Sülearvuti toited",
+    "subCategory": "Sülearvuti toited",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Toiteseadmed",
+      "Sülearvuti toited"
+    ],
+    "tags": "Adapter",
+    "color": "",
+    "specs": {},
+    "shortDescription": "IBM AC Adapter 16V 4,5A.",
+    "description": "",
+    "images": [
+      "/images/placeholder.webp"
+    ],
+    "image": "/images/placeholder.webp",
+    "imageUrl": "/images/placeholder.webp",
+    "rawImages": []
+  },
+  {
+    "id": "459101_1",
+    "sku": "459101_1",
+    "title": "Võrgu adapter England EURO 110-240V 7,5A",
+    "name": "Võrgu adapter England EURO 110-240V 7,5A",
+    "slug": "vorgu-adapter-england-euro-110-240v-7-5a-459101-1",
+    "brand": "",
+    "price": 15.0,
+    "regularPrice": 15.0,
+    "salePrice": null,
+    "finalPrice": 15.0,
+    "stock": 1,
+    "condition": "uus",
+    "category": "Toiteseadmed",
+    "categories": "Toiteseadmed > Võrgu adapter",
+    "categorySlug": "toiteseadmed/vorgu-adapter",
+    "categoryL1": "Toiteseadmed",
+    "topCategory": "Toiteseadmed",
+    "categoryL2": "Võrgu adapter",
+    "subCategory": "Võrgu adapter",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Toiteseadmed",
+      "Võrgu adapter"
+    ],
+    "tags": "Võrgu adapter",
+    "color": "",
+    "specs": {},
+    "shortDescription": "Võrgu adapter England EURO 110-240V 7,5A",
+    "description": "",
+    "images": [
+      "/images/Võrgu_adapter_England_EURO.webp",
+      "/images/Võrgu_adapter_England_EURO_110-240V_7.5A.webp"
+    ],
+    "image": "/images/Võrgu_adapter_England_EURO.webp",
+    "imageUrl": "/images/Võrgu_adapter_England_EURO.webp",
+    "rawImages": []
   }
 ];

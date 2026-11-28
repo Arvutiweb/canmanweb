@@ -1,5 +1,5 @@
 // AUTO-GENERATED - ära muuda käsitsi! Genereeritud 2026-09-14T20:02:56.700Z
-// 17 failist, 91 toodet
+// 17 failist, 92 toodet
 export const autoProducts: any[] = [
   {
     "id": "320002",
@@ -3062,6 +3062,45 @@ export const autoProducts: any[] = [
     "regularPrice": 34.0,
     "salePrice": null,
     "finalPrice": 34.0,
+    "stock": 1,
+    "condition": "uus",
+    "category": "Toiteseadmed",
+    "categories": "Toiteseadmed > Pikenduskaabel",
+    "categorySlug": "toiteseadmed/pikenduskaabel",
+    "categoryL1": "Toiteseadmed",
+    "topCategory": "Toiteseadmed",
+    "categoryL2": "Pikenduskaabel",
+    "subCategory": "Pikenduskaabel",
+    "categoryL3": "",
+    "categoryL4": "",
+    "categoryPath": [
+      "Toiteseadmed",
+      "Pikenduskaabel"
+    ],
+    "tags": "Pikendus",
+    "color": "",
+    "specs": {},
+    "shortDescription": "Toite pikenduskaabel filter Super Protector DFS 601 6 pesa 1,8m 240V 10A",
+    "description": "",
+    "images": [
+      "/images/Toite_pikenduskaabel_TFS_601_filter_6_pesa.webp",
+      "/images/Toite_pikenduskaabel_filter_6_pesa_info.webp"
+    ],
+    "image": "/images/Toite_pikenduskaabel_TFS_601_filter_6_pesa.webp",
+    "imageUrl": "/images/Toite_pikenduskaabel_TFS_601_filter_6_pesa.webp",
+    "rawImages": []
+  },
+  {
+    "id": "459102_5",
+    "sku": "459102_5",
+    "title": "Toite pikenduskaabel filter 6 pesa 1,8m",
+    "name": "Toite pikenduskaabel filter 6 pesa 1,8m",
+    "slug": "toite-pikenduskaabel-filter-6-pesa-1-8m-459102-5",
+    "brand": "",
+    "price": 35.0,
+    "regularPrice": 35.0,
+    "salePrice": null,
+    "finalPrice": 35.0,
     "stock": 1,
     "condition": "uus",
     "category": "Toiteseadmed",

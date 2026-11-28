@@ -23,7 +23,7 @@ ODS_FILES = [
     ROOT / "scripts" / "WPI_Notebooks.ods",
     ROOT / "scripts" / "WPI_Desktops.ods",
     ROOT / "scripts" / "WPI_Arvutiosad.ods",
-    ROOT / "scripts" / "WPI_Connectors.ods",
+    ROOT / "scripts" / "WPI_Connect.ods",
     ROOT / "scripts" / "WPI_NotebookU.ods",
 ]
 
@@ -76,7 +76,9 @@ def get_valid_skus_from_ods():
 def parse_auto_products_ts(path):
     """Parse autoProducts.ts into products list plus original text for writing back."""
     text = path.read_text(encoding="utf-8")
-    array_start = text.index("[", text.index("export const autoProducts"))
+    auto_pos = text.index("export const autoProducts")
+    equals_pos = text.index("=", auto_pos)
+    array_start = text.index("[", equals_pos)
     array_end = text.rfind("];")
     if array_end < array_start:
         raise ValueError("Vigane autoProducts.ts fail")

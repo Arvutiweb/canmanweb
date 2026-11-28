@@ -384,7 +384,27 @@ def main():
                 print(f"{ods.name}: {sku} {action} -> uus toode lisatud")
                 continue
             if action == "n" and sku in sku_map:
-                print(f"HOIATUS: ID=n SKU {sku} ({ods.name}) on juba kataloogis - topelt SKU, toodet ei lisatud.")
+                # Overwrite existing product data from ODS instead of creating duplicates
+                product_data = create_product(row, cols, [resolve_image(name) for name in parts])
+                for catalog_type, catalog_ref, idx in sku_map[sku]:
+                    catalog = file_cache[catalog_ref] if catalog_type == "json" else catalog_ref
+                    catalog[idx] = product_data
+                    if catalog_type == "json":
+                        updated_json_files.add(catalog_ref)
+                    else:
+                        catalog[idx]["image"] = product_data["image"]
+                        catalog[idx]["imageUrl"] = product_data["imageUrl"]
+                        updated_auto_products = True
+                processed = processed_ids.setdefault(
+                    ods,
+                    {
+                        "rows": {},
+                        "id_column": list(df.columns).index(c_id),
+                        "ido_column": list(df.columns).index(cols["ido"]),
+                    },
+                )
+                processed["rows"][row_index] = action
+                print(f"{ods.name}: {sku} n -> olemasoleva toodu andmed uuendatud")
                 continue
             if sku not in sku_map:
                 print(f"HOIATUS: ID={action} SKU {sku} ({ods.name}) ei leidu tootekataloogis.")
